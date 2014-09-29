@@ -62,7 +62,7 @@ angular.module('darkRide').controller('homeController', ['$scope', '$window', '$
                 var pos = $scope.position;
 
                 $scope.markers.push({
-                    icon: 'http://localhost:9001/assets/imgs/pick_me.png',
+                    icon: 'http://54.68.30.59:9999/assets/imgs/pick_me.png',
                     options: { draggable: true },
                     latitude: pos.lat,
                     longitude: pos.lon,
@@ -106,7 +106,7 @@ angular.module('darkRide').controller('homeController', ['$scope', '$window', '$
         $scope.map.active=true;
 
         $scope.markers.push({
-            icon: 'http://localhost:9001/assets/imgs/pick_me.png',
+            icon: 'http://54.68.30.59:9999/assets/imgs/pick_me.png',
             options: { draggable: true },
             latitude: res.coords.latitude,
             longitude: res.coords.longitude,
