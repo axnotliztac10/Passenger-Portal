@@ -1,0 +1,403 @@
+@import "bower_components/bootstrap/less/bootstrap.less";
+//@import "bower_components/bootstrap/less/theme.less";
+@import "bower_components/font-awesome/less/font-awesome.less";
+@fa-font-path: "bower_components/font-awesome/fonts";
+
+/* Component LESS */
+
+@icon-font-path: "./bower_components/bootstrap/fonts/";
+@icon-font-name: "glyphicons-halflings-regular";
+
+@grayDarker: #3d3d3d;
+@greenYellow: #9cd444;
+@grayLight: #949494;
+@grayDark: #666666;
+@blackLight: #2e2d2c;
+@blueGreen: #07b5b5;
+@grayLighter: #b3b3b3;
+
+@thinParaph: 100;
+
+body {
+	background: url(./assets/imgs/bg.jpg);
+	color: @grayLighter;
+}
+
+h1 {
+	font-size: 20px;
+}
+
+header {
+	background: @grayDarker;
+	width: 100%;
+	height: 80px;
+}
+
+p ,span{
+	font-weight: @thinParaph;
+}
+
+p.normalWeight {
+	font-weight: 200;
+}
+
+header .title {
+	margin-left: 20px;
+	margin-top: 8px;
+	float: left;
+	color: #fff;
+}
+
+header .menu {
+	float: right;
+}
+
+#status-buttons {  
+	margin-top: 40px;
+}
+
+#status-buttons a { 
+	color:@grayLight; 
+	display:inline-block;
+	font-size:14px; 
+	margin-right:60px; 
+	text-align:center; 
+}
+
+#status-buttons a.active {
+	color: @greenYellow;
+}
+
+#status-buttons a:hover { 
+	text-decoration:none; 
+}
+
+#status-buttons span { 
+	border: 2px solid @grayLight;
+	color: @grayLight;
+	display:block;
+	font-weight: bolder;
+	height:34px; 
+	margin:0 auto 10px;
+	padding-top:5px; 
+	width:34px; 
+    border-radius:50%; 
+}
+
+#status-buttons a.active span { 
+	background: @greenYellow;
+	border-color: @grayDark;
+	color: @grayDark;
+}
+
+.stepWrapper {
+	background: @blackLight;
+	border-radius: 2px;
+	box-shadow: 2px 1px 6px -1px @blackLight;
+	margin: 40px auto auto;
+	min-height: 400px;
+	position: relative;
+}
+
+.stepWrapper .addPickup {
+	text-align: center;
+	color: @blueGreen;
+	font-size: 30px;
+}
+
+.addPickup:hover {
+	color: #0FEEEE;
+}
+
+.stepWrapper .nextStep {
+	bottom: 0px;
+	font-size: 30px;
+	position: absolute;
+	width: 100%;
+}
+
+.stepWrapper .nextStep a {
+	color: @greenYellow;
+}
+
+.topSpacer {
+	margin-top: 20px;
+}
+
+.menu {
+	padding-top: 20px;
+	padding-right: 40px;
+}
+
+.menu button {
+	background: @greenYellow;
+	border: 0px;
+	color: @grayDarker;
+	width: 130px;
+	height: 40px;
+}
+
+.menu a {
+	margin: auto 35px 35px;
+	color: #fff;
+}
+
+.menuOpen {
+	font-size: 20px;
+	color: @blueGreen;
+	cursor: pointer;
+}
+
+.menuOpen:hover {
+	color: #fff;
+}
+
+.small {
+	width: 300px;
+}
+
+.top-margin {
+	padding-top: 30px;
+}
+
+.loader{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+  fill: @greenYellow;
+}
+
+.loaderOverlay {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { 
+	
+	.wrapMobile {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		margin: 0px;
+		width: 100%;
+		height: 100%;
+	}
+
+	[ui-view].ng-enter,
+	[ui-view].ng-leave      { 
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	    transition:none; -moz-transition:none; -webkit-transition:none; 
+	}
+}
+
+.driverItem > div {
+	height: 175px;
+	width: 319px;
+	background: @blackLight;
+	margin: 0px auto;
+	text-align: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	position: relative;
+	margin-bottom: 40px;
+}
+
+.driverItem .photo img {
+	width: 100%;
+}
+
+.driverItem .photo {
+	position: absolute;
+	border-radius: 50%;
+	overflow: hidden;
+	width: 95px;
+	top: -48px;
+	left: 210px;
+}
+
+.driverItem .name, .driverItem .price {
+	font-size: 32px;
+	color: @blueGreen;
+}
+
+.driverItem .stars {
+	margin-top: 40px;
+	width: 180px;
+	float: left;
+}
+
+.driverItem .model {
+	float: left;
+}
+
+.driverItem .time, .driverItem .price {
+	float: right;
+}
+
+table {
+	margin: 20px auto;
+}
+
+[datepicker-popup] {
+	width: 200px !important;
+}
+
+.date-group {
+	width: 100px;
+	margin: 0 auto;
+}
+
+.stepWrapper .glyphicon {
+	color: @blueGreen;
+}
+
+// MAPS
+
+.angular-google-map-container { height: 400px; }
+
+#searchPlaces {
+	position: absolute;
+	left: 90px !important;
+	top: 20px !important;
+	width: 300px;
+	height: 30px;
+	padding: 12px;
+}
+
+.filters {
+	background: @blackLight;
+	margin: 40px auto;
+}
+
+.filters > div {
+	padding: 20px 10px 10px;
+}
+
+.filters > div > p {
+	margin-bottom: 20px;
+}
+
+.star {
+	width: 28px;
+	height: 27px;
+	background: url(./assets/imgs/star.png) no-repeat;
+}
+
+.star-gray {
+	width: 28px;
+	height: 27px;
+	background: url(./assets/imgs/star_gray.png) no-repeat;
+}
+
+.minLabel, .maxLabel {
+	color: @blueGreen;
+	font-size: 14px;
+}
+
+.minLabel {
+	float: left;
+}
+
+.maxLabel {
+	float: right;
+}
+
+/* BS UI Customization
+============================================================================= */
+
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+@modal-backdrop-bg: white;
+.modal {
+	&.fade {
+		.transition(opacity .3s);
+	}
+	&.fade .modal-dialog {
+		.translate(0,0);
+	}
+}
+
+/* ANIMATIONS
+============================================================================= */
+
+[ui-view].ng-enter,
+[ui-view].ng-leave      { position:absolute; left:30px; right:30px;
+    transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease; 
+}
+    
+[ui-view].ng-enter            { 
+    -webkit-animation:slideInRight 0.5s both ease;
+	-moz-animation:slideInRight 0.5s both ease;
+	animation:slideInRight 0.5s both ease; 
+}
+
+[ui-view].ng-leave            { 
+    -webkit-animation:slideOutLeft 0.5s both ease;
+	-moz-animation:slideOutLeft 0.5s both ease;
+	animation:slideOutLeft 0.5s both ease;   
+}
+
+@keyframes slideOutLeft {
+	to 		{ transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {	
+	to 		{ -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-200%); }
+}
+
+@keyframes slideInRight {
+	from 	{ transform:translateX(200%); }
+	to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(200%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(200%); }
+	to 		{ -webkit-transform: translateX(0); }
+}
+
+
+/* SLIDER */
+
+slider div.handle, [slider] div.handle {
+	background-color: @blackLight !important;
+	border: 1px solid #fff !important;
+	width: 18px !important;
+	height: 18px !important;
+}
+
+slider div.handle:after, [slider] div.handle:after {
+	display: none;
+}
+
+slider, [slider] {
+	height: 4px !important;
+}
+
+slider div.bar .selection, [slider] div.bar .selection {
+	background: @greenYellow !important;
+}

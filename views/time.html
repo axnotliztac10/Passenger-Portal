@@ -1,0 +1,24 @@
+<div class="stepWrapper small top-margin text-center wrapMobile">
+	<p class="topSpacer normalWeight">WHEN?</p>
+	<p class="text-center">
+		<timepicker 
+			ng-model="timeToPick"
+			ng-change="changed()"
+			show-meridian="ismeridian"
+		></timepicker>
+	</p>
+	<p class="input-group date-group">
+      <input 
+      	type="text" 
+      	class="form-control" 
+      	datepicker-popup="{{format}}" 
+      	ng-model="dt" 
+      	is-open="opened"
+      	ng-required="true" 
+      	close-text="Close" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+    <p class="nextStep"><a ui-sref="driver">Next</a></p>
+</div>
