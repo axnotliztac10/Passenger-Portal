@@ -1,8 +1,9 @@
 angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider']);
 
-angular.module('darkRide').config(function($stateProvider, $urlRouterProvider) {
+angular.module('darkRide')
+    .constant("HOST", "http://54.68.30.59:9999/")
+    .config(function($stateProvider, $urlRouterProvider) {
 
-    /* Add New States Above */
     $stateProvider.state('home', {
         url: '/home',
         controller: 'homeController',
@@ -41,7 +42,7 @@ angular.module('darkRide').run(function($rootScope) {
 
 });
 
-angular.module('darkRide').controller('homeController', ['$scope', '$window', '$state', function($scope, $window, $state) {
+angular.module('darkRide').controller('homeController', ['$scope', '$window', '$state', 'HOST', function($scope, $window, $state, HOST) {
 
     $scope.geoCoder = new $window.google.maps.Geocoder();
     $scope.markers = [];
@@ -62,7 +63,7 @@ angular.module('darkRide').controller('homeController', ['$scope', '$window', '$
                 var pos = $scope.position;
 
                 $scope.markers.push({
-                    icon: 'http://54.68.30.59:9999/assets/imgs/pick_me.png',
+                    icon: HOST + 'assets/imgs/pick_me.png',
                     options: { draggable: true },
                     latitude: pos.lat,
                     longitude: pos.lon,
@@ -106,7 +107,7 @@ angular.module('darkRide').controller('homeController', ['$scope', '$window', '$
         $scope.map.active=true;
 
         $scope.markers.push({
-            icon: 'http://54.68.30.59:9999/assets/imgs/pick_me.png',
+            icon: HOST + 'assets/imgs/pick_me.png',
             options: { draggable: true },
             latitude: res.coords.latitude,
             longitude: res.coords.longitude,
