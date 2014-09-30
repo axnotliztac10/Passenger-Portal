@@ -1,0 +1,24 @@
+<div class="stepWrapper small top-margin text-center wrapMobile" ng-show="!map.active">
+	<p class="topSpacer normalWeight">Where are you going?</p>
+	<p class="addPickup topSpacer" ng-click="map.active=true">
+	{{address}}
+	</p>
+	<p class="nextStep"><a ng-click="setMapData()">Skip</a></p>
+</div>
+<div class="stepWrapper big text-center wrapMobile" ng-if="map.active">
+	<p class="addPickup topSpacer">{{address}}</p>
+	<google-map 
+		center="map.center" 
+		refresh="map.refresh"
+		events="map.events"
+		zoom="map.zoom"
+		control="map.control">
+			<markers 
+				models="markers" 
+				icon="'icon'" 
+				coords="'self'" 
+				options="'options'" 
+				events="markersEvents">
+      		</markers>
+	</google-map>
+</div>

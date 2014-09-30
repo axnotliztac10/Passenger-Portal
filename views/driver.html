@@ -17,11 +17,9 @@
 			<p>Rating</p>
 			<p>
 				<rating 
-					ng-model="filterRate" 
+					value="filterRate" 
 					max="max" 
 					readonly="isReadonly" 
-					on-hover="hoveringOver(value)" 
-					on-leave="overStar = null"
 					state-on="'star'"
 					state-off="'star-gray'"
 				></rating>
@@ -30,8 +28,8 @@
 	</div>
 	<div class="col-md-3"></div>
 </div>
-<div class="row text-center">
-	<div class="col-md-4" ng-repeat="driver in drivers">
+<div class="row text-center relativeWrap">
+	<div class="col-md-4 driverWrap" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">
 		<div class="driverItem">
 			<img ng-src="{{driver.img}}" alt="">
 			<div>
@@ -40,11 +38,9 @@
 				<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
 				<div class="stars">
 					<rating 
-						ng-model="driver.rate" 
+						value="driver.rate" 
 						max="max" 
 						readonly="isReadonly" 
-						on-hover="hoveringOver(value)" 
-						on-leave="overStar = null"
 						state-on="'star'"
 						state-off="'star-gray'"
 					></rating>

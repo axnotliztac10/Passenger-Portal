@@ -1,7 +1,7 @@
 angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider']);
 
 angular.module('darkRide')
-    .constant("HOST", "http://54.68.30.59:9999/")
+    .constant("HOST", "http://localhost:9001/")
     .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('home', {
@@ -16,12 +16,17 @@ angular.module('darkRide')
         templateUrl: './views/time.html',
     });
 
+    $stateProvider.state('drop', {
+        url: '/drop',
+        controller: 'dropController',
+        templateUrl: './views/drop.html',
+    });
+
     $stateProvider.state('driver', {
         url: '/driver',
         controller: 'driverController',
         templateUrl: './views/driver.html',
     });
-
 
     $urlRouterProvider.otherwise('/home');
 
@@ -42,12 +47,18 @@ angular.module('darkRide').run(function($rootScope) {
 
 });
 
-angular.module('darkRide').controller('homeController', ['$scope', '$window', '$state', 'HOST', function($scope, $window, $state, HOST) {
+angular.module('darkRide').controller('homeController', ['$rootScope', '$scope', '$window', '$state', 'HOST', function($rootScope, $scope, $window, $state, HOST) {
 
     $scope.geoCoder = new $window.google.maps.Geocoder();
     $scope.markers = [];
     $scope.address = "";
     $scope.ajaxLoader = false;
+    $rootScope.user = {
+        name: "",
+        departureData: { position: {}, address: {} },
+        returnData: { position: {}, address: {} },
+        timeData: { time: null, date: null }
+    };
     
     $scope.map = {
         control: {},
@@ -83,6 +94,10 @@ angular.module('darkRide').controller('homeController', ['$scope', '$window', '$
 
     $scope.markersEvents = {
         click: function (gMarker, eventName, model) {
+            var pos = gMarker.getPosition();
+            $rootScope.user.departureData.position.lat = pos.k;
+            $rootScope.user.departureData.position.lon = pos.B;
+            $rootScope.user.departureData.address = $scope.address;
             $state.go('time');
         },
         dragend: function (gMarker) {
@@ -151,9 +166,22 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
         $scope.max = 5;
         $scope.isReadonly = false;
         $scope.minPrice = 10;
-        $scope.maxPrice = 50;
+        $scope.maxPrice = 60;
         $scope.minTime = 10;
-        $scope.maxTime = 50;
+        $scope.maxTime = 60;
+
+        $scope.timeFilter = function (driver) {
+            return (driver.time >= $scope.minTime && driver.time <= $scope.maxTime);
+        }
+
+        $scope.priceFilter = function (driver) {
+            return (driver.price >= $scope.minPrice && driver.price <= $scope.maxPrice);
+        }
+
+        $scope.starFilter = function (driver) {
+            if ($scope.filterRate == 0) return true;
+            return driver.rate == $scope.filterRate;
+        }
 
         $scope.drivers = [
             {
@@ -161,7 +189,7 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
                 name: 'Alexa Smith',
                 model: 'Tesla S',
                 photo: './assets/imgs/faces/13.jpg',
-                rate: 3,
+                rate: 4,
                 time: 10,
                 price: 30
             },
@@ -170,7 +198,7 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
                 name: 'Peter Smith',
                 model: 'BMW 251i',
                 photo: './assets/imgs/faces/15.jpg',
-                rate: 3,
+                rate: 2,
                 time: 12,
                 price: 17
             },
@@ -188,9 +216,76 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
                 name: 'John Smith',
                 model: 'Tesla S',
                 photo: './assets/imgs/faces/47.jpg',
-                rate: 3,
+                rate: 5,
                 time: 34,
                 price: 45
             }
         ];
+}]);
+
+angular.module('darkRide').controller('dropController', ['$rootScope', '$scope', '$window', 'HOST', '$state', function($rootScope, $scope, $window, HOST, $state) {
+    
+    $scope.geoCoder = new $window.google.maps.Geocoder();
+    $scope.address = "GO TO MAP";
+    $scope.markers = [];
+
+    $scope.map = {
+        control: {},
+        active: false,
+        center: {
+            latitude: 51.219053,
+            longitude: 4.404418
+        },
+        refresh: true,
+        zoom: 14,
+        events: {
+            idle: function (res, res1) {
+                var pos = $rootScope.user.departureData.position;
+
+                $scope.address = $rootScope.user.departureData.address;
+                $scope.markers.push({
+                    icon: HOST + 'assets/imgs/drop_me.png',
+                    options: { draggable: true },
+                    latitude: pos.lat,
+                    longitude: pos.lon,
+                    title: "m0",
+                    id: 0
+                });
+
+                $scope.map.control.refresh({
+                    latitude: pos.lat, 
+                    longitude: pos.lon
+                });
+
+                $window.google.maps.event.clearListeners(res, 'idle');
+            }
+        }
+    };
+
+    $scope.markersEvents = {
+        click: function (gMarker, eventName, model) {
+            var pos = gMarker.getPosition();
+            $rootScope.user.returnData.position.lat = pos.k;
+            $rootScope.user.returnData.position.lon = pos.B;
+            $rootScope.user.returnData.address = $scope.address;
+            $state.go('driver');
+        },
+        dragend: function (gMarker) {
+            var pos = gMarker.getPosition();
+            $scope.getAddress(pos.k, pos.B);
+        }
+    };
+
+    $scope.getAddress = function (lat, lon) {
+        var latlng = new $window.google.maps.LatLng(lat, lon);
+        $scope.geoCoder.geocode({'latLng': latlng}, function (results, status) {
+            if (status === $window.google.maps.GeocoderStatus.OK && results[0]) {
+                $scope.$apply(function () {
+                    $scope.ajaxLoader = true;
+                    $scope.address = results[0].formatted_address;
+                });
+            }
+        });
+    };
+
 }]);
