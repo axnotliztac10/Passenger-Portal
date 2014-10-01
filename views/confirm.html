@@ -1,0 +1,67 @@
+<div class="stepWrapper small top-margin bottom-margin text-center wrapMobile" style="width: 322px;padding-top:0px" ng-show="!map.active">
+	<div class="driverItem">
+		<img ng-src="{{driver.img}}" alt="">
+		<div style="margin-bottom: 0px;">
+			<span class="name">{{driver.name}}</span><br>
+			<span class="model">{{driver.model}}</span>
+			<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
+			<div class="stars">
+				<rating 
+					ng-model="driver.rate" 
+					max="max" 
+					readonly="isReadonly = true" 
+					state-on="'star'"
+					state-off="'star-gray'"
+				></rating>
+			</div>
+			<span class="time">{{driver.time}} min</span><br>
+			<span class="price">$ {{driver.price}}</span>
+		</div>
+	</div>
+	<div class="tripInfo text-left">
+		<p>From</p>
+		<p>{{user.departureData.address}}</p>
+		<p>To</p>
+		<p>{{user.returnData.address}}</p>
+		<p>Time</p>
+		<p>{{user.timeData.time}}</p>
+	</div>
+	<p class="nextStep"><a ng-click="open()">Confirm Reservation</a></p>
+</div>
+<div class="stepWrapper big wrapMobile followMap" ng-if="map.active">
+	<div class="info">
+		<div class="imgWrap"><img ng-src="{{driver.photo}}" alt=""></div>
+		<p>{{driver.name}} will be there in</p>
+		<p class="time">{{driver.time}} minutes</p>
+		<p class="nextStep"><a ng-click="map.active=false">Cancel Reservation</a></p>
+	</div>
+	<div class="map">
+		<google-map 
+		center="map.center" 
+		refresh="map.refresh"
+		events="map.events"
+		zoom="map.zoom"
+		control="map.control">
+			<markers 
+				models="markers" 
+				icon="'icon'" 
+				coords="'self'" 
+				options="'options'" 
+				events="markersEvents">
+      		</markers>
+		</google-map>
+	</div>
+</div>
+<script type="text/ng-template" id="modalConfirm.html">
+        <div class="modal-header">
+            <h3>Sign Up or Login with</h3>
+        </div>
+        <div class="modal-body" ng-click="ok()">
+            <div class="social fb">Facebook</div>
+            <div class="social linked">LinkedIn</div>
+            <div class="social gplus">Google+</div>
+        </div>
+        <div class="modal-footer">
+        	
+        </div>
+    </script>
