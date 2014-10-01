@@ -28,6 +28,12 @@ angular.module('darkRide')
         templateUrl: './views/driver.html',
     });
 
+    $stateProvider.state('confirm', {
+        url: '/confirm',
+        controller: 'confirmController',
+        templateUrl: './views/confirm.html',
+    });
+
     $urlRouterProvider.otherwise('/home');
 
 });
@@ -57,7 +63,8 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
         name: "",
         departureData: { position: {}, address: {} },
         returnData: { position: {}, address: {} },
-        timeData: { time: null, date: null }
+        timeData: { time: null, date: null },
+        driver: {}
     };
     
     $scope.map = {
@@ -118,24 +125,6 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
         });
     };
 
-    $scope.setMapData = function (res) {
-        $scope.map.active=true;
-
-        $scope.markers.push({
-            icon: HOST + 'assets/imgs/pick_me.png',
-            options: { draggable: true },
-            latitude: res.coords.latitude,
-            longitude: res.coords.longitude,
-            title: "m0",
-            id: 0
-        });
-
-        $scope.map.control.refresh({
-            latitude: res.coords.latitude, 
-            longitude: res.coords.longitude
-        });
-    };
-
     $scope.getActualAdd = function () {
         $window.navigator.geolocation.getCurrentPosition(function (res) {
             $scope.getAddress(res.coords.latitude, res.coords.longitude);
@@ -154,14 +143,40 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
 
 }]);
 
-angular.module('darkRide').controller('timeController', ['$scope', function($scope) {
+angular.module('darkRide').controller('timeController', ['$scope', '$rootScope',function($scope, $rootScope) {
     $scope.timeToPick = new Date();
     $scope.ismeridian = false;
     $scope.format = 'dd-MMMM-yyyy';
-    $scope.dt = null;
+    $scope.dt = new Date();
+
+    $scope.toggleMin = function() {
+        $scope.minDate = new Date();
+    };
+
+    $scope.open = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.opened = true;
+    };
+
+    $scope.changed = function () {
+        $rootScope.user.timeData.time = $scope.timeToPick;
+    };
+
+    $scope.$watch('dt', function(newVal, oldVal) {
+        $rootScope.user.timeData.date = newVal;
+    });
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    };
+
+    $scope.toggleMin();
 }]);
 
-angular.module('darkRide').controller('driverController', ['$scope', function($scope) {
+angular.module('darkRide').controller('driverController', ['$scope', '$modal', '$rootScope', function($scope, $modal, $rootScope) {
         $scope.filterRate = 0;
         $scope.max = 5;
         $scope.isReadonly = false;
@@ -172,16 +187,37 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
 
         $scope.timeFilter = function (driver) {
             return (driver.time >= $scope.minTime && driver.time <= $scope.maxTime);
-        }
+        };
 
         $scope.priceFilter = function (driver) {
             return (driver.price >= $scope.minPrice && driver.price <= $scope.maxPrice);
-        }
+        };
 
         $scope.starFilter = function (driver) {
             if ($scope.filterRate == 0) return true;
-            return driver.rate == $scope.filterRate;
-        }
+            return (driver.rate == $scope.filterRate);
+        };
+
+        $scope.open = function (size, driver) {
+
+            var modalInstance = $modal.open({
+                templateUrl: 'modalDriver.html',
+                controller: 'modalDriver',
+                size: size,
+                resolve: {
+                    driver: function () {
+                        return driver;
+                    }
+                },
+                windowClass: "driverModal"
+            });
+
+            modalInstance.result.then(function (driver) {
+                $rootScope.user.driver = driver;
+                }, function () {
+                return;
+            });
+        };
 
         $scope.drivers = [
             {
@@ -191,7 +227,8 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
                 photo: './assets/imgs/faces/13.jpg',
                 rate: 4,
                 time: 10,
-                price: 30
+                price: 30,
+                desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
             },
             {
                 img: './assets/imgs/cars/car.jpg',
@@ -200,7 +237,8 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
                 photo: './assets/imgs/faces/15.jpg',
                 rate: 2,
                 time: 12,
-                price: 17
+                price: 17,
+                desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
             },
             {
                 img: './assets/imgs/cars/car.jpg',
@@ -209,7 +247,8 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
                 photo: './assets/imgs/faces/30.jpg',
                 rate: 3,
                 time: 20,
-                price: 30
+                price: 30,
+                desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
             },
             {
                 img: './assets/imgs/cars/car.jpg',
@@ -218,10 +257,23 @@ angular.module('darkRide').controller('driverController', ['$scope', function($s
                 photo: './assets/imgs/faces/47.jpg',
                 rate: 5,
                 time: 34,
-                price: 45
+                price: 45,
+                desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
             }
         ];
 }]);
+
+angular.module('darkRide').controller('modalDriver', function ($scope, $modalInstance, driver) {
+
+  $scope.driver = driver;
+  $scope.ok = function () {
+    $modalInstance.close(driver);
+  };
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+});
 
 angular.module('darkRide').controller('dropController', ['$rootScope', '$scope', '$window', 'HOST', '$state', function($rootScope, $scope, $window, HOST, $state) {
     
@@ -287,5 +339,12 @@ angular.module('darkRide').controller('dropController', ['$rootScope', '$scope',
             }
         });
     };
+
+}]);
+
+angular.module('darkRide').controller('confirmController', ['$rootScope', '$scope', '$window', 'HOST', '$state', function($rootScope, $scope, $window, HOST, $state) {
+
+    $scope.driver = $rootScope.user.driver;
+    $scope.user = $rootScope.user;
 
 }]);

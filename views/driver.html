@@ -17,7 +17,7 @@
 			<p>Rating</p>
 			<p>
 				<rating 
-					value="filterRate" 
+					ng-model="filterRate" 
 					max="max" 
 					readonly="isReadonly" 
 					state-on="'star'"
@@ -29,7 +29,7 @@
 	<div class="col-md-3"></div>
 </div>
 <div class="row text-center relativeWrap">
-	<div class="col-md-4 driverWrap" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">
+	<div class="col-md-4 driverWrap" ng-click="open('sm', driver)" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">
 		<div class="driverItem">
 			<img ng-src="{{driver.img}}" alt="">
 			<div>
@@ -38,15 +38,15 @@
 				<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
 				<div class="stars">
 					<rating 
-						value="driver.rate" 
+						ng-model="driver.rate" 
 						max="max" 
-						readonly="isReadonly" 
+						readonly="isReadonly = true" 
 						state-on="'star'"
 						state-off="'star-gray'"
 					></rating>
 				</div>
 				<span class="time">{{driver.time}} min</span><br>
-				<span class="price">{{driver.price}} $</span>
+				<span class="price">$ {{driver.price}}</span>
 			</div>
 		</div>
 	</div>
@@ -57,3 +57,25 @@
 		
 	</div>
 </div>
+<script type="text/ng-template" id="modalDriver.html">
+        <div class="modal-header modalDriverPhoto">
+            <img ng-src="{{driver.photo}}" alt="">
+        </div>
+        <div class="modal-body">
+            <p class="nameDriverModal">{{driver.name}}</p>
+            <p class="modelDriverModal">{{driver.model}}</p>
+            <br>
+            <p class="descDriverModal">{{driver.desc}}</p>
+            <p class="rateDriverModal"><rating 
+					ng-model="driver.rate" 
+					max="max = 5" 
+					readonly="isReadonly = true" 
+					state-on="'star'"
+					state-off="'star-gray'"
+				></rating></p>
+        </div>
+        <div class="modal-footer">
+        	<p class="nextStep cancelBut" ng-click="cancel()"><a>Cancel</a></p>
+            <p class="nextStep nextBut" ng-click="ok()"><a>Next</a></p>
+        </div>
+    </script>

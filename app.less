@@ -18,9 +18,17 @@
 
 @thinParaph: 100;
 
-body {
+html {
 	background: url(./assets/imgs/bg.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
 	color: @grayLighter;
+	background: none;
 }
 
 h1 {
@@ -109,14 +117,14 @@ header .menu {
 	color: #0FEEEE;
 }
 
-.stepWrapper .nextStep {
+.nextStep {
 	bottom: 0px;
 	font-size: 30px;
 	position: absolute;
 	width: 100%;
 }
 
-.stepWrapper .nextStep a {
+.nextStep a {
 	color: @greenYellow;
 }
 
@@ -160,6 +168,10 @@ header .menu {
 	padding-top: 30px;
 }
 
+.bottom-margin {
+	margin-bottom: 40px;
+}
+
 .loader{
   margin: 0 0 2em;
   height: 100px;
@@ -169,6 +181,63 @@ header .menu {
   margin: 0 auto 1em;
   display: inline-block;
   vertical-align: top;
+}
+
+.driverModal .modal-content, .driverModal .modal-dialog{
+	width: 290px;
+}
+
+.driverModal .modal-content {
+	background: @blackLight;
+}
+
+.driverModal .modal-dialog {
+	margin-top: 120px;
+}
+
+.driverModal .modal-body {
+	margin-top: 75px;
+}
+
+.driverModal .modal-footer {
+	position: relative;
+	text-align: center;
+	border-top: 0px;
+	margin-top: 0px;
+}
+
+.cancelBut {
+	left: 48px;
+	top: -2px;
+	width: auto;
+}
+
+.nextBut {
+	left: 180px;
+	top: -2px;
+	width: auto;
+}
+
+.cancelBut a, .nextBut a {
+	color: @blueGreen;
+}
+
+.nameDriverModal {
+	text-align: center;
+	color: #07b5b5;
+	font-size: 30px;
+}
+
+.modelDriverModal {
+	text-align: center;
+}
+
+.descDriverModal {
+	text-align: justify;
+}
+
+.rateDriverModal {
+	text-align: center;
 }
 
 /*
@@ -305,12 +374,20 @@ table {
 	width: 28px;
 	height: 27px;
 	background: url(./assets/imgs/star.png) no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .star-gray {
 	width: 28px;
 	height: 27px;
 	background: url(./assets/imgs/star_gray.png) no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .minLabel, .maxLabel {
@@ -324,6 +401,31 @@ table {
 
 .maxLabel {
 	float: right;
+}
+
+.modalDriverPhoto {
+	position: absolute;
+	border-radius: 50%;
+	overflow: hidden;
+	width: 95px;
+	top: -20px;
+	left: 100px;
+	padding: 0px;
+}
+
+.modalDriverPhoto img {
+	width: 100%;
+}
+
+.tripInfo {
+	border-top: 1px #fff solid;
+	padding: 10px;
+	padding-bottom: 55px;
+}
+
+.tripInfo p:nth-child(even) {
+	font-size: 14px;
+	color: @blueGreen;
 }
 
 /* BS UI Customization
