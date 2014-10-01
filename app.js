@@ -173,10 +173,11 @@ angular.module('darkRide').controller('timeController', ['$scope', '$rootScope',
         startingDay: 1
     };
 
+    $scope.changed();
     $scope.toggleMin();
 }]);
 
-angular.module('darkRide').controller('driverController', ['$scope', '$modal', '$rootScope', function($scope, $modal, $rootScope) {
+angular.module('darkRide').controller('driverController', ['$scope', '$modal', '$rootScope', '$state', function($scope, $modal, $rootScope, $state) {
         $scope.filterRate = 0;
         $scope.max = 5;
         $scope.isReadonly = false;
@@ -214,6 +215,7 @@ angular.module('darkRide').controller('driverController', ['$scope', '$modal', '
 
             modalInstance.result.then(function (driver) {
                 $rootScope.user.driver = driver;
+                $state.go("confirm");
                 }, function () {
                 return;
             });
@@ -268,6 +270,17 @@ angular.module('darkRide').controller('modalDriver', function ($scope, $modalIns
   $scope.driver = driver;
   $scope.ok = function () {
     $modalInstance.close(driver);
+  };
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+});
+
+angular.module('darkRide').controller('modalConfirm', function ($scope, $modalInstance, info) {
+
+  $scope.ok = function () {
+    $modalInstance.close();
   };
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
@@ -342,9 +355,79 @@ angular.module('darkRide').controller('dropController', ['$rootScope', '$scope',
 
 }]);
 
-angular.module('darkRide').controller('confirmController', ['$rootScope', '$scope', '$window', 'HOST', '$state', function($rootScope, $scope, $window, HOST, $state) {
+angular.module('darkRide').controller('confirmController', ['$rootScope', '$scope', '$window', 'HOST', '$state', '$modal', function($rootScope, $scope, $window, HOST, $state, $modal) {
 
     $scope.driver = $rootScope.user.driver;
     $scope.user = $rootScope.user;
+    $scope.markers = [];
+
+    $scope.map = {
+        control: {},
+        active: false,
+        center: {
+            latitude: 51.219053,
+            longitude: 4.404418
+        },
+        refresh: true,
+        zoom: 14,
+        events: {
+            idle: function (map, res1) {
+                var posDep = $rootScope.user.departureData.position;
+                var bounds = map.getBounds();
+                var southWest = bounds.getSouthWest();
+                var northEast = bounds.getNorthEast();
+                var lngSpan = northEast.lng() - southWest.lng();
+                var latSpan = northEast.lat() - southWest.lat();
+
+                var lat = southWest.lat() + latSpan * Math.random();
+                var lng = southWest.lng() + lngSpan * Math.random();
+
+                $scope.markers.push({
+                    icon: HOST + $scope.driver.photo,
+                    options: { draggable: false, size: new $window.google.maps.Size(20,32) },
+                    latitude: lat,
+                    longitude: lng,
+                    title: "m0",
+                    id: 0
+                });
+
+                $scope.markers.push({
+                    icon: HOST + 'assets/imgs/a.png',
+                    options: { draggable: false },
+                    latitude: posDep.lat,
+                    longitude: posDep.lon,
+                    title: "m1",
+                    id: 1
+                });
+
+                $scope.map.control.refresh({
+                    latitude: posDep.lat, 
+                    longitude: posDep.lon
+                });
+
+                $window.google.maps.event.clearListeners(map, 'idle');
+            }
+        }
+    };
+
+    $scope.open = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'modalConfirm.html',
+            controller: 'modalConfirm',
+            size: 'sm',
+            resolve: {
+                info: function () {
+                    return {};
+                }
+            },
+            windowClass: "driverModal"
+        });
+
+        modalInstance.result.then(function () {
+            $scope.map.active = true;
+            }, function () {
+            return;
+        });
+    };
 
 }]);
