@@ -1,13 +1,14 @@
 <div class="stepWrapper small top-margin text-center wrapMobile">
 	<p class="topSpacer normalWeight">WHEN?</p>
-	<p class="text-center">
+  <p class="addPickup" ng-click="showControls=true" ng-show="!showControls">NOW</p>
+	<p class="text-center" ng-show="showControls">
 		<timepicker 
 			ng-model="timeToPick"
 			ng-change="changed()"
 			show-meridian="ismeridian"
 		></timepicker>
 	</p>
-	<p class="input-group date-group">
+	<p class="input-group date-group" ng-show="showControls">
       <input 
       	type="text" 
       	class="form-control" 

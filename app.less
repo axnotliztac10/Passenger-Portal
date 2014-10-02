@@ -60,6 +60,18 @@ header .menu {
 	float: right;
 }
 
+*:focus {
+	outline: none;
+}
+
+[ui-view] a, [ng-click], [ng-click] a{
+	cursor: pointer;
+}
+
+[ui-view] a:hover, [ng-click] a:hover {
+	text-decoration: none;
+} 
+
 #status-buttons {  
 	margin-top: 40px;
 }
@@ -102,15 +114,16 @@ header .menu {
 	background: @blackLight;
 	border-radius: 2px;
 	box-shadow: 2px 1px 6px -1px @blackLight;
-	margin: 40px auto auto;
-	min-height: 400px;
+	margin: 40px auto 40px auto;
+	min-height: 473px;
 	position: relative;
 }
 
 .stepWrapper .addPickup {
 	text-align: center;
 	color: @blueGreen;
-	font-size: 30px;
+	font-size: 26px;
+	padding-top: 7px;
 }
 
 .addPickup:hover {
@@ -122,6 +135,7 @@ header .menu {
 	font-size: 30px;
 	position: absolute;
 	width: 100%;
+	left: 0px;
 }
 
 .nextStep a {
@@ -161,11 +175,18 @@ header .menu {
 }
 
 .small {
-	width: 300px;
+	width: 421px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 15px;
+}
+
+.big {
+	width: 813px;
 }
 
 .top-margin {
-	padding-top: 30px;
+	padding-top: 50px;
 }
 
 .bottom-margin {
@@ -238,6 +259,21 @@ header .menu {
 
 .rateDriverModal {
 	text-align: center;
+}
+
+.results {
+	position: absolute;
+	left: 0px;
+	z-index: 777777;
+	list-style: none;
+	padding-left: 0px;
+	background: @blackLight;
+	border-radius: 3px;
+	top: 49px;
+}
+
+.results li {
+	padding: 2px 32px 2px;
 }
 
 /*

@@ -59,6 +59,7 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
     $scope.markers = [];
     $scope.address = "";
     $scope.ajaxLoader = false;
+    $scope.searchResults = [];
     $rootScope.user = {
         name: "",
         departureData: { position: {}, address: {} },
@@ -102,10 +103,7 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
     $scope.markersEvents = {
         click: function (gMarker, eventName, model) {
             var pos = gMarker.getPosition();
-            $rootScope.user.departureData.position.lat = pos.k;
-            $rootScope.user.departureData.position.lon = pos.B;
-            $rootScope.user.departureData.address = $scope.address;
-            $state.go('time');
+            $scope.setAndGo(pos);
         },
         dragend: function (gMarker) {
             var pos = gMarker.getPosition();
@@ -113,7 +111,20 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
         }
     };
 
+    $scope.setAndGo = function (pos) {
+        $rootScope.user.departureData.position.lat = pos.k ? pos.k : pos.lat;
+        $rootScope.user.departureData.position.lon = pos.B ? pos.B : pos.lon;
+        $rootScope.user.departureData.address = $scope.address;
+        $state.go('time');
+    };
+
     $scope.getAddress = function (lat, lon) {
+
+        $scope.position = {
+            lat: lat,
+            lon: lon
+        };
+
         var latlng = new $window.google.maps.LatLng(lat, lon);
         $scope.geoCoder.geocode({'latLng': latlng}, function (results, status) {
             if (status === $window.google.maps.GeocoderStatus.OK && results[0]) {
@@ -128,12 +139,30 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
     $scope.getActualAdd = function () {
         $window.navigator.geolocation.getCurrentPosition(function (res) {
             $scope.getAddress(res.coords.latitude, res.coords.longitude);
-            $scope.position = {
-                lat: res.coords.latitude,
-                lon: res.coords.longitude
-            };
         });
     };
+
+    $scope.searchAddress = function (address) {
+        $scope.address = address;
+        var request = {
+            location: new google.maps.LatLng($scope.position.lat, $scope.position.lon),
+            radius: '5000',
+            query: address
+        };
+
+        service = new google.maps.places.PlacesService($scope.map.control.getGMap());
+
+        service.textSearch(request, function(results, status, pagination) {
+            if (status != google.maps.places.PlacesServiceStatus.OK) {
+                return;
+            }
+
+            $scope.searchResults = results;
+            if (pagination.hasNextPage) {
+                
+            }
+        });
+    }
 
     $scope.init = function () {
         $scope.getActualAdd();
@@ -143,11 +172,12 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
 
 }]);
 
-angular.module('darkRide').controller('timeController', ['$scope', '$rootScope',function($scope, $rootScope) {
+angular.module('darkRide').controller('timeController', ['$scope', '$rootScope', function($scope, $rootScope) {
     $scope.timeToPick = new Date();
     $scope.ismeridian = false;
     $scope.format = 'dd-MMMM-yyyy';
     $scope.dt = new Date();
+    $scope.showControls = false;
 
     $scope.toggleMin = function() {
         $scope.minDate = new Date();
@@ -179,12 +209,22 @@ angular.module('darkRide').controller('timeController', ['$scope', '$rootScope',
 
 angular.module('darkRide').controller('driverController', ['$scope', '$modal', '$rootScope', '$state', function($scope, $modal, $rootScope, $state) {
         $scope.filterRate = 0;
+        $scope.backFilter = 0;
         $scope.max = 5;
         $scope.isReadonly = false;
         $scope.minPrice = 10;
         $scope.maxPrice = 60;
         $scope.minTime = 10;
         $scope.maxTime = 60;
+
+        $scope.evaluateNoChange = function (change) {
+            if (change == $scope.backFilter) {
+                $scope.filterRate = 0;
+                $scope.backFilter = 0;
+                return;
+            }
+            $scope.backFilter = change;
+        };
 
         $scope.timeFilter = function (driver) {
             return (driver.time >= $scope.minTime && driver.time <= $scope.maxTime);
@@ -373,7 +413,15 @@ angular.module('darkRide').controller('confirmController', ['$rootScope', '$scop
         events: {
             idle: function (map, res1) {
                 var posDep = $rootScope.user.departureData.position;
+
+                $scope.map.control.refresh({
+                    latitude: posDep.lat, 
+                    longitude: posDep.lon
+                });
+
+                map = $scope.map.control.getGMap();
                 var bounds = map.getBounds();
+                var lat_lng = new Array();
                 var southWest = bounds.getSouthWest();
                 var northEast = bounds.getNorthEast();
                 var lngSpan = northEast.lng() - southWest.lng();
@@ -382,9 +430,15 @@ angular.module('darkRide').controller('confirmController', ['$rootScope', '$scop
                 var lat = southWest.lat() + latSpan * Math.random();
                 var lng = southWest.lng() + lngSpan * Math.random();
 
+                lat_lng.push(new $window.google.maps.LatLng(lat, lng), new $window.google.maps.LatLng(posDep.lat, posDep.lon));
+
+                var path = new $window.google.maps.MVCArray();
+                var service = new $window.google.maps.DirectionsService();
+                var poly = new $window.google.maps.Polyline({ map: map, strokeColor: '#4986E7' });
+
                 $scope.markers.push({
-                    icon: HOST + $scope.driver.photo,
-                    options: { draggable: false, size: new $window.google.maps.Size(20,32) },
+                    icon: HOST + $scope.driver.photo.replace(".jpg", "_min.png"),
+                    options: { draggable: false },
                     latitude: lat,
                     longitude: lng,
                     title: "m0",
@@ -400,9 +454,24 @@ angular.module('darkRide').controller('confirmController', ['$rootScope', '$scop
                     id: 1
                 });
 
-                $scope.map.control.refresh({
-                    latitude: posDep.lat, 
-                    longitude: posDep.lon
+                angular.forEach(lat_lng, function (v, i) {
+                    if ((i + 1) < lat_lng.length) {    
+                        var src = lat_lng[i];
+                        var des = lat_lng[i + 1];
+                        path.push(src);
+                        poly.setPath(path);
+                        service.route({
+                            origin: src,
+                            destination: des,
+                            travelMode: $window.google.maps.DirectionsTravelMode.DRIVING
+                        }, function (result, status) {
+                            if (status == google.maps.DirectionsStatus.OK) {
+                                for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                                    path.push(result.routes[0].overview_path[i]);
+                                }
+                            }
+                        });
+                    }
                 });
 
                 $window.google.maps.event.clearListeners(map, 'idle');
@@ -431,3 +500,21 @@ angular.module('darkRide').controller('confirmController', ['$rootScope', '$scop
     };
 
 }]);
+
+angular.module('darkRide').directive('contenteditable', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+
+      elm.bind('keyup', function() {
+        scope.$apply(function() {
+          ctrl.$setViewValue(elm.text());
+        });
+      });
+
+      ctrl.$render = function() {
+        elm.text(ctrl.$viewValue);
+      };
+    }
+  };
+});

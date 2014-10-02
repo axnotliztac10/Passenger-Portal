@@ -1,6 +1,6 @@
 <div class="stepWrapper small top-margin text-center wrapMobile" ng-show="!map.active">
 	<p class="topSpacer normalWeight">Pick me up Right Here</p>
-	<p class="addPickup topSpacer" ng-click="getActualPos()">
+	<p class="addPickup topSpacer" ng-click="map.active=true">
 	{{address}}
 	<div class="loader" title="1" ng-hide="ajaxLoader">
 	  <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -17,10 +17,14 @@
 	  </svg>
 	</div>
 	</p>
-	<p class="nextStep"><a ng-click="map.active=true">Next</a></p>
+	<p class="nextStep"><a ng-click="setAndGo(position)">Next</a></p>
 </div>
 <div class="stepWrapper big text-center wrapMobile" ng-if="map.active">
-	<p class="addPickup topSpacer">{{address}}</p>
+	<p class="addPickup topSpacer" contenteditable="true" ng-model="address" ng-focus="searching=true" ng-blur="searching=false" ng-keyup="searchAddress(address)">{{address}}</p>
+	<ul class="results" ng-show="searching && searchResults.length > 0">
+		<li class="text-left"><strong>Results: </strong></li>
+		<li ng-repeat="result in searchResults" class="text-left" ng-click="goPlace(result)">{{result.formatted_address}}</li>
+	</ul>
 	<google-map 
 		center="map.center" 
 		refresh="map.refresh"
