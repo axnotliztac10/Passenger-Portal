@@ -76,7 +76,7 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
                 var pos = $scope.position;
 
                 $scope.markers.push({
-                    icon: HOST + 'assets/imgs/pick_me.png',
+                    icon: HOST + 'assets/imgs/pick_me@2x.png',
                     options: { draggable: true },
                     latitude: pos.lat,
                     longitude: pos.lon,
@@ -381,7 +381,7 @@ angular.module('darkRide').controller('dropController', ['$rootScope', '$scope',
 
                 $scope.address = $rootScope.user.departureData.address;
                 $scope.markers.push({
-                    icon: HOST + 'assets/imgs/drop_me.png',
+                    icon: HOST + 'assets/imgs/drop_me@2x.png',
                     options: { draggable: true },
                     latitude: pos.lat,
                     longitude: pos.lon,
@@ -479,7 +479,7 @@ angular.module('darkRide').controller('confirmController', ['$rootScope', '$scop
                 });
 
                 $scope.markers.push({
-                    icon: HOST + 'assets/imgs/a.png',
+                    icon: HOST + 'assets/imgs/a@2x.png',
                     options: { draggable: false },
                     latitude: posDep.lat,
                     longitude: posDep.lon,
