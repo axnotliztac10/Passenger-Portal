@@ -3,7 +3,7 @@
 	<p class="addPickup topSpacer" ng-click="map.active=true">
 	{{address}}
 	</p>
-	<p class="nextStep"><a ng-click="setMapData()">Skip</a></p>
+	<p class="nextStep"><a ui-sref="driver">Skip</a></p>
 </div>
 <div class="stepWrapper big text-center wrapMobile" ng-if="map.active">
 	<p class="addPickup topSpacer">{{address}}</p>

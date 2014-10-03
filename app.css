@@ -7323,12 +7323,18 @@ header .menu {
   z-index: 777777;
   list-style: none;
   padding-left: 0px;
-  background: #2e2d2c;
-  border-radius: 3px;
-  top: 49px;
+  background: #fff;
+  padding-top: 5px;
+  top: 54px;
+  width: 100%;
 }
 .results li {
-  padding: 2px 32px 2px;
+  padding: 8px 32px 2px;
+  height: 40px;
+}
+.resultFocus {
+  background: #b3b3b3;
+  color: #fff;
 }
 /*
   Set the color of the icon

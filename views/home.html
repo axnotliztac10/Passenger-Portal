@@ -20,10 +20,17 @@
 	<p class="nextStep"><a ng-click="setAndGo(position)">Next</a></p>
 </div>
 <div class="stepWrapper big text-center wrapMobile" ng-if="map.active">
-	<p class="addPickup topSpacer" contenteditable="true" ng-model="address" ng-focus="searching=true" ng-blur="searching=false" ng-keyup="searchAddress(address)">{{address}}</p>
+	<p class="addPickup topSpacer" contenteditable="true" ng-model="address" ng-focus="searching=true" ng-blur="searching=false" ng-keydown="searchAddress(address)" ng-keyup="setPressedKey($event)">{{address}}</p>
 	<ul class="results" ng-show="searching && searchResults.length > 0">
-		<li class="text-left"><strong>Results: </strong></li>
-		<li ng-repeat="result in searchResults" class="text-left" ng-click="goPlace(result)">{{result.formatted_address}}</li>
+		<li 
+			ng-repeat="result in searchResults" 
+			class="text-left"
+			ng-mouseover="result.focus=true"
+			ng-mouseout="result.focus=false"
+			ng-class="{'resultFocus': result.focus}"
+			ng-click="goPlace(result)">
+			{{result.formatted_address}}
+		</li>
 	</ul>
 	<google-map 
 		center="map.center" 

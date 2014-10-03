@@ -60,14 +60,8 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
     $scope.address = "";
     $scope.ajaxLoader = false;
     $scope.searchResults = [];
-    $rootScope.user = {
-        name: "",
-        departureData: { position: {}, address: {} },
-        returnData: { position: {}, address: {} },
-        timeData: { time: null, date: null },
-        driver: {}
-    };
-    
+    $scope.focusId = -1;
+
     $scope.map = {
         control: {},
         active: false,
@@ -137,6 +131,14 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
     };
 
     $scope.getActualAdd = function () {
+
+        if (typeof $rootScope.user.departureData.position.lat != "undefined") {
+            $scope.position = $rootScope.user.departureData.position;
+            $scope.address = $rootScope.user.departureData.address;
+            $scope.ajaxLoader = true;
+            return;
+        };
+
         $window.navigator.geolocation.getCurrentPosition(function (res) {
             $scope.getAddress(res.coords.latitude, res.coords.longitude);
         });
@@ -157,6 +159,7 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
                 return;
             }
 
+            if (results.length > 6) results = results.slice(0,5);
             $scope.searchResults = results;
             if (pagination.hasNextPage) {
                 
@@ -164,7 +167,36 @@ angular.module('darkRide').controller('homeController', ['$rootScope', '$scope',
         });
     }
 
+    $scope.setPressedKey = function ($event) {
+        angular.forEach($scope.searchResults, function (v, i) { $scope.searchResults[i].focus = false; });
+        if ($event.keyCode == 40) {
+            $scope.focusId++;
+            $scope.searchResults[$scope.focusId].focus = true;
+            $event.preventDefault();
+        } else if ($event.keyCode == 38) {
+            $scope.focusId--;
+            $scope.searchResults[$scope.focusId].focus = true;
+            $event.preventDefault();
+        }
+    };
+
+    $scope.$watch('focusId', function (n) {
+        if (n > 5) $scope.focusId = 0;
+        if (n < 0) $scope.focusId = 5;
+    });
+
     $scope.init = function () {
+
+        if (typeof $rootScope.user == "undefined") {
+            $rootScope.user = {
+                name: "",
+                departureData: { position: {}, address: {} },
+                returnData: { position: {}, address: {} },
+                timeData: { time: null, date: null },
+                driver: {}
+            }
+        }
+
         $scope.getActualAdd();
     };
 
@@ -370,6 +402,7 @@ angular.module('darkRide').controller('dropController', ['$rootScope', '$scope',
     $scope.markersEvents = {
         click: function (gMarker, eventName, model) {
             var pos = gMarker.getPosition();
+            if ($rootScope.user.departureData.address == $scope.address) return false; 
             $rootScope.user.returnData.position.lat = pos.k;
             $rootScope.user.returnData.position.lon = pos.B;
             $rootScope.user.returnData.address = $scope.address;
