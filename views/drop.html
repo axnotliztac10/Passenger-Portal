@@ -5,7 +5,7 @@
 	</p>
 	<p class="nextStep"><a ui-sref="driver">Skip</a></p>
 </div>
-<div class="stepWrapper big text-center wrapMobile" ng-if="map.active">
+<div class="stepWrapper big text-center wrapMobile wrap-bottom" ng-if="map.active">
 	<p class="addPickup topSpacer">{{address}}</p>
 	<google-map 
 		center="map.center" 
@@ -22,3 +22,4 @@
       		</markers>
 	</google-map>
 </div>
+<p class="text-center" ng-if="map.active">Drag the map or write the address in the top bar.</p>

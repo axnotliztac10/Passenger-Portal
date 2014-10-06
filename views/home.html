@@ -19,7 +19,7 @@
 	</p>
 	<p class="nextStep"><a ng-click="setAndGo(position)">Next</a></p>
 </div>
-<div class="stepWrapper big text-center wrapMobile" ng-if="map.active">
+<div class="stepWrapper big text-center wrapMobile wrap-bottom" ng-if="map.active">
 	<p class="addPickup topSpacer" contenteditable="true" ng-model="address" ng-focus="searching=true" ng-blur="searching=false" ng-keydown="searchAddress(address)" ng-keyup="setPressedKey($event)">{{address}}</p>
 	<ul class="results" ng-show="searching && searchResults.length > 0">
 		<li 
@@ -47,3 +47,4 @@
       		</markers>
 	</google-map>
 </div>
+<p class="text-center" ng-if="map.active">Drag the map or write the address in the top bar.</p>
