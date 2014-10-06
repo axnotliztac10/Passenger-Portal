@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html ng-app="darkRide">
 <head>
-  <title></title>
+  <title>Black Ride</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-  <link href="app.css" rel="stylesheet">
+  <link href="assets/css/app.css" rel="stylesheet">
   <link rel="stylesheet" href="bower_components/angular-slider/slider.css">
 </head>
 <body>
 
-  <!-- JS from Bower Components -->
   <script src="bower_components/jquery/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -22,7 +20,6 @@
   <script src="bower_components/angular-slider/slider.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
   <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
-  <!-- Add New Bower Component JS Above -->
   
   <header>
     <div class="title"><h1>BLACK RIDE</h1></div>
@@ -41,10 +38,6 @@
     <a ui-sref-active="active" ui-sref="confirm"><span class="glyphicon glyphicon-ok"></span> Confirmation</a>
   </div>
 
-  <!-- Main App JS -->
-  <script src="app.js"></script>
-  <!-- Add New Component JS Above -->
-
   <div>
     <div id="content" class="container">
       <div class="row">
@@ -53,6 +46,23 @@
       </div>
     </div>
   </div>
+
+  <div id="menu">
+      <ul>
+        <li><a href="#">Booking</a></li>
+        <li><a href="#">My Bookings</a></li>
+        <li><a href="#">Payment</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Organizations</a></li>
+      </ul>
+   </div>  
+
+  <script src="app.js"></script>
+  <script src="controllers/homeController.js"></script>
+  <script src="controllers/timeController.js"></script>
+  <script src="controllers/dropController.js"></script>
+  <script src="controllers/driverController.js"></script>
+  <script src="controllers/confirmController.js"></script>
 
 </body>
 </html>
