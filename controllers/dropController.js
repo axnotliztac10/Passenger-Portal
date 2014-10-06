@@ -32,6 +32,12 @@ angular.module('darkRide').controller('dropController',
                 var pos = $rootScope.user.departureData.position;
 
                 $scope.address = $rootScope.user.departureData.address;
+
+                if (typeof $rootScope.user.returnData.position.lat != "undefined") {
+                    pos = $rootScope.user.returnData.position;
+                    $scope.address = $rootScope.user.returnData.address;
+                };
+
                 $scope.markers.push({
                     icon: HOST + 'assets/imgs/drop_me.png',
                     options: { draggable: true },
