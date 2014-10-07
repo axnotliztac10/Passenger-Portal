@@ -15,7 +15,6 @@ angular.module('darkRide').controller('homeController',
     ) {
 
     $scope.geoCoder = new $window.google.maps.Geocoder();
-    $scope.markers = [];
     $scope.address = "";
     $scope.ajaxLoader = false;
     $scope.searchResults = [];
@@ -32,22 +31,7 @@ angular.module('darkRide').controller('homeController',
         zoom: 14,
         events: {
             idle: function (res, res1) {
-                var pos = $scope.position;
-
-                $scope.markers.push({
-                    icon: HOST + 'assets/imgs/pick_me.png',
-                    options: { draggable: true },
-                    latitude: pos.lat,
-                    longitude: pos.lon,
-                    title: "m0",
-                    id: 0
-                });
-
-                $scope.map.control.refresh({
-                    latitude: pos.lat, 
-                    longitude: pos.lon
-                });
-
+                $scope.centerMap();
                 $window.google.maps.event.clearListeners(res, 'idle');
             }
         }
@@ -62,6 +46,27 @@ angular.module('darkRide').controller('homeController',
             var pos = gMarker.getPosition();
             $scope.getAddress(pos.k, pos.B);
         }
+    };
+
+    $scope.centerMap = function (position) {
+        var pos = position || $scope.position;
+        $scope.address = (position) ? position.formatted_address : $scope.address;
+        $scope.markers = [];
+
+        $scope.markers.push({
+            icon: HOST + 'assets/imgs/pick_me.png',
+            options: { draggable: true },
+            latitude: pos.lat,
+            longitude: pos.lon,
+            title: "m0",
+            id: 0
+        });
+
+        $scope.map.control.refresh({
+            latitude: pos.lat, 
+            longitude: pos.lon
+        });
+
     };
 
     $scope.setAndGo = function (pos) {

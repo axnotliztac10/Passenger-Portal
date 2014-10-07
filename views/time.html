@@ -6,12 +6,26 @@
 			ng-model="timeToPick"
 			ng-change="changed()"
 			show-meridian="ismeridian"
+      minute-step="minStep = 5"
 		></timepicker>
 	</p>
-	<p class="input-group date-group" ng-show="showControls">
-      <input 
+	<div class="input-group date-group" ng-show="showControls">
+  <table class="timepicket">
+  <tr>
+    <td>
+      <a ng-mousedown="decrementMinutes()" style="border-top: 1px solid #fff;border-left: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 4px 0px 0px 4px;height: 34px;" class="btn btn-link"><span class="glyphicon glyphicon-minus"></span></a>
+    </td>
+    <td>
+      <input
+        style="width: 102px !important;text-align: center;font-size: 13px;border-radius:0px;"
+        type="text" 
+        class="form-control timepicketbox"
+        value="Today" ng-click="dateActive = true" ng-show="!dateActive"/>
+      <input
+        style="width: 102px !important;text-align: center;font-size: 13px;border-radius:0px;"
+        ng-show="dateActive"
       	type="text" 
-      	class="form-control" 
+      	class="form-control timepicketbox"
       	datepicker-popup="{{format}}" 
       	ng-model="dt" 
         min-date="minDate"
@@ -19,10 +33,53 @@
         max-date="'2015-06-22'"
       	is-open="opened"
       	ng-required="true" 
-      	close-text="Close" />
-      <span class="input-group-btn">
-        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-      </span>
-    </p>
+      	close-text="Close"
+        ng-mouseover="open($event)"/>
+      </td>
+      <td>
+         <a ng-click="incrementMinutes()" style="border-top: 1px solid #fff;border-right: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 0px 4px 4px 0px;height: 34px;" class="btn btn-link"><span class="glyphicon glyphicon-plus"></span></a>
+      </td>
+    <tr>
+    </table>
+    </div>
     <p class="nextStep"><a ui-sref="drop">Next</a></p>
 </div>
+
+<script id="template/timepicker/timepicker.html" type="text/ng-template">
+  <table class="timepicket">
+  <tbody>
+    <tr class="text-center">
+      <td></td>
+      <td>&nbsp;</td>
+      <td></td>
+      <td ng-show="showMeridian"></td>
+    </tr>
+    <tr class="text-center">
+    <td class="form-group">
+      <a ng-click="decrementHours()" class="btn btn-link hide"><span class="glyphicon glyphicon-chevron-minus"></span></a>
+        <a ng-mousedown="decrementMinutes()" style="border-top: 1px solid #fff;border-left: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 4px 0px 0px 4px;height: 34px;" class="btn btn-link"><span class="glyphicon glyphicon-minus"></span></a>
+    </td>
+      <td style="width:50px;" class="form-group" ng-class="{'has-error': invalidHours}">
+        <input type="text" style="border-radius: 0px;border-right: 0px;text-align:right" ng-model="hours" ng-change="updateHours()" class="form-control text-center timepicketbox" ng-mousewheel="incrementHours()" ng-readonly="readonlyInput" maxlength="2">
+      </td>
+      <td>
+        <input type="text" class="timepicketbox form-control" value="." style="width: 5px;border-radius: 0px;border-left: 0px;border-right: 0px;padding: 0px;">
+      </td>
+      <td style="width:50px;" class="form-group" ng-class="{'has-error': invalidMinutes}">
+        <input type="text" style="border-radius: 0px;border-left: 0px;text-align:left" ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center timepicketbox" ng-readonly="readonlyInput" maxlength="2">
+      </td>
+      <td class="form-group">
+        <a ng-click="incrementHours()" class="btn btn-link hide"><span class="glyphicon glyphicon-chevron-plus"></span></a>
+        <a ng-click="incrementMinutes()" style="border-top: 1px solid #fff;border-right: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 0px 4px 4px 0px;height: 34px;" class="btn btn-link"><span class="glyphicon glyphicon-plus"></span></a>
+      </td>
+      <td ng-show="showMeridian"><button type="button" class="btn btn-default text-center" ng-click="toggleMeridian()">{{meridian}}</button></td>
+    </tr>
+    <tr class="text-center">
+      <td></td>
+      <td>&nbsp;</td>
+      <td></td>
+      <td ng-show="showMeridian"></td>
+    </tr>
+  </tbody>
+</table>
+</script>

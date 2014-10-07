@@ -7591,6 +7591,17 @@ table {
 .followMap .info .imgWrap img {
   width: 100%;
 }
+.timepicket .glyphicon {
+  color: #fff;
+  font-weight: normal;
+}
+.timepicketbox {
+  background: #2e2d2c;
+  font-weight: bold;
+  color: #07b5b5;
+  padding-left: 0px;
+  padding-right: 0px;
+}
 /* BS UI Customization
 ============================================================================= */
 .nav,

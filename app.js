@@ -84,6 +84,7 @@ angular.module('darkRide').directive('contenteditable', function() {
       elm.bind('keyup', function() {
         scope.$apply(function() {
           ctrl.$setViewValue(elm.text());
+          scope.$parent.searchAddress(elm.text())
         });
       });
 
