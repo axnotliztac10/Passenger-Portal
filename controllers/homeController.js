@@ -31,7 +31,7 @@ angular.module('darkRide').controller('homeController',
         zoom: 14,
         events: {
             idle: function (res, res1) {
-                $scope.centerMap();
+                $scope.centerMap({lat: res.center.k, lon: res.center.B});
                 $window.google.maps.event.clearListeners(res, 'idle');
             }
         }
@@ -109,6 +109,9 @@ angular.module('darkRide').controller('homeController',
             2: 'Position unavailable',
             3: 'Request timeout'
           };
+
+          $scope.map.active = true;
+          $scope.$apply();
           alert("Error: " + errors[error.code]);
         }
 
@@ -122,6 +125,8 @@ angular.module('darkRide').controller('homeController',
                 maximumAge: 0
             });
         } else {
+            $scope.map.active = true;
+            $scope.$apply();
             alert("Geolocation is not supported by this browser");
         }
     };
