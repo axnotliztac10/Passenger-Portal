@@ -103,9 +103,27 @@ angular.module('darkRide').controller('homeController',
             return;
         };
 
-        $window.navigator.geolocation.getCurrentPosition(function (res) {
-            $scope.getAddress(res.coords.latitude, res.coords.longitude);
-        });
+        function displayError(error) {
+          var errors = { 
+            1: 'Permission denied',
+            2: 'Position unavailable',
+            3: 'Request timeout'
+          };
+          alert("Error: " + errors[error.code]);
+        }
+
+        if ($window.navigator.geolocation) {
+            var timeoutVal = 60 * 1000;
+            $window.navigator.geolocation.getCurrentPosition(function (res) {
+                $scope.getAddress(res.coords.latitude, res.coords.longitude);
+            }, displayError ,{
+                enableHighAccuracy: false,
+                timeout: timeoutVal,
+                maximumAge: 0
+            });
+        } else {
+            alert("Geolocation is not supported by this browser");
+        }
     };
 
     $scope.searchAddress = function (address) {
