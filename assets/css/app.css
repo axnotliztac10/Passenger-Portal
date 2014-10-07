@@ -7406,6 +7406,9 @@ svg rect {
     top: 0px;
     left: 0px;
   }
+  [ui-view] {
+    overflow-x: hidden;
+  }
   [ui-view].ng-enter {
     opacity: 1;
     -webkit-transition: .3s ease all !important;
@@ -7421,6 +7424,78 @@ svg rect {
     -webkit-animation: none !important;
     -moz-animation: none !important;
     animation: none !important;
+  }
+  .results {
+    top: auto;
+  }
+  .results li {
+    height: auto;
+  }
+  .driverItem .photo {
+    width: 70px !important;
+    top: -161px !important;
+    left: 242px !important;
+  }
+  .driverItem .name {
+    position: absolute;
+    top: -166px;
+    right: 86px;
+    font-weight: 200;
+    font-size: 27px;
+    color: #9cd444 !important;
+  }
+  .driverItem .model {
+    position: absolute;
+    top: -129px;
+    right: 88px;
+    font-weight: 200;
+    color: #fff;
+    font-size: 22px;
+  }
+  .driverItem .stars {
+    position: absolute;
+    top: -127px;
+    left: 165px;
+  }
+  .driverItem .time {
+    position: absolute;
+    right: 19px;
+    top: -58px;
+    font-weight: 200;
+    color: #fff;
+  }
+  .driverItem .price {
+    position: absolute;
+    right: 20px;
+    top: -43px;
+    font-weight: 200;
+    color: #9cd444 !important;
+  }
+  .driverItem > div {
+    height: 0px !important;
+    margin-bottom: 0px !important;
+  }
+  .filters {
+    height: 0px;
+    overflow: hidden;
+    margin: 0px auto !important;
+  }
+  .filtersOn {
+    height: 410px !important;
+    -webkit-transition: .3s ease all !important;
+    transition: .3s ease all !important;
+  }
+  .filtersSwitch {
+    display: block !important;
+    height: 80px;
+    padding-top: 26px;
+    font-size: 24px;
+    color: #9cd444;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .big {
+    width: 100%;
   }
 }
 .driverItem > div {
