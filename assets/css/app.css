@@ -7254,6 +7254,7 @@ header .menu {
   position: absolute;
   width: 100%;
   left: 0px;
+  margin-bottom: 35px;
 }
 .nextStep a {
   color: #9cd444;
