@@ -7498,12 +7498,12 @@ svg rect {
   .modal {
     overflow-x: hidden;
   }
+  .topSpacer {
+    margin-top: 5px;
+  }
   .modal-dialog {
     top: -95px;
     left: 5px;
-  }
-  .topSpacer {
-    margin-top: 5px;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -7512,6 +7512,17 @@ svg rect {
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
+  .modal-body {
+    padding-bottom: 0px;
+  }
+  .modal-footer {
+    padding-top: 0px;
+  }
+  .cancelBut,
+  .nextBut {
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+  }
   .nextStep {
     position: relative;
     margin-top: 40px;
@@ -7520,6 +7531,9 @@ svg rect {
   .nextBut {
     top: auto;
     left: auto;
+  }
+  .tripInfo {
+    padding-bottom: 5px !important;
   }
 }
 .driverItem > div {
