@@ -7535,6 +7535,9 @@ svg rect {
   .tripInfo {
     padding-bottom: 5px !important;
   }
+  .tripInfo + .nextStep {
+    margin-top: 0px;
+  }
 }
 .driverItem > div {
   height: 175px;
