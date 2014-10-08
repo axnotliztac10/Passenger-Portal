@@ -369,6 +369,7 @@ and (max-device-width : 568px) {
 		top: 0px;
 		left: 0px;
 		overflow-y: auto;
+		overflow-x: hidden;
 	}
 
 	[ui-view] {
@@ -471,6 +472,19 @@ and (max-device-width : 568px) {
 		font-size: 24px;
 		color: @greenYellow;
 	}
+
+	.modal {
+		overflow-x: hidden;
+	}
+
+	.modal-dialog {
+		top: -95px;
+		left: 5px;
+	}
+
+	.topSpacer {
+		margin-top: 5px;
+	}
 }
 
 @media only screen and (max-width : 992px) {
@@ -483,6 +497,12 @@ and (max-device-width : 568px) {
 {
     .nextStep {
     	position: relative;
+    	margin-top: 40px;
+    }
+
+    .cancelBut, .nextBut {
+		top: auto;
+		left: auto;
     }
 }
 

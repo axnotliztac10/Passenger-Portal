@@ -7494,6 +7494,13 @@ svg rect {
     font-size: 24px;
     color: #9cd444;
   }
+  .modal {
+    overflow-x: hidden;
+  }
+  .modal-dialog {
+    top: -95px;
+    left: 5px;
+  }
 }
 @media only screen and (max-width: 992px) {
   .big {
@@ -7502,7 +7509,12 @@ svg rect {
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
   .nextStep {
-    margin-bottom: 60px;
+    position: relative;
+  }
+  .cancelBut,
+  .nextBut {
+    top: auto;
+    left: auto;
   }
 }
 .driverItem > div {
