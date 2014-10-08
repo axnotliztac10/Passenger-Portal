@@ -7407,6 +7407,7 @@ svg rect {
     top: 0px;
     left: 0px;
     overflow-y: auto;
+    overflow-x: hidden;
   }
   [ui-view] {
     overflow-x: hidden;
@@ -7501,6 +7502,9 @@ svg rect {
     top: -95px;
     left: 5px;
   }
+  .topSpacer {
+    margin-top: 5px;
+  }
 }
 @media only screen and (max-width: 992px) {
   .big {
@@ -7510,6 +7514,7 @@ svg rect {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
   .nextStep {
     position: relative;
+    margin-top: 40px;
   }
   .cancelBut,
   .nextBut {
