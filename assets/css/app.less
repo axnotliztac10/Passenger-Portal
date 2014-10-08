@@ -171,11 +171,19 @@ header .menu {
 	text-align: center;
 	color: @blueGreen;
 	font-size: 26px;
-	padding-top: 7px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background: none;
+	border: none;
+	width: 100%;
 }
 
-.addPickup:hover {
+.addPickup:focus {
 	color: #0FEEEE;
+}
+
+.addPickup.text-box {
+	font-size: 22px;
 }
 
 .nextStep {
@@ -192,7 +200,7 @@ header .menu {
 }
 
 .topSpacer {
-	margin-top: 20px;
+	margin-top: 5px;
 }
 
 .menu {
@@ -310,21 +318,17 @@ header .menu {
 	text-align: center;
 }
 
-.results {
-	position: absolute;
-	left: 0px;
-	z-index: 777777;
-	list-style: none;
-	padding-left: 0px;
-	background: #fff;
-	padding-top: 5px;
-	top: 54px;
-	width: 100%;
+.pac-container {
+	z-index: 777777 !important;
+	list-style: none !important;
+	padding-left: 0px !important;
+	background: #fff !important;
+	padding-top: 5px !important;
 }
 
-.results li {
-	padding: 8px 32px 2px;
-	height: 40px;
+.pac-container .pac-item {
+	padding: 8px 32px 2px !important;
+	height: 40px !important;
 }
 
 .resultFocus {
@@ -392,14 +396,6 @@ and (max-device-width : 568px) {
     	-webkit-animation: none !important;
 		-moz-animation: none !important;
 		animation: none !important; 
-	}
-
-	.results {
-		top: auto;
-	}
-
-	.results li {
-		height: auto;
 	}
 
 	.driverItem .photo {
@@ -475,10 +471,6 @@ and (max-device-width : 568px) {
 
 	.modal {
 		overflow-x: hidden;
-	}
-
-	.topSpacer {
-		margin-top: 5px;
 	}
 
 	.modal-dialog {

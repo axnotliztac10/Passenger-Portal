@@ -16,9 +16,10 @@ angular.module('darkRide').controller('homeController',
 
     $scope.geoCoder = new $window.google.maps.Geocoder();
     $scope.address = "";
+    $scope.details = "";
+    $scope.options = null;
     $scope.ajaxLoader = false;
     $scope.searchResults = [];
-    $scope.focusId = -1;
 
     $scope.map = {
         control: {},
@@ -31,7 +32,7 @@ angular.module('darkRide').controller('homeController',
         zoom: 14,
         events: {
             idle: function (res, res1) {
-                $scope.centerMap({lat: res.center.k, lon: res.center.B});
+                $scope.centerMap({lat: res.center.k, lon: res.center.B}, false);
                 $window.google.maps.event.clearListeners(res, 'idle');
             }
         }
@@ -48,23 +49,30 @@ angular.module('darkRide').controller('homeController',
         }
     };
 
-    $scope.centerMap = function (position) {
-        var pos = position || $scope.position;
-        $scope.address = (position) ? position.formatted_address : $scope.address;
+    $scope.centerMap = function (position, dirty) {
+        var posit;
+
+        if (!dirty && $scope.position) {
+            posit = $scope.position;
+        } else if (position) {
+            posit = position;
+            $scope.getAddress(posit.lat, posit.lon);
+        }
+
         $scope.markers = [];
 
         $scope.markers.push({
             icon: HOST + 'assets/imgs/pick_me.png',
             options: { draggable: true },
-            latitude: pos.lat,
-            longitude: pos.lon,
+            latitude: posit.lat,
+            longitude: posit.lon,
             title: "m0",
             id: 0
         });
 
         $scope.map.control.refresh({
-            latitude: pos.lat, 
-            longitude: pos.lon
+            latitude: posit.lat, 
+            longitude: posit.lon
         });
 
     };
@@ -130,47 +138,6 @@ angular.module('darkRide').controller('homeController',
             alert("Geolocation is not supported by this browser");
         }
     };
-
-    $scope.searchAddress = function (address) {
-        $scope.address = address;
-        var request = {
-            location: new google.maps.LatLng($scope.position.lat, $scope.position.lon),
-            radius: '5000',
-            query: address
-        };
-
-        service = new google.maps.places.PlacesService($scope.map.control.getGMap());
-
-        service.textSearch(request, function(results, status, pagination) {
-            if (status != google.maps.places.PlacesServiceStatus.OK) {
-                return;
-            }
-
-            if (results.length > 6) results = results.slice(0,5);
-            $scope.searchResults = results;
-            if (pagination.hasNextPage) {
-                
-            }
-        });
-    }
-
-    $scope.setPressedKey = function ($event) {
-        angular.forEach($scope.searchResults, function (v, i) { $scope.searchResults[i].focus = false; });
-        if ($event.keyCode == 40) {
-            $scope.focusId++;
-            $scope.searchResults[$scope.focusId].focus = true;
-            $event.preventDefault();
-        } else if ($event.keyCode == 38) {
-            $scope.focusId--;
-            $scope.searchResults[$scope.focusId].focus = true;
-            $event.preventDefault();
-        }
-    };
-
-    $scope.$watch('focusId', function (n) {
-        if (n > 5) $scope.focusId = 0;
-        if (n < 0) $scope.focusId = 5;
-    });
 
     $scope.init = function () {
 
