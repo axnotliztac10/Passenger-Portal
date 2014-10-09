@@ -10,7 +10,7 @@ angular.module('darkRide').controller('timeController',
 
     $scope.timeToPick = new Date();
     $scope.ismeridian = false;
-    $scope.format = 'dd-mm-yyyy';
+    $scope.format = 'dd-MM-yyyy';
     $scope.dt = new Date();
     $scope.showControls = false;
 
