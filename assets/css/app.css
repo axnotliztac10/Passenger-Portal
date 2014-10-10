@@ -7113,12 +7113,17 @@ button.close {
   content: "\f196";
 }
 /* Component LESS */
+html,
+body {
+  height: 100%;
+}
 html {
   background: url("/assets/imgs/bg.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed;
 }
 body {
   color: #b3b3b3;
@@ -7131,7 +7136,7 @@ h1 {
 header {
   background: #3d3d3d;
   width: 100%;
-  height: 80px;
+  height: 60px;
   position: relative;
   z-index: 2000;
 }
@@ -7144,9 +7149,14 @@ p.normalWeight {
 }
 header .title {
   margin-left: 20px;
-  margin-top: 8px;
   float: left;
   color: #fff;
+}
+header .title h1 {
+  margin-top: 18px;
+}
+header .title img {
+  width: 100px;
 }
 header .menu {
   float: right;
@@ -7170,8 +7180,9 @@ header .menu {
   color: #949494;
   display: inline-block;
   font-size: 14px;
-  margin-right: 60px;
+  margin-right: 30px;
   text-align: center;
+  margin-left: 30px;
 }
 #menu {
   width: 276px;
@@ -7230,7 +7241,7 @@ header .menu {
   border-radius: 2px;
   box-shadow: 2px 1px 6px -1px #2e2d2c;
   margin: 40px auto 40px auto;
-  min-height: 473px;
+  min-height: 400px;
   position: relative;
 }
 .wrap-bottom {
@@ -7242,18 +7253,23 @@ header .menu {
 .stepWrapper .addPickup {
   text-align: center;
   color: #07b5b5;
-  font-size: 26px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  font-size: 24px;
+  padding-top: 9px;
+  padding-bottom: 9px;
   background: none;
   border: none;
   width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.text-left-imp {
+  text-align: left !important;
 }
 .addPickup:focus {
-  color: #0FEEEE;
+  color: #29B8B8;
 }
 .addPickup.text-box {
-  font-size: 22px;
+  font-size: 16px;
 }
 .nextStep {
   bottom: 0px;
@@ -7270,14 +7286,14 @@ header .menu {
   margin-top: 5px;
 }
 .menu {
-  padding-top: 20px;
+  padding-top: 11px;
   padding-right: 40px;
 }
 .menu button {
   background: #9cd444;
   border: 0px;
   color: #3d3d3d;
-  width: 130px;
+  width: 128px;
   height: 40px;
 }
 .menu a {
@@ -7293,7 +7309,7 @@ header .menu {
   color: #fff;
 }
 .small {
-  width: 421px;
+  width: 390px;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 15px;
@@ -7301,8 +7317,11 @@ header .menu {
 .big {
   width: 813px;
 }
+.medium {
+  width: 640px;
+}
 .top-margin {
-  padding-top: 50px;
+  padding-top: 80px;
 }
 .bottom-margin {
   margin-bottom: 40px;
@@ -7393,149 +7412,10 @@ svg rect {
   width: 100%;
   height: 100%;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  html {
-    background: none;
-    background-color: #3d3d3d;
-  }
-  header,
-  #status-buttons {
-    display: none;
-  }
-  .wrapMobile {
-    margin-top: 0px;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  [ui-view] {
-    overflow-x: hidden;
-  }
-  [ui-view].ng-enter {
-    opacity: 1;
-    -webkit-transition: .3s ease all !important;
-    transition: .3s ease all !important;
-    -webkit-animation: none !important;
-    -moz-animation: none !important;
-    animation: none !important;
-  }
-  [ui-view].ng-leave {
-    opacity: 0;
-    -webkit-transition: .3s ease all !important;
-    transition: .3s ease all !important;
-    -webkit-animation: none !important;
-    -moz-animation: none !important;
-    animation: none !important;
-  }
-  .driverItem .photo {
-    width: 70px !important;
-    top: -161px !important;
-    left: 242px !important;
-  }
-  .driverItem .name {
-    position: absolute;
-    top: -166px;
-    right: 86px;
-    font-weight: 200;
-    font-size: 27px;
-    color: #9cd444 !important;
-  }
-  .driverItem .model {
-    position: absolute;
-    top: -129px;
-    right: 88px;
-    font-weight: 200;
-    color: #fff;
-    font-size: 22px;
-  }
-  .driverItem .stars {
-    position: absolute;
-    top: -127px;
-    left: 165px;
-  }
-  .driverItem .time {
-    position: absolute;
-    right: 19px;
-    top: -58px;
-    font-weight: 200;
-    color: #fff;
-  }
-  .driverItem .price {
-    position: absolute;
-    right: 20px;
-    top: -43px;
-    font-weight: 200;
-    color: #9cd444 !important;
-  }
-  .driverItem > div {
-    height: 0px !important;
-    margin-bottom: 0px !important;
-  }
-  .filters {
-    height: 0px;
-    overflow: hidden;
-    margin: 0px auto !important;
-  }
-  .filtersOn {
-    height: 410px !important;
-    -webkit-transition: .3s ease all !important;
-    transition: .3s ease all !important;
-  }
-  .filtersSwitch {
-    display: block !important;
-    height: 80px;
-    padding-top: 26px;
-    font-size: 24px;
-    color: #9cd444;
-  }
-  .modal {
-    overflow-x: hidden;
-  }
-  .modal-dialog {
-    top: -95px;
-    left: 5px;
-  }
-}
-@media only screen and (max-width: 992px) {
-  .big {
-    width: 100%;
-  }
-}
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
-  .modal-body {
-    padding-bottom: 0px;
-  }
-  .modal-footer {
-    padding-top: 0px;
-  }
-  .cancelBut,
-  .nextBut {
-    margin-top: 20px !important;
-    margin-bottom: 20px;
-  }
-  .nextStep {
-    position: relative;
-    margin-top: 40px;
-  }
-  .cancelBut,
-  .nextBut {
-    top: auto;
-    left: auto;
-  }
-  .tripInfo {
-    padding-bottom: 5px !important;
-  }
-  .tripInfo + .nextStep {
-    margin-top: 0px;
-  }
-}
 .driverItem > div {
-  height: 175px;
-  width: 319px;
+  height: 142px;
+  max-width: 320px;
+  width: 100%;
   background: #2e2d2c;
   margin: 0px auto;
   text-align: left;
@@ -7544,6 +7424,13 @@ svg rect {
   padding-top: 10px;
   position: relative;
   margin-bottom: 40px;
+}
+.driverItem > img {
+  max-width: 320px;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
 }
 .driverItem .photo img {
   width: 100%;
@@ -7562,7 +7449,7 @@ svg rect {
   color: #07b5b5;
 }
 .driverItem .stars {
-  margin-top: 40px;
+  margin-top: 20px;
   width: 180px;
   float: left;
 }
@@ -7590,7 +7477,7 @@ table {
   position: relative;
 }
 .angular-google-map-container {
-  height: 472px;
+  height: 378px;
 }
 #searchPlaces {
   position: absolute;
@@ -7652,7 +7539,6 @@ table {
   width: 100%;
 }
 .tripInfo {
-  border-top: 1px #fff solid;
   padding: 10px;
   padding-bottom: 55px;
 }
@@ -7703,7 +7589,11 @@ table {
 }
 .timepicket .glyphicon {
   color: #fff;
-  font-weight: normal;
+  font-weight: lighter;
+  margin-top: 6px;
+}
+.timepicket .form-control {
+  height: 44px;
 }
 .timepicketbox {
   background: #2e2d2c;
@@ -7749,7 +7639,8 @@ table {
   -moz-animation: slideOutLeft 0.5s both ease;
   animation: slideOutLeft 0.5s both ease;
 }
-.driverWrap.ng-enter {
+.driverWrap.ng-enter,
+.entrace-eff {
   -webkit-animation: enterFilter 0.5s both ease;
   -moz-animation: enterFilter 0.5s both ease;
   animation: enterFilter 0.5s both ease;
@@ -7917,4 +7808,156 @@ slider,
 slider div.bar .selection,
 [slider] div.bar .selection {
   background: #9cd444 !important;
+}
+/*******/
+@media only screen and (max-width: 992px) {
+  .big {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .driverItem .photo {
+    width: 85px;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  html {
+    background: none;
+    background-color: #3d3d3d;
+  }
+  header,
+  #status-buttons {
+    display: none;
+  }
+  .wrapMobile {
+    margin-top: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  [ui-view] {
+    overflow-x: hidden;
+  }
+  [ui-view].ng-enter {
+    opacity: 1;
+    -webkit-transition: .3s ease all !important;
+    transition: .3s ease all !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    animation: none !important;
+  }
+  [ui-view].ng-leave {
+    opacity: 0;
+    -webkit-transition: .3s ease all !important;
+    transition: .3s ease all !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    animation: none !important;
+  }
+  .driverItem .photo {
+    width: 70px !important;
+    top: -161px !important;
+    left: 242px !important;
+  }
+  .driverItem .name {
+    position: absolute;
+    top: -166px;
+    right: 86px;
+    font-weight: 200;
+    font-size: 27px;
+    color: #9cd444 !important;
+  }
+  .driverItem .model {
+    position: absolute;
+    top: -129px;
+    right: 88px;
+    font-weight: 200;
+    color: #fff;
+    font-size: 22px;
+  }
+  .driverItem .stars {
+    position: absolute;
+    top: -127px;
+    left: 165px;
+  }
+  .driverItem .time {
+    position: absolute;
+    right: 19px;
+    top: -58px;
+    font-weight: 200;
+    color: #fff;
+  }
+  .driverItem .price {
+    position: absolute;
+    right: 20px;
+    top: -43px;
+    font-weight: 200;
+    color: #9cd444 !important;
+  }
+  .driverItem > div {
+    height: 0px !important;
+    margin-bottom: 0px !important;
+  }
+  .filters {
+    height: 0px;
+    overflow: hidden;
+    margin: 0px auto !important;
+  }
+  .filtersOn {
+    height: 410px !important;
+    -webkit-transition: .3s ease all !important;
+    transition: .3s ease all !important;
+  }
+  .filtersSwitch {
+    display: block !important;
+    height: 80px;
+    padding-top: 26px;
+    font-size: 24px;
+    color: #9cd444;
+  }
+  .modal {
+    overflow-x: hidden;
+  }
+  .modal-dialog {
+    top: -95px;
+    left: 5px;
+  }
+  .angular-google-map-container {
+    height: 528px;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
+  .modal-body {
+    padding-bottom: 0px;
+  }
+  .modal-footer {
+    padding-top: 0px;
+  }
+  .cancelBut,
+  .nextBut {
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+  }
+  .nextStep {
+    position: relative;
+    margin-top: 40px;
+  }
+  .cancelBut,
+  .nextBut {
+    top: auto;
+    left: auto;
+  }
+  .tripInfo {
+    padding-bottom: 5px !important;
+  }
+  .tripInfo + .nextStep {
+    margin-top: 0px;
+  }
+  .angular-google-map-container {
+    height: 440px;
+  }
 }

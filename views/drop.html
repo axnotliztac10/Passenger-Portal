@@ -6,7 +6,8 @@
 	<p class="nextStep"><a ui-sref="driver">Skip</a></p>
 </div>
 <div class="stepWrapper big text-center wrapMobile wrap-bottom" ng-if="map.active">
-	<p class="addPickup topSpacer">{{address}}</p>
+	<input type="text" placeholder="" class="addPickup text-box text-left-imp" ng-model="address" ng-click="sa=true" ng-hide="sa">
+	<input type="text" placeholder="Search" class="addPickup text-box text-left-imp" ng-autocomplete="result" details="details" options="options" ng-show="sa" ng-focus="sa">
 	<google-map 
 		center="map.center" 
 		refresh="map.refresh"
@@ -17,7 +18,8 @@
 				models="markers" 
 				icon="'icon'" 
 				coords="'self'" 
-				options="'options'" 
+				options="'options'"
+				control="markersCtr"
 				events="markersEvents">
       		</markers>
 	</google-map>

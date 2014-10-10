@@ -7,19 +7,19 @@
 		</div>
 	</div>
 	<div class="col-md-6 col-xs-12 filters" ng-class="{'filtersOn': filtersOn}">
-		<div class="col-md-4 text-center">
+		<div class="col-md-4 col-xs-12 col-sm-6 text-center">
 			<p>Price Range</p>
 			<div class="minLabel">{{minPrice}} $</div>
 			<div class="maxLabel">{{maxPrice}} $</div>
 			<slider floor="10" ceiling="60" ng-model-low="minPrice" ng-model-high="maxPrice"></slider>
 		</div>
-		<div class="col-md-4 text-center">
+		<div class="col-md-4 col-xs-12 col-sm-6 text-center">
 			<p>Estimated Time of Arrive</p>
 			<div class="minLabel">{{minTime}} min</div>
 			<div class="maxLabel">{{maxTime}} min</div>
 			<slider floor="10" ceiling="60" ng-model-low="minTime" ng-model-high="maxTime"></slider>
 		</div>
-		<div class="col-md-4 text-center">
+		<div class="col-md-4 col-xs-12 col-sm-12 text-center">
 			<p>Rating</p>
 			<p>
 				<rating 
@@ -35,8 +35,8 @@
 	</div>
 	<div class="col-md-3"></div>
 </div>
-<div class="row text-center relativeWrap">
-	<div class="col-md-4 driverWrap" ng-click="open('sm', driver)" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">
+<div class="row text-center">
+	<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', driver)" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">
 		<div class="driverItem">
 			<img ng-src="{{driver.img}}" alt="">
 			<div>
@@ -57,10 +57,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-4 col-xs-12 col-sm-6">
 		
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-4 col-xs-12 col-sm-6">
 		
 	</div>
 </div>

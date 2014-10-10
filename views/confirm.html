@@ -1,32 +1,38 @@
-<div class="stepWrapper small top-margin bottom-margin text-center wrapMobile" style="width: 322px;padding: 0px;" ng-show="!map.active">
-	<div class="driverItem">
-		<img ng-src="{{driver.img}}" alt="">
-		<div style="margin-bottom: 0px;">
-			<span class="name">{{driver.name}}</span><br>
-			<span class="model">{{driver.model}}</span>
-			<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
-			<div class="stars">
-				<rating 
-					ng-model="driver.rate" 
-					max="max" 
-					readonly="isReadonly = true" 
-					state-on="'star'"
-					state-off="'star-gray'"
-				></rating>
+<div class="stepWrapper medium top-margin bottom-margin text-center wrapMobile" style="padding: 0px;min-height:310px" ng-show="!map.active">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="driverItem">
+				<img ng-src="{{driver.img}}" alt="">
+				<div style="margin-bottom: 0px;">
+					<span class="name">{{driver.name}}</span><br>
+					<span class="model">{{driver.model}}</span>
+					<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
+					<div class="stars">
+						<rating 
+							ng-model="driver.rate" 
+							max="max" 
+							readonly="isReadonly = true" 
+							state-on="'star'"
+							state-off="'star-gray'"
+						></rating>
+					</div>
+					<span class="time">{{driver.time}} min</span><br>
+					<span class="price">$ {{driver.price}}</span>
+				</div>
 			</div>
-			<span class="time">{{driver.time}} min</span><br>
-			<span class="price">$ {{driver.price}}</span>
+		</div>
+		<div class="col-md-6">
+			<div class="tripInfo text-center">
+				<p>From</p>
+				<p>{{user.departureData.address}}</p>
+				<p>To</p>
+				<p>{{user.returnData.address}}</p>
+				<p>Time</p>
+				<p>{{user.timeData.time}}</p>
+			</div><br>
+			<p class="nextStep"><a ng-click="open()">Confirm Reservation</a></p>	
 		</div>
 	</div>
-	<div class="tripInfo text-left">
-		<p>From</p>
-		<p>{{user.departureData.address}}</p>
-		<p>To</p>
-		<p>{{user.returnData.address}}</p>
-		<p>Time</p>
-		<p>{{user.timeData.time}}</p>
-	</div>
-	<p class="nextStep"><a ng-click="open()">Confirm Reservation</a></p>
 </div>
 <div class="stepWrapper big wrapMobile followMap" ng-if="map.active">
 	<div class="info">

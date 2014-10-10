@@ -1,17 +1,17 @@
 
 angular.module('darkRide').controller('homeController', 
     [
-    '$rootScope',
-    '$scope',
-    '$window',
-    '$state', 
-    'HOST', 
+        '$rootScope',
+        '$scope',
+        '$window',
+        '$state', 
+        'HOST', 
     function(
-    $rootScope,
-    $scope,
-    $window,
-    $state, 
-    HOST
+        $rootScope,
+        $scope,
+        $window,
+        $state, 
+        HOST
     ) {
 
     $scope.geoCoder = new $window.google.maps.Geocoder();
@@ -20,6 +20,7 @@ angular.module('darkRide').controller('homeController',
     $scope.options = null;
     $scope.ajaxLoader = false;
     $scope.searchResults = [];
+    $scope.markersCtr = {};
 
     $scope.map = {
         control: {},
@@ -31,9 +32,15 @@ angular.module('darkRide').controller('homeController',
         refresh: true,
         zoom: 14,
         events: {
-            idle: function (res, res1) {
+            idle: function (res) {
                 $scope.centerMap({lat: res.center.k, lon: res.center.B}, false);
                 $window.google.maps.event.clearListeners(res, 'idle');
+            },
+            dragstart: function (res) {
+                $scope.setIcon('dragging');
+            },
+            dragend: function (res) {
+                $scope.setIcon('drag');
             }
         }
     };
@@ -45,7 +52,7 @@ angular.module('darkRide').controller('homeController',
         },
         dragend: function (gMarker) {
             var pos = gMarker.getPosition();
-            $scope.getAddress(pos.k, pos.B);
+            $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon('pick_me')});
         }
     };
 
@@ -62,7 +69,7 @@ angular.module('darkRide').controller('homeController',
         $scope.markers = [];
 
         $scope.markers.push({
-            icon: HOST + 'assets/imgs/pick_me.png',
+            icon: HOST + (dirty ? 'assets/imgs/pick_me.png' : 'assets/imgs/drag.png'),
             options: { draggable: true },
             latitude: posit.lat,
             longitude: posit.lon,
@@ -78,13 +85,13 @@ angular.module('darkRide').controller('homeController',
     };
 
     $scope.setAndGo = function (pos) {
-        $rootScope.user.departureData.position.lat = pos.k ? pos.k : pos.lat;
-        $rootScope.user.departureData.position.lon = pos.B ? pos.B : pos.lon;
-        $rootScope.user.departureData.address = $scope.address;
+       $rootScope.user.departureData.position.lat = pos.k ? pos.k : pos.lat;
+       $rootScope.user.departureData.position.lon = pos.B ? pos.B : pos.lon;
+       $rootScope.user.departureData.address = $scope.address;
         $state.go('time');
     };
 
-    $scope.getAddress = function (lat, lon) {
+    $scope.getAddress = function (lat, lon, call) {
 
         $scope.position = {
             lat: lat,
@@ -97,6 +104,7 @@ angular.module('darkRide').controller('homeController',
                 $scope.$apply(function () {
                     $scope.ajaxLoader = true;
                     $scope.address = results[0].formatted_address;
+                    if (angular.isDefined(call)) call();
                 });
             }
         });
@@ -120,24 +128,27 @@ angular.module('darkRide').controller('homeController',
 
           $scope.map.active = true;
           $scope.$apply();
-          alert("Error: " + errors[error.code]);
+          //alert("Error: " + errors[error.code]);
         }
 
         if ($window.navigator.geolocation) {
-            var timeoutVal = 60 * 1000;
             $window.navigator.geolocation.getCurrentPosition(function (res) {
                 $scope.getAddress(res.coords.latitude, res.coords.longitude);
             }, displayError ,{
                 enableHighAccuracy: false,
-                timeout: timeoutVal,
+                timeout: 60000,
                 maximumAge: 0
             });
         } else {
             $scope.map.active = true;
             $scope.$apply();
-            alert("Geolocation is not supported by this browser");
+            //alert("Geolocation is not supported by this browser");
         }
     };
+
+    $scope.setIcon = function (type) {
+        $scope.markersCtr.getGMarkers()[0].setIcon(HOST + 'assets/imgs/' + type + '.png');
+    }
 
     $scope.init = function () {
 

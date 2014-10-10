@@ -1,20 +1,30 @@
 angular.module('darkRide').controller('confirmController',
     [
-    '$rootScope',
-    '$scope',
-    '$window',
-    'HOST',
-    '$state',
-    '$modal',
+        '$rootScope',
+        '$scope',
+        '$window',
+        'HOST',
+        '$state',
+        '$modal',
     function(
-    $rootScope,
-    $scope,
-    $window,
-    HOST,
-    $state,
-    $modal
+        $rootScope,
+        $scope,
+        $window,
+        HOST,
+        $state,
+        $modal
     ) {
 
+    if (!angular.isDefined($rootScope.user)) {
+        $state.go("home");
+    } else if (!angular.isDefined($rootScope.user.timeData.time)) {
+        $state.go("time");
+    } else if (!angular.isDefined($rootScope.user.returnData.position.lat)) {
+        $state.go("drop");
+    } else if (!angular.isDefined($rootScope.user.driver.name)) {
+        $state.go("driver");
+    }
+        
     $scope.driver = $rootScope.user.driver;
     $scope.user = $rootScope.user;
     $scope.markers = [];

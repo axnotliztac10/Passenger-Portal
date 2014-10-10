@@ -33,15 +33,7 @@ angular.module('darkRide')
     $stateProvider.state('confirm', {
         url: '/confirm',
         controller: 'confirmController',
-        templateUrl: './views/confirm.html',
-        resolve: {
-          validateData: ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
-            if (!$rootScope.user || !$rootScope.user.departureData.position.lat || !$rootScope.user.returnData.position.lat) {
-              $location.url("/home");
-              $scope.$apply();
-            }
-          }]
-        }
+        templateUrl: './views/confirm.html'
     });
 
     $urlRouterProvider.otherwise('/home');
