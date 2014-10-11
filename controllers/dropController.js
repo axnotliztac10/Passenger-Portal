@@ -49,7 +49,22 @@ angular.module('darkRide').controller('dropController',
                 $scope.setIcon('dragging');
             },
             dragend: function () {
-                $scope.setIcon('drag');
+                var pos = $scope.map.control.getGMap().getCenter();
+                $scope.markersCtr.getGMarkers()[0].setVisible(true);
+                $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon('pick_me')});
+                $scope.ajaxLoader = false;
+            },
+            drag: function (res) {
+                if ($(window).width() <= 320) {
+                    $scope.markersCtr.getGMarkers()[0].setVisible(false);
+                } else {
+                    $scope.markersCtr.getGMarkers()[0].setPosition($scope.map.control.getGMap().getCenter());
+                }
+            },
+            center_changed: function (res) {
+                if (angular.isDefined($scope.markersCtr.getGMarkers()[0])) {
+                    $scope.markersCtr.getGMarkers()[0].setPosition($scope.map.control.getGMap().getCenter());
+                }
             }
         }
     };
@@ -62,10 +77,6 @@ angular.module('darkRide').controller('dropController',
             $rootScope.user.returnData.position.lon = pos.B;
             $rootScope.user.returnData.address = $scope.address;
             $state.go('driver');
-        },
-        dragend: function (gMarker) {
-            var pos = gMarker.getPosition();
-            $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon('pick_me')});
         }
     };
 
@@ -77,7 +88,7 @@ angular.module('darkRide').controller('dropController',
 
         $scope.markers.push({
             icon: HOST + (dirty ? 'assets/imgs/pick_me.png' : 'assets/imgs/drag.png'),
-            options: { draggable: true },
+            options: { draggable: false },
             latitude: posit.lat,
             longitude: posit.lon,
             title: "m0",

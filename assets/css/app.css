@@ -7139,6 +7139,7 @@ header {
   height: 60px;
   position: relative;
   z-index: 2000;
+  padding: 15px 17px 0px 22px;
 }
 p,
 span {
@@ -7148,18 +7149,18 @@ p.normalWeight {
   font-weight: 200;
 }
 header .title {
-  margin-left: 20px;
   float: left;
   color: #fff;
-}
-header .title h1 {
-  margin-top: 18px;
+  padding-top: 3px;
 }
 header .title img {
   width: 100px;
 }
 header .menu {
   float: right;
+}
+.menu .glyphicon {
+  top: 4px;
 }
 *:focus {
   outline: none;
@@ -7231,6 +7232,9 @@ header .menu {
   width: 34px;
   border-radius: 50%;
 }
+#status-buttons .glyphicon-ok {
+  padding-top: 7px;
+}
 #status-buttons a.active span {
   background: #9cd444;
   border-color: #666666;
@@ -7285,19 +7289,18 @@ header .menu {
 .topSpacer {
   margin-top: 5px;
 }
-.menu {
-  padding-top: 11px;
-  padding-right: 40px;
-}
-.menu button {
-  background: #9cd444;
+.menu .button {
   border: 0px;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 40px;
+}
+.menu .first {
+  background: #9cd444;
+  border-radius: 2px;
   color: #3d3d3d;
-  width: 128px;
-  height: 40px;
 }
 .menu a {
-  margin: auto 35px 35px;
   color: #fff;
 }
 .menuOpen {
@@ -7335,6 +7338,13 @@ header .menu {
   margin: 0 auto 1em;
   display: inline-block;
   vertical-align: top;
+}
+.loaderInput {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 3px;
+  top: 4px;
 }
 .driverModal .modal-content,
 .driverModal .modal-dialog {

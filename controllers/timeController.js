@@ -1,12 +1,19 @@
 
 angular.module('darkRide').controller('timeController', 
     [
-    '$scope',
-    '$rootScope',
+        '$scope',
+        '$rootScope',
+        '$state',
     function(
-    $scope,
-    $rootScope
+        $scope,
+        $rootScope,
+        $state
     ) {
+
+    if (!angular.isDefined($rootScope.user)) {
+        $state.go("home");
+        return;
+    }
 
     $scope.timeToPick = new Date();
     $scope.ismeridian = false;
