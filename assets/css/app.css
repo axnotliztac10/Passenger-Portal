@@ -7311,6 +7311,9 @@ header .menu {
 .menuOpen:hover {
   color: #fff;
 }
+.menuOpen[ng-click="filtersOn=!filtersOn"] {
+  font-size: 28px;
+}
 .small {
   width: 390px;
   padding-left: 20px;

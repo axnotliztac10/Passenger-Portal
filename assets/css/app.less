@@ -48,7 +48,7 @@ header {
 	height: 60px;
 	position: relative;
 	z-index: 2000;
-	padding: 15px 17px 0px 22px;
+	padding: 11px 17px 0px 22px;
 }
 
 p ,span {
@@ -62,7 +62,7 @@ p.normalWeight {
 header .title {
 	float: left;
 	color: #fff;
-	padding-top: 3px;
+	padding-top: 7px;
 }
 
 header .title img {
@@ -245,13 +245,17 @@ header .menu {
 }
 
 .menuOpen {
-	font-size: 20px;
+	font-size: 24px;
 	color: @blueGreen;
 	cursor: pointer;
 }
 
 .menuOpen:hover {
 	color: #fff;
+}
+
+.menuOpen[ng-click="filtersOn=!filtersOn"] {
+	font-size: 28px;
 }
 
 .small {
