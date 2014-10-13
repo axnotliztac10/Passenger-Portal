@@ -55,16 +55,11 @@ angular.module('darkRide').controller('dropController',
             },
             dragend: function () {
                 var pos = $scope.map.control.getGMap().getCenter();
-                $scope.markersCtr.getGMarkers()[0].setVisible(true);
                 $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon('pick_me')});
                 $scope.ajaxLoader = false;
             },
             drag: function (res) {
-                if ($(window).width() <= 320) {
-                    $scope.markersCtr.getGMarkers()[0].setVisible(false);
-                } else {
-                    $scope.markersCtr.getGMarkers()[0].setPosition($scope.map.control.getGMap().getCenter());
-                }
+                $scope.markersCtr.getGMarkers()[0].setPosition($scope.map.control.getGMap().getCenter());
             },
             center_changed: function (res) {
                 if (angular.isDefined($scope.markersCtr.getGMarkers()[0])) {
