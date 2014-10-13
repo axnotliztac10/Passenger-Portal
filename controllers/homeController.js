@@ -162,8 +162,8 @@ angular.module('darkRide').controller('homeController',
         if (typeof $rootScope.user == "undefined") {
             $rootScope.user = {
                 name: "",
-                departureData: { position: {}, address: {} },
-                returnData: { position: {}, address: {} },
+                departureData: { position: {}, address: null },
+                returnData: { position: {}, address: "Not selected" },
                 timeData: { time: null, date: null },
                 driver: {}
             }
