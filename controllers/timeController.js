@@ -21,7 +21,12 @@ angular.module('darkRide').controller('timeController',
     $scope.dt = "Today";
     $scope.showControls = false;
 
-    $scope.toggleMin = function() {
+    $scope.setAndGo = function () {
+        $scope.updateDate();
+        $state.go("drop");
+    };
+
+    $scope.toggleMin = function () {
         $scope.minDate = new Date();
     };
 
