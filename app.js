@@ -36,6 +36,12 @@ angular.module('darkRide')
         templateUrl: './views/confirm.html'
     });
 
+    $stateProvider.state('history', {
+        url: '/history',
+        controller: 'historyController',
+        templateUrl: './views/history.html'
+    });
+
     $urlRouterProvider.otherwise('/home');
 
 });

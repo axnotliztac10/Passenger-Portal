@@ -7139,7 +7139,7 @@ header {
   height: 60px;
   position: relative;
   z-index: 2000;
-  padding: 15px 17px 0px 22px;
+  padding: 11px 17px 0px 22px;
 }
 p,
 span {
@@ -7151,7 +7151,7 @@ p.normalWeight {
 header .title {
   float: left;
   color: #fff;
-  padding-top: 3px;
+  padding-top: 7px;
 }
 header .title img {
   width: 100px;
@@ -7217,6 +7217,9 @@ header .menu {
 }
 #status-buttons a.active {
   color: #9cd444;
+}
+#menu a.active {
+  color: #07b5b5;
 }
 #status-buttons a:hover {
   text-decoration: none;
@@ -7302,9 +7305,10 @@ header .menu {
 }
 .menu a {
   color: #fff;
+  text-decoration: none;
 }
 .menuOpen {
-  font-size: 20px;
+  font-size: 24px;
   color: #07b5b5;
   cursor: pointer;
 }
@@ -7351,9 +7355,10 @@ header .menu {
 }
 .driverModal .modal-content,
 .driverModal .modal-dialog {
-  width: 290px;
+  width: 360px;
 }
-.driverModal .modal-content {
+.driverModal .modal-content,
+.input-group-addon {
   background: #2e2d2c;
 }
 .driverModal .modal-dialog {
@@ -7374,7 +7379,7 @@ header .menu {
   width: auto;
 }
 .nextBut {
-  left: 180px;
+  left: 235px;
   top: -2px;
   width: auto;
 }
@@ -7489,6 +7494,13 @@ table {
 .relativeWrap {
   position: relative;
 }
+.row.historySearch .glyphicon,
+.row.historySearch a {
+  color: #fff;
+}
+.row.historySearch .glyphicon-chevron-dow {
+  font-size: 10px;
+}
 .angular-google-map-container {
   height: 378px;
 }
@@ -7545,7 +7557,7 @@ table {
   overflow: hidden;
   width: 95px;
   top: -20px;
-  left: 100px;
+  left: 137px;
   padding: 0px;
 }
 .modalDriverPhoto img {

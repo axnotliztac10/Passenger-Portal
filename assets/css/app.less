@@ -142,6 +142,10 @@ header .menu {
 	color: @greenYellow;
 }
 
+#menu a.active {
+	color: @blueGreen;
+}
+
 #status-buttons a:hover { 
 	text-decoration:none; 
 }
@@ -302,10 +306,10 @@ header .menu {
 }
 
 .driverModal .modal-content, .driverModal .modal-dialog{
-	width: 290px;
+	width: 360px;
 }
 
-.driverModal .modal-content {
+.driverModal .modal-content, .input-group-addon {
 	background: @blackLight;
 }
 
@@ -331,7 +335,7 @@ header .menu {
 }
 
 .nextBut {
-	left: 180px;
+	left: 235px;
 	top: -2px;
 	width: auto;
 }
@@ -467,6 +471,14 @@ table {
 	position: relative;
 }
 
+.row.historySearch .glyphicon, .row.historySearch a {
+	color: #fff;
+}
+
+.row.historySearch .glyphicon-chevron-dow {
+	font-size: 10px;
+}
+
 // MAPS
 
 .angular-google-map-container { height: 378px; }
@@ -532,7 +544,7 @@ table {
 	overflow: hidden;
 	width: 95px;
 	top: -20px;
-	left: 100px;
+	left: 137px;
 	padding: 0px;
 }
 

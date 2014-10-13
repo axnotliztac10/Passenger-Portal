@@ -18,7 +18,7 @@ angular.module('darkRide').controller('timeController',
     $scope.timeToPick = new Date();
     $scope.ismeridian = false;
     $scope.format = 'dd-MM-yyyy';
-    $scope.dt = new Date();
+    $scope.dt = "Today";
     $scope.showControls = false;
 
     $scope.toggleMin = function() {
@@ -30,6 +30,14 @@ angular.module('darkRide').controller('timeController',
         $event.stopPropagation();
 
         $scope.opened = true;
+    };
+
+    $scope.updateDate = function () {
+        $scope.dt = new Date();
+    };
+
+    $scope.addDays = function (p) {
+        $scope.dt = new Date($scope.dt.setDate($scope.dt.getDate() + (p)));
     };
 
     $scope.changed = function () {

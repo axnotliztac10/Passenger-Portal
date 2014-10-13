@@ -10,20 +10,14 @@
 		></timepicker>
 	</p>
 	<div class="input-group date-group" ng-show="showControls">
-  <table class="timepicket">
+  <table class="timepicket" ng-mouseover="updateDate()">
   <tr>
     <td>
-      <a ng-mousedown="decrementMinutes()" style="border-top: 1px solid #fff;border-left: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 4px 0px 0px 4px;height: 44px;" class="btn btn-link"><span class="glyphicon glyphicon-minus"></span></a>
+      <a ng-mousedown="addDays(-1)" style="border-top: 1px solid #fff;border-left: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 4px 0px 0px 4px;height: 44px;" class="btn btn-link"><span class="glyphicon glyphicon-minus"></span></a>
     </td>
     <td>
       <input
         style="width: 148px !important;text-align: center;font-size: 13px;border-radius:0px;"
-        type="text" 
-        class="form-control timepicketbox"
-        value="Today" ng-click="dateActive = true" ng-show="!dateActive"/>
-      <input
-        style="width: 148px !important;text-align: center;font-size: 13px;border-radius:0px;"
-        ng-show="dateActive"
       	type="text" 
         show-weeks="false"
       	class="form-control timepicketbox"
@@ -36,10 +30,10 @@
       	ng-required="true" 
       	close-text="Close"
         show-button-bar="false"
-        ng-mouseover="open($event)"/>
+        ng-click="open($event)"/>
       </td>
       <td>
-         <a ng-click="incrementMinutes()" style="border-top: 1px solid #fff;border-right: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 0px 4px 4px 0px;height: 44px;" class="btn btn-link"><span class="glyphicon glyphicon-plus"></span></a>
+         <a ng-click="addDays(1)" style="border-top: 1px solid #fff;border-right: 1px solid #fff;border-bottom: 1px solid #fff;border-radius: 0px 4px 4px 0px;height: 44px;" class="btn btn-link"><span class="glyphicon glyphicon-plus"></span></a>
       </td>
     <tr>
     </table>
@@ -98,7 +92,7 @@
   <table role="grid" aria-labelledby="{{uniqueId}}-title" aria-activedescendant="{{activeDateId}}">
   <thead>
     <tr>
-      <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-left"></i></button></th>
+      <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="moveDat(-1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-left"></i></button></th>
       <th colspan="{{5 + showWeeks}}"><button id="{{uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" tabindex="-1" style="width:100%;"><strong>{{title}}</strong></button></th>
       <th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-right"></i></button></th>
     </tr>
