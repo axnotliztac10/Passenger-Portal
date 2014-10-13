@@ -27,6 +27,10 @@ angular.module('darkRide').controller('confirmController',
         
     $scope.driver = $rootScope.user.driver;
     $scope.user = $rootScope.user;
+    var date = new Date($rootScope.user.timeData.date);
+    var time = new Date($rootScope.user.timeData.time);
+    $scope.date = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
+    $scope.time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     $scope.markers = [];
 
     $scope.map = {
