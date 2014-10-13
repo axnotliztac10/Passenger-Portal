@@ -39,7 +39,10 @@
 		<div class="imgWrap"><img ng-src="{{driver.photo}}" alt=""></div>
 		<p>{{driver.name}} will be there in</p>
 		<p class="time">{{driver.time}} minutes</p>
-		<p class="nextStep"><a ng-click="map.active=false">Cancel Reservation</a></p>
+		<p class="nextStep customStep">
+			<a class="onlyOnMob" href="javascript: void(0)" onclick="$('.map, .info').fadeToggle()">MAP</a>
+			<a class="onMobWhiet" ng-click="map.active=false">Cancel Reservation</a>
+		</p>
 	</div>
 	<div class="map">
 		<google-map 

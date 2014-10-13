@@ -611,6 +611,14 @@ table {
 	width: 100%;
 }
 
+.followMap .angular-google-map-container {
+	height: 401px;
+}
+
+.customStep {
+	bottom: 69px;
+}
+
 .timepicket .glyphicon {
 	color: #fff;
 	font-weight: lighter;
@@ -627,6 +635,10 @@ table {
 	color: @blueGreen;
 	padding-left: 0px;
 	padding-right: 0px;
+}
+
+.onlyOnMob {
+	display:none;
 }
 
 /* BS UI Customization
@@ -976,7 +988,43 @@ and (max-device-width : 568px) {
 		left: 5px;
 	}
 
+	.driverModal .modal-content, .driverModal .modal-dialog{
+		width: 292px;
+	}
+
+	.modalDriverPhoto {
+		left: 103px;
+	}
+
+	.followMap .info {
+		width: 100%;
+	}
+
+	.map {
+		display: none;
+	}
+
+	.onlyOnMob {
+		display: block;		
+	}
+
+	.nextBut {
+		left: 166px;
+	}
+
+	.customStep {
+		bottom: 0px;
+	}
+
+	.onMobWhiet {
+		color: #fff !important;
+	}
+
 	.angular-google-map-container { height: 528px; }
+
+	.followMap .angular-google-map-container {
+		height: 568px;
+	}
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3)
@@ -1005,6 +1053,26 @@ and (max-device-width : 568px) {
 		left: auto;
     }
 
+    .nextBut {
+		left: 166px;
+	}
+
+	.modalDriverPhoto {
+		left: 103px;
+	}
+
+	.followMap .info {
+		width: 100%;
+	}
+
+	.map {
+		display: none;
+	}
+
+	.onlyOnMob {
+		display: block;		
+	}
+
     .tripInfo {
     	padding-bottom: 5px !important;
     }
@@ -1013,5 +1081,21 @@ and (max-device-width : 568px) {
     	margin-top: 0px; 
     }
 
+    .driverModal .modal-content, .driverModal .modal-dialog{
+		width: 292px;
+	}
+
+	.customStep {
+		bottom: 0px;
+	}
+
+	.onMobWhiet {
+		color: #fff !important;
+	}
+
     .angular-google-map-container { height: 440px; }
+
+    .followMap .angular-google-map-container {
+		height: 568px;
+	}
 }

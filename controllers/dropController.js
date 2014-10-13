@@ -13,6 +13,11 @@ angular.module('darkRide').controller('dropController',
 	HOST,
 	$state
 	) {
+
+    if (!angular.isDefined($rootScope.user)) {
+        $state.go("home");
+        return;
+    }
     
     $scope.geoCoder = new $window.google.maps.Geocoder();
     $scope.address = "GO TO MAP";
