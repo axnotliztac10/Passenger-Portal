@@ -49,7 +49,8 @@ angular.module('darkRide')
 angular.module("darkRide").run(function ($rootScope) {
 
     var menuListener = function () {
-        $('.menuOpen').click(function() {
+
+        $('.menuOpen').off("click").on("click", function() {
             $menu = $('#menu');
             $menu.fadeToggle('fast', function () {
                 $menu.toggleClass('show-nav');
