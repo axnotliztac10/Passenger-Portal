@@ -6,7 +6,7 @@ angular.module('darkRide')
 
     FacebookProvider.init('279962268844155');
     GooglePlusProvider.init({
-        clientId: '379648358992-n7i7he2jsopkqldmiuktafkmd0llfdro.apps.googleusercontent.com',
+        clientId: '6buDZz7dhdRLWwdVhZKslTKn',
         apiKey: 'AIzaSyBZ7fUKs7wkyO83FrbCBaWx8lQHBoT3big'
      });
     datepickerConfig.showWeeks = false;
