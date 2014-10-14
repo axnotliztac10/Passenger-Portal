@@ -1,10 +1,14 @@
-angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'ngAutocomplete', 'facebook']);
+angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'ngAutocomplete', 'facebook', 'googleplus']);
 
 angular.module('darkRide')
     .constant("HOST", "http://localhost:9001/")
-    .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider, GooglePlusProvider) {
 
     FacebookProvider.init('279962268844155');
+    GooglePlusProvider.init({
+        clientId: 'AIzaSyCZlO96pgQ31KmpPS7cBTPjA17YIs8YNkY',
+        apiKey: '379648358992-n7i7he2jsopkqldmiuktafkmd0llfdro.apps.googleusercontent.com'
+     });
     datepickerConfig.showWeeks = false;
 
     $stateProvider.state('home', {
@@ -66,7 +70,7 @@ angular.module("darkRide").run(function ($rootScope) {
     menuListener();
 });
 
-angular.module('darkRide').controller('authController', function($rootScope, $scope, Facebook, $modal) {
+angular.module('darkRide').controller('authController', function($rootScope, $scope, Facebook, $modal, GooglePlus) {
     
     $scope.$on('signIn', function () {
         $scope.open();
@@ -109,8 +113,15 @@ angular.module('darkRide').controller('authController', function($rootScope, $sc
     };
 
     $scope.getGLog = function () {
-        
+        GooglePlus.login().then(function (authResult) {
+            GooglePlus.getUser().then(function (user) {
+                $rootScope.$broadcast("signResponse", {res: user});
+            });
+        }, function (err) {
+            console.log(err);
+        });
     };
+
 
     $scope.getFbStatus = function () {
         Facebook.getLoginStatus(function(response) {

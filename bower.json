@@ -19,6 +19,7 @@
     "angular-google-maps": "~1.2.2",
     "angular-slider-touch": "~0.2.4",
     "underscore": "~1.7.0",
-    "angular-facebook": "~0.2.3"
+    "angular-facebook": "~0.2.3",
+    "angular-google-plus": "~0.1.2"
   }
 }
