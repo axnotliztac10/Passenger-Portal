@@ -1,13 +1,13 @@
 angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'ngAutocomplete', 'facebook', 'googleplus']);
 
 angular.module('darkRide')
-    .constant("HOST", "http://localhost:9001/")
+    .constant("HOST", "http://54.68.30.59:9001/")
     .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider, GooglePlusProvider) {
 
     FacebookProvider.init('279962268844155');
     GooglePlusProvider.init({
-        clientId: 'AIzaSyCZlO96pgQ31KmpPS7cBTPjA17YIs8YNkY',
-        apiKey: '379648358992-n7i7he2jsopkqldmiuktafkmd0llfdro.apps.googleusercontent.com'
+        clientId: '379648358992-n7i7he2jsopkqldmiuktafkmd0llfdro.apps.googleusercontent.com',
+        apiKey: 'AIzaSyBZ7fUKs7wkyO83FrbCBaWx8lQHBoT3big'
      });
     datepickerConfig.showWeeks = false;
 
