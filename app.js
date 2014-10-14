@@ -66,7 +66,7 @@ angular.module("darkRide").run(function ($rootScope) {
     menuListener();
 });
 
-angular.module('darkRide').controller('authController', function($scope, Facebook, $modal) {
+angular.module('darkRide').controller('authController', function($rootScope, $scope, Facebook, $modal) {
     
     $scope.$on('signIn', function () {
         $scope.open();
@@ -98,7 +98,9 @@ angular.module('darkRide').controller('authController', function($scope, Faceboo
 
     $scope.getFbLog = function() {
         Facebook.login(function(response) {
-            console.log(response);
+            if(response.status === 'connected') {
+                $scope.fbMe();
+            }
         });
     };
 
@@ -114,7 +116,7 @@ angular.module('darkRide').controller('authController', function($scope, Faceboo
 
     $scope.fbMe = function() {
         Facebook.api('/me', function(response) {
-          $scope.user = response;
+          $rootScope.$broadcast("signResponse", {res: response});
         });
     };
 
@@ -137,14 +139,21 @@ angular.module('darkRide').controller('modalConfirm', function ($rootScope, $sco
   $scope.fb = function () {
     $rootScope.$broadcast("fbSign");
   };
+
   $scope.g = function () {
 
   };
-  $scope.ok = function () {
-    $modalInstance.close();
+
+  $scope.ok = function (user) {
+    $modalInstance.close(user);
   };
+
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+
+  $scope.$on("signResponse", function (event, args) {
+    $scope.ok(args.res);
+  })
 
 });
