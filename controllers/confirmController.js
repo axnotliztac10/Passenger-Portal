@@ -23,7 +23,7 @@ angular.module('darkRide').controller('confirmController',
     //    $state.go("drop");
     } else if (!angular.isDefined($rootScope.user.driver.name)) {
         $state.go("driver");
-    }console.log(!$scope.user.returnData.address);
+    }
         
     $scope.driver = $rootScope.user.driver;
     $scope.user = $rootScope.user;
@@ -118,23 +118,7 @@ angular.module('darkRide').controller('confirmController',
     };
 
     $scope.open = function () {
-        var modalInstance = $modal.open({
-            templateUrl: 'modalConfirm.html',
-            controller: 'modalConfirm',
-            size: 'sm',
-            resolve: {
-                info: function () {
-                    return {};
-                }
-            },
-            windowClass: "driverModal"
-        });
-
-        modalInstance.result.then(function () {
-            $scope.map.active = true;
-            }, function () {
-            return;
-        });
+        $rootScope.$broadcast("signIn");
     };
 
 }]);

@@ -1,9 +1,10 @@
-angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'ngAutocomplete']);
+angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'ngAutocomplete', 'facebook']);
 
 angular.module('darkRide')
     .constant("HOST", "http://localhost:9001/")
-    .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig) {
+    .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider) {
 
+    FacebookProvider.init('279962268844155');
     datepickerConfig.showWeeks = false;
 
     $stateProvider.state('home', {
@@ -65,6 +66,60 @@ angular.module("darkRide").run(function ($rootScope) {
     menuListener();
 });
 
+angular.module('darkRide').controller('authController', function($scope, Facebook, $modal) {
+    
+    $scope.$on('signIn', function () {
+        $scope.open();
+    });
+
+    $scope.$on('fbSign', function () {
+        $scope.getFbLog();
+    });
+
+    $scope.open = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'modalConfirm.html',
+            controller: 'modalConfirm',
+            size: 'sm',
+            resolve: {
+                info: function () {
+                    return {};
+                }
+            },
+            windowClass: "driverModal"
+        });
+
+        modalInstance.result.then(function () {
+            
+        }, function () {
+            return;
+        });
+    };
+
+    $scope.getFbLog = function() {
+        Facebook.login(function(response) {
+            console.log(response);
+        });
+    };
+
+    $scope.getFbStatus = function() {
+        Facebook.getLoginStatus(function(response) {
+            if(response.status === 'connected') {
+                $scope.loggedIn = true;
+            } else {
+                $scope.loggedIn = false;
+            }
+        });
+    };
+
+    $scope.fbMe = function() {
+        Facebook.api('/me', function(response) {
+          $scope.user = response;
+        });
+    };
+
+});
+
 angular.module('darkRide').controller('modalDriver', function ($scope, $modalInstance, driver) {
 
   $scope.driver = driver;
@@ -77,8 +132,14 @@ angular.module('darkRide').controller('modalDriver', function ($scope, $modalIns
 
 });
 
-angular.module('darkRide').controller('modalConfirm', function ($scope, $modalInstance, info) {
+angular.module('darkRide').controller('modalConfirm', function ($rootScope, $scope, $modalInstance, info) {
 
+  $scope.fb = function () {
+    $rootScope.$broadcast("fbSign");
+  };
+  $scope.g = function () {
+
+  };
   $scope.ok = function () {
     $modalInstance.close();
   };
