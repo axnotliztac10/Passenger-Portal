@@ -153,7 +153,7 @@ angular.module('darkRide').controller('modalConfirm', function ($rootScope, $sco
   };
 
   $scope.$on("signResponse", function (event, args) {
-    $scope.ok(args.res);
-  })
+    $scope.ok();
+  });
 
 });

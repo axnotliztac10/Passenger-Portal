@@ -121,4 +121,9 @@ angular.module('darkRide').controller('confirmController',
         $rootScope.$broadcast("signIn");
     };
 
+    $scope.$on("signResponse", function (event, args) {
+        $rootScope.user.auth = args.res;
+        $scope.map.active = false;
+    });
+
 }]);
