@@ -76,6 +76,10 @@ angular.module('darkRide').controller('authController', function($rootScope, $sc
         $scope.getFbLog();
     });
 
+    $scope.$on('gSign', function () {
+        $scope.getGLog();
+    });
+
     $scope.open = function () {
         var modalInstance = $modal.open({
             templateUrl: 'modalConfirm.html',
@@ -96,7 +100,7 @@ angular.module('darkRide').controller('authController', function($rootScope, $sc
         });
     };
 
-    $scope.getFbLog = function() {
+    $scope.getFbLog = function () {
         Facebook.login(function(response) {
             if(response.status === 'connected') {
                 $scope.fbMe();
@@ -104,7 +108,11 @@ angular.module('darkRide').controller('authController', function($rootScope, $sc
         });
     };
 
-    $scope.getFbStatus = function() {
+    $scope.getGLog = function () {
+        
+    };
+
+    $scope.getFbStatus = function () {
         Facebook.getLoginStatus(function(response) {
             if(response.status === 'connected') {
                 $scope.loggedIn = true;
@@ -141,7 +149,7 @@ angular.module('darkRide').controller('modalConfirm', function ($rootScope, $sco
   };
 
   $scope.g = function () {
-
+    $rootScope.$broadcast("gSign");
   };
 
   $scope.ok = function (user) {

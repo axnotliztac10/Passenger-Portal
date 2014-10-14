@@ -123,7 +123,8 @@ angular.module('darkRide').controller('confirmController',
 
     $scope.$on("signResponse", function (event, args) {
         $rootScope.user.auth = args.res;
-        $scope.map.active = false;
+        console.log($rootScope.user.auth);
+        $scope.map.active = true;
     });
 
 }]);
