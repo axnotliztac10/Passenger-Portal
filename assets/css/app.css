@@ -7318,6 +7318,9 @@ header .menu {
 .menuOpen[ng-click="filtersOn=!filtersOn"] {
   font-size: 28px;
 }
+.menuOpen.menuMobile {
+  display: none;
+}
 .small {
   width: 390px;
   padding-left: 20px;
@@ -7915,7 +7918,7 @@ slider div.bar .selection,
   }
   .driverItem .stars {
     position: absolute;
-    top: -127px;
+    top: -110px;
     left: 165px;
   }
   .driverItem .time {
@@ -7991,6 +7994,25 @@ slider div.bar .selection,
   .followMap .angular-google-map-container {
     height: 568px;
   }
+  .stepWrapper .addPickup.padRight {
+    padding-right: 40px;
+  }
+  .menuOpen.menuMobile {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    z-index: 2000;
+    font-size: 25px;
+  }
+  .loaderInput {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 35px;
+    top: 4px;
+    background: #2e2d2c;
+  }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
   .modal-body {
@@ -8049,5 +8071,24 @@ slider div.bar .selection,
   }
   .followMap .angular-google-map-container {
     height: 568px;
+  }
+  .stepWrapper .addPickup.padRight {
+    padding-right: 40px;
+  }
+  .menuOpen.menuMobile {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    z-index: 2000;
+    font-size: 25px;
+  }
+  .loaderInput {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 35px;
+    top: 4px;
+    background: #2e2d2c;
   }
 }

@@ -38,7 +38,7 @@ angular.module('darkRide').controller('timeController',
     };
 
     $scope.updateDate = function () {
-        $scope.dt = new Date();
+        $rootScope.user.timeData.date = $scope.dt = new Date();
     };
 
     $scope.addDays = function (p) {

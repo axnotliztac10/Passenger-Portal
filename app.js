@@ -46,6 +46,24 @@ angular.module('darkRide')
 
 });
 
+angular.module("darkRide").run(function ($rootScope) {
+
+    var menuListener = function () {
+        $('.menuOpen').click(function() {
+            $menu = $('#menu');
+            $menu.fadeToggle('fast', function () {
+                $menu.toggleClass('show-nav');
+            });
+        });
+    };
+
+    $rootScope.$on('$locationChangeSuccess', function () {
+        menuListener();
+    });
+
+    menuListener();
+});
+
 angular.module('darkRide').controller('modalDriver', function ($scope, $modalInstance, driver) {
 
   $scope.driver = driver;
@@ -68,16 +86,3 @@ angular.module('darkRide').controller('modalConfirm', function ($scope, $modalIn
   };
 
 });
-
-$(function() {
-    $('.menuOpen').click(function() {
-        toggleNav();
-    });
-});
-
-function toggleNav() {
-    $menu = $('#menu');
-    $menu.fadeToggle('fast', function () {
-        $menu.toggleClass('show-nav');
-    });
-}

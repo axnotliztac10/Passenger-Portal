@@ -26,6 +26,20 @@ angular.module('darkRide').controller('dropController',
     $scope.options = null;
     $scope.searchResults = [];
     $scope.markersCtr = {};
+    $scope.icons = {
+        pick_me: {
+            url: HOST + 'assets/imgs/pick_me@2x.png',
+            scaledSize: new google.maps.Size(135, 51)
+        },
+        dragging: {
+            url: HOST + 'assets/imgs/dragging@2x.png',
+            scaledSize: new google.maps.Size(34, 51)
+        },
+        drag: {
+            url: HOST + 'assets/imgs/drag@2x.png',
+            scaledSize: new google.maps.Size(112, 49)
+        }
+    };
 
     $scope.map = {
         control: {},
@@ -51,11 +65,11 @@ angular.module('darkRide').controller('dropController',
                 $window.google.maps.event.clearListeners(res, 'idle');
             },
             dragstart: function () {
-                $scope.setIcon('dragging');
+                 $scope.setIcon($scope.icons['dragging']);
             },
             dragend: function () {
                 var pos = $scope.map.control.getGMap().getCenter();
-                $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon('pick_me')});
+                $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon($scope.icons['pick_me'])});
                 $scope.ajaxLoader = false;
             },
             drag: function (res) {
@@ -87,7 +101,7 @@ angular.module('darkRide').controller('dropController',
         $scope.markers = [];
 
         $scope.markers.push({
-            icon: HOST + (dirty ? 'assets/imgs/pick_me.png' : 'assets/imgs/drag.png'),
+            icon: (dirty ? $scope.icons['pick_me'] : $scope.icons['drag']),
             options: { draggable: false },
             latitude: posit.lat,
             longitude: posit.lon,
@@ -116,7 +130,7 @@ angular.module('darkRide').controller('dropController',
     };
 
     $scope.setIcon = function (type) {
-        $scope.markersCtr.getGMarkers()[0].setIcon(HOST + 'assets/imgs/' + type + '.png');
+        $scope.markersCtr.getGMarkers()[0].setIcon(type);
     }
 
 }]);

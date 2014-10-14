@@ -34,8 +34,8 @@
 	    </path>
 	  </svg>
 	</div>
-	<input type="text" placeholder="" class="addPickup text-box text-left-imp" ng-model="address" ng-click="sa=true" ng-hide="sa">
-	<input type="text" placeholder="Search" class="addPickup text-box text-left-imp" ng-autocomplete="result" details="details" options="options" ng-show="sa" ng-focus="sa">
+	<input type="text" placeholder="" class="addPickup padRight text-box text-left-imp" ng-model="address" ng-click="sa=true" ng-hide="sa">
+	<input type="text" placeholder="Search" class="addPickup padRight text-box text-left-imp" ng-autocomplete="result" details="details" options="options" ng-show="sa" ng-focus="sa">
 	<google-map 
 		center="map.center" 
 		refresh="map.refresh"
@@ -53,3 +53,4 @@
 	</google-map>
 </div>
 <p class="text-center" ng-if="map.active">Drag the map or write the address in the top bar.</p>
+<span class="glyphicon glyphicon-align-justify menuOpen menuMobile"></span>

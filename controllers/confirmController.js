@@ -69,7 +69,10 @@ angular.module('darkRide').controller('confirmController',
                 var poly = new $window.google.maps.Polyline({ map: map, strokeColor: '#4986E7' });
 
                 $scope.markers.push({
-                    icon: HOST + $scope.driver.photo.replace(".jpg", "_min.png"),
+                    icon: {
+                        url: HOST + $scope.driver.photo.replace(".jpg", "_min.png"),
+                        scaledSize: new google.maps.Size(60, 60)
+                    },
                     options: { draggable: false },
                     latitude: lat,
                     longitude: lng,
@@ -78,7 +81,10 @@ angular.module('darkRide').controller('confirmController',
                 });
 
                 $scope.markers.push({
-                    icon: HOST + 'assets/imgs/a.png',
+                    icon: {
+                        url: HOST + 'assets/imgs/a@2x.png',
+                        scaledSize: new google.maps.Size(36, 50)
+                    },
                     options: { draggable: false },
                     latitude: posDep.lat,
                     longitude: posDep.lon,
