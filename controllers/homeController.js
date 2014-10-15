@@ -4,14 +4,16 @@ angular.module('darkRide').controller('homeController',
         '$rootScope',
         '$scope',
         '$window',
-        '$state', 
-        'HOST', 
+        '$state',
+        'HOST',
+        'QuoteFactory',
     function(
         $rootScope,
         $scope,
         $window,
         $state, 
-        HOST
+        HOST,
+        QuoteFactory
     ) {
 
     $scope.geoCoder = new $window.google.maps.Geocoder();
@@ -106,9 +108,13 @@ angular.module('darkRide').controller('homeController',
     };
 
     $scope.setAndGo = function (pos) {
-       $rootScope.user.departureData.position.lat = pos.k ? pos.k : pos.lat;
-       $rootScope.user.departureData.position.lon = pos.B ? pos.B : pos.lon;
-       $rootScope.user.departureData.address = $scope.address;
+       
+       $rootScope.user.setFrom({
+            formatted_address: $scope.address,
+            latitude: pos.k ? pos.k : pos.lat,
+            longitude: pos.B ? pos.B : pos.lon
+       });
+       
         $state.go('time');
     };
 
@@ -133,9 +139,12 @@ angular.module('darkRide').controller('homeController',
 
     $scope.getActualAdd = function () {
 
-        if (typeof $rootScope.user.departureData.position.lat != "undefined") {
-            $scope.position = $rootScope.user.departureData.position;
-            $scope.address = $rootScope.user.departureData.address;
+        if ($rootScope.user.getFrom()) {
+            $scope.position = {
+                lat: $rootScope.user.getFrom().latitude,
+                lon: $rootScope.user.getFrom().longitude
+            };
+            $scope.address = $rootScope.user.getFrom().formatted_address;
             $scope.ajaxLoader = true;
             return;
         };
@@ -174,13 +183,16 @@ angular.module('darkRide').controller('homeController',
     $scope.init = function () {
 
         if (typeof $rootScope.user == "undefined") {
-            $rootScope.user = {
+            
+            $rootScope.user = QuoteFactory;
+
+            /*$rootScope.user = {
                 name: "",
                 departureData: { position: {}, address: null },
                 returnData: { position: {}, address: "Not selected" },
                 timeData: { time: null, date: null },
                 driver: {}
-            }
+            }*/
         }
 
         $scope.getActualAdd();

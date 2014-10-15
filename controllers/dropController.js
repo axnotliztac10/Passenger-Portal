@@ -14,7 +14,7 @@ angular.module('darkRide').controller('dropController',
 	$state
 	) {
 
-    if (!angular.isDefined($rootScope.user)) {
+    if (!$rootScope.user) {
         $state.go("home");
         return;
     }
@@ -52,13 +52,19 @@ angular.module('darkRide').controller('dropController',
         zoom: 14,
         events: {
             idle: function (res, res1) {
-                var pos = $rootScope.user.departureData.position;
+                var pos = {
+                    lat: $rootScope.user.getFrom().latitude,
+                    lon: $rootScope.user.getFrom().longitude
+                };
 
-                $scope.address = $rootScope.user.departureData.address;
+                $scope.address = $rootScope.user.getFrom().formatted_address;
 
-                if (typeof $rootScope.user.returnData.position.lat != "undefined") {
-                    pos = $rootScope.user.returnData.position;
-                    $scope.address = $rootScope.user.returnData.address;
+                if ($rootScope.user.getTo()) {
+                    pos = {
+                        lat: $rootScope.user.getTo().latitude,
+                        lon: $rootScope.user.getTo().longitude
+                    };
+                    $scope.address = $rootScope.user.getTo().formatted_address;
                 };
 
                 $scope.centerMap({lat: pos.lat, lon: pos.lon}, false);
@@ -86,10 +92,12 @@ angular.module('darkRide').controller('dropController',
     $scope.markersEvents = {
         click: function (gMarker, eventName, model) {
             var pos = gMarker.getPosition();
-            if ($rootScope.user.departureData.address == $scope.address) return false; 
-            $rootScope.user.returnData.position.lat = pos.k;
-            $rootScope.user.returnData.position.lon = pos.B;
-            $rootScope.user.returnData.address = $scope.address;
+            if ($rootScope.user.getFrom().formatted_address == $scope.address) return false; 
+            $rootScope.user.setTo({
+                formatted_address: $scope.address,
+                latitude: pos.k,
+                longitude: pos.B
+           });
             $state.go('driver');
         }
     };

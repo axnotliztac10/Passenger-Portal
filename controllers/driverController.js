@@ -57,7 +57,7 @@ angular.module('darkRide').controller('driverController',
             });
 
             modalInstance.result.then(function (driver) {
-                $rootScope.user.driver = driver;
+                $rootScope.user.setDriver_info(driver);
                 $state.go("confirm");
                 }, function () {
                 return;

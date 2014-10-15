@@ -22,7 +22,11 @@ angular.module('darkRide').controller('timeController',
     $scope.showControls = false;
 
     $scope.setAndGo = function () {
-        $scope.updateDate();
+        $scope.dt = $scope.updateDate();
+        var date = new Date($scope.dt);
+        var time = new Date($scope.timeToPick);
+        $rootScope.user.setScheduled(date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()  + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
+
         $state.go("drop");
     };
 
@@ -38,27 +42,20 @@ angular.module('darkRide').controller('timeController',
     };
 
     $scope.updateDate = function () {
-        $rootScope.user.timeData.date = $scope.dt = new Date();
+        if ($scope.dt == "Today") return new Date();
+        else return $scope.dt;
     };
 
     $scope.addDays = function (p) {
+        $scope.dt = $scope.updateDate();
         $scope.dt = new Date($scope.dt.setDate($scope.dt.getDate() + (p)));
     };
-
-    $scope.changed = function () {
-        $rootScope.user.timeData.time = $scope.timeToPick;
-    };
-
-    $scope.$watch('dt', function(newVal, oldVal) {
-        $rootScope.user.timeData.date = newVal;
-    });
 
     $scope.dateOptions = {
         formatYear: 'yy',
         startingDay: 1
     };
 
-    $scope.changed();
     $scope.toggleMin();
     
 }]);
