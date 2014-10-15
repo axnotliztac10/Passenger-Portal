@@ -1,17 +1,16 @@
-
-angular.module('darkRide').controller('dropController', 
+angular.module('blackRide').controller('dropController', 
 	[
-	'$rootScope',
-	'$scope',
-	'$window',
-	'HOST',
-	'$state',
+    	'$rootScope',
+    	'$scope',
+    	'$window',
+    	'HOST',
+    	'$state',
 	function(
-	$rootScope,
-	$scope,
-	$window,
-	HOST,
-	$state
+    	$rootScope,
+    	$scope,
+    	$window,
+    	HOST,
+    	$state
 	) {
 
     if (!$rootScope.user) {

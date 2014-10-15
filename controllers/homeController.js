@@ -1,5 +1,5 @@
 
-angular.module('darkRide').controller('homeController', 
+angular.module('blackRide').controller('homeController', 
     [
         '$rootScope',
         '$scope',

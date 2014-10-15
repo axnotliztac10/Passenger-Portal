@@ -1,4 +1,4 @@
-angular.module('darkRide').controller('confirmController',
+angular.module('blackRide').controller('confirmController',
     [
         '$rootScope',
         '$scope',
@@ -6,13 +6,17 @@ angular.module('darkRide').controller('confirmController',
         'HOST',
         '$state',
         '$modal',
+        'AuthFactory',
+        'SignupFactory',
     function(
         $rootScope,
         $scope,
         $window,
         HOST,
         $state,
-        $modal
+        $modal,
+        AuthFactory,
+        SignupFactory
     ) {
 
     if (!$rootScope.user) {
@@ -41,7 +45,10 @@ angular.module('darkRide').controller('confirmController',
         zoom: 14,
         events: {
             idle: function (map, res1) {
-                var posDep = $rootScope.user.departureData.position;
+                var posDep = {
+                    lat: $rootScope.user.getFrom().latitude,
+                    lon: $rootScope.user.getFrom().longitude
+                };
 
                 $scope.map.control.refresh({
                     latitude: posDep.lat, 

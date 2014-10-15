@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="darkRide">
+<html ng-app="blackRide">
 <head>
   <title>Black Ride</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -9,19 +9,20 @@
 </head>
 <body>
 
-  <script src="bower_components/jquery/jquery.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/jquery/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/underscore/underscore-min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="bower_components/angular-slider-touch/slider.js"></script>
   <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
-  <script src="bower_components/angular-google-plus/dist/angular-google-plus.js"></script>
+  <script src="bower_components/angular-google-plus/dist/angular-google-plus.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
   <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
   
   <header ng-controller="authController">
     <div class="title"><a href="#"><img src="assets/imgs/blue_logo.png"></a></div>
@@ -81,9 +82,10 @@
   <script src="controllers/driverController.js"></script>
   <script src="controllers/confirmController.js"></script>
   <script src="controllers/historyController.js"></script>
-  <script src="controllers/authController.js"></script>
   <script src="factories/quoteFactory.js"></script>
+  <script src="factories/apiFactory.js"></script>
   <script src="directives/mainDirectives.js"></script>
+  <script src="controllers/authController.js"></script>
 
 </body>
 </html>

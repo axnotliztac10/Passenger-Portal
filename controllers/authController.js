@@ -1,4 +1,5 @@
-angular.module('darkRide').controller('authController', function($rootScope, $scope, Facebook, $modal, GooglePlus) {
+
+angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', function($rootScope, $scope, Facebook, $modal, GooglePlus) {
     
     $scope.$on('signIn', function () {
         $scope.open();
@@ -11,6 +12,15 @@ angular.module('darkRide').controller('authController', function($rootScope, $sc
     $scope.$on('gSign', function () {
         $scope.getGLog();
     });
+
+    $scope.user = {
+        auth_origin_name: null,
+        auth_origin_entity_id: null,
+        auth_origin_oauth_token: null,
+        fleet: {
+            id: null
+        }
+    };
 
     $scope.open = function () {
         var modalInstance = $modal.open({
@@ -37,7 +47,9 @@ angular.module('darkRide').controller('authController', function($rootScope, $sc
             if(response.status === 'connected') {
                 $scope.fbMe();
             }
-        });
+        },{
+                scope: 'public_profile,email'
+            });
     };
 
     $scope.getGLog = function () {
@@ -67,4 +79,4 @@ angular.module('darkRide').controller('authController', function($rootScope, $sc
         });
     };
 
-});
+}]);

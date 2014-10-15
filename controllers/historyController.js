@@ -1,4 +1,4 @@
-angular.module('darkRide').controller('historyController', 
+angular.module('blackRide').controller('historyController', 
     [
         '$scope',
         '$modal',

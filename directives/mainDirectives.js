@@ -1,4 +1,4 @@
-angular.module( "ngAutocomplete", []).directive('ngAutocomplete', function($parse) {
+angular.module( "blackRide", []).directive('ngAutocomplete', function($parse) {
   return {
 
     scope: {

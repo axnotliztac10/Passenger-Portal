@@ -1,4 +1,4 @@
-angular.module('darkRide').controller('driverController', 
+angular.module('blackRide').controller('driverController', 
     [
     '$scope',
     '$modal',

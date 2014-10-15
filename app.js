@@ -1,8 +1,9 @@
-angular.module('darkRide', ['ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'ngAutocomplete', 'facebook', 'googleplus']);
+angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule']);
 
-angular.module('darkRide')
-    .constant("HOST", "http://54.68.30.59:9001/")
-    .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider, GooglePlusProvider) {
+angular.module('blackRide')
+    .constant("HOST", "http://localhost:9001/")
+    .constant("API_HOST", "http://private-aa499-shifttravellerapi.apiary-mock.com")
+    .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider, GooglePlusProvider, localStorageServiceProvider) {
 
     FacebookProvider.init('279962268844155');
     
@@ -10,6 +11,8 @@ angular.module('darkRide')
         clientId: '379648358992-n7i7he2jsopkqldmiuktafkmd0llfdro.apps.googleusercontent.com',
         apiKey: 'AIzaSyCZlO96pgQ31KmpPS7cBTPjA17YIs8YNkY'
      });
+
+    localStorageServiceProvider.setPrefix('blackRide');
 
     datepickerConfig.showWeeks = false;
 
@@ -53,7 +56,7 @@ angular.module('darkRide')
 
 });
 
-angular.module("darkRide").run(function ($rootScope) {
+angular.module("blackRide").run(function ($rootScope) {
 
     var menuListener = function () {
 
@@ -72,7 +75,7 @@ angular.module("darkRide").run(function ($rootScope) {
     menuListener();
 });
 
-angular.module('darkRide').controller('modalDriver', function ($scope, $modalInstance, driver) {
+angular.module('blackRide').controller('modalDriver', function ($scope, $modalInstance, driver) {
 
   $scope.driver = driver;
   $scope.ok = function () {
@@ -84,7 +87,7 @@ angular.module('darkRide').controller('modalDriver', function ($scope, $modalIns
 
 });
 
-angular.module('darkRide').controller('modalConfirm', function ($rootScope, $scope, $modalInstance, info) {
+angular.module('blackRide').controller('modalConfirm', function ($rootScope, $scope, $modalInstance, info) {
 
   $scope.fb = function () {
     $rootScope.$broadcast("fbSign");

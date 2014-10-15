@@ -1,5 +1,5 @@
 
-angular.module('darkRide').controller('timeController', 
+angular.module('blackRide').controller('timeController', 
     [
         '$scope',
         '$rootScope',
