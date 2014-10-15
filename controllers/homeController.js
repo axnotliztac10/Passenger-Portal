@@ -183,16 +183,7 @@ angular.module('darkRide').controller('homeController',
     $scope.init = function () {
 
         if (typeof $rootScope.user == "undefined") {
-            
             $rootScope.user = QuoteFactory;
-
-            /*$rootScope.user = {
-                name: "",
-                departureData: { position: {}, address: null },
-                returnData: { position: {}, address: "Not selected" },
-                timeData: { time: null, date: null },
-                driver: {}
-            }*/
         }
 
         $scope.getActualAdd();
