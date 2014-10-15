@@ -7,8 +7,7 @@ angular.module('blackRide').controller('confirmController',
         '$state',
         '$modal',
         'AuthFactory',
-        'localStorageService'
-
+        'localStorageService',
     function(
         $rootScope,
         $scope,
