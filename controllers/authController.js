@@ -1,5 +1,5 @@
 
-angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', function($rootScope, $scope, Facebook, $modal, GooglePlus) {
+angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', function ($rootScope, $scope, Facebook, $modal, GooglePlus) {
     
     $scope.$on('signIn', function () {
         $scope.open();

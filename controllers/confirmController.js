@@ -7,7 +7,8 @@ angular.module('blackRide').controller('confirmController',
         '$state',
         '$modal',
         'AuthFactory',
-        'SignupFactory',
+        'localStorageService'
+
     function(
         $rootScope,
         $scope,
@@ -16,7 +17,7 @@ angular.module('blackRide').controller('confirmController',
         $state,
         $modal,
         AuthFactory,
-        SignupFactory
+        localStorageService
     ) {
 
     if (!$rootScope.user) {
@@ -130,5 +131,7 @@ angular.module('blackRide').controller('confirmController',
         console.log($rootScope.user.auth);
         $scope.map.active = true;
     });
+
+    localStorageService.set('dispatchFactory', $rootScope.user);
 
 }]);

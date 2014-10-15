@@ -1,7 +1,7 @@
 angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule']);
 
 angular.module('blackRide')
-    .constant("HOST", "http://localhost:9001/")
+    .constant("HOST", "http://54.68.30.59:9001/")
     .constant("API_HOST", "http://private-aa499-shifttravellerapi.apiary-mock.com")
     .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider, GooglePlusProvider, localStorageServiceProvider) {
 
