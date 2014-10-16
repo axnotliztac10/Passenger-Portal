@@ -13,7 +13,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         $scope.getGLog();
     });
 
-    $scope.$on('signResponse', function (reqObj) {
+    $scope.$on('signResponse', function (event, reqObj) {
         AuthFactory.save(reqObj.body);
     });
 
