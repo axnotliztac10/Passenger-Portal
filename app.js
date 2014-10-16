@@ -2,7 +2,7 @@ angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate
 
 angular.module('blackRide')
     .constant("HOST", "http://54.68.30.59:9001/")
-    .constant("API_HOST", "http://shift-dev.appspot.com/1.0/passenger/")
+    .constant("API_HOST", "http://shift-dev.appspot.com/1.0/passenger")
     .config(function($stateProvider, $urlRouterProvider, $provide, datepickerConfig, FacebookProvider, GooglePlusProvider, localStorageServiceProvider) {
 
     FacebookProvider.init('279962268844155');
@@ -56,10 +56,9 @@ angular.module('blackRide')
 
 });
 
-angular.module("blackRide").run(function ($rootScope) {
+angular.module("blackRide").run(function ($rootScope, $state) {
 
     var menuListener = function () {
-
         $('.menuOpen').off("click").on("click", function() {
             $menu = $('#menu'), $scope = $(this);
             if ($menu.css("display") == "block") {
@@ -75,23 +74,26 @@ angular.module("blackRide").run(function ($rootScope) {
         });
     };
 
-    var lightListener = function () {
-      $("[light]").on("click", function () {
-        $scope = $(this), elements = $scope.attr("light").split(",");
+    var lightListener = function (scope) {
+      var closure = function (scope) {
+        $scope = $(scope), elements = $scope.attr("light").split(",");
         $("[light]").removeClass("lightDot");
         angular.forEach(elements, function (v, i) {
           $("[ui-sref='" + v + "']").addClass("lightDot");
         });
-      });
+      }
+      if (scope) {
+        closure("[ui-sref='" + scope + "']");
+      } else { 
+        $("[light]").on("click", function () {
+          closure(this);
+        });
+      }
     };
 
-    $rootScope.$on('$locationChangeSuccess', function () {
+    $rootScope.$on('$stateChangeSuccess', function () {
         menuListener();
-    });
-
-    $(window).load(function () {
-      menuListener();
-      lightListener();
+        lightListener($state.current.name);
     });
 });
 
