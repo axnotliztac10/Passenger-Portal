@@ -1,5 +1,5 @@
 angular.module('blackRide').factory('AuthFactory' , function ($resource, API_HOST) {
-	return $resource(API_HOST + '/auth', {} 
+	return $resource(API_HOST + '/auth', {},
 		{
 			save: { method: "JSONP" },
 			params: {
