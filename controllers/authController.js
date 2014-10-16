@@ -1,5 +1,5 @@
 
-angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory) {
+angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory' 'PassengerFactory', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, PassengerFactory) {
     
     $scope.$on('signIn', function () {
         $scope.open();
@@ -15,7 +15,8 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
 
     $scope.$on('signResponse', function (event, reqObj) {
         AuthFactory.save(reqObj.body, function (res) {
-            console.log(res);
+            PassengerFactory.fillPassenger(res);
+            $rootScope.user.setPassenger(PassengerFactory);
         });
     });
 
@@ -106,7 +107,8 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
             auth_origin_oauth_token: null,
             fleet: {
                 id: 4768254505517056
-            }
+            },
+            passenger: null
         };
 
         this.setAuth_origin_name = function (auth_origin_name) { scope.auth_origin_name = auth_origin_name; } 
@@ -117,6 +119,8 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         this.getAuth_origin_oauth_token = function () { return scope.auth_origin_oauth_token; } 
         this.setFleet = function (fleet) { scope.fleet.id = fleet; } 
         this.getFleet = function() { return scope.fleet.id; }
-        this.getSerialized = function () { return scope;}
+        this.getSerialized = function () { return scope; }
+        this.getPassenger = function () { return scope.passenger; }
+        this.setPassenger = function (passenger) { scope.passenger = passenger; }
     };
 }]);

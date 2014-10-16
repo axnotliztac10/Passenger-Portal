@@ -54,3 +54,29 @@ angular.module('blackRide').factory('QuoteFactory' , function () {
   return new QuoteFactory();
 
 });
+
+angular.module('blackRide').factory('PassengerFactory' , function () {
+    
+    var PassengerFactory = function () {
+
+        var bindAccessors = function (o, property, value) {
+            var _value = value;
+            var capitalized = property.substr(0, 1).toUpperCase() + property.substr(1);
+            o["get" + capitalized] = function() {
+                return _value;
+            };
+            o["set" + capitalized] = function(v) {
+                _value = v;
+            };
+        }
+
+        this.fillPassenger = function (properties) {
+            for (var i in properties ) {
+                bindAccessors(this, i, properties[i]);
+            }
+        }
+    
+    };
+
+    return new PassengerFactory();
+});
