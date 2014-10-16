@@ -1,5 +1,5 @@
 
-angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', function ($rootScope, $scope, Facebook, $modal, GooglePlus) {
+angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory) {
     
     $scope.$on('signIn', function () {
         $scope.open();
@@ -11,6 +11,10 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
 
     $scope.$on('gSign', function () {
         $scope.getGLog();
+    });
+
+    $scope.$on('signResponse', function (reqObj) {
+        AuthFactory.save(reqObj.body);
     });
 
     $scope.user = {
@@ -45,7 +49,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
     $scope.getFbLog = function () {
         Facebook.login(function(response) {
             if(response.status === 'connected') {
-                $scope.fbMe();
+                $scope.fbMe(response.authResponse.accessToken);
             }
         },{
                 scope: 'public_profile,email'
@@ -54,8 +58,13 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
 
     $scope.getGLog = function () {
         GooglePlus.login().then(function (authResult) {
+            var token = authResult.access_token;
             GooglePlus.getUser().then(function (user) {
-                $rootScope.$broadcast("signResponse", {res: user});
+                var fbRes = new UserFactory();
+                fbRes.setAuth_origin_name("gplus");
+                fbRes.setAuth_origin_entity_id(user.id);
+                fbRes.setAuth_origin_oauth_token(token);
+                $scope.sendResponse(fbRes.getSerialized());
             });
         }, function (err) {
             console.log(err);
@@ -73,10 +82,39 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         });
     };
 
-    $scope.fbMe = function() {
+    $scope.fbMe = function(token) {
         Facebook.api('/me', function(response) {
-          $rootScope.$broadcast("signResponse", {res: response});
+            var fbRes = new UserFactory();
+            fbRes.setAuth_origin_name("facebook");
+            fbRes.setAuth_origin_entity_id(response.id);
+            fbRes.setAuth_origin_oauth_token(token);
+            $scope.sendResponse(fbRes.getSerialized());
         });
     };
 
+    $scope.sendResponse = function (res) {
+        $rootScope.$broadcast("signResponse", {body: res});
+    };
+
+    var UserFactory = function () {
+        
+        var scope = {
+            auth_origin_name: null,
+            auth_origin_entity_id: null,
+            auth_origin_oauth_token: null,
+            fleet: {
+                id: 4768254505517056
+            }
+        };
+
+        this.setAuth_origin_name = function (auth_origin_name) { scope.auth_origin_name = auth_origin_name; } 
+        this.getAuth_origin_name = function () { return scope.auth_origin_name; } 
+        this.setAuth_origin_entity_id = function (auth_origin_entity_id) { scope.auth_origin_entity_id = auth_origin_entity_id; } 
+        this.getAuth_origin_entity_id = function () { return scope.auth_origin_entity_id; } 
+        this.setAuth_origin_oauth_token = function (auth_origin_oauth_token) { scope.auth_origin_oauth_token = auth_origin_oauth_token; } 
+        this.getAuth_origin_oauth_token = function () { return scope.auth_origin_oauth_token; } 
+        this.setFleet = function (fleet) { scope.fleet.id = fleet; } 
+        this.getFleet = function() { return scope.fleet.id; }
+        this.getSerialized = function () { return scope;}
+    };
 }]);
