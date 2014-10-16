@@ -96,9 +96,31 @@ header .menu {
 	color:@grayLight; 
 	display:inline-block;
 	font-size:14px; 
-	margin-right:20px;
+	margin-right:0px;
 	text-align:center;
-	margin-left: 20px;
+	margin-left: 0px;
+	position: relative;
+}
+
+.dotted {
+	width: 68px;
+	position: absolute;
+	left: 63px;
+	top: 6px;
+	color: @grayLight;
+}
+
+.lightDot {
+	color: @greenYellow !important;
+}
+
+.lightDot span {
+	color: @greenYellow !important;
+	border-color: @greenYellow !important;
+}
+
+.lightDot .dotted {
+	color: @greenYellow !important;
 }
 
 #menu {
@@ -155,7 +177,7 @@ header .menu {
 	display:block;
 	font-weight: bolder;
 	height:34px; 
-	margin:0 auto 10px;
+	margin: 0 30px 10px 30px;
 	padding-top:5px; 
 	width:34px; 
     border-radius:50%; 

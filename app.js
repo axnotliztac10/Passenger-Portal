@@ -75,12 +75,23 @@ angular.module("blackRide").run(function ($rootScope) {
         });
     };
 
+    var lightListener = function () {
+      $("[light]").on("click", function () {
+        $scope = $(this), elements = $scope.attr("light").split(",");
+        $("[light]").removeClass("lightDot");
+        angular.forEach(elements, function (v, i) {
+          $("[ui-sref='" + v + "']").addClass("lightDot");
+        });
+      });
+    };
+
     $rootScope.$on('$locationChangeSuccess', function () {
         menuListener();
     });
 
     $(window).load(function () {
       menuListener();
+      lightListener();
     });
 });
 

@@ -55,11 +55,25 @@
   </header>
 
   <div id="status-buttons" class="text-center">
-    <a ui-sref-active="active" ui-sref="home"><span>1</span> Pick Up</a>
-    <a ui-sref-active="active" ui-sref="time"><span>2</span> Time</a>
-    <a ui-sref-active="active" ui-sref="drop"><span>3</span> Drop Off</a>
-    <a ui-sref-active="active" ui-sref="driver"><span>4</span> Your Diver</a>
-    <a ui-sref-active="active" ui-sref="confirm"><span class="glyphicon glyphicon-ok"></span> Confirmation</a>
+    <a ui-sref-active="active" ui-sref="home">
+      <span>1</span> Pick Up
+      <div class="dotted">-------------</div>
+    </a>
+    <a light="home" ui-sref-active="active" ui-sref="time">
+      <span>2</span> Time
+      <div class="dotted">-------------</div>
+    </a>
+    <a light="home,time" ui-sref-active="active" ui-sref="drop">
+      <span>3</span> Drop Off
+      <div class="dotted">-------------</div>
+    </a>
+    <a light="home,time,drop" ui-sref-active="active" ui-sref="driver">
+      <span>4</span> Your Diver
+      <div class="dotted">-------------</div>
+    </a>
+    <a light="home,time,drop,driver" ui-sref-active="active" ui-sref="confirm">
+      <span class="glyphicon glyphicon-ok"></span> Confirmation
+    </a>
   </div>
 
   <div>
