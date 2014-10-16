@@ -61,7 +61,14 @@ angular.module("blackRide").run(function ($rootScope) {
     var menuListener = function () {
 
         $('.menuOpen').off("click").on("click", function() {
-            $menu = $('#menu');
+            $menu = $('#menu'), $scope = $(this);
+            if ($menu.css("display") == "block") {
+              if (angular.isDefined($scope.attr('bot'))) {
+                setTimeout(function () {$menu.css("top", "auto")}, 800);
+              }
+            } else {
+              if (angular.isDefined($scope.attr('bot'))) $menu.css("top", $scope.attr('bot') + "px");
+            }
             $menu.fadeToggle('fast', function () {
                 $menu.toggleClass('show-nav');
             });
@@ -72,7 +79,9 @@ angular.module("blackRide").run(function ($rootScope) {
         menuListener();
     });
 
-    menuListener();
+    $(window).load(function () {
+      menuListener();
+    });
 });
 
 angular.module('blackRide').controller('modalDriver', function ($scope, $modalInstance, driver) {
