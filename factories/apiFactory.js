@@ -1,10 +1,12 @@
 angular.module('blackRide').factory('AuthFactory' , function ($resource, API_HOST) {
 	return $resource(API_HOST + '/auth', {},
 		{
-			save: { method: "JSONP" },
-			params: {
-	          callback: 'JSON_CALLBACK'
-	        }
+			save: { 
+				method: "JSONP",
+				params: {
+		          callback: 'JSON_CALLBACK'
+		        }
+			}
 		});
 });
 
