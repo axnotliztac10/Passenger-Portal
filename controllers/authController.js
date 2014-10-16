@@ -14,7 +14,9 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
     });
 
     $scope.$on('signResponse', function (event, reqObj) {
-        AuthFactory.save(reqObj.body);
+        AuthFactory.save(reqObj.body, function (res) {
+            console.log(res);
+        });
     });
 
     $scope.user = {
