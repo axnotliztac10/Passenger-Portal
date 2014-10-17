@@ -1,4 +1,4 @@
-angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule', 'ngMockE2E']);
+angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule']);
 
 angular.module('blackRide')
     .constant("HOST", "http://54.68.30.59:9001/")

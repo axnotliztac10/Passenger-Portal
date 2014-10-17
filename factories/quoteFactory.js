@@ -55,9 +55,9 @@ angular.module('blackRide').factory('QuoteFactory' , function () {
 
 });
 
-angular.module('blackRide').factory('PassengerFactory' , function () {
+angular.module('blackRide').factory('AuthResponse' , function () {
     
-    var PassengerFactory = function () {
+    var AuthResponse = function () {
 
         var bindAccessors = function (o, property, value) {
             var _value = value;
@@ -78,5 +78,57 @@ angular.module('blackRide').factory('PassengerFactory' , function () {
     
     };
 
-    return new PassengerFactory();
+    return new AuthResponse();
+});
+
+angular.module('blackRide').factory('BookingsResponse' , function () {
+    
+    var BookingsResponse = function () {
+
+        var bindAccessors = function (o, property, value) {
+            var _value = value;
+            var capitalized = property.substr(0, 1).toUpperCase() + property.substr(1);
+            o["get" + capitalized] = function() {
+                return _value;
+            };
+            o["set" + capitalized] = function(v) {
+                _value = v;
+            };
+        }
+
+        this.fillPassenger = function (properties) {
+            for (var i in properties ) {
+                bindAccessors(this, i, properties[i]);
+            }
+        }
+    
+    };
+
+    return new BookingsResponse();
+});
+
+angular.module('blackRide').factory('DispatchResponse' , function () {
+    
+    var DispatchResponse = function () {
+
+        var bindAccessors = function (o, property, value) {
+            var _value = value;
+            var capitalized = property.substr(0, 1).toUpperCase() + property.substr(1);
+            o["get" + capitalized] = function() {
+                return _value;
+            };
+            o["set" + capitalized] = function(v) {
+                _value = v;
+            };
+        }
+
+        this.fillPassenger = function (properties) {
+            for (var i in properties ) {
+                bindAccessors(this, i, properties[i]);
+            }
+        }
+    
+    };
+
+    return new DispatchResponse();
 });

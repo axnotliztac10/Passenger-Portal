@@ -23,8 +23,6 @@ angular.module('blackRide').controller('confirmController',
         $state.go("home");
     } else if (!$rootScope.user.getScheduled()) {
         $state.go("time");
-    //} else if (!angular.isDefined($rootScope.user.returnData.position.lat)) {
-    //    $state.go("drop");
     } else if (!$rootScope.user.getDriver_info()) {
         $state.go("driver");
     }
