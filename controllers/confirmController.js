@@ -8,6 +8,7 @@ angular.module('blackRide').controller('confirmController',
         '$modal',
         'AuthFactory',
         'localStorageService',
+        'AuthResponse',
     function(
         $rootScope,
         $scope,
@@ -16,7 +17,8 @@ angular.module('blackRide').controller('confirmController',
         $state,
         $modal,
         AuthFactory,
-        localStorageService
+        localStorageService,
+        AuthResponse
     ) {
 
     if (!$rootScope.user) {
@@ -123,10 +125,13 @@ angular.module('blackRide').controller('confirmController',
         $rootScope.$broadcast("signIn");
     };
 
-    $scope.$on("signResponse", function (event, args) {
-        $rootScope.user.auth = args.res;
-        console.log($rootScope.user.auth);
-        $scope.map.active = true;
+    $scope.$on("signResponse", function (event, reqObj) {
+        $rootScope.user = reqObj.body;
+        AuthFactory.save(reqObj.body.getSerialized(), function (res) {
+            AuthResponse.fillPassenger(res);
+            $rootScope.user.setAuthResponse(AuthResponse);
+            $scope.map.active = true;
+        });
     });
 
     localStorageService.set('dispatchFactory', $rootScope.user);

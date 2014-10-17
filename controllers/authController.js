@@ -14,7 +14,8 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
     });
 
     $scope.$on('signResponse', function (event, reqObj) {
-        AuthFactory.save(reqObj.body, function (res) {
+        $rootScope.user = reqObj.body;
+        AuthFactory.save(reqObj.body.getSerialized(), function (res) {
             AuthResponse.fillPassenger(res);
             $rootScope.user.setAuthResponse(AuthResponse);
         });
@@ -67,7 +68,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
                 fbRes.setAuth_origin_name("gplus");
                 fbRes.setAuth_origin_entity_id(user.id);
                 fbRes.setAuth_origin_oauth_token(token);
-                $scope.sendResponse(fbRes.getSerialized());
+                $scope.sendResponse(fbRes);
             });
         }, function (err) {
             console.log(err);
@@ -91,7 +92,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
             fbRes.setAuth_origin_name("facebook");
             fbRes.setAuth_origin_entity_id(response.id);
             fbRes.setAuth_origin_oauth_token(token);
-            $scope.sendResponse(fbRes.getSerialized());
+            $scope.sendResponse(fbRes);
         });
     };
 
