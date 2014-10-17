@@ -19,7 +19,7 @@ angular.module('blackRide').controller('driverController',
         DispatchResponse
     ) {
 
-        if (!$rootScope.user || !$rootScope.user.getAuthResponse()) {
+        if (!$rootScope.user) {
             $state.go("home");
         } else if (!$rootScope.user.getScheduled()) {
             $state.go("time");
@@ -36,34 +36,36 @@ angular.module('blackRide').controller('driverController',
         $scope.minTime = 10;
         $scope.maxTime = 60;
 
-        $scope.newBooking = {
-            passenger_id: $rootScope.user.getAuthResponse().id,
-            passenger_in_group: false,
-            fleet_id: $rootScope.user.getAuthResponse().fleet_id,
-            scheduled: $rootScope.user.getScheduled(),
-            route: {
-                from: $rootScope.user.getFrom(),
-                to: $rootScope.user.getTo(),
-                waypoints : [
-                    {
-                        formatted_address: "foobar",
-                        latitude: 51.89,
-                        longitude: 13.79,
-                    }
-                ]
-            },
-            scheduled_duration: 0.0
-        };
+        if ($rootScope.user.getAuthResponse()) {
+            $scope.newBooking = {
+                passenger_id: $rootScope.user.getAuthResponse().id,
+                passenger_in_group: false,
+                fleet_id: $rootScope.user.getAuthResponse().fleet_id,
+                scheduled: $rootScope.user.getScheduled(),
+                route: {
+                    from: $rootScope.user.getFrom(),
+                    to: $rootScope.user.getTo(),
+                    waypoints : [
+                        {
+                            formatted_address: "foobar",
+                            latitude: 51.89,
+                            longitude: 13.79,
+                        }
+                    ]
+                },
+                scheduled_duration: 0.0
+            };
 
-        BookingsFactory.save($scope.newBooking, function (res) {
-            BookingsResponse.fillPassenger(res);
-            $rootScope.user.setBookingResponse(BookingsResponse);
-        });
+            BookingsFactory.save($scope.newBooking, function (res) {
+                BookingsResponse.fillPassenger(res);
+                $rootScope.user.setBookingResponse(BookingsResponse);
+            });
 
-        DispatchFactory.save($rootScope.user.getSerialized(), function (res) {
-            DispatchResponse.fillPassenger(res);
-            $rootScope.user.setDispatchResponse(BookingsResponse);
-        });
+            DispatchFactory.save($rootScope.user.getSerialized(), function (res) {
+                DispatchResponse.fillPassenger(res);
+                $rootScope.user.setDispatchResponse(BookingsResponse);
+            });
+        }
 
         $scope.evaluateNoChange = function (change) {
             if (change == $scope.backFilter) {
