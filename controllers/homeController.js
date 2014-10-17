@@ -182,7 +182,7 @@ angular.module('blackRide').controller('homeController',
 
     $scope.init = function () {
 
-        if (typeof $rootScope.user == "undefined") {
+        if (!angular.isDefined($rootScope.user)) {
             $rootScope.user = QuoteFactory;
         }
 

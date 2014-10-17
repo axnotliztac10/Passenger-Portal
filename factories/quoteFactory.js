@@ -15,7 +15,10 @@ angular.module('blackRide').factory('QuoteFactory' , function () {
         vehicle_type: 3,
         vehicle_size: 1,
         vehicle_energy_type: 6,
-        driver_info: null
+        driver_info: null,
+        auth_response: null,
+        booking_response: null,
+        dispatch_response: null
     }
 
     this.setFleet_id = function(fleet_id) { scope.fleet_id = fleet_id; }
@@ -46,6 +49,12 @@ angular.module('blackRide').factory('QuoteFactory' , function () {
     this.getVehicle_energy_type = function() { return scope.vehicle_energy_type; }
     this.setDriver_info = function(driver_info) { scope.driver_info = driver_info; }
     this.getDriver_info = function() { return scope.driver_info; }
+    this.getAuthResponse = function () { return scope.auth_response; }
+    this.setAuthResponse = function (auth_response) { scope.auth_response = auth_response; }
+    this.getBookingResponse = function () { return scope.booking_response; }
+    this.setBookingResponse = function (booking_response) { scope.booking_response = booking_response; }
+    this.getDispatchResponse = function () { return scope.dispatch_response; }
+    this.setDispatchResponse = function (dispatch_response) { scope.dispatch_response = dispatch_response; }
     this.getSerialized = function () {
         return scope;
     }

@@ -14,8 +14,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
     });
 
     $scope.$on('signResponse', function (event, reqObj) {
-        $rootScope.user = reqObj.body;
-        AuthFactory.save(reqObj.body.getSerialized(), function (res) {
+        AuthFactory.save(reqObj.body, function (res) {
             AuthResponse.fillPassenger(res);
             $rootScope.user.setAuthResponse(AuthResponse);
         });
@@ -68,7 +67,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
                 fbRes.setAuth_origin_name("gplus");
                 fbRes.setAuth_origin_entity_id(user.id);
                 fbRes.setAuth_origin_oauth_token(token);
-                $scope.sendResponse(fbRes);
+                $scope.sendResponse(fbRes.getSerialized());
             });
         }, function (err) {
             console.log(err);
@@ -92,7 +91,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
             fbRes.setAuth_origin_name("facebook");
             fbRes.setAuth_origin_entity_id(response.id);
             fbRes.setAuth_origin_oauth_token(token);
-            $scope.sendResponse(fbRes);
+            $scope.sendResponse(fbRes.getSerialized());
         });
     };
 
@@ -108,10 +107,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
             auth_origin_oauth_token: null,
             fleet: {
                 id: 4768254505517056
-            },
-            auth_response: null,
-            booking_response: null,
-            dispatch_response: null
+            }
         };
 
         this.setAuth_origin_name = function (auth_origin_name) { scope.auth_origin_name = auth_origin_name; } 
@@ -123,11 +119,5 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         this.setFleet = function (fleet) { scope.fleet.id = fleet; } 
         this.getFleet = function() { return scope.fleet.id; }
         this.getSerialized = function () { return scope; }
-        this.getAuthResponse = function () { return scope.auth_response; }
-        this.setAuthResponse = function (auth_response) { scope.auth_response = auth_response; }
-        this.getBookingResponse = function () { return scope.booking_response; }
-        this.setBookingResponse = function (booking_response) { scope.booking_response = booking_response; }
-        this.getDispatchResponse = function () { return scope.dispatch_response; }
-        this.setDispatchResponse = function (dispatch_response) { scope.dispatch_response = dispatch_response; }
     };
 }]);

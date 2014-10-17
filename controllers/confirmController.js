@@ -127,7 +127,7 @@ angular.module('blackRide').controller('confirmController',
 
     $scope.$on("signResponse", function (event, reqObj) {
         $rootScope.user = reqObj.body;
-        AuthFactory.save(reqObj.body.getSerialized(), function (res) {
+        AuthFactory.save(reqObj.body, function (res) {
             AuthResponse.fillPassenger(res);
             $rootScope.user.setAuthResponse(AuthResponse);
             $scope.map.active = true;
