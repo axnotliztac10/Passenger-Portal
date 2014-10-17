@@ -1,6 +1,6 @@
-angular.module('blackRide').run(function ($httpBackend) {
+angular.module('blackRide').run(function ($httpBackend, API_HOST) {
 
-	$httpBackend.whenPOST('/auth').respond(function(method, url, data) {
+	$httpBackend.whenPOST(API_HOST + '/auth').respond(function(method, url, data) {
 		return authRespond;
 	});
 
