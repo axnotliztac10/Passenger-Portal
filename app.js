@@ -1,4 +1,4 @@
-angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule']);
+angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule', 'ngMockE2E']);
 
 angular.module('blackRide')
     .constant("HOST", "http://54.68.30.59:9001/")
@@ -92,8 +92,15 @@ angular.module("blackRide").run(function ($rootScope, $state) {
     };
 
     $rootScope.$on('$stateChangeSuccess', function () {
-        menuListener();
         lightListener($state.current.name);
+    });
+
+    $rootScope.$on('$locationChangeSuccess', function () {
+        menuListener();
+    });
+
+    $(window).load(function () {
+      menuListener();
     });
 });
 

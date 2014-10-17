@@ -5971,6 +5971,9 @@ header .menu {
 .nextStep a {
   color: #9cd444;
 }
+.nextStep.cancelMb {
+  margin-bottom: 0px;
+}
 .topSpacer {
   margin-top: 5px;
 }
