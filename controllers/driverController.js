@@ -19,7 +19,7 @@ angular.module('blackRide').controller('driverController',
         DispatchResponse
     ) {
 
-        if (!$rootScope.user) {
+        if (!$rootScope.user || !$rootScope.user.getAuthResponse()) {
             $state.go("home");
         } else if (!$rootScope.user.getScheduled()) {
             $state.go("time");
