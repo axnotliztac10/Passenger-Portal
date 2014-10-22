@@ -6,7 +6,7 @@
 			      <div class="input-group-addon">
 			      	<span class="glyphicon glyphicon-search"></span>
 			      </div>
-			      <input class="form-control timepicketbox" type="email">
+			      <input class="form-control timepicketbox" type="text" ng-model="searchText.$">
 			    </div>
 			  </div>
 		</div>
@@ -14,8 +14,12 @@
 			<a href="#">Advanced</a>
 		</div>
 		<div class="col-md-3 col-sm-3 col-xs-3 text-left" style="padding-top: 6px;"> 
-			<span>Sort by <strong>Time</strong></span>
-			<span class="glyphicon glyphicon-chevron-down"></span>
+			<span>Sort by <strong>{{sort.label}}</strong></span>
+			<span class="glyphicon glyphicon-chevron-down" ng-click="manuAct = !manuAct">
+				<div class="sortMenu" ng-show="manuAct">
+					<p ng-repeat="sor in sorts" ng-click="sort = sorts[$index]">{{sor.label}}</p>
+				</div>
+			</span>
 		</div>
 	</div>
 	<div class="row rowHis noBorder">
@@ -23,14 +27,14 @@
 			<p>Active</p>
 		</div>
 	</div>
-	<div class="row rowHis historyElement">
+	<div class="row rowHis historyElement" ng-repeat="el in els | orderBy:'sort.value' | filter:searchText">
 		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-			<p>Mission St. 125</p>
-			<p>Oak St</p>
+			<p>{{el.departure}}</p>
+			<p>{{el.destiny}}</p>
 		</div>
 		<div class="col-md-6 text-right">
-			<p class="date">Sunday 10-4-2014</p>
-			<p><small>$</small>24</p>
+			<p class="date">{{el.date | getCustomDate}}</p>
+			<p><small>$</small>{{el.price}}</p>
 		</div>
 	</div>
 </div>

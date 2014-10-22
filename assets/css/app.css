@@ -6380,6 +6380,16 @@ table {
   color: #949494;
   font-size: 15px;
 }
+.sortMenu {
+  position: absolute;
+  top: 18px;
+  left: -39px;
+  padding: 5px 2px;
+  z-index: 100;
+}
+.sortMenu p:hover {
+  color: #b3b3b3;
+}
 /* BS UI Customization
 ============================================================================= */
 .nav,
