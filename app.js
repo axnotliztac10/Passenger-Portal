@@ -1,7 +1,7 @@
 angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule']);
 
 angular.module('blackRide')
-    .constant("HOST", "http://54.68.30.59:9001/")
+    .constant("HOST", "http://54.191.66.109:9001/")
     .constant("API_HOST", "http://shift-dev.appspot.com/1.0/passenger")
     .config(function($stateProvider, $urlRouterProvider, $locationProvider, datepickerConfig, FacebookProvider, GooglePlusProvider, localStorageServiceProvider) {
 
@@ -82,7 +82,15 @@ angular.module("blackRide").run(function ($rootScope, $state) {
         angular.forEach(elements, function (v, i) {
           $("[ui-sref='" + v + "']").addClass("lightDot");
         });
+      };
+
+      if (scope == "history" || scope == "organization") {
+        $("status-buttons").hide();
+        return;
+      } else {
+        $("status-buttons").show();
       }
+
       if (scope) {
         closure("[ui-sref='" + scope + "']");
       } else { 
