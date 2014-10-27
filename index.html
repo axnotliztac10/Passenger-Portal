@@ -25,7 +25,7 @@
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
   
   <header ng-controller="authController">
-    <div class="title"><a href="#"><img src="assets/imgs/blue_logo.png"></a></div>
+    <div class="title"><a ui-sref="home"><img src="assets/imgs/blue_logo.png"></a></div>
     <div class="menu">
       <a class="button first hide" href="javascript: void(0)">Sign Up</a>
       <a class="button" href="javascript: void(0)" ng-click="open()">Login</a>
@@ -91,7 +91,7 @@
         <li><a ui-sref-active="active" ui-sref="history">My Bookings</a></li>
         <li><a href="#">Payment</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Organizations</a></li>
+        <li><a ui-sref-active="organizations" ui-sref="organizations">Organizations</a></li>
       </ul>
    </div>  
 
@@ -103,6 +103,7 @@
   <script src="controllers/confirmController.js"></script>
   <script src="controllers/historyController.js"></script>
   <script src="controllers/authController.js"></script>
+  <script src="controllers/organizationsController.js"></script>
   <script src="factories/quoteFactory.js"></script>
   <script src="factories/apiFactory.js"></script>
   <script src="directives/mainDirectives.js"></script>

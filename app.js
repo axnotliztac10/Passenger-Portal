@@ -52,6 +52,18 @@ angular.module('blackRide')
         templateUrl: './views/history.html'
     });
 
+    $stateProvider.state('organizations', {
+        url: '/organizations',
+        controller: 'organizationsController',
+        templateUrl: './views/organizations.html'
+    });
+
+    $stateProvider.state('payment', {
+        url: '/payment',
+        controller: 'paymentController',
+        templateUrl: './views/payment.html'
+    });
+
     $urlRouterProvider.otherwise('/home');
     $locationProvider.html5Mode(true);
 
@@ -84,11 +96,11 @@ angular.module("blackRide").run(function ($rootScope, $state) {
         });
       };
 
-      if (scope == "history" || scope == "organization") {
-        $("status-buttons").hide();
+      if (scope == "history" || scope == "organizations") {
+        $("#status-buttons").hide();
         return;
       } else {
-        $("status-buttons").show();
+        $("#status-buttons").show();
       }
 
       if (scope) {
