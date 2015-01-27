@@ -42,49 +42,49 @@ angular.module('blackRide')
     $stateProvider.state('home', {
         url: '/home',
         controller: 'homeController',
-        templateUrl: './views/home.html'
+        templateUrl: 'app/views/home.html'
     });
 
     $stateProvider.state('time', {
         url: '/time',
         controller: 'timeController',
-        templateUrl: './views/time.html'
+        templateUrl: 'app/views/time.html'
     });
 
     $stateProvider.state('drop', {
         url: '/drop',
         controller: 'dropController',
-        templateUrl: './views/drop.html'
+        templateUrl: 'app/views/drop.html'
     });
 
     $stateProvider.state('driver', {
         url: '/driver',
         controller: 'driverController',
-        templateUrl: './views/driver.html',
+        templateUrl: 'app/views/driver.html',
     });
 
     $stateProvider.state('confirm', {
         url: '/confirm',
         controller: 'confirmController',
-        templateUrl: './views/confirm.html'
+        templateUrl: 'app/views/confirm.html'
     });
 
     $stateProvider.state('history', {
         url: '/history',
         controller: 'historyController',
-        templateUrl: './views/history.html'
+        templateUrl: 'app/views/history.html'
     });
 
     $stateProvider.state('organizations', {
         url: '/organizations',
         controller: 'organizationsController',
-        templateUrl: './views/organizations.html'
+        templateUrl: 'app/views/organizations.html'
     });
 
     $stateProvider.state('payment', {
         url: '/payment',
         controller: 'paymentController',
-        templateUrl: './views/payment.html'
+        templateUrl: 'app/views/payment.html'
     });
 
     $urlRouterProvider.otherwise('/home');
