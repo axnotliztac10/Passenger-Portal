@@ -15,7 +15,8 @@ angular.module(
 );
 
 angular.module('blackRide')
-    .constant("HOST", "http://127.0.0.1:9001/")
+    //.constant("HOST", "http://127.0.0.1:9001/")
+    .constant("HOST", "http://shiftportal.s3-website-us-east-1.amazonaws.com/")
     .constant("API_HOST", "http://shift-dev.appspot.com/1.0/passenger")
     .config(function(
       $stateProvider,
