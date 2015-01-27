@@ -36,7 +36,7 @@ module.exports = function(grunt) {
             },
             build: {
                 cwd: "build/",
-                src: "**"
+                src: "**/*"
             }
         },
         copy: {
