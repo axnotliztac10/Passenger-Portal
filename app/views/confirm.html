@@ -1,0 +1,63 @@
+<div class="stepWrapper medium top-margin bottom-margin text-center wrapMobile" style="padding: 0px;min-height:310px" ng-show="!map.active">
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<div class="driverItem">
+				<img ng-src="{{driver.img}}" alt="">
+				<div style="margin-bottom: 0px;">
+					<span class="name">{{driver.name}}</span><br>
+					<span class="model">{{driver.model}}</span>
+					<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
+					<div class="stars">
+						<rating 
+							ng-model="driver.rate" 
+							max="max" 
+							readonly="isReadonly = true" 
+							state-on="'star'"
+							state-off="'star-gray'"
+						></rating>
+					</div>
+					<span class="time">{{driver.time}} min</span><br>
+					<span class="price">$ {{driver.price}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<div class="tripInfo text-center">
+				<p>From</p>
+				<p class="even">{{user.getFrom().formatted_address}}</p>
+				<p>To</p>
+				<p class="even" ng-if="user.getTo().formatted_address">{{user.getTo().formatted_address}}</p>
+				<p class="even" ng-if="!user.getTo().formatted_address">Not Selected</p>
+				<p>Time</p>
+				<p class="even">{{scheduled}}</p>
+			</div><br>
+			<p class="nextStep cancelMb"><a ng-click="open()">Confirm Reservation</a></p>
+		</div>
+	</div>
+</div>
+<div class="stepWrapper big wrapMobile followMap" ng-if="map.active">
+	<div class="info">
+		<div class="imgWrap"><img ng-src="{{driver.photo}}" alt=""></div>
+		<p>{{driver.name}} will be there in</p>
+		<p class="time">{{driver.time}} minutes</p>
+		<p class="nextStep customStep">
+			<a class="onlyOnMob" href="javascript: void(0)" onclick="$('.map, .info').fadeToggle()">MAP</a>
+			<a class="onMobWhiet" ng-click="map.active=false">Cancel Reservation</a>
+		</p>
+	</div>
+	<div class="map">
+		<google-map 
+		center="map.center" 
+		refresh="map.refresh"
+		events="map.events"
+		zoom="map.zoom"
+		control="map.control">
+			<markers 
+				models="markers" 
+				icon="'icon'" 
+				coords="'self'" 
+				options="'options'">
+      		</markers>
+		</google-map>
+	</div>
+</div>
