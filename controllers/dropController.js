@@ -74,7 +74,7 @@ angular.module('blackRide').controller('dropController',
             },
             dragend: function () {
                 var pos = $scope.map.control.getGMap().getCenter();
-                $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon($scope.icons['pick_me'])});
+                $scope.getAddress(pos.lat(), pos.lng(), function () {$scope.setIcon($scope.icons['pick_me'])});
                 $scope.ajaxLoader = false;
             },
             drag: function (res) {
@@ -94,8 +94,8 @@ angular.module('blackRide').controller('dropController',
             if ($rootScope.user.getFrom().formatted_address == $scope.address) return false; 
             $rootScope.user.setTo({
                 formatted_address: $scope.address,
-                latitude: pos.k,
-                longitude: pos.B
+                latitude: pos.lat(),
+                longitude: pos.lng()
            });
             $state.go('driver');
         }

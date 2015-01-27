@@ -1,9 +1,31 @@
-angular.module('blackRide', ['ngResource', 'ui.bootstrap','ui.router','ngAnimate', 'google-maps', 'ui.slider', 'facebook', 'googleplus', 'LocalStorageModule']);
+angular.module(
+  'blackRide',
+  [
+    'ngResource',
+    'ui.bootstrap',
+    'ui.router',
+    'ngAnimate',
+    'google-maps',
+    'ui.slider',
+    'facebook',
+    'googleplus',
+    'LocalStorageModule',
+    'famous.angular'
+  ]
+);
 
 angular.module('blackRide')
-    .constant("HOST", "http://54.191.66.109:9001/")
+    .constant("HOST", "http://127.0.0.1:9001/")
     .constant("API_HOST", "http://shift-dev.appspot.com/1.0/passenger")
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider, datepickerConfig, FacebookProvider, GooglePlusProvider, localStorageServiceProvider) {
+    .config(function(
+      $stateProvider,
+      $urlRouterProvider,
+      $locationProvider,
+      datepickerConfig,
+      FacebookProvider,
+      GooglePlusProvider,
+      localStorageServiceProvider
+    ) {
 
     FacebookProvider.init('279962268844155');
     
@@ -65,7 +87,7 @@ angular.module('blackRide')
     });
 
     $urlRouterProvider.otherwise('/home');
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
 
 });
 

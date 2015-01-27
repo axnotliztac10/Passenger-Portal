@@ -36,6 +36,10 @@ angular.module('blackRide').controller('driverController',
         $scope.minTime = 10;
         $scope.maxTime = 60;
 
+        $scope.myGridLayoutOptions = {
+            dimensions: [3, 7]
+        };
+
         if ($rootScope.user.getAuthResponse()) {
             $scope.newBooking = {
                 passenger_id: $rootScope.user.getAuthResponse().id,

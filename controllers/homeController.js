@@ -49,7 +49,7 @@ angular.module('blackRide').controller('homeController',
         zoom: 14,
         events: {
             idle: function (res) {
-                $scope.centerMap({lat: res.center.k, lon: res.center.B}, false);
+                $scope.centerMap({lat: res.getCenter().lat(), lon: res.getCenter().lng()}, false);
                 $window.google.maps.event.clearListeners(res, 'idle');
             },
             dragstart: function (res) {
@@ -58,7 +58,7 @@ angular.module('blackRide').controller('homeController',
             dragend: function (res) {
                 var pos = $scope.map.control.getGMap().getCenter();
                 $scope.markersCtr.getGMarkers()[0].setVisible(true);
-                $scope.getAddress(pos.k, pos.B, function () {$scope.setIcon($scope.icons['pick_me'])});
+                $scope.getAddress(pos.lat(), pos.lng(), function () {$scope.setIcon($scope.icons['pick_me'])});
                 $scope.ajaxLoader = false;
             },
             drag: function (res) {
@@ -108,11 +108,10 @@ angular.module('blackRide').controller('homeController',
     };
 
     $scope.setAndGo = function (pos) {
-       
        $rootScope.user.setFrom({
             formatted_address: $scope.address,
-            latitude: pos.k ? pos.k : pos.lat,
-            longitude: pos.B ? pos.B : pos.lon
+            latitude: pos.lat && isNaN(pos.lat) ? pos.lat() : pos.lat,
+            longitude: pos.lng && isNaN(pos.lng) ? pos.lng() : pos.lon
        });
        
         $state.go('time');

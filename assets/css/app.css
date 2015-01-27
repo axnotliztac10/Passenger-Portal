@@ -6861,3 +6861,10 @@ slider div.bar .selection,
     width: 100%;
   }
 }
+fa-app {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
