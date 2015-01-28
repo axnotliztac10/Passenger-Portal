@@ -50,10 +50,12 @@ angular.module('blackRide').controller('confirmController',
                     lon: $scope.user.getFrom().longitude
                 };
 
-                var posDro = {
-                    lat: $scope.user.getTo().latitude,
-                    lon: $scope.user.getTo().longitude
-                };
+                if ($scope.user.getTo()) {
+                    var posDro = {
+                        lat: $scope.user.getTo().latitude,
+                        lon: $scope.user.getTo().longitude
+                    };
+                }
 
                 $scope.map.control.refresh({
                     latitude: posDep.lat, 
@@ -73,11 +75,15 @@ angular.module('blackRide').controller('confirmController',
 
                 lat_lng.push(
                     new $window.google.maps.LatLng(lat, lng),
-                    new $window.google.maps.LatLng(posDep.lat, posDep.lon),
-                    new $window.google.maps.LatLng(posDro.lat, posDro.lon)
+                    new $window.google.maps.LatLng(posDep.lat, posDep.lon)
                 );
 
+                if (posDro) {
+                    lat_lng.push(new $window.google.maps.LatLng(posDro.lat, posDro.lon));
+                }
+
                 var path = new $window.google.maps.MVCArray();
+                var pathTwo = new $window.google.maps.MVCArray();
                 var service = new $window.google.maps.DirectionsService();
                 
                 var lineSymbol = {
@@ -94,6 +100,17 @@ angular.module('blackRide').controller('confirmController',
                         repeat: '20px'
                     }],
                     strokeColor: '#737373',
+                    strokeOpacity: 0
+                });
+
+                var polyTwo = new $window.google.maps.Polyline({
+                    map: map,
+                    icons: [{
+                        icon: lineSymbol,
+                        offset: '0',
+                        repeat: '20px'
+                    }],
+                    strokeColor: '#075FB5',
                     strokeOpacity: 0
                 });
 
@@ -121,37 +138,52 @@ angular.module('blackRide').controller('confirmController',
                     id: 1
                 });
 
-                $scope.markers.push({
-                    icon: {
-                        url: HOST + 'assets/imgs/b@2x.png',
-                        scaledSize: new google.maps.Size(36, 50)
-                    },
-                    options: { draggable: false },
-                    latitude: posDro.lat,
-                    longitude: posDro.lon,
-                    title: "m2",
-                    id: 2
-                });
+                if (posDro) {
+                    $scope.markers.push({
+                        icon: {
+                            url: HOST + 'assets/imgs/b@2x.png',
+                            scaledSize: new google.maps.Size(36, 50)
+                        },
+                        options: { draggable: false },
+                        latitude: posDro.lat,
+                        longitude: posDro.lon,
+                        title: "m2",
+                        id: 2
+                    });
+                }
 
-                angular.forEach(lat_lng, function (v, i) {
-                    if ((i + 1) < lat_lng.length) {    
-                        var src = lat_lng[i];
-                        var des = lat_lng[i + 1];
-                        path.push(src);
-                        poly.setPath(path);
-                        service.route({
-                            origin: src,
-                            destination: des,
-                            travelMode: $window.google.maps.DirectionsTravelMode.DRIVING
-                        }, function (result, status) {
-                            if (status == google.maps.DirectionsStatus.OK) {
-                                for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-                                    path.push(result.routes[0].overview_path[i]);
-                                }
-                            }
-                        });
+
+                var driver = lat_lng[0];
+                var aPoint = lat_lng[1];
+                path.push(driver);
+                poly.setPath(path);
+                service.route({
+                    origin: driver,
+                    destination: aPoint,
+                    travelMode: $window.google.maps.DirectionsTravelMode.DRIVING
+                }, function (result, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                            path.push(result.routes[0].overview_path[i]);
+                        }
                     }
                 });
+
+                if (posDro) {
+                    var bPoint = lat_lng[2];
+                    polyTwo.setPath(pathTwo);
+                    service.route({
+                        origin: aPoint,
+                        destination: bPoint,
+                        travelMode: $window.google.maps.DirectionsTravelMode.DRIVING
+                    }, function (result, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                                pathTwo.push(result.routes[0].overview_path[i]);
+                            }
+                        }
+                    });
+                }
 
                 $window.google.maps.event.clearListeners(map, 'idle');
             }
