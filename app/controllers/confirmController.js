@@ -30,7 +30,7 @@ angular.module('blackRide').controller('confirmController',
     }
         
     $scope.driver = $rootScope.user.getDriver_info();
-    $scope.user = $rootScope.user;
+    $scope.user = $rootScope.user;console.log($scope.user.getFrom());
     $scope.scheduled = $rootScope.user.getScheduled();
     $scope.markers = [];
 
@@ -46,8 +46,13 @@ angular.module('blackRide').controller('confirmController',
         events: {
             idle: function (map, res1) {
                 var posDep = {
-                    lat: $rootScope.user.getFrom().latitude,
-                    lon: $rootScope.user.getFrom().longitude
+                    lat: $scope.user.getFrom().latitude,
+                    lon: $scope.user.getFrom().longitude
+                };
+
+                var posDro = {
+                    lat: $scope.user.getTo().latitude,
+                    lon: $scope.user.getTo().longitude
                 };
 
                 $scope.map.control.refresh({
@@ -66,11 +71,31 @@ angular.module('blackRide').controller('confirmController',
                 var lat = southWest.lat() + latSpan * Math.random();
                 var lng = southWest.lng() + lngSpan * Math.random();
 
-                lat_lng.push(new $window.google.maps.LatLng(lat, lng), new $window.google.maps.LatLng(posDep.lat, posDep.lon));
+                lat_lng.push(
+                    new $window.google.maps.LatLng(lat, lng),
+                    new $window.google.maps.LatLng(posDep.lat, posDep.lon),
+                    new $window.google.maps.LatLng(posDro.lat, posDro.lon)
+                );
 
                 var path = new $window.google.maps.MVCArray();
                 var service = new $window.google.maps.DirectionsService();
-                var poly = new $window.google.maps.Polyline({ map: map, strokeColor: '#4986E7' });
+                
+                var lineSymbol = {
+                    path: 'M 0,-1 0,1',
+                    strokeOpacity: 1,
+                    scale: 4
+                };
+
+                var poly = new $window.google.maps.Polyline({
+                    map: map,
+                    icons: [{
+                        icon: lineSymbol,
+                        offset: '0',
+                        repeat: '20px'
+                    }],
+                    strokeColor: '#737373',
+                    strokeOpacity: 0
+                });
 
                 $scope.markers.push({
                     icon: {
@@ -94,6 +119,18 @@ angular.module('blackRide').controller('confirmController',
                     longitude: posDep.lon,
                     title: "m1",
                     id: 1
+                });
+
+                $scope.markers.push({
+                    icon: {
+                        url: HOST + 'assets/imgs/b@2x.png',
+                        scaledSize: new google.maps.Size(36, 50)
+                    },
+                    options: { draggable: false },
+                    latitude: posDro.lat,
+                    longitude: posDro.lon,
+                    title: "m2",
+                    id: 2
                 });
 
                 angular.forEach(lat_lng, function (v, i) {
@@ -130,8 +167,9 @@ angular.module('blackRide').controller('confirmController',
         AuthFactory.save(reqObj.body, function (res) {
             AuthResponse.fillPassenger(res);
             $rootScope.user.setAuthResponse(AuthResponse);
-            $scope.map.active = true;
         });
+
+        $scope.map.active = true;
     });
 
     localStorageService.set('dispatchFactory', $rootScope.user);

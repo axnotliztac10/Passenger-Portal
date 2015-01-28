@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                    port: 9001,
+                    port: 80,
                     keepalive: true
                 }
             }
@@ -54,7 +54,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('default', ['less', 'connect']);
-    grunt.registerTask('build', ['copy']);
+    grunt.registerTask('local', ['less', 'copy', 'connect']);
     grunt.registerTask('deploy', ['copy', 's3']);
 };

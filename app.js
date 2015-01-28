@@ -15,7 +15,6 @@ angular.module(
 );
 
 angular.module('blackRide')
-    //.constant("HOST", "http://127.0.0.1:9001/")
     .constant("HOST", "http://shiftportal.s3-website-us-east-1.amazonaws.com/")
     .constant("API_HOST", "http://shift-dev.appspot.com/1.0/passenger")
     .config(function(
@@ -28,7 +27,7 @@ angular.module('blackRide')
       localStorageServiceProvider
     ) {
 
-    FacebookProvider.init('279962268844155');
+    FacebookProvider.init('905960616094330');
     
     GooglePlusProvider.init({
         clientId: '379648358992-n7i7he2jsopkqldmiuktafkmd0llfdro.apps.googleusercontent.com',
