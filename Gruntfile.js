@@ -35,17 +35,17 @@ module.exports = function(grunt) {
                 bucket: "shiftportal"
             },
             build: {
-                cwd: "build/",
+                cwd: "../build/",
                 src: "**/*"
             }
         },
         copy: {
-            bower: { files: [{ expand: true, cwd: 'bower_components/', src: ['**/*'], dest: 'build/bower_components'}] },
-            assets: { src: 'assets/css/*', dest: 'build/' },
-            index: { src: 'index.html', dest: 'build/'},
-            appFile: { src: 'app.js', dest: 'build/'},
-            app: { files: [{ expand: true, cwd: 'app/', src: ['**/*'], dest: 'build/app'}] },
-            images: { files: [{ expand: true, cwd: 'assets/imgs/', src: ['**/*'], dest: 'build/assets/imgs/'}] }
+            bower: { files: [{ expand: true, cwd: 'bower_components/', src: ['**/*'], dest: '../build/bower_components'}] },
+            assets: { src: 'assets/css/*', dest: '../build/' },
+            index: { src: 'index.html', dest: '../build/'},
+            appFile: { src: 'app.js', dest: '../build/'},
+            app: { files: [{ expand: true, cwd: 'app/', src: ['**/*'], dest: '../build/app'}] },
+            images: { files: [{ expand: true, cwd: 'assets/imgs/', src: ['**/*'], dest: '../build/assets/imgs/'}] }
         }
     });
 
@@ -55,5 +55,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
 
     grunt.registerTask('default', ['less', 'connect']);
+    grunt.registerTask('build', ['copy']);
     grunt.registerTask('deploy', ['copy', 's3']);
 };
