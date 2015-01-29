@@ -1,40 +1,45 @@
-<div class="stepWrapper medium text-center wrapMobile" ng-show="!map.active">
-	<div class="row historySearch" style="padding: 20px 20px 6px;">
-		<div class="col-md-6 col-sm-6 col-xs-6">
-			<div class="form-group">
-			    <div class="input-group">
-			      <div class="input-group-addon">
-			      	<span class="glyphicon glyphicon-search"></span>
-			      </div>
-			      <input class="form-control timepicketbox" type="text" ng-model="searchText.$">
-			    </div>
-			  </div>
+<div class="stepWrapper medium text-center wrapMobile organizations" ng-show="!map.active">
+	<div class="head">
+		<div class="org-row">
+			<div class="organization-name">Hilton Hotel</div>
+			<a href="#" class="mini-but organization-button">Organization Managers</a>
 		</div>
-		<div class="col-md-3 col-sm-3 col-xs-3 text-left" style="padding-top: 6px;padding-left: 0px;">
-			<a href="#">Advanced</a>
+		<div class="bill-row">
+			<div class="bill-label">
+				Billing Adress <a href="#" class="mini-but">Edit</a>
+			</div>
+			<div class="card-label">
+				Credit Card Limit <strong>1920</strong> $
+			</div>
 		</div>
-		<div class="col-md-3 col-sm-3 col-xs-3 text-left" style="padding-top: 6px;"> 
-			<span>Sort by <strong>{{sort.label}}</strong></span>
-			<span class="glyphicon glyphicon-chevron-down" ng-click="manuAct = !manuAct">
-				<div class="sortMenu" ng-show="manuAct">
-					<p ng-repeat="sor in sorts" ng-click="sort = sorts[$index]">{{sor.label}}</p>
+		<div class="add-row">
+			<div class="address3">
+				<p>17 James Drive</p>
+				<p>Brisbane</p>
+				<p>112890 Queensland</p>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="teams">
+		<div class="team" ng-mouseover="showButtons = true" ng-mouseout="showButtons = false" ng-repeat="a in as">
+			<div class="title">
+				<div class="name">
+					SALES DEPARTMENT
 				</div>
-			</span>
-		</div>
-	</div>
-	<div class="row rowHis noBorder">
-		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
-			<p>Active</p>
-		</div>
-	</div>
-	<div class="row rowHis historyElement" ng-repeat="el in els | orderBy:'sort.value' | filter:searchText">
-		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-			<p>{{el.departure}}</p>
-			<p>{{el.destiny}}</p>
-		</div>
-		<div class="col-md-6 text-right">
-			<p class="date">{{el.date | getCustomDate}}</p>
-			<p><small>$</small>{{el.price}}</p>
+				<div ng-show="showButtons" class="buttons">
+					<a href="#" class="mini-but">Add User</a>
+					<a href="#" class="mini-but">Create Team</a>
+				</div>
+			</div>
+			<div class="user" ng-repeat="user in a.child">
+				<div class="info">
+					<img src="assets/imgs/faces/47_min.png" alt="">
+					<p class="normal-font">Ryan Clark</p>
+					<p><a class="mini-but-nm" href="#">Booking List</a></p>
+				</div>
+				<div class="balance">Balance <span class="green-balance">85/260</span> $</div>
+			</div>
 		</div>
 	</div>
 </div>

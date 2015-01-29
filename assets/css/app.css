@@ -6868,3 +6868,102 @@ fa-app {
   bottom: 0;
   left: 0;
 }
+.organizations {
+  padding-bottom: 15px;
+}
+.organizations .head .org-row {
+  height: 91px;
+  padding: 28px;
+}
+.organizations .head .org-row .organization-name {
+  font-size: 32px;
+  float: left;
+  font-weight: lighter;
+}
+.organizations .head .org-row .organization-button {
+  float: right;
+  margin-top: 19px;
+}
+.organizations .head .bill-row {
+  padding-left: 28px;
+  padding-right: 28px;
+  height: 40px;
+  padding-top: 11px;
+}
+.organizations .head .bill-row .bill-label {
+  float: left;
+  color: #fff;
+}
+.organizations .head .bill-row .card-label {
+  float: right;
+}
+.mini-but {
+  color: #07b5b5;
+  margin-left: 10px;
+}
+.mini-but-nm {
+  color: #07b5b5;
+}
+.mini-but:hover,
+.mini-but-nm:hover {
+  color: #2bf7f7;
+}
+.address3 {
+  line-height: 13px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 28px;
+  height: 127px;
+  padding-top: 20px;
+}
+.organizations hr {
+  margin-top: 0px;
+  border: #262525 1px solid;
+}
+.team .title {
+  padding-left: 28px;
+  padding-right: 28px;
+  width: 640px;
+  height: 30px;
+}
+.team .title .name {
+  font-size: 22px;
+  float: left;
+  font-weight: lighter;
+}
+.team .title .buttons,
+.team .user .balance {
+  float: right;
+}
+.team .user .info {
+  float: left;
+  width: 130px;
+  line-height: 8px;
+}
+.team .user {
+  padding-left: 28px;
+  padding-right: 28px;
+  width: 640px;
+  height: 43px;
+  margin-top: 10px;
+  padding-top: 4px;
+  margin-bottom: 10px;
+}
+.user .info img {
+  width: 35px;
+  height: 35px;
+  margin-right: 7px;
+  float: left;
+}
+.team .user .info p {
+  text-align: left;
+  margin-top: 3px;
+}
+.green-balance {
+  color: #9cd444;
+}
+.normal-font,
+.balance {
+  font-weight: bold;
+}

@@ -10,6 +10,10 @@ angular.module('blackRide').controller('organizationsController',
         $state
     ) {
 
-
+        $scope.as = [
+            {child: [0,1]},
+            {child: [0]},
+            {child: [0,1]}
+        ];
 
     }]);
