@@ -6893,6 +6893,7 @@ fa-app {
 .organizations .head .bill-row .bill-label {
   float: left;
   color: #fff;
+  position: relative;
 }
 .organizations .head .bill-row .card-label {
   float: right;
@@ -6909,13 +6910,24 @@ fa-app {
   color: #2bf7f7;
 }
 .address3 {
-  line-height: 13px;
+  line-height: 22px;
   text-align: left;
   font-size: 13px;
   font-weight: bold;
   padding-left: 28px;
   height: 127px;
   padding-top: 20px;
+}
+.address3 p {
+  width: 100px;
+}
+.address3 textarea {
+  background: #272625;
+  padding: 6px;
+  border: 0px;
+  resize: none;
+  width: 175px;
+  height: 90px;
 }
 .organizations hr {
   margin-top: 0px;
@@ -6926,6 +6938,7 @@ fa-app {
   padding-right: 28px;
   width: 640px;
   height: 30px;
+  margin-top: 20px;
 }
 .team .title .name {
   font-size: 22px;
@@ -6935,10 +6948,11 @@ fa-app {
 .team .title .buttons,
 .team .user .balance {
   float: right;
+  margin-top: 5px;
 }
 .team .user .info {
   float: left;
-  width: 130px;
+  width: 260px;
   line-height: 8px;
 }
 .team .user {
@@ -6951,19 +6965,30 @@ fa-app {
   margin-bottom: 10px;
 }
 .user .info img {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   margin-right: 7px;
   float: left;
 }
 .team .user .info p {
   text-align: left;
-  margin-top: 3px;
+  margin-top: 8px;
 }
 .green-balance {
   color: #9cd444;
 }
 .normal-font,
 .balance {
+  font-weight: bold;
+}
+.aster {
+  margin: 0px 7px 0px 7px;
+  position: relative;
+  top: -4px;
+  font-weight: bolder;
+  font-size: 33px;
+}
+.yello-green {
+  color: #9cd444;
   font-weight: bold;
 }

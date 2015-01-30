@@ -6,7 +6,16 @@
 		</div>
 		<div class="bill-row">
 			<div class="bill-label">
-				Billing Adress <a href="#" class="mini-but">Edit</a>
+				Billing Adress 
+				<a ng-show="!editAddress" ng-click="editAddress = true" class="mini-but">Edit</a>
+				<a ng-show="editAddress" ng-click="saveAddress()" class="mini-but">Save</a>
+				<div class="loaderInput ng-hide" title="1" ng-show="ajaxLoader" style="right: -37px;top: -5px;">
+					<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+						<path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(317.877 25 25)">
+							<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform>
+						</path>
+					</svg>
+				</div>
 			</div>
 			<div class="card-label">
 				Credit Card Limit <strong>1920</strong> $
@@ -14,31 +23,32 @@
 		</div>
 		<div class="add-row">
 			<div class="address3">
-				<p>17 James Drive</p>
-				<p>Brisbane</p>
-				<p>112890 Queensland</p>
+				<p ng-show="!editAddress">{{billAddress}}</p>
+				<p ng-show="editAddress">
+					<textarea ng-model="billAddress" ></textarea>
+				</p>
 			</div>
 		</div>
 	</div>
 	<hr>
 	<div class="teams">
-		<div class="team" ng-mouseover="showButtons = true" ng-mouseout="showButtons = false" ng-repeat="a in as">
+		<div class="team" ng-mouseover="showButtons = true" ng-mouseout="showButtons = false" ng-repeat="organisation in organisations">
 			<div class="title">
 				<div class="name">
-					SALES DEPARTMENT
+					{{organisation.orgName}}
 				</div>
 				<div ng-show="showButtons" class="buttons">
-					<a href="#" class="mini-but">Add User</a>
-					<a href="#" class="mini-but">Create Team</a>
+					<a class="mini-but">Add User</a>
+					<a class="mini-but">Create Team</a>
 				</div>
 			</div>
-			<div class="user" ng-repeat="user in a.child">
+			<div class="user" ng-repeat="member in organisation.members">
 				<div class="info">
-					<img src="assets/imgs/faces/47_min.png" alt="">
-					<p class="normal-font">Ryan Clark</p>
-					<p><a class="mini-but-nm" href="#">Booking List</a></p>
+					<img src="http://shiftportal.s3-website-us-east-1.amazonaws.com/assets/imgs/faces/{{member.id}}_min.png" alt="">
+					<p class="normal-font">{{member.name}}</p>
+					<p><a class="mini-but-nm" href="{{member.id}}">Booking List</a></p>
 				</div>
-				<div class="balance">Balance <span class="green-balance">85/260</span> $</div>
+				<div class="balance">Balance <span class="green-balance">{{member.balance.billed}}/{{member.balance.max}}</span> $</div>
 			</div>
 		</div>
 	</div>

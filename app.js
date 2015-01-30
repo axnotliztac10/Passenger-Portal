@@ -118,7 +118,7 @@ angular.module("blackRide").run(function ($rootScope, $state) {
         });
       };
 
-      if (scope == "history" || scope == "organizations") {
+      if (scope == "history" || scope == "organizations" || scope == "payment") {
         $("#status-buttons").hide();
         return;
       } else {

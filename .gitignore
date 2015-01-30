@@ -3,3 +3,5 @@ node_modules/
 assets/imgs/.DS_Store
 credentials.json
 build/
+assets/.DS_Store
+.DS_Store
