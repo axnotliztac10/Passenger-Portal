@@ -55,5 +55,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
 
     grunt.registerTask('local', ['less', 'copy', 'connect']);
-    grunt.registerTask('deploy', ['copy', 's3']);
+    grunt.registerTask('deploy', ['less', 'copy', 's3']);
 };
