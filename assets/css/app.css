@@ -6993,3 +6993,35 @@ fa-app {
   color: #9cd444;
   font-weight: bold;
 }
+.payment .full {
+  width: 100%;
+  height: 35px;
+  margin: 10px 0px 10px 0px;
+  padding: 7px;
+  background: #2e2d2c;
+  border: 1px solid;
+}
+.payment .middle {
+  width: 46%;
+  height: 35px;
+  margin: 0px 0px 10px 0px;
+  padding: 7px;
+  background: #2e2d2c;
+  border: 1px solid;
+}
+.payment .middle.spacing {
+  margin-right: 6%;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  .organizations .head .org-row .organization-button {
+    float: left;
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
+  .organizations .head .bill-row {
+    height: 60px;
+  }
+  .organizations .head .bill-row .card-label {
+    float: left;
+  }
+}
