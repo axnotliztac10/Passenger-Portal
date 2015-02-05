@@ -1,14 +1,26 @@
-shift-portal
-============
+# Shift Portal
 
-## GruntJS and Grunt-less required
+### Installation
+
+Grunt and Bower are necessary to do deploy and test actions:
+
+```sh
+$ npm install -g grunt-cli
+$ npm install -g bower
+```
+
+So install grunt dependencies:
 
 ```sh
 $ npm install
 ```
 
-## Install Dependencies (Bower)
+And Bower as well:
 
 ```sh
 $ bower install
 ```
+
+---
+
+# Project structure
