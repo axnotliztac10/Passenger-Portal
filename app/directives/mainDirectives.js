@@ -36,7 +36,7 @@ angular.module("blackRide").directive('ngAutocomplete', function($parse) {
           scope.$apply(function() {
               scope.details = scope.gPlace.getPlace();
               scope.ngAutocomplete = element.val();
-              scope.$parent.centerMap({lat: scope.details.geometry.location.k, lon: scope.details.geometry.location.B}, true);
+              scope.$parent.centerMap({lat: scope.details.geometry.location.lat(), lon: scope.details.geometry.location.lng()}, true);
               scope.$parent.address = element.val();
           });
         })
