@@ -30,7 +30,7 @@ angular.module('blackRide').controller('confirmController',
     }
         
     $scope.driver = $rootScope.user.getDriver_info();
-    $scope.user = $rootScope.user;console.log($scope.user.getFrom());
+    $scope.user = $rootScope.user;
     $scope.scheduled = $rootScope.user.getScheduled();
     $scope.markers = [];
 

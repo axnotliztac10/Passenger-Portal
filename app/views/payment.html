@@ -13,7 +13,7 @@
 			<img src="http://shiftportal.s3-website-us-east-1.amazonaws.com/assets/imgs/visa-icon.png" style="margin-left: 14px;width: 49px;" alt="">
 		</p>
 		<p class="nextStep" style="margin-bottom: 20px;">
-			<a ng-click="activeEdit = true">Edit Credit Card</a>
+			<a ng-click="setEdit(true, $event)">Edit Credit Card</a>
 		</p>
 	</div>
 	<div ng-show="activeEdit">
@@ -21,7 +21,8 @@
 		<input type="text" class="middle spacing" placeholder="MM/YY">
 		<input type="text" class="middle" placeholder="CVC">
 		<p class="nextStep" style="margin-bottom: 20px;">
-			<a ng-click="activeEdit = false">Save</a>
+			<a ng-click="setEdit(false, $event)">Save</a>
 		</p>
 	</div>
 </div>
+<span class="glyphicon glyphicon-align-justify menuOpen menuMobile"></span>

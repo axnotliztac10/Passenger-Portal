@@ -3,13 +3,20 @@ angular.module('blackRide').controller('paymentController',
     [
         '$scope',
         '$rootScope',
-        '$state',
+        '$timeout',
     function(
         $scope,
         $rootScope,
-        $state
+        $timeout
     ) {
 
 
+        $scope.setEdit = function (val, ev) {
+            ev.stopPropagation();
+
+            $timeout(function () {
+                $scope.activeEdit = val;
+            }, 100);
+        };
 
     }]);
