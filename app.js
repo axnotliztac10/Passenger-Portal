@@ -9,8 +9,7 @@ angular.module(
     'ui.slider',
     'facebook',
     'googleplus',
-    'LocalStorageModule',
-    'famous.angular'
+    'LocalStorageModule'
   ]
 );
 
@@ -118,12 +117,12 @@ angular.module("blackRide").run(function ($rootScope, $state) {
         });
       };
 
-      if (scope == "history" || scope == "organizations" || scope == "payment") {
+      /*if (scope == "history" || scope == "organizations" || scope == "payment") {
         $("#status-buttons").hide();
         return;
       } else {
         $("#status-buttons").show();
-      }
+      }*/
 
       if (scope) {
         closure("[ui-sref='" + scope + "']");
