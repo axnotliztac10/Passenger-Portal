@@ -9,6 +9,7 @@ angular.module('blackRide').controller('confirmController',
         'AuthFactory',
         'localStorageService',
         'AuthResponse',
+        '$timeout',
     function(
         $rootScope,
         $scope,
@@ -18,7 +19,8 @@ angular.module('blackRide').controller('confirmController',
         $modal,
         AuthFactory,
         localStorageService,
-        AuthResponse
+        AuthResponse,
+        $timeout
     ) {
 
     if (!$rootScope.user) {
@@ -191,7 +193,9 @@ angular.module('blackRide').controller('confirmController',
     };
 
     $scope.open = function () {
-        $rootScope.$broadcast("signIn");
+        $timeout(function () {
+            $rootScope.$broadcast("signIn");
+        }, 100);
     };
 
     $scope.$on("signResponse", function (event, reqObj) {

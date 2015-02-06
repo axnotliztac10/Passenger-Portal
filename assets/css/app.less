@@ -792,13 +792,74 @@ table {
 	animation:slideOutLeft 0.5s both ease;   
 }
 
-.driverWrap.ng-enter, .entrace-eff {
+.driverWrap.ng-enter {
+  -webkit-animation: enter-sequence 800ms;
+  animation: enter-sequence 800ms;
+  display: block;
+  position: relative;
+}
+@-webkit-keyframes enter-sequence {
+  from {
+    opacity: 0;
+    height: 0px;
+    left: 800px;
+  }
+  to {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+@keyframes enter-sequence {
+  from {
+    opacity: 0;
+    height: 0px;
+    left: 800px;
+  }
+  to {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+.driverWrap.ng-leave {
+  -webkit-animation: leave 800ms;
+  animation: leave 800ms;
+  display: block;
+  position: relative;
+}
+@-webkit-keyframes leave {
+  to {
+    opacity: 0;
+    height: 0px;
+    left: -800px;
+  }
+  from {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+@keyframes leave {
+  to {
+    opacity: 0;
+    height: 0px;
+    left: -800px;
+  }
+  from {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+
+.offAnimation.driverWrap.ng-enter, .entrace-eff {
 	-webkit-animation:enterFilter 0.5s both ease;
 	-moz-animation:enterFilter 0.5s both ease;
 	animation:enterFilter 0.5s both ease; 
 }
 
-.driverWrap.ng-leave {
+.offAnimation.driverWrap.ng-leave {
 	-webkit-animation:outFilter 0.5s both ease;
 	-moz-animation:outFilter 0.5s both ease;
 	animation:outFilter 0.5s both ease;   

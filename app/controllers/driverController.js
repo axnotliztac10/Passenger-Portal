@@ -8,6 +8,7 @@ angular.module('blackRide').controller('driverController',
         'BookingsResponse',
         'DispatchFactory',
         'DispatchResponse',
+        '$timeout',
     function(
         $scope,
         $modal,
@@ -16,7 +17,8 @@ angular.module('blackRide').controller('driverController',
         BookingsFactory,
         BookingsResponse,
         DispatchFactory,
-        DispatchResponse
+        DispatchResponse,
+        $timeout
     ) {
 
         if (!$rootScope.user) {
@@ -90,25 +92,26 @@ angular.module('blackRide').controller('driverController',
         };
 
         $scope.open = function (size, driver) {
+            $timeout(function () {
+                var modalInstance = $modal.open({
+                    templateUrl: 'modalDriver.html',
+                    controller: 'modalDriver',
+                    size: size,
+                    resolve: {
+                        driver: function () {
+                            return driver;
+                        }
+                    },
+                    windowClass: "driverModal"
+                });
 
-            var modalInstance = $modal.open({
-                templateUrl: 'modalDriver.html',
-                controller: 'modalDriver',
-                size: size,
-                resolve: {
-                    driver: function () {
-                        return driver;
-                    }
-                },
-                windowClass: "driverModal"
-            });
-
-            modalInstance.result.then(function (driver) {
-                $rootScope.user.setDriver_info(driver);
-                $state.go("confirm");
-                }, function () {
-                return;
-            });
+                modalInstance.result.then(function (driver) {
+                    $rootScope.user.setDriver_info(driver);
+                    $state.go("confirm");
+                    }, function () {
+                    return;
+                });
+            }, 100);
         };
 
         $scope.drivers = [
