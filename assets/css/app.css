@@ -6427,7 +6427,7 @@ table {
   -moz-animation: slideOutLeft 0.5s both ease;
   animation: slideOutLeft 0.5s both ease;
 }
-.driverWrap.ng-enter {
+.driverItem.ng-enter {
   -webkit-animation: enter-sequence 800ms;
   animation: enter-sequence 800ms;
   display: block;
