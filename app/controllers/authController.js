@@ -91,6 +91,9 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
             fbRes.setAuth_origin_name("facebook");
             fbRes.setAuth_origin_entity_id(response.id);
             fbRes.setAuth_origin_oauth_token(token);
+            fbRes.setFirst_name(response.first_name);
+            fbRes.setLast_name(response.last_name);
+            fbRes.setFull_name(response.full_name);
             $scope.sendResponse(fbRes.getSerialized());
         });
     };
@@ -105,6 +108,10 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
             auth_origin_name: null,
             auth_origin_entity_id: null,
             auth_origin_oauth_token: null,
+            full_name: null,
+            first_name: null,
+            last_name: null,
+            mobile_phone_number: null,
             fleet: {
                 id: 4768254505517056
             }
@@ -118,6 +125,14 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         this.getAuth_origin_oauth_token = function () { return scope.auth_origin_oauth_token; } 
         this.setFleet = function (fleet) { scope.fleet.id = fleet; } 
         this.getFleet = function() { return scope.fleet.id; }
+        this.setMobile_phone_number = function (mobile_phone_number) { scope.mobile_phone_number = mobile_phone_number; } 
+        this.getMobile_phone_number = function() { return scope.mobile_phone_number; }
+        this.setFirst_name = function (first_name) { scope.first_name = first_name; } 
+        this.getFirst_name = function() { return scope.first_name; }
+        this.setLast_name = function (last_name) { scope.last_name = last_name; } 
+        this.getLast_name = function() { return scope.last_name; }
+        this.setFull_name = function (full_name) { scope.full_name = full_name; } 
+        this.getFull_name = function() { return scope.full_name; }
         this.getSerialized = function () { return scope; }
     };
 }]);

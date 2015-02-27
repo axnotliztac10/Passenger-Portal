@@ -15,7 +15,7 @@ angular.module(
 
 angular.module('blackRide')
     .constant("HOST", "http://shiftportal.s3-website-us-east-1.amazonaws.com/")
-    .constant("API_HOST", "http://shift-dev.appspot.com/1.0/passenger")
+    .constant("API_HOST", "http://private-063a2-zoltangiber.apiary-mock.com")
     .config(function(
       $stateProvider,
       $urlRouterProvider,
