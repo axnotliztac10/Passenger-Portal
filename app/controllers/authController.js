@@ -1,5 +1,5 @@
 
-angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse) {
+angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', 'SignupFactory', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse, SignupFactory) {
     
     $scope.$on('signIn', function () {
         $scope.open();
@@ -14,7 +14,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
     });
 
     $scope.$on('signResponse', function (event, reqObj) {
-        AuthFactory.save(reqObj.body, function (res) {
+        SignupFactory.save(reqObj.body, function (res) {
             AuthResponse.fillPassenger(res);
             $rootScope.user.setAuthResponse(AuthResponse);
         });
