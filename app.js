@@ -26,11 +26,11 @@ angular.module('blackRide')
       localStorageServiceProvider
     ) {
 
-    FacebookProvider.init('905960616094330');
+    FacebookProvider.init('617137985097004');
     
     GooglePlusProvider.init({
-        clientId: '379648358992-n7i7he2jsopkqldmiuktafkmd0llfdro.apps.googleusercontent.com',
-        apiKey: 'AIzaSyCZlO96pgQ31KmpPS7cBTPjA17YIs8YNkY'
+        clientId: '644096460143-5evkaal3iej4kkp3pq36hisfngjb10s0.apps.googleusercontent.coma',
+        apiKey: 'AIzaSyCC5Zs_D1q-RJy3I8hbDk6xxDuNlHZQS_s'
      });
 
     localStorageServiceProvider.setPrefix('blackRide');
