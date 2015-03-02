@@ -29,7 +29,7 @@ angular.module('blackRide')
     FacebookProvider.init('617137985097004');
     
     GooglePlusProvider.init({
-        clientId: '644096460143-5evkaal3iej4kkp3pq36hisfngjb10s0.apps.googleusercontent.coma',
+        clientId: '644096460143-5evkaal3iej4kkp3pq36hisfngjb10s0.apps.googleusercontent.com',
         apiKey: 'AIzaSyCC5Zs_D1q-RJy3I8hbDk6xxDuNlHZQS_s'
      });
 
