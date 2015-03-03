@@ -13,7 +13,7 @@ angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, A
 	}
 });
 
-angular.module('blackRide').factory('SignupFactory' , function ($resource, API_HOST) {
+angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST, API_Key) {
 	return {
 		save: function (obj) {
 			$http({
