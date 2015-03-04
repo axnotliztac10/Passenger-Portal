@@ -6,7 +6,7 @@ angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, A
 				method: 'POST',
 				data: obj,
 				headers : { 
-					"Content-Type" : "application/x-www-form-urlencoded; charset=UTF-8",
+					"Content-Type" : "application/json",
 					'API-Key': API_Key
 				}
 		}); }
@@ -21,10 +21,11 @@ angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST,
 				method: 'POST',
 				data: obj,
 				headers : {
-					"Content-Type" : "application/x-www-form-urlencoded; charset=UTF-8",
-					'API-Key': API_Key
+					'Content-Type': 'application/json',
+					'API-key': API_Key
 				}
-		}); }
+		});
+		}
 	}
 });
 

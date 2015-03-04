@@ -1,3 +1,33 @@
+angular.module('blackRide').directive('stripeForm', function ($window) {
+    var directive = { restrict: 'A' };
+    directive.link = function(scope, element, attributes) {
+      var form = angular.element(element);
+      form.bind('submit', function() {
+        var button = form.find('button');
+        button.prop('disabled', true);
+        $window.Stripe.createToken(form[0], function() {
+          button.prop('disabled', false);
+          var args = arguments;
+          scope.$apply(function() {
+            scope[attributes.stripeForm].apply(scope, args);
+          });
+        });
+      });
+    };
+    return directive;
+    /*
+      <form stripe:form="saveCustomer">
+  <fieldset>
+    <input type="text" size="20" data-stripe="number"/>
+    <input type="text" size="4" data-stripe="cvc"/>
+    <input type="text" size="2" data-stripe="exp-month"/>
+    <input type="text" size="4" data-stripe="exp-year"/>
+  </fieldset>
+  <button type="submit">Save</button>
+</form>
+    */
+  });
+
 angular.module("blackRide").directive('ngAutocomplete', function($parse) {
   return {
 
@@ -34,10 +64,10 @@ angular.module("blackRide").directive('ngAutocomplete', function($parse) {
         scope.gPlace = new google.maps.places.Autocomplete(element[0], opts);
         google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
           scope.$apply(function() {
-              scope.details = scope.gPlace.getPlace();
-              scope.ngAutocomplete = element.val();
-              scope.$parent.centerMap({lat: scope.details.geometry.location.lat(), lon: scope.details.geometry.location.lng()}, true);
-              scope.$parent.address = element.val();
+            scope.details = scope.gPlace.getPlace();
+            scope.ngAutocomplete = element.val();
+            scope.$parent.centerMap({lat: scope.details.geometry.location.lat(), lon: scope.details.geometry.location.lng()}, true);
+            scope.$parent.address = element.val();
           });
         })
       }

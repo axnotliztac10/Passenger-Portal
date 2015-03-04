@@ -89,7 +89,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         Facebook.api('/me', function(response) {
             var fbRes = new UserFactory();
             fbRes.setAuth_origin_name("facebook");
-            fbRes.setAuth_origin_entity_id(response.id);
+            //fbRes.setAuth_origin_entity_id(response.id);
             fbRes.setAuth_origin_oauth_token(token);
             fbRes.setFirst_name(response.first_name);
             fbRes.setLast_name(response.last_name);
@@ -106,15 +106,15 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         
         var scope = {
             auth_origin_name: null,
-            auth_origin_entity_id: null,
+            //auth_origin_entity_id: null,
             auth_origin_oauth_token: null,
             full_name: null,
             first_name: null,
             last_name: null,
             mobile_phone_number: null,
-            fleet: {
+            /*fleet: {
                 id: 4768254505517056
-            }
+            }*/
         };
 
         this.setAuth_origin_name = function (auth_origin_name) { scope.auth_origin_name = auth_origin_name; } 

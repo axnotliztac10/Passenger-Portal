@@ -15,7 +15,7 @@ angular.module(
 
 angular.module('blackRide')
     .constant("HOST", "http://shiftportal.s3-website-us-east-1.amazonaws.com/")
-    .constant("API_HOST", "https://passenger-api-dev.blueandshift.com")
+    .constant("API_HOST", "http://shift-passenger-api-dev.appspot.com")
     .constant('API_Key', '2563192143a35e80c750892273e0dc9d28ad94292138de3cc6db89896d1a887f')
     .config(function(
       $stateProvider,
@@ -27,7 +27,8 @@ angular.module('blackRide')
       localStorageServiceProvider
     ) {
 
-    FacebookProvider.init('617137985097004');
+    Stripe.setPublishableKey('your-publishable-key');
+    FacebookProvider.init('649096295216181');
     
     GooglePlusProvider.init({
         clientId: '644096460143-5evkaal3iej4kkp3pq36hisfngjb10s0.apps.googleusercontent.com',
