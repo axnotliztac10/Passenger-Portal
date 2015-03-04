@@ -1,5 +1,5 @@
 
-angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', 'SignupFactory', 'LogoutFactory', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse, SignupFactory, LogoutFactory) {
+angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', 'SignupFactory', 'LogoutFactory', 'StripeProvider', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse, SignupFactory, LogoutFactory, StripeProvider) {
     
     $scope.$on('signIn', function () {
         $scope.open();
@@ -34,9 +34,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
             //AuthResponse.fillPassenger(res);
             //$rootScope.user.setAuthResponse(AuthResponse);
             window.setTimeout(function () {
-                LogoutFactory.delete({token: res.data.token.value}, function () {
-
-                });
+                StripeProvider.save({token: '34234234234234'}, res.data.token.value);
             }, 5000);
         });
 

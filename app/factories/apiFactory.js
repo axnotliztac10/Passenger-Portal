@@ -9,7 +9,8 @@ angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, A
 					"Content-Type" : "application/json",
 					'API-Key': API_Key
 				}
-		}); }
+			});
+		}
 	}
 });
 
@@ -31,7 +32,7 @@ angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST,
 
 angular.module('blackRide').factory('LogoutFactory' , function ($http, API_HOST, API_Key) {
 	return {
-		delete: function (obj) {
+		delete: function (obj, token) {
 			return $http({
 				url: API_HOST + '/auth',
 				method: 'DELETE',
@@ -39,7 +40,24 @@ angular.module('blackRide').factory('LogoutFactory' , function ($http, API_HOST,
 				headers : {
 					'Content-Type': 'application/json',
 					'API-key': API_Key,
-					'client-token': obj.token || 'notokenset'
+					'client-token': token || 'notokenset'
+				}
+			});
+		}
+	}
+});
+
+angular.module('blackRide').factory('StripeProvider' , function ($http, API_HOST, API_Key) {
+	return {
+		save: function (obj, token) {
+			return $http({
+				url: API_HOST + '/providers/stripe',
+				method: 'POST',
+				data: obj,
+				headers : {
+					'Content-Type': 'application/json',
+					'API-key': API_Key,
+					'client-token': token || 'notokenset'
 				}
 			});
 		}
