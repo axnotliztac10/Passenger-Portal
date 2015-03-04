@@ -182,6 +182,10 @@ angular.module('blackRide').controller('modalConfirm', function ($rootScope, $sc
     $scope.ok();
   });
 
+  $scope.$on("loginResponse", function (event, args) {
+    $scope.ok();
+  });
+
 });
 
 angular.module('blackRide').filter('getCustomDate', function() {
