@@ -17,12 +17,15 @@
 		</p>
 	</div>
 	<div ng-show="activeEdit">
-		<input class="full" type="text" placeholder="Credit Card Number">
-		<input type="text" class="middle spacing" placeholder="MM/YY">
-		<input type="text" class="middle" placeholder="CVC">
-		<p class="nextStep" style="margin-bottom: 20px;">
-			<a ng-click="setEdit(false, $event)">Save</a>
-		</p>
+		<form stripe:form="saveCustomer">
+			<input class="full" type="text" ng-model="genTok.number" placeholder="Credit Card Number">
+			<input type="text" class="middle spacing" placeholder="MM" ng-model="genTok['exp-month']">
+			<input type="text" class="middle spacing" placeholder="YY" ng-model="genTok['exp-year']">
+			<input type="text" class="middle" placeholder="CVC" ng-model="genTok.cvc">
+			<p class="nextStep" style="margin-bottom: 20px;">
+				<a ng-click="setEdit(false, $event)">Save</a>
+			</p>
+		</form>
 	</div>
 </div>
 <span class="glyphicon glyphicon-align-justify menuOpen menuMobile"></span>

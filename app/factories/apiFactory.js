@@ -1,7 +1,7 @@
 angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, API_Key) {
 	return {
 		save: function (obj) { 
-			$http({
+			return $http({
 				url: API_HOST + '/auth',
 				method: 'POST',
 				data: obj,
@@ -16,7 +16,7 @@ angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, A
 angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST, API_Key) {
 	return {
 		save: function (obj) {
-			$http({
+			return $http({
 				url: API_HOST + '/signup',
 				method: 'POST',
 				data: obj,
@@ -24,7 +24,24 @@ angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST,
 					'Content-Type': 'application/json',
 					'API-key': API_Key
 				}
-		});
+			});
+		}
+	}
+});
+
+angular.module('blackRide').factory('LogoutFactory' , function ($http, API_HOST, API_Key) {
+	return {
+		delete: function (obj) {
+			return $http({
+				url: API_HOST + '/auth',
+				method: 'DELETE',
+				data: obj,
+				headers : {
+					'Content-Type': 'application/json',
+					'API-key': API_Key,
+					'client-token': obj.token || 'notokenset'
+				}
+			});
 		}
 	}
 });

@@ -1,12 +1,21 @@
 
-angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', 'SignupFactory', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse, SignupFactory) {
+angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', 'SignupFactory', 'LogoutFactory', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse, SignupFactory, LogoutFactory) {
     
     $scope.$on('signIn', function () {
         $scope.open();
     });
 
     $scope.$on('fbSign', function () {
-        $scope.getFbLog();
+        Facebook.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                $scope.loggedIn = true;
+            } else if (response.status === 'not_authorized') {
+                $scope.loggedIn = false;
+            } else if (response.status === 'unknown') {
+                $scope.loggedIn = false;
+            }
+            $scope.getFbLog();
+        });
     });
 
     $scope.$on('gSign', function () {
@@ -15,9 +24,22 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
 
     $scope.$on('signResponse', function (event, reqObj) {
         SignupFactory.save(reqObj.body, function (res) {
-            AuthResponse.fillPassenger(res);
-            $rootScope.user.setAuthResponse(AuthResponse);
+            //AuthResponse.fillPassenger(res);
+            //$rootScope.user.setAuthResponse(AuthResponse);
         });
+    });
+
+    $scope.$on('loginResponse', function (event, reqObj) {
+        AuthFactory.save(reqObj.body).then(function (res) {
+            //AuthResponse.fillPassenger(res);
+            //$rootScope.user.setAuthResponse(AuthResponse);
+            window.setTimeout(function () {
+                LogoutFactory.delete({token: res.data.token.value}, function () {
+
+                });
+            }, 5000);
+        });
+
     });
 
     $scope.user = {
@@ -74,17 +96,6 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         });
     };
 
-
-    $scope.getFbStatus = function () {
-        Facebook.getLoginStatus(function(response) {
-            if(response.status === 'connected') {
-                $scope.loggedIn = true;
-            } else {
-                $scope.loggedIn = false;
-            }
-        });
-    };
-
     $scope.fbMe = function(token) {
         Facebook.api('/me', function(response) {
             var fbRes = new UserFactory();
@@ -99,7 +110,12 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
     };
 
     $scope.sendResponse = function (res) {
-        $rootScope.$broadcast("signResponse", {body: res});
+        if ($scope.loggedIn) {
+            $rootScope.$broadcast("loginResponse", {body: res});
+        } else {
+            $rootScope.$broadcast("signResponse", {body: res});
+        }
+
     };
 
     var UserFactory = function () {
