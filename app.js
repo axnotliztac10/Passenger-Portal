@@ -27,7 +27,7 @@ angular.module('blackRide')
       localStorageServiceProvider
     ) {
 
-    Stripe.setPublishableKey('abc23423423492834209384');
+    Stripe.setPublishableKey('pk_test_NdgelnceB9gAkiWX2vYJtTql');
     FacebookProvider.init('649096295216181');
     
     GooglePlusProvider.init({
