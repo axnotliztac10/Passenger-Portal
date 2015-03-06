@@ -23,9 +23,10 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
     });
 
     $scope.$on('signResponse', function (event, reqObj) {
-        SignupFactory.save(reqObj.body, function (res) {
+        SignupFactory.save(reqObj.body).then(function (res) {
             //AuthResponse.fillPassenger(res);
             //$rootScope.user.setAuthResponse(AuthResponse);
+            $rootScope.userToken = res.data.token.value;
         });
     });
 
@@ -33,9 +34,7 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         AuthFactory.save(reqObj.body).then(function (res) {
             //AuthResponse.fillPassenger(res);
             //$rootScope.user.setAuthResponse(AuthResponse);
-            window.setTimeout(function () {
-                StripeProvider.save({token: '34234234234234'}, res.data.token.value);
-            }, 5000);
+            $rootScope.userToken = res.data.token.value;
         });
 
     });

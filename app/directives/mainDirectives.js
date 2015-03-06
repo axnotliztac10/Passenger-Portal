@@ -1,11 +1,13 @@
-angular.module('blackRide').directive('stripeForm', function ($window) {
+angular.module('blackRide').directive('stripeForm', function ($window, $rootScope, StripeProvider) {
     var directive = { restrict: 'A' };
     directive.link = function(scope, element, attributes) {
       var form = angular.element(element);
       
       $(form[0]).find('.nextStep > a').bind('click', function () { 
         $window.Stripe.createToken(scope.genTok, function(status, response) {
-          console.log(status, response);
+          StripeProvider.save({token: response.id}, $rootScope.userToken).then(function (res) {
+            console.log(res.data);
+          });
         });
       });
     };
