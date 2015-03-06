@@ -5,7 +5,7 @@ angular.module('blackRide').directive('stripeForm', function ($window, $rootScop
       
       $(form[0]).find('.nextStep > a').bind('click', function () { 
         $window.Stripe.createToken(scope.genTok, function(status, response) {
-          StripeProvider.save({token: response.id}, $rootScope.userToken).then(function (res) {
+          StripeProvider.save({token: response.id, default: scope.defaultCard}, $rootScope.userToken).then(function (res) {
             console.log(res.data);
           });
         });
@@ -82,3 +82,4 @@ angular.module("blackRide").directive('ngAutocomplete', function($parse) {
     }
   };
 });
+

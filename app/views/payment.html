@@ -22,6 +22,20 @@
 			<input type="text" class="middle spacing" placeholder="MM" ng-model="genTok['exp-month']">
 			<input type="text" class="middle spacing" placeholder="YY" ng-model="genTok['exp-year']">
 			<input type="text" class="middle" placeholder="CVC" ng-model="genTok.cvc">
+			
+				<div ng-click="defaultCard = !defaultCard" class="material-checkbox form-group">    
+			    <input type="checkbox" id="check-me">  
+			      
+			    <label for="check-me">
+			      <span></span>
+			      <span class="check"></span>
+			      <span class="box"></span>
+			      Default card
+			    </label>  
+			      
+			    <p></p>
+			  </div>
+
 			<p class="nextStep" style="margin-bottom: 20px;">
 				<a ng-click="setEdit(false, $event)">Save</a>
 			</p>
