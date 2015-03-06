@@ -7117,7 +7117,8 @@ DIRECTIVE
   cursor: pointer;
   font-size: 15px;
   text-align: left;
-  padding-left: 0px;
+  padding-left: 35px;
+  float: left;
 }
 .material-checkbox label span {
   display: block;
