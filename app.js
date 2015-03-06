@@ -9,7 +9,8 @@ angular.module(
     'ui.slider',
     'facebook',
     'googleplus',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ngMaterial'
   ]
 );
 

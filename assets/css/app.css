@@ -7069,6 +7069,14 @@ fa-app {
   background: #2e2d2c;
   border: 1px solid;
 }
+.payment .middle.fix {
+  width: 227px;
+}
+.payment .short {
+  width: 50px;
+  margin-left: 0px;
+  float: left;
+}
 .payment .middle.spacing {
   margin-right: 6%;
 }
