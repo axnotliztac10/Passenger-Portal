@@ -14,8 +14,13 @@ angular.module('blackRide').controller('paymentController',
       $scope.setEdit = function (val, ev) {
         ev.stopPropagation();
 
-        $rootScope.$broadcast('signIn', function () {
+        if (!val) {
           $scope.activeEdit = val;
+          return;
+        };
+
+        $rootScope.$broadcast('signIn', function () {
+            $scope.activeEdit = val;
         });
       };
 
