@@ -1,8 +1,11 @@
 
 angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', 'SignupFactory', 'LogoutFactory', 'StripeProvider', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse, SignupFactory, LogoutFactory, StripeProvider) {
     
-    $scope.$on('signIn', function () {
+    $scope.$on('signIn', function (event, callBack) {
         $scope.open();
+        if (callBack) {
+            callBack();
+        }
     });
 
     $scope.$on('fbSign', function () {
