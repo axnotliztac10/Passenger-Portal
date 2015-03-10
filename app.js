@@ -218,3 +218,13 @@ angular.module('blackRide').filter('getCustomDate', function() {
       return day + ", " + item;
   };
 });
+
+angular.module('blackRide').filter('cardMask', function() {
+  return function(item) {
+    if (!item) {
+      return '0000';
+    }
+    
+    return item.substr(item.length - 4);
+  };
+});
