@@ -10,6 +10,8 @@ angular.module('blackRide').controller('confirmController',
         'localStorageService',
         'AuthResponse',
         '$timeout',
+        '$http',
+        'API_Key',
     function(
         $rootScope,
         $scope,
@@ -20,7 +22,9 @@ angular.module('blackRide').controller('confirmController',
         AuthFactory,
         localStorageService,
         AuthResponse,
-        $timeout
+        $timeout,
+        $http,
+        API_Key
     ) {
 
     if (!$rootScope.user) {
@@ -198,15 +202,33 @@ angular.module('blackRide').controller('confirmController',
         }, 100);
     };
 
-    $scope.$on("signResponse", function (event, reqObj) {
-        $rootScope.user = reqObj.body;
+    var onAuth = function (event, reqObj) {
+        /*$rootScope.user = reqObj.body;
         AuthFactory.save(reqObj.body, function (res) {
             AuthResponse.fillPassenger(res);
             $rootScope.user.setAuthResponse(AuthResponse);
-        });
+        });*/
 
-        $scope.map.active = true;
-    });
+        $timeout(function () {
+            $http({
+                url: 'http://shift-passenger-api-dev.appspot.com/bookings',
+                method: 'POST',
+                data: {"type":"regular","pickup_time":"2015-03-06T08:26:12.143Z","route":{"from":{"latitude":48.2081743,"longitude":16.37381890000006,"location":"Vienna, Vienna"},"to":{"latitude":48.23106569999999,"longitude":16.148543399999994,"location":"Gablitz, Gablitz"}},"total":0,"distance":21900,"hire_per_hour":0,"booking_flight":""},
+                headers: {
+                    'Content-Type': 'application/json',
+                    'client-token': $rootScope.userToken,
+                    'API-Key': API_Key
+                }
+            }).then(function () {
+                    $scope.map.active = true;
+                });
+        }, 2000);
+
+    };
+
+    $scope.$on("signResponse", onAuth);
+    $scope.$on("loginResponse", onAuth);
+
 
     localStorageService.set('dispatchFactory', $rootScope.user);
 
