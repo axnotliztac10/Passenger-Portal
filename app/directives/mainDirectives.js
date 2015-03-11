@@ -12,17 +12,6 @@ angular.module('blackRide').directive('stripeForm', function ($window, $rootScop
       });
     };
     return directive;
-    /*
-      <form stripe:form="saveCustomer">
-  <fieldset>
-    <input type="text" size="20" data-stripe="number"/>
-    <input type="text" size="4" data-stripe="cvc"/>
-    <input type="text" size="2" data-stripe="exp-month"/>
-    <input type="text" size="4" data-stripe="exp-year"/>
-  </fieldset>
-  <button type="submit">Save</button>
-</form>
-    */
   });
 
 angular.module("blackRide").directive('ngAutocomplete', function($parse) {

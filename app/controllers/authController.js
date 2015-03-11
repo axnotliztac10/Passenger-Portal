@@ -1,5 +1,26 @@
-
-angular.module('blackRide').controller('authController', ['$rootScope', '$scope', 'Facebook', '$modal', 'GooglePlus', 'AuthFactory', 'AuthResponse', 'SignupFactory', 'LogoutFactory', 'StripeProvider', function ($rootScope, $scope, Facebook, $modal, GooglePlus, AuthFactory, AuthResponse, SignupFactory, LogoutFactory, StripeProvider) {
+angular.module('blackRide').controller('authController', [
+        '$rootScope',
+        '$scope',
+        'Facebook',
+        '$modal',
+        'GooglePlus',
+        'AuthFactory',
+        'AuthResponse',
+        'SignupFactory',
+        'LogoutFactory',
+        'StripeProvider',
+    function (
+        $rootScope,
+        $scope,
+        Facebook,
+        $modal,
+        GooglePlus,
+        AuthFactory,
+        AuthResponse,
+        SignupFactory,
+        LogoutFactory,
+        StripeProvider
+    ) {
     
     $scope.$on('signIn', function (event, callBack) {
         $scope.open();
@@ -27,16 +48,16 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
 
     $scope.$on('signResponse', function (event, reqObj) {
         SignupFactory.save(reqObj.body).then(function (res) {
-            //AuthResponse.fillPassenger(res);
-            //$rootScope.user.setAuthResponse(AuthResponse);
+                //AuthResponse.fillPassenger(res);
+                //$rootScope.user.setAuthResponse(AuthResponse);
             $rootScope.userToken = res.data.token.value;
         });
     });
 
     $scope.$on('loginResponse', function (event, reqObj) {
         AuthFactory.save(reqObj.body).then(function (res) {
-            //AuthResponse.fillPassenger(res);
-            //$rootScope.user.setAuthResponse(AuthResponse);
+                //AuthResponse.fillPassenger(res);
+                //$rootScope.user.setAuthResponse(AuthResponse);
             $rootScope.userToken = res.data.token.value;
         });
 
@@ -122,15 +143,15 @@ angular.module('blackRide').controller('authController', ['$rootScope', '$scope'
         
         var scope = {
             auth_origin_name: null,
-            //auth_origin_entity_id: null,
+                //auth_origin_entity_id: null,
             auth_origin_oauth_token: null,
             full_name: null,
             first_name: null,
             last_name: null,
             mobile_phone_number: null,
-            /*fleet: {
-                id: 4768254505517056
-            }*/
+                /*fleet: {
+                    id: 4768254505517056
+                }*/
         };
 
         this.setAuth_origin_name = function (auth_origin_name) { scope.auth_origin_name = auth_origin_name; } 
