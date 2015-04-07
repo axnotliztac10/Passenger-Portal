@@ -16,7 +16,7 @@ angular.module(
 angular.module('blackRide')
     .constant("HOST", "http://shiftportal.s3-website-us-east-1.amazonaws.com/")
     .constant("API_HOST", "http://shift-passenger-api-dev.appspot.com")
-    .constant('API_Key', '2563192143a35e80c750892273e0dc9d28ad94292138de3cc6db89896d1a887f')
+    .constant('API_Key', 'dce1f7d8944bbda2eed53a8b96d8fca5a88504e53bd480fe4b55026073fd53e9')
     .config(function(
       $stateProvider,
       $urlRouterProvider,
