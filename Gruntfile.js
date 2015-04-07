@@ -40,12 +40,12 @@ module.exports = function(grunt) {
             }
         },
         copy: {
-            bower: { files: [{ expand: true, cwd: 'bower_components/', src: ['**/*'], dest: '../build/bower_components'}] },
-            assets: { src: 'assets/css/*', dest: '../build/' },
-            index: { src: 'index.html', dest: '../build/'},
-            appFile: { src: 'app.js', dest: '../build/'},
-            app: { files: [{ expand: true, cwd: 'app/', src: ['**/*'], dest: '../build/app'}] },
-            images: { files: [{ expand: true, cwd: 'assets/imgs/', src: ['**/*'], dest: '../build/assets/imgs/'}] }
+            bower: { files: [{ expand: true, cwd: 'bower_components/', src: ['**/*'], dest: '../build/webapp/bower_components'}] },
+            assets: { src: 'assets/css/*', dest: '../build/webapp/' },
+            index: { src: 'index.html', dest: '../build/webapp/'},
+            appFile: { src: 'app.js', dest: '../build/webapp/'},
+            app: { files: [{ expand: true, cwd: 'app/', src: ['**/*'], dest: '../build/webapp/app'}] },
+            images: { files: [{ expand: true, cwd: 'assets/imgs/', src: ['**/*'], dest: '../build/webapp/assets/imgs/'}] }
         }
     });
 
@@ -55,5 +55,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
 
     grunt.registerTask('local', ['less', 'copy', 'connect']);
-    grunt.registerTask('deploy', ['less', 'copy', 's3']);
+    grunt.registerTask('deploy', ['s3']);
 };
