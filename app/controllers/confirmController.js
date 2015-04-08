@@ -8,7 +8,6 @@ angular.module('blackRide').controller('confirmController',
         '$modal',
         'AuthFactory',
         'localStorageService',
-        'AuthResponse',
         '$timeout',
         '$http',
         'API_Key',
@@ -21,7 +20,6 @@ angular.module('blackRide').controller('confirmController',
         $modal,
         AuthFactory,
         localStorageService,
-        AuthResponse,
         $timeout,
         $http,
         API_Key
@@ -29,15 +27,15 @@ angular.module('blackRide').controller('confirmController',
 
     if (!$rootScope.user) {
         $state.go("home");
-    } else if (!$rootScope.user.getScheduled()) {
+    } else if (!$rootScope.user.booking.scheduled) {
         $state.go("time");
-    } else if (!$rootScope.user.getDriver_info()) {
+    } else if (!$rootScope.user.booking.driver_info) {
         $state.go("driver");
     }
         
-    $scope.driver = $rootScope.user.getDriver_info();
+    $scope.driver = $rootScope.user.booking.driver_info;
     $scope.user = $rootScope.user;
-    $scope.scheduled = $rootScope.user.getScheduled();
+    $scope.scheduled = $rootScope.user.booking.scheduled;
     $scope.markers = [];
 
     $scope.map = {
@@ -52,14 +50,14 @@ angular.module('blackRide').controller('confirmController',
         events: {
             idle: function (map, res1) {
                 var posDep = {
-                    lat: $scope.user.getFrom().latitude,
-                    lon: $scope.user.getFrom().longitude
+                    lat: $scope.user.booking.from.latitude,
+                    lon: $scope.user.booking.from.longitude
                 };
 
-                if ($scope.user.getTo()) {
+                if ($scope.user.booking.to) {
                     var posDro = {
-                        lat: $scope.user.getTo().latitude,
-                        lon: $scope.user.getTo().longitude
+                        lat: $scope.user.booking.to.latitude,
+                        lon: $scope.user.booking.to.longitude
                     };
                 }
 
@@ -203,33 +201,24 @@ angular.module('blackRide').controller('confirmController',
     };
 
     var onAuth = function (event, reqObj) {
-        /*$rootScope.user = reqObj.body;
-        AuthFactory.save(reqObj.body, function (res) {
-            AuthResponse.fillPassenger(res);
-            $rootScope.user.setAuthResponse(AuthResponse);
-        });*/
 
-        $timeout(function () {
-            $http({
-                url: 'http://shift-passenger-api-dev.appspot.com/bookings',
-                method: 'POST',
-                data: {"type":"regular","pickup_time":"2015-03-06T08:26:12.143Z","route":{"from":{"latitude":48.2081743,"longitude":16.37381890000006,"location":"Vienna, Vienna"},"to":{"latitude":48.23106569999999,"longitude":16.148543399999994,"location":"Gablitz, Gablitz"}},"total":0,"distance":21900,"hire_per_hour":0,"booking_flight":""},
-                headers: {
-                    'Content-Type': 'application/json',
-                    'client-token': $rootScope.userToken,
-                    'API-Key': API_Key
-                }
-            }).then(function () {
-                    $scope.map.active = true;
-                });
-        }, 2000);
+        $http({
+            url: 'http://shift-passenger-api-dev.appspot.com/bookings',
+            method: 'POST',
+            data: {"type":"regular","pickup_time":"2015-03-06T08:26:12.143Z","route":{"from":{"latitude":48.2081743,"longitude":16.37381890000006,"location":"Vienna, Vienna"},"to":{"latitude":48.23106569999999,"longitude":16.148543399999994,"location":"Gablitz, Gablitz"}},"total":0,"distance":21900,"hire_per_hour":0,"booking_flight":""},
+            headers: {
+                'Content-Type': 'application/json',
+                'client-token': $rootScope.user.token.value,
+                'API-Key': API_Key
+            }
+        }).then(function () {
+            $scope.map.active = true;
+        });
 
     };
 
-    $scope.$on("signResponse", onAuth);
-    $scope.$on("loginResponse", onAuth);
+    $scope.$on("authSuccess", onAuth);
 
-
-    localStorageService.set('dispatchFactory', $rootScope.user);
+    localStorageService.set('dispatchFactory', $rootScope.user.booking);
 
 }]);

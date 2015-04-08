@@ -24,10 +24,10 @@
 		<div class="col-md-6 col-sm-6">
 			<div class="tripInfo text-center">
 				<p>From</p>
-				<p class="even">{{user.getFrom().formatted_address}}</p>
+				<p class="even">{{user.booking.from.formatted_address}}</p>
 				<p>To</p>
-				<p class="even" ng-if="user.getTo().formatted_address">{{user.getTo().formatted_address}}</p>
-				<p class="even" ng-if="!user.getTo().formatted_address">Not Selected</p>
+				<p class="even" ng-if="user.booking.to.formatted_address">{{user.booking.to.formatted_address}}</p>
+				<p class="even" ng-if="!user.booking.to.formatted_address">Not Selected</p>
 				<p>Time</p>
 				<p class="even">{{scheduled}}</p>
 			</div><br>

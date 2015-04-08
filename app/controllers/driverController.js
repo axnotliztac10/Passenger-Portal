@@ -4,28 +4,22 @@ angular.module('blackRide').controller('driverController',
         '$modal',
         '$rootScope',
         '$state',
-        'BookingsFactory',
-        'BookingsResponse',
-        'DispatchFactory',
-        'DispatchResponse',
+        'Bookings',
         '$timeout',
     function(
         $scope,
         $modal,
         $rootScope,
         $state,
-        BookingsFactory,
-        BookingsResponse,
-        DispatchFactory,
-        DispatchResponse,
+        Bookings,
         $timeout
     ) {
 
         if (!$rootScope.user) {
             $state.go("home");
-        } else if (!$rootScope.user.getScheduled()) {
+        } else if (!$rootScope.user.booking.scheduled) {
             $state.go("time");
-        } else if (!$rootScope.user.getDriver_info()) {
+        } else if (!$rootScope.user.booking.driver_info) {
             $state.go("driver");
         }
         
@@ -37,37 +31,6 @@ angular.module('blackRide').controller('driverController',
         $scope.maxPrice = 60;
         $scope.minTime = 10;
         $scope.maxTime = 60;
-
-        if ($rootScope.user.getAuthResponse()) {
-            $scope.newBooking = {
-                passenger_id: $rootScope.user.getAuthResponse().id,
-                passenger_in_group: false,
-                fleet_id: $rootScope.user.getAuthResponse().fleet_id,
-                scheduled: $rootScope.user.getScheduled(),
-                route: {
-                    from: $rootScope.user.getFrom(),
-                    to: $rootScope.user.getTo(),
-                    waypoints : [
-                        {
-                            formatted_address: "foobar",
-                            latitude: 51.89,
-                            longitude: 13.79,
-                        }
-                    ]
-                },
-                scheduled_duration: 0.0
-            };
-
-            BookingsFactory.save($scope.newBooking, function (res) {
-                BookingsResponse.fillPassenger(res);
-                $rootScope.user.setBookingResponse(BookingsResponse);
-            });
-
-            DispatchFactory.save($rootScope.user.getSerialized(), function (res) {
-                DispatchResponse.fillPassenger(res);
-                $rootScope.user.setDispatchResponse(BookingsResponse);
-            });
-        }
 
         $scope.evaluateNoChange = function (change) {
             if (change == $scope.backFilter) {
@@ -106,7 +69,7 @@ angular.module('blackRide').controller('driverController',
                 });
 
                 modalInstance.result.then(function (driver) {
-                    $rootScope.user.setDriver_info(driver);
+                    $rootScope.user.booking.driver_info = driver;
                     $state.go("confirm");
                     }, function () {
                     return;

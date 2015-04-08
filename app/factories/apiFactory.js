@@ -1,4 +1,4 @@
-angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, API_Key) {
+angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, API_Key, $rootScope) {
 	return {
 		save: function (obj) { 
 			return $http({
@@ -14,9 +14,10 @@ angular.module('blackRide').factory('AuthFactory' , function ($http, API_HOST, A
 	}
 });
 
-angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST, API_Key) {
+angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST, API_Key, $rootScope) {
 	return {
 		save: function (obj) {
+			delete obj.booking;
 			return $http({
 				url: API_HOST + '/signup',
 				method: 'POST',
@@ -30,9 +31,9 @@ angular.module('blackRide').factory('SignupFactory' , function ($http, API_HOST,
 	}
 });
 
-angular.module('blackRide').factory('LogoutFactory' , function ($http, API_HOST, API_Key) {
+angular.module('blackRide').factory('LogoutFactory' , function ($http, API_HOST, API_Key, $rootScope) {
 	return {
-		delete: function (obj, token) {
+		delete: function (obj) {
 			return $http({
 				url: API_HOST + '/auth',
 				method: 'DELETE',
@@ -40,14 +41,14 @@ angular.module('blackRide').factory('LogoutFactory' , function ($http, API_HOST,
 				headers : {
 					'Content-Type': 'application/json',
 					'API-key': API_Key,
-					'client-token': token || 'notokenset'
+					'client-token': $rootScope.user.token.value
 				}
 			});
 		}
 	}
 });
 
-angular.module('blackRide').factory('StripeProvider' , function ($http, API_HOST, API_Key) {
+angular.module('blackRide').factory('StripeProvider' , function ($http, API_HOST, API_Key, $rootScope) {
 	return {
 		save: function (obj, token) {
 			return $http({
@@ -57,29 +58,79 @@ angular.module('blackRide').factory('StripeProvider' , function ($http, API_HOST
 				headers : {
 					'Content-Type': 'application/json',
 					'API-key': API_Key,
-					'client-token': token || 'notokenset'
+					'client-token': $rootScope.user.token.value
 				}
 			});
 		}
 	}
 });
 
-angular.module('blackRide').factory('BookingsFactory' , function ($http, API_HOST, API_Key) {
+angular.module('blackRide').factory('Bookings' , function ($http, API_HOST, API_Key, $rootScope) {
 	return {
-		get: function (token) {
-			return $http({
-				url: API_HOST + '/bookings/done',
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-					'API-key': API_Key,
-					'client-token': token || 'notokenset'
-				}
-			});
+		done: {
+			get: function (token) {
+				return $http({
+					url: API_HOST + '/bookings/done',
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'API-key': API_Key,
+						'client-token': $rootScope.user.token.value
+					}
+				});
+			}
+		},
+		pending: {
+			get: function (token) {
+				return $http({
+					url: API_HOST + '/bookings/pending',
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'API-key': API_Key,
+						'client-token': $rootScope.user.token.value
+					}
+				});
+			}
+		},
+		dispatched: {
+			get: function (token) {
+				return $http({
+					url: API_HOST + '/bookings/dispatched',
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'API-key': API_Key,
+						'client-token': $rootScope.user.token.value
+					}
+				});
+			}
+		},
+		ongoing: {
+			get: function (token) {
+				return $http({
+					url: API_HOST + '/bookings/ongoing',
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'API-key': API_Key,
+						'client-token': $rootScope.user.token.value
+					}
+				});
+			}
+		},
+		cancelled: {
+			get: function (token) {
+				return $http({
+					url: API_HOST + '/bookings/cancelled',
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'API-key': API_Key,
+						'client-token': $rootScope.user.token.value
+					}
+				});
+			}
 		}
 	}
-});
-
-angular.module('blackRide').factory('DispatchFactory' , function ($resource, API_HOST) {
-	return $resource(API_HOST + '/dispatch');
 });

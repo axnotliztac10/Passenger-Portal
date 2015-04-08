@@ -178,11 +178,7 @@ angular.module('blackRide').controller('modalConfirm', function ($rootScope, $sc
     $modalInstance.dismiss('cancel');
   };
 
-  $scope.$on("signResponse", function (event, args) {
-    $scope.ok();
-  });
-
-  $scope.$on("loginResponse", function (event, args) {
+  $scope.$on("authSuccess", function (event, args) {
     $scope.ok();
   });
 

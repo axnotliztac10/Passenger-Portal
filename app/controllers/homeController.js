@@ -6,14 +6,12 @@ angular.module('blackRide').controller('homeController',
         '$window',
         '$state',
         'HOST',
-        'QuoteFactory',
     function(
         $rootScope,
         $scope,
         $window,
         $state, 
-        HOST,
-        QuoteFactory
+        HOST
     ) {
 
     $scope.geoCoder = new $window.google.maps.Geocoder();
@@ -108,11 +106,11 @@ angular.module('blackRide').controller('homeController',
     };
 
     $scope.setAndGo = function (pos) {
-       $rootScope.user.setFrom({
+       $rootScope.user.booking.from = {
             formatted_address: $scope.address,
             latitude: pos.lat && isNaN(pos.lat) ? pos.lat() : pos.lat,
             longitude: pos.lng && isNaN(pos.lng) ? pos.lng() : pos.lon
-       });
+       };
        
         $state.go('time');
     };
@@ -138,12 +136,12 @@ angular.module('blackRide').controller('homeController',
 
     $scope.getActualAdd = function () {
 
-        if ($rootScope.user.getFrom()) {
+        if ($rootScope.user.booking.from) {
             $scope.position = {
-                lat: $rootScope.user.getFrom().latitude,
-                lon: $rootScope.user.getFrom().longitude
+                lat: $rootScope.user.booking.from.latitude,
+                lon: $rootScope.user.booking.from.longitude
             };
-            $scope.address = $rootScope.user.getFrom().formatted_address;
+            $scope.address = $rootScope.user.from.formatted_address;
             $scope.ajaxLoader = true;
             return;
         };
@@ -182,7 +180,9 @@ angular.module('blackRide').controller('homeController',
     $scope.init = function () {
 
         if (!angular.isDefined($rootScope.user)) {
-            $rootScope.user = QuoteFactory;
+            $rootScope.user = {
+                booking: {}
+            };
         }
 
         $scope.getActualAdd();

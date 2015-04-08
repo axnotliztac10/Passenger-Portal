@@ -22,6 +22,7 @@
 			</span>
 		</div>
 	</div>
+
 	<div class="row rowHis noBorder">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
 			<p>Done</p>
@@ -37,4 +38,69 @@
 			<p><small>$ </small>{{booking.total | number:2}}</p>
 		</div>
 	</div>
+
+	<div class="row rowHis noBorder">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+			<p>Pending</p>
+		</div>
+	</div>
+	<div class="row rowHis historyElement" ng-repeat="booking in bookingsPending | orderBy:'sort.value' | filter:searchText">
+		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+			<p class="route">{{booking.first_ride.route.from.location}}</p>
+			<p class="route">{{booking.first_ride.route.to.location}}</p>
+		</div>
+		<div class="col-md-6 text-right">
+			<p class="date">{{booking.created | getCustomDate}}</p>
+			<p><small>$ </small>{{booking.total | number:2}}</p>
+		</div>
+	</div>
+	
+	<div class="row rowHis noBorder">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+			<p>Dispatched</p>
+		</div>
+	</div>
+	<div class="row rowHis historyElement" ng-repeat="booking in bookingsDispatched | orderBy:'sort.value' | filter:searchText">
+		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+			<p class="route">{{booking.first_ride.route.from.location}}</p>
+			<p class="route">{{booking.first_ride.route.to.location}}</p>
+		</div>
+		<div class="col-md-6 text-right">
+			<p class="date">{{booking.created | getCustomDate}}</p>
+			<p><small>$ </small>{{booking.total | number:2}}</p>
+		</div>
+	</div>
+	
+	<div class="row rowHis noBorder">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+			<p>Ongoing</p>
+		</div>
+	</div>
+	<div class="row rowHis historyElement" ng-repeat="booking in bookingsOngoing | orderBy:'sort.value' | filter:searchText">
+		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+			<p class="route">{{booking.first_ride.route.from.location}}</p>
+			<p class="route">{{booking.first_ride.route.to.location}}</p>
+		</div>
+		<div class="col-md-6 text-right">
+			<p class="date">{{booking.created | getCustomDate}}</p>
+			<p><small>$ </small>{{booking.total | number:2}}</p>
+		</div>
+	</div>
+
+	<div class="row rowHis noBorder">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+			<p>Cancelled</p>
+		</div>
+	</div>
+	<div class="row rowHis historyElement" ng-repeat="booking in bookingsCancelled | orderBy:'sort.value' | filter:searchText">
+		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+			<p class="route">{{booking.first_ride.route.from.location}}</p>
+			<p class="route">{{booking.first_ride.route.to.location}}</p>
+		</div>
+		<div class="col-md-6 text-right">
+			<p class="date">{{booking.created | getCustomDate}}</p>
+			<p><small>$ </small>{{booking.total | number:2}}</p>
+		</div>
+	</div>
+
 </div>

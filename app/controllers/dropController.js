@@ -52,18 +52,18 @@ angular.module('blackRide').controller('dropController',
         events: {
             idle: function (res, res1) {
                 var pos = {
-                    lat: $rootScope.user.getFrom().latitude,
-                    lon: $rootScope.user.getFrom().longitude
+                    lat: $rootScope.user.booking.from.latitude,
+                    lon: $rootScope.user.booking.from.longitude
                 };
 
-                $scope.address = $rootScope.user.getFrom().formatted_address;
+                $scope.address = $rootScope.user.booking.from.formatted_address;
 
-                if ($rootScope.user.getTo()) {
+                if ($rootScope.user.booking.to) {
                     pos = {
-                        lat: $rootScope.user.getTo().latitude,
-                        lon: $rootScope.user.getTo().longitude
+                        lat: $rootScope.user.booking.to.latitude,
+                        lon: $rootScope.user.booking.to.longitude
                     };
-                    $scope.address = $rootScope.user.getTo().formatted_address;
+                    $scope.address = $rootScope.user.booking.to.formatted_address;
                 };
 
                 $scope.centerMap({lat: pos.lat, lon: pos.lon}, false);
@@ -91,12 +91,12 @@ angular.module('blackRide').controller('dropController',
     $scope.markersEvents = {
         click: function (gMarker, eventName, model) {
             var pos = gMarker.getPosition();
-            if ($rootScope.user.getFrom().formatted_address == $scope.address) return false; 
-            $rootScope.user.setTo({
+            if ($rootScope.user.booking.from.formatted_address == $scope.address) return false; 
+            $rootScope.user.booking.to = {
                 formatted_address: $scope.address,
                 latitude: pos.lat(),
                 longitude: pos.lng()
-           });
+            };
             $state.go('driver');
         }
     };

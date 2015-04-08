@@ -4,14 +4,14 @@ angular.module('blackRide').controller('historyController',
         '$modal',
         '$rootScope',
         '$state',
-        'BookingsFactory',
+        'Bookings',
         '$timeout',
     function(
         $scope,
         $modal,
         $rootScope,
         $state,
-        BookingsFactory,
+        Bookings,
         $timeout
     ) {
 
@@ -26,8 +26,24 @@ angular.module('blackRide').controller('historyController',
         $rootScope.$broadcast('signIn');
 
         $scope.$on('authSuccess', function () {
-            BookingsFactory.get($rootScope.userToken).success(function (res) {
+            Bookings.done.get($rootScope.userToken).success(function (res) {
                 $scope.bookingsDone = res;
+            });
+
+            Bookings.pending.get($rootScope.userToken).success(function (res) {
+                $scope.bookingsPending = res;
+            });
+
+            Bookings.dispatched.get($rootScope.userToken).success(function (res) {
+                $scope.bookingsDispatched = res;
+            });
+
+            Bookings.ongoing.get($rootScope.userToken).success(function (res) {
+                $scope.bookingsOngoing = res;
+            });
+
+            Bookings.cancelled.get($rootScope.userToken).success(function (res) {
+                $scope.bookingsCancelled = res;
             });
         });
 
