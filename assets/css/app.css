@@ -6376,6 +6376,10 @@ table {
   color: #07b5b5;
   font-size: 17px;
 }
+.historyElement .route {
+  max-height: 26px;
+  overflow: hidden;
+}
 .historyElement .date {
   color: #949494;
   font-size: 15px;

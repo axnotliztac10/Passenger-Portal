@@ -4,33 +4,16 @@ angular.module('blackRide').controller('historyController',
         '$modal',
         '$rootScope',
         '$state',
+        'BookingsFactory',
+        '$timeout',
     function(
         $scope,
         $modal,
         $rootScope,
-        $state
+        $state,
+        BookingsFactory,
+        $timeout
     ) {
-
-        $scope.els = [
-            {
-                departure: 'Mission St. 125',
-                destiny: 'Oak St',
-                date: '2014-04-11',
-                price: 24
-            },
-            {
-                departure: 'Mission St. 125',
-                destiny: 'Oak St',
-                date: '2014-04-12',
-                price: 79
-            },
-            {
-                departure: 'Mission St. 125',
-                destiny: 'other address',
-                date: '2014-04-13',
-                price: 23
-            }
-        ];
 
         $scope.sorts = [
             {value: "date", label: "Time"},
@@ -38,4 +21,14 @@ angular.module('blackRide').controller('historyController',
         ];
 
         $scope.sort = $scope.sorts[0];
+
+
+        $rootScope.$broadcast('signIn');
+
+        $scope.$on('authSuccess', function () {
+            BookingsFactory.get($rootScope.userToken).success(function (res) {
+                $scope.bookingsDone = res;
+            });
+        });
+
 }]);

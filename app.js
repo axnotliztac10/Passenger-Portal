@@ -190,7 +190,8 @@ angular.module('blackRide').controller('modalConfirm', function ($rootScope, $sc
 
 angular.module('blackRide').filter('getCustomDate', function() {
   return function(item) {
-    var date = new Date(item);
+    var d = item.split('T')[0];
+    var date = new Date(d);
       switch (date.getDay()) {
           case 0:
               day = "Sunday";
@@ -215,7 +216,7 @@ angular.module('blackRide').filter('getCustomDate', function() {
           break;
       }
 
-      return day + ", " + item;
+      return day + ", " + d;
   };
 });
 

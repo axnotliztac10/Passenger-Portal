@@ -64,8 +64,20 @@ angular.module('blackRide').factory('StripeProvider' , function ($http, API_HOST
 	}
 });
 
-angular.module('blackRide').factory('BookingsFactory' , function ($resource, API_HOST) {
-	return $resource(API_HOST + '/bookings');
+angular.module('blackRide').factory('BookingsFactory' , function ($http, API_HOST, API_Key) {
+	return {
+		get: function (token) {
+			return $http({
+				url: API_HOST + '/bookings/done',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					'API-key': API_Key,
+					'client-token': token || 'notokenset'
+				}
+			});
+		}
+	}
 });
 
 angular.module('blackRide').factory('DispatchFactory' , function ($resource, API_HOST) {

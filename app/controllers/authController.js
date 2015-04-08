@@ -30,6 +30,7 @@ angular.module('blackRide').controller('authController', [
     });
 
     $scope.$on('fbSign', function () {
+        $scope.getFbLog();
         Facebook.getLoginStatus(function(response) {
             if (response.status === 'connected') {
                 $scope.loggedIn = true;
@@ -38,6 +39,7 @@ angular.module('blackRide').controller('authController', [
             } else if (response.status === 'unknown') {
                 $scope.loggedIn = false;
             }
+
             $scope.getFbLog();
         });
     });
@@ -51,6 +53,7 @@ angular.module('blackRide').controller('authController', [
                 //AuthResponse.fillPassenger(res);
                 //$rootScope.user.setAuthResponse(AuthResponse);
             $rootScope.userToken = res.data.token.value;
+            $rootScope.$broadcast('authSuccess');
         });
     });
 
@@ -59,6 +62,7 @@ angular.module('blackRide').controller('authController', [
                 //AuthResponse.fillPassenger(res);
                 //$rootScope.user.setAuthResponse(AuthResponse);
             $rootScope.userToken = res.data.token.value;
+            $rootScope.$broadcast('authSuccess');
         });
 
     });

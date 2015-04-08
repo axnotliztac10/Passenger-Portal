@@ -24,17 +24,17 @@
 	</div>
 	<div class="row rowHis noBorder">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
-			<p>Active</p>
+			<p>Done</p>
 		</div>
 	</div>
-	<div class="row rowHis historyElement" ng-repeat="el in els | orderBy:'sort.value' | filter:searchText">
+	<div class="row rowHis historyElement" ng-repeat="booking in bookingsDone | orderBy:'sort.value' | filter:searchText">
 		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-			<p>{{el.departure}}</p>
-			<p>{{el.destiny}}</p>
+			<p class="route">{{booking.first_ride.route.from.location}}</p>
+			<p class="route">{{booking.first_ride.route.to.location}}</p>
 		</div>
 		<div class="col-md-6 text-right">
-			<p class="date">{{el.date | getCustomDate}}</p>
-			<p><small>$</small>{{el.price}}</p>
+			<p class="date">{{booking.created | getCustomDate}}</p>
+			<p><small>$ </small>{{booking.total | number:2}}</p>
 		</div>
 	</div>
 </div>
