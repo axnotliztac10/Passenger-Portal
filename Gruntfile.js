@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                 bucket: "shiftportal"
             },
             build: {
-                cwd: "../build/",
+                cwd: "../build/webapp",
                 src: "**/*"
             }
         },

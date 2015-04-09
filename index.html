@@ -26,10 +26,12 @@
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   
   <header ng-controller="authController">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alerts.splice($index, 1)">{{alert.msg}}</alert>
     <div class="title"><a ui-sref="home"><img src="assets/imgs/blue_logo.png"></a></div>
     <div class="menu">
       <a class="button first hide" href="javascript: void(0)">Sign Up</a>
-      <a class="button" href="javascript: void(0)" ng-click="open()">Login</a>
+      <a class="button" ng-if="nickname" href="javascript: void(0)" ng-click="logout()">{{nickname}}</a>
+      <a class="button" ng-if="!nickname" href="javascript: void(0)" ng-click="open()">Login</a>
       <a href="javascript: void(0)">
         <button type="button" class="navbar-toggle collapsed menuOpen">
           <span class="icon-bar"></span>

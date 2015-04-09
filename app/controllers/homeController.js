@@ -163,7 +163,7 @@ angular.module('blackRide').controller('homeController',
                 $scope.getAddress(res.coords.latitude, res.coords.longitude);
             }, displayError ,{
                 enableHighAccuracy: false,
-                timeout: 60000,
+                timeout: 10000,
                 maximumAge: 0
             });
         } else {
@@ -178,13 +178,6 @@ angular.module('blackRide').controller('homeController',
     }
 
     $scope.init = function () {
-
-        if (!angular.isDefined($rootScope.user)) {
-            $rootScope.user = {
-                booking: {}
-            };
-        }
-
         $scope.getActualAdd();
     };
 

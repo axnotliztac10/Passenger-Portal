@@ -7226,3 +7226,31 @@ DIRECTIVE
 
 DIRECTIVE
 */
+.alert-success {
+  position: fixed;
+  bottom: 10px;
+  margin: 0px;
+  left: 10px;
+  height: 60px;
+  padding: 18px 10px 18px 15px;
+  width: 200px;
+  background-color: #2E2D2C;
+  border-color: #3A3A3A;
+  color: #6F6F6F;
+  font-family: 'Lato';
+  opacity: 1;
+}
+.alert-dismissable .close {
+  top: -20px;
+  right: -5px;
+}
+.alert-success.ng-enter {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  bottom: -70px;
+}
+.alert-success.ng-enter-active {
+  opacity: 1;
+  bottom: 10px;
+}

@@ -22,10 +22,7 @@ angular.module('blackRide').controller('historyController',
 
         $scope.sort = $scope.sorts[0];
 
-
-        $rootScope.$broadcast('signIn');
-
-        $scope.$on('authSuccess', function () {
+        var getBookings = function () {
             Bookings.done.get($rootScope.userToken).success(function (res) {
                 $scope.bookingsDone = res;
             });
@@ -45,6 +42,12 @@ angular.module('blackRide').controller('historyController',
             Bookings.cancelled.get($rootScope.userToken).success(function (res) {
                 $scope.bookingsCancelled = res;
             });
+        };
+
+        $scope.$on('authSuccess', function () {
+            getBookings();
         });
+
+        $rootScope.$broadcast('signIn');
 
 }]);
