@@ -4,11 +4,17 @@ angular.module('blackRide').controller('organizationsController',
         '$scope',
         '$rootScope',
         '$timeout',
+        'Organisations',
     function(
         $scope,
         $rootScope,
-        $timeout
+        $timeout,
+        Organisations
     ) {
+
+        Organisations.get().success(function (res) {
+            $scope.organisation = res[0];
+        });
 
         $scope.organisations = [
             {
@@ -50,8 +56,6 @@ angular.module('blackRide').controller('organizationsController',
                 }]
             }
         ];
-
-        $scope.billAddress = '17 James Drive Brisbane 112890 Queensland';
 
         $scope.saveAddress = function () {
             $scope.ajaxLoader = true;

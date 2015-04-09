@@ -1,7 +1,7 @@
 <div class="stepWrapper medium text-center wrapMobile organizations" ng-show="!map.active">
 	<div class="head">
 		<div class="org-row">
-			<div class="organization-name">Hilton Hotel</div>
+			<div class="organization-name">{{organisation.name}}</div>
 			<a href="#" class="mini-but organization-button">Organization Managers</a>
 		</div>
 		<div class="bill-row">
@@ -18,14 +18,14 @@
 				</div>
 			</div>
 			<div class="card-label">
-				Credit Card Limit <strong>1920</strong> $
+				Credit Card Limit <strong>{{organisation.credit_limit}}</strong> $
 			</div>
 		</div>
 		<div class="add-row">
 			<div class="address3">
-				<p ng-show="!editAddress">{{billAddress}}</p>
+				<p ng-show="!editAddress">{{organisation.billing_address}}</p>
 				<p ng-show="editAddress">
-					<textarea ng-model="billAddress" ></textarea>
+					<textarea ng-model="organisation.billing_address"></textarea>
 				</p>
 			</div>
 		</div>

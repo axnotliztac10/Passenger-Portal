@@ -23,23 +23,23 @@ angular.module('blackRide').controller('historyController',
         $scope.sort = $scope.sorts[0];
 
         var getBookings = function () {
-            Bookings.done.get($rootScope.userToken).success(function (res) {
+            Bookings.done.get().success(function (res) {
                 $scope.bookingsDone = res;
             });
 
-            Bookings.pending.get($rootScope.userToken).success(function (res) {
+            Bookings.pending.get().success(function (res) {
                 $scope.bookingsPending = res;
             });
 
-            Bookings.dispatched.get($rootScope.userToken).success(function (res) {
+            Bookings.dispatched.get().success(function (res) {
                 $scope.bookingsDispatched = res;
             });
 
-            Bookings.ongoing.get($rootScope.userToken).success(function (res) {
+            Bookings.ongoing.get().success(function (res) {
                 $scope.bookingsOngoing = res;
             });
 
-            Bookings.cancelled.get($rootScope.userToken).success(function (res) {
+            Bookings.cancelled.get().success(function (res) {
                 $scope.bookingsCancelled = res;
             });
         };

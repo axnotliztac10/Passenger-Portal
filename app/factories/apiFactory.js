@@ -50,7 +50,7 @@ angular.module('blackRide').factory('LogoutFactory' , function ($http, API_HOST,
 
 angular.module('blackRide').factory('StripeProvider' , function ($http, API_HOST, API_Key, $rootScope) {
 	return {
-		save: function (obj, token) {
+		save: function (obj) {
 			return $http({
 				url: API_HOST + '/providers/stripe',
 				method: 'POST',
@@ -65,10 +65,26 @@ angular.module('blackRide').factory('StripeProvider' , function ($http, API_HOST
 	}
 });
 
+angular.module('blackRide').factory('Organisations', function ($http, API_HOST, API_Key, $rootScope) {
+	return {
+		get: function () {
+			return $http({
+				url: API_HOST + '/organisations',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					'API-key': API_Key,
+					'client-token': $rootScope.user.token.value
+				}
+			});
+		}
+	}
+});
+
 angular.module('blackRide').factory('Bookings' , function ($http, API_HOST, API_Key, $rootScope) {
 	return {
 		done: {
-			get: function (token) {
+			get: function () {
 				return $http({
 					url: API_HOST + '/bookings/done',
 					method: 'GET',
@@ -81,7 +97,7 @@ angular.module('blackRide').factory('Bookings' , function ($http, API_HOST, API_
 			}
 		},
 		pending: {
-			get: function (token) {
+			get: function () {
 				return $http({
 					url: API_HOST + '/bookings/pending',
 					method: 'GET',
@@ -94,7 +110,7 @@ angular.module('blackRide').factory('Bookings' , function ($http, API_HOST, API_
 			}
 		},
 		dispatched: {
-			get: function (token) {
+			get: function () {
 				return $http({
 					url: API_HOST + '/bookings/dispatched',
 					method: 'GET',
@@ -107,7 +123,7 @@ angular.module('blackRide').factory('Bookings' , function ($http, API_HOST, API_
 			}
 		},
 		ongoing: {
-			get: function (token) {
+			get: function () {
 				return $http({
 					url: API_HOST + '/bookings/ongoing',
 					method: 'GET',
@@ -120,7 +136,7 @@ angular.module('blackRide').factory('Bookings' , function ($http, API_HOST, API_
 			}
 		},
 		cancelled: {
-			get: function (token) {
+			get: function () {
 				return $http({
 					url: API_HOST + '/bookings/cancelled',
 					method: 'GET',
