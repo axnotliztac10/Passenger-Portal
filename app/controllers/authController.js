@@ -40,8 +40,13 @@ angular.module('blackRide').controller('authController', [
 
     $scope.logout = function () {
         var c = confirm('Confirm Logout');
-        $scope.nickname = null;
-        if (c) localStorageService.remove('user');
+        if (c) {
+            $scope.nickname = null;
+            $rootScope.user = {
+                booking: {}
+            };
+            localStorageService.remove('user');
+        }
     };
 
     $scope.open = function () {
