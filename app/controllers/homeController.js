@@ -141,7 +141,7 @@ angular.module('blackRide').controller('homeController',
                 lat: $rootScope.user.booking.from.latitude,
                 lon: $rootScope.user.booking.from.longitude
             };
-            $scope.address = $rootScope.user.from.formatted_address;
+            $scope.address = $rootScope.user.booking.from.formatted_address;
             $scope.ajaxLoader = true;
             return;
         };
