@@ -6,13 +6,15 @@ angular.module('blackRide').controller('driverController',
         '$state',
         'Bookings',
         '$timeout',
+        'Drivers',
     function(
         $scope,
         $modal,
         $rootScope,
         $state,
         Bookings,
-        $timeout
+        $timeout,
+        Drivers
     ) {
 
         if (!$rootScope.user) {
@@ -77,7 +79,7 @@ angular.module('blackRide').controller('driverController',
             }, 100);
         };
 
-        $scope.drivers = [
+        $scope.driversMock = [
             {
                 img: './assets/imgs/cars/car.jpg',
                 name: 'Alexa Smith',
@@ -119,4 +121,12 @@ angular.module('blackRide').controller('driverController',
                 desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
             }
         ];
+
+        $scope.$on('authSuccess', function () {
+            Drivers.get().success(function (res) {
+                $scope.drivers = res;
+            });
+        });
+
+        $rootScope.$broadcast('signIn');
 }]);

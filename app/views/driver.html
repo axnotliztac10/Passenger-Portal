@@ -34,13 +34,14 @@
 	</div>
 </div>
 <div class="row text-center">
-	<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', driver)" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">
+	<!--<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', driver)" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">-->
+	<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', driver)" ng-repeat="driver in drivers">
 		<div class="driverItem">
 			<img ng-src="{{driver.img}}" alt="">
 			<div>
 				<span class="name">{{driver.name}}</span><br>
 				<span class="model">{{driver.model}}</span>
-				<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
+				<div class="photo"><img ng-src="{{driver.logo_url_small}}" alt=""></div><br>
 				<div class="stars">
 					<rating 
 						ng-model="driver.rate" 
