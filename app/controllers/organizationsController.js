@@ -12,10 +12,6 @@ angular.module('blackRide').controller('organizationsController',
         Organisations
     ) {
 
-        Organisations.get().success(function (res) {
-            $scope.organisation = res[0];
-        });
-
         $scope.organisations = [
             {
                 orgName: 'SALES DEPARTMENT',
@@ -65,4 +61,11 @@ angular.module('blackRide').controller('organizationsController',
             }, 400);
         };
 
+        $scope.$on('authSuccess', function () {
+            Organisations.get().success(function (res) {
+                $scope.organisation = res[0];
+            });
+        });
+            
+        $rootScope.$broadcast('signIn');
     }]);
