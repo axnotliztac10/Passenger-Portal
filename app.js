@@ -24,7 +24,8 @@ angular.module('blackRide')
       datepickerConfig,
       FacebookProvider,
       GooglePlusProvider,
-      localStorageServiceProvider
+      localStorageServiceProvider,
+      $httpProvider
     ) {
 
     Stripe.setPublishableKey('pk_test_NdgelnceB9gAkiWX2vYJtTql');
@@ -89,6 +90,8 @@ angular.module('blackRide')
 
     $urlRouterProvider.otherwise('/home');
     //$locationProvider.html5Mode(true);
+
+    $httpProvider.interceptors.push('myHttpInterceptor');
 
 });
 
@@ -223,5 +226,14 @@ angular.module('blackRide').filter('cardMask', function() {
     }
     
     return item.substr(item.length - 4);
+  };
+});
+
+angular.module('blackRide').factory('myHttpInterceptor', function($q, $rootScope) {
+  return {
+   'responseError': function (rejection) {
+      $rootScope.$broadcast('signIn');
+      return $q.reject(rejection);
+    }
   };
 });

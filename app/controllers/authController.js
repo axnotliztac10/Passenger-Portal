@@ -43,7 +43,8 @@ angular.module('blackRide').controller('authController', [
         if (c) {
             $scope.nickname = null;
             $rootScope.user = {
-                booking: {}
+                booking: {},
+                token: 'none'
             };
             localStorageService.remove('user');
         }
@@ -136,7 +137,8 @@ angular.module('blackRide').controller('authController', [
     };
 
     $rootScope.user = {
-        booking: {}
+        booking: {},
+        token: 'none'
     };
 
     if ($rootScope.isLoggedIn()) {
