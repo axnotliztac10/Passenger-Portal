@@ -106,12 +106,12 @@ angular.module('blackRide').controller('homeController',
     };
 
     $scope.setAndGo = function (pos) {
-       $rootScope.user.booking.from = {
+        $rootScope.user.booking.from = {
             formatted_address: $scope.address,
             latitude: pos.lat && isNaN(pos.lat) ? pos.lat() : pos.lat,
             longitude: pos.lng && isNaN(pos.lng) ? pos.lng() : pos.lon
-       };
-       
+        };
+
         $state.go('time');
     };
 

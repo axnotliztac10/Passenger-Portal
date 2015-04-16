@@ -5125,7 +5125,7 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .modal-backdrop.fade {
   opacity: 0;
@@ -5779,69 +5779,88 @@ body {
   height: 100%;
   font-family: 'Lato';
 }
-html {
+html.black {
   background: url("/assets/imgs/bg.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
+  /*
+	  Set the color of the icon
+	*/
+  /* BS UI Customization
+	============================================================================= */
+  /* ANIMATIONS
+	============================================================================= */
+  /* SLIDER */
+  /*******/
+  /*
+	DIRECTIVE
+	*/
+  /*
+
+
+
+	DIRECTIVE
+	*/
 }
-body {
+html.black body {
   color: #b3b3b3;
   background: none;
   position: relative;
 }
-h1 {
+html.black h1 {
   font-size: 20px;
 }
-header {
+html.black header {
   background: #3d3d3d;
   width: 100%;
   height: 60px;
   position: relative;
   z-index: 2000;
   padding: 20px 17px 0px 22px;
+  box-shadow: 0px 0px 3px 0px #666666;
 }
-p,
-span {
+html.black p,
+html.black span {
   font-weight: lighter;
 }
-p.normalWeight {
+html.black p.normalWeight {
   font-weight: 400;
 }
-header .title {
+html.black header .title {
   float: left;
   color: #fff;
 }
-header .title img {
+html.black header .title img {
   width: 100px;
 }
-header .menu {
+html.black header .menu {
   float: right;
 }
-.menu .glyphicon {
+html.black .menu .glyphicon {
   top: 4px;
 }
-.navbar-toggle {
+html.black .navbar-toggle {
   display: inline !important;
 }
-*:focus {
+html.black *:focus {
   outline: none;
 }
-[ui-view] a,
-[ng-click],
-[ng-click] a {
+html.black [ui-view] a,
+html.black [ng-click],
+html.black [ng-click] a {
   cursor: pointer;
 }
-[ui-view] a:hover,
-[ng-click] a:hover {
+html.black [ui-view] a:hover,
+html.black [ng-click] a:hover {
   text-decoration: none;
 }
-#status-buttons {
+html.black #status-buttons {
   margin-top: 40px;
 }
-#status-buttons a {
+html.black #status-buttons a {
   color: #949494;
   display: inline-block;
   font-size: 14px;
@@ -5850,24 +5869,24 @@ header .menu {
   margin-left: 0px;
   position: relative;
 }
-.dotted {
+html.black .dotted {
   width: 68px;
   position: absolute;
   left: 63px;
   top: 6px;
   color: #949494;
 }
-.lightDot {
+html.black .lightDot {
   color: #9cd444 !important;
 }
-.lightDot span {
+html.black .lightDot span {
   color: #9cd444 !important;
   border-color: #9cd444 !important;
 }
-.lightDot .dotted {
+html.black .lightDot .dotted {
   color: #9cd444 !important;
 }
-#menu {
+html.black #menu {
   width: 276px;
   height: 100%;
   position: absolute;
@@ -5877,36 +5896,36 @@ header .menu {
   padding: 80px 15px 15px 15px;
   display: none;
 }
-#menu ul {
+html.black #menu ul {
   margin-top: 40px;
   list-style: none;
 }
-#menu ul > li {
+html.black #menu ul > li {
   padding: 20px 5px;
 }
-#menu ul > li > a {
+html.black #menu ul > li > a {
   color: #949494;
   text-decoration: none;
 }
-#menu ul > li > a:hover {
+html.black #menu ul > li > a:hover {
   color: #fff;
 }
-#menu.show-nav {
+html.black #menu.show-nav {
   -webkit-transform: translateX(-276px);
   transform: translateX(-276px);
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
 }
-#status-buttons a.active {
+html.black #status-buttons a.active {
   color: #9cd444;
 }
-#menu a.active {
+html.black #menu a.active {
   color: #07b5b5;
 }
-#status-buttons a:hover {
+html.black #status-buttons a:hover {
   text-decoration: none;
 }
-#status-buttons span {
+html.black #status-buttons span {
   border: 2px solid #949494;
   color: #949494;
   display: block;
@@ -5917,15 +5936,15 @@ header .menu {
   width: 34px;
   border-radius: 50%;
 }
-#status-buttons .glyphicon-ok {
+html.black #status-buttons .glyphicon-ok {
   padding-top: 7px;
 }
-#status-buttons a.active span {
+html.black #status-buttons a.active span {
   background: #9cd444;
   border-color: #666666;
   color: #666666;
 }
-.stepWrapper {
+html.black .stepWrapper {
   background: #2e2d2c;
   border-radius: 2px;
   box-shadow: 2px 1px 6px -1px #2e2d2c;
@@ -5933,13 +5952,13 @@ header .menu {
   min-height: 400px;
   position: relative;
 }
-.wrap-bottom {
+html.black .wrap-bottom {
   margin-bottom: 15px;
 }
-.stepWrapper + p {
+html.black .stepWrapper + p {
   margin-bottom: 15px;
 }
-.stepWrapper .addPickup {
+html.black .stepWrapper .addPickup {
   text-align: center;
   color: #07b5b5;
   font-size: 24px;
@@ -5951,19 +5970,19 @@ header .menu {
   padding-left: 10px;
   padding-right: 10px;
 }
-.stepWrapper p.addPickup {
+html.black .stepWrapper p.addPickup {
   line-height: 32px;
 }
-.text-left-imp {
+html.black .text-left-imp {
   text-align: left !important;
 }
-.addPickup:focus {
+html.black .addPickup:focus {
   color: #29B8B8;
 }
-.addPickup.text-box {
+html.black .addPickup.text-box {
   font-size: 16px;
 }
-.nextStep {
+html.black .nextStep {
   bottom: 0px;
   font-size: 30px;
   position: absolute;
@@ -5971,38 +5990,38 @@ header .menu {
   left: 0px;
   margin-bottom: 50px;
 }
-.nextStep a {
+html.black .nextStep a {
   color: #9cd444;
 }
-.nextStep.cancelMb {
+html.black .nextStep.cancelMb {
   margin-bottom: 0px;
 }
-.topSpacer {
+html.black .topSpacer {
   margin-top: 5px;
 }
-.menu .button {
+html.black .menu .button {
   border: 0px;
   color: #fff;
   font-size: 13px;
   padding: 10px 40px;
 }
-.menu .first {
+html.black .menu .first {
   background: #9cd444;
   border-radius: 2px;
   color: #3d3d3d;
 }
-.menu a {
+html.black .menu a {
   color: #fff;
   text-decoration: none;
 }
-.menuOpen {
+html.black .menuOpen {
   font-size: 24px;
   cursor: pointer;
 }
-.menuOpen .icon-bar {
+html.black .menuOpen .icon-bar {
   background-color: #07b5b5;
 }
-.navbar-toggle.menuOpen {
+html.black .navbar-toggle.menuOpen {
   position: relative;
   background-color: transparent;
   background-image: none;
@@ -6012,36 +6031,36 @@ header .menu {
   border-radius: 0px;
   float: none;
 }
-.navbar-toggle.menuOpen .icon-bar {
+html.black .navbar-toggle.menuOpen .icon-bar {
   border-radius: 0px;
   width: 24px;
   height: 2px;
 }
-.menuOpen[ng-click="filtersOn=!filtersOn"] {
+html.black .menuOpen[ng-click="filtersOn=!filtersOn"] {
   font-size: 28px;
 }
-.menuOpen.menuMobile {
+html.black .menuOpen.menuMobile {
   display: none;
 }
-.small {
+html.black .small {
   width: 390px;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 15px;
 }
-.big {
+html.black .big {
   width: 813px;
 }
-.medium {
+html.black .medium {
   width: 640px;
 }
-.top-margin {
+html.black .top-margin {
   padding-top: 80px;
 }
-.bottom-margin {
+html.black .bottom-margin {
   margin-bottom: 40px;
 }
-.loader {
+html.black .loader {
   margin: 0 0 2em;
   height: 100px;
   width: 20%;
@@ -6051,91 +6070,88 @@ header .menu {
   display: inline-block;
   vertical-align: top;
 }
-.loaderInput {
+html.black .loaderInput {
   width: 30px;
   height: 30px;
   position: absolute;
   right: 3px;
   top: 4px;
 }
-.driverModal .modal-content,
-.driverModal .modal-dialog {
+html.black .driverModal .modal-content,
+html.black .driverModal .modal-dialog {
   width: 360px;
 }
-.driverModal .modal-content,
-.input-group-addon {
+html.black .driverModal .modal-content,
+html.black .input-group-addon {
   background: #2e2d2c;
 }
-.driverModal .modal-dialog {
+html.black .driverModal .modal-dialog {
   margin-top: 120px;
 }
-.driverModal .modal-body {
+html.black .driverModal .modal-body {
   margin-top: 75px;
 }
-.driverModal .modal-footer {
+html.black .driverModal .modal-footer {
   position: relative;
   text-align: center;
   border-top: 0px;
   margin-top: 0px;
 }
-.cancelBut {
+html.black .cancelBut {
   left: 48px;
   top: -2px;
   width: auto;
 }
-.nextBut {
+html.black .nextBut {
   left: 235px;
   top: -2px;
   width: auto;
 }
-.cancelBut a,
-.nextBut a {
+html.black .cancelBut a,
+html.black .nextBut a {
   color: #07b5b5;
 }
-.nameDriverModal {
+html.black .nameDriverModal {
   text-align: center;
   color: #07b5b5;
   font-size: 30px;
 }
-.modelDriverModal {
+html.black .modelDriverModal {
   text-align: center;
 }
-.descDriverModal {
+html.black .descDriverModal {
   text-align: justify;
 }
-.rateDriverModal {
+html.black .rateDriverModal {
   text-align: center;
 }
-.pac-container {
+html.black .pac-container {
   z-index: 777777 !important;
   list-style: none !important;
   padding-left: 0px !important;
   background: #fff !important;
   padding-top: 5px !important;
 }
-.pac-container .pac-item {
+html.black .pac-container .pac-item {
   padding: 8px 32px 2px !important;
   height: 40px !important;
 }
-.resultFocus {
+html.black .resultFocus {
   background: #b3b3b3;
   color: #fff;
 }
-/*
-  Set the color of the icon
-*/
-svg path,
-svg rect {
+html.black svg path,
+html.black svg rect {
   fill: #9cd444;
 }
-.loaderOverlay {
+html.black .loaderOverlay {
   position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
 }
-.driverItem > div {
+html.black .driverItem > div {
   height: 142px;
   max-width: 320px;
   width: 100%;
@@ -6148,17 +6164,17 @@ svg rect {
   position: relative;
   margin-bottom: 40px;
 }
-.driverItem > img {
+html.black .driverItem > img {
   max-width: 320px;
   width: 100%;
   opacity: 1;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
 }
-.driverItem .photo img {
+html.black .driverItem .photo img {
   width: 100%;
 }
-.driverItem .photo {
+html.black .driverItem .photo {
   position: absolute;
   border-radius: 50%;
   overflow: hidden;
@@ -6167,66 +6183,66 @@ svg rect {
   left: 210px;
   height: 95px;
 }
-.driverItem .name,
-.driverItem .price {
+html.black .driverItem .name,
+html.black .driverItem .price {
   font-size: 32px;
   color: #07b5b5;
 }
-.driverItem .stars {
+html.black .driverItem .stars {
   margin-top: 20px;
   width: 180px;
   float: left;
 }
-.driverItem .model {
+html.black .driverItem .model {
   float: left;
 }
-.driverItem .time,
-.driverItem .price {
+html.black .driverItem .time,
+html.black .driverItem .price {
   float: right;
 }
-table {
+html.black table {
   margin: 20px auto;
 }
-[datepicker-popup] {
+html.black [datepicker-popup] {
   width: 200px !important;
 }
-.date-group {
+html.black .date-group {
   width: 100px;
   margin: 0 auto;
 }
-.stepWrapper .glyphicon {
+html.black .stepWrapper .glyphicon {
   color: #07b5b5;
 }
-.relativeWrap {
+html.black .relativeWrap {
   position: relative;
 }
-.row.historySearch,
-.row.rowHis {
+html.black .row.historySearch,
+html.black .row.rowHis {
   margin-left: 0px;
   margin-right: 0px;
   border-bottom: 1px solid #2A2A2A;
 }
-.row.historySearch .glyphicon,
-.row.historySearch a {
+html.black .row.historySearch .glyphicon,
+html.black .row.historySearch a {
   color: #949494;
 }
-.row.historySearch .glyphicon-chevron-dow {
+html.black .row.historySearch .glyphicon-chevron-dow {
   font-size: 10px;
 }
-.historySearch .timepicketbox,
-.historySearch .input-group-addon {
+html.black .historySearch .timepicketbox,
+html.black .historySearch .input-group-addon {
   border: 1px solid #949494;
 }
-.historySearch .timepicketbox {
+html.black .historySearch .timepicketbox {
   border-left: 0px;
 }
-.historySearch .input-group-addon {
+html.black .historySearch .input-group-addon {
   border-right: 0px;
 }
-.angular-google-map-container {
+html.black .angular-google-map-container {
   height: 378px;
 }
-#searchPlaces {
+html.black #searchPlaces {
   position: absolute;
   left: 90px !important;
   top: 20px !important;
@@ -6234,20 +6250,20 @@ table {
   height: 30px;
   padding: 12px;
 }
-.filters {
+html.black .filters {
   background: #2e2d2c;
   margin: 40px auto;
   width: 600px;
   height: 140px;
   float: none;
 }
-.filters > div {
+html.black .filters > div {
   padding: 20px 10px 10px;
 }
-.filters > div > p {
+html.black .filters > div > p {
   margin-bottom: 20px;
 }
-.star {
+html.black .star {
   width: 28px;
   height: 27px;
   background: url("/assets/imgs/star.png") no-repeat;
@@ -6256,7 +6272,7 @@ table {
   -o-background-size: cover;
   background-size: cover;
 }
-.star-gray {
+html.black .star-gray {
   width: 28px;
   height: 27px;
   background: url("/assets/imgs/star_gray.png") no-repeat;
@@ -6265,18 +6281,18 @@ table {
   -o-background-size: cover;
   background-size: cover;
 }
-.minLabel,
-.maxLabel {
+html.black .minLabel,
+html.black .maxLabel {
   color: #07b5b5;
   font-size: 14px;
 }
-.minLabel {
+html.black .minLabel {
   float: left;
 }
-.maxLabel {
+html.black .maxLabel {
   float: right;
 }
-.modalDriverPhoto {
+html.black .modalDriverPhoto {
   position: absolute;
   border-radius: 50%;
   overflow: hidden;
@@ -6285,18 +6301,18 @@ table {
   left: 137px;
   padding: 0px;
 }
-.modalDriverPhoto img {
+html.black .modalDriverPhoto img {
   width: 100%;
 }
-.tripInfo {
+html.black .tripInfo {
   padding: 10px;
   padding-bottom: 55px;
 }
-.tripInfo p.even {
+html.black .tripInfo p.even {
   font-size: 14px;
   color: #07b5b5;
 }
-.social {
+html.black .social {
   width: 100%;
   color: #fff;
   height: 40px;
@@ -6305,116 +6321,112 @@ table {
   border-radius: 2px;
   margin-bottom: 10px;
 }
-.fb {
+html.black .fb {
   background: url("/assets/imgs/fb.png") #4b75bd no-repeat;
   background-position: 10px;
 }
-.linked {
+html.black .linked {
   background: url("/assets/imgs/ln.png") #0092cc no-repeat;
   background-position: 10px;
 }
-.gplus {
+html.black .gplus {
   background: url("/assets/imgs/gplus.png") #db4939 no-repeat;
   background-position: 10px;
 }
-.followMap .info {
+html.black .followMap .info {
   width: 300px;
   float: left;
   text-align: center;
   position: relative;
   height: 470px;
 }
-.followMap .time {
+html.black .followMap .time {
   font-size: 30px;
   color: #07b5b5;
 }
-.followMap .info .imgWrap {
+html.black .followMap .info .imgWrap {
   width: 95px;
   overflow: hidden;
   border-radius: 50%;
   margin: 40px auto;
 }
-.followMap .info .imgWrap img {
+html.black .followMap .info .imgWrap img {
   width: 100%;
 }
-.followMap .angular-google-map-container {
+html.black .followMap .angular-google-map-container {
   height: 401px;
 }
-.customStep {
+html.black .customStep {
   bottom: 69px;
 }
-.timepicket {
+html.black .timepicket {
   margin: 0px auto;
 }
-.timepicket .glyphicon {
+html.black .timepicket .glyphicon {
   color: #fff;
   font-weight: lighter;
   margin-top: 6px;
 }
-.timepicket .form-control {
+html.black .timepicket .form-control {
   height: 44px;
 }
-.timepicketbox {
+html.black .timepicketbox {
   background: #2e2d2c;
   font-weight: bold;
   color: #07b5b5;
   padding-left: 0px;
   padding-right: 0px;
 }
-.onlyOnMob {
+html.black .onlyOnMob {
   display: none;
 }
-.filtersSwitch .menuOpen {
+html.black .filtersSwitch .menuOpen {
   color: #07b5b5;
 }
-.rowHis {
+html.black .rowHis {
   padding: 10px 20px;
 }
-.noBorder {
+html.black .noBorder {
   border-bottom: 0px !important;
 }
-.historyElement p {
+html.black .historyElement p {
   color: #07b5b5;
   font-size: 17px;
 }
-.historyElement .route {
+html.black .historyElement .route {
   max-height: 26px;
   overflow: hidden;
 }
-.historyElement .date {
+html.black .historyElement .date {
   color: #949494;
   font-size: 15px;
 }
-.sortMenu {
+html.black .sortMenu {
   position: absolute;
   top: 18px;
   left: -39px;
   padding: 5px 2px;
   z-index: 100;
 }
-.sortMenu p:hover {
+html.black .sortMenu p:hover {
   color: #b3b3b3;
 }
-/* BS UI Customization
-============================================================================= */
-.nav,
-.pagination,
-.carousel a {
+html.black .nav,
+html.black .pagination,
+html.black .carousel a {
   cursor: pointer;
 }
-.modal.fade {
+html.black .modal.fade {
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
-.modal.fade .modal-dialog {
+html.black .modal.fade .modal-dialog {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
 }
-/* ANIMATIONS
-============================================================================= */
-[ui-view].ng-enter,
-[ui-view].ng-leave {
+html.black [ui-view].ng-enter,
+html.black [ui-view].ng-leave {
   position: absolute;
   left: 30px;
   right: 30px;
@@ -6422,17 +6434,17 @@ table {
   -moz-transition: 0.5s all ease;
   -webkit-transition: 0.5s all ease;
 }
-[ui-view].ng-enter {
+html.black [ui-view].ng-enter {
   -webkit-animation: slideInRight 0.5s both ease;
   -moz-animation: slideInRight 0.5s both ease;
   animation: slideInRight 0.5s both ease;
 }
-[ui-view].ng-leave {
+html.black [ui-view].ng-leave {
   -webkit-animation: slideOutLeft 0.5s both ease;
   -moz-animation: slideOutLeft 0.5s both ease;
   animation: slideOutLeft 0.5s both ease;
 }
-.driverItem.ng-enter {
+html.black .driverItem.ng-enter {
   -webkit-animation: enter-sequence 800ms;
   animation: enter-sequence 800ms;
   display: block;
@@ -6462,7 +6474,7 @@ table {
     left: 0px;
   }
 }
-.driverWrap.ng-leave {
+html.black .driverWrap.ng-leave {
   -webkit-animation: leave 800ms;
   animation: leave 800ms;
   display: block;
@@ -6492,13 +6504,13 @@ table {
     left: 0px;
   }
 }
-.offAnimation.driverWrap.ng-enter,
-.entrace-eff {
+html.black .offAnimation.driverWrap.ng-enter,
+html.black .entrace-eff {
   -webkit-animation: enterFilter 0.5s both ease;
   -moz-animation: enterFilter 0.5s both ease;
   animation: enterFilter 0.5s both ease;
 }
-.offAnimation.driverWrap.ng-leave {
+html.black .offAnimation.driverWrap.ng-leave {
   -webkit-animation: outFilter 0.5s both ease;
   -moz-animation: outFilter 0.5s both ease;
   animation: outFilter 0.5s both ease;
@@ -6642,47 +6654,45 @@ table {
     -ms-transform: translate(0px, 0px);
   }
 }
-/* SLIDER */
-slider div.handle,
-[slider] div.handle {
+html.black slider div.handle,
+html.black [slider] div.handle {
   background-color: #2e2d2c !important;
   border: 1px solid #fff !important;
   width: 18px !important;
   height: 18px !important;
 }
-slider div.handle:after,
-[slider] div.handle:after {
+html.black slider div.handle:after,
+html.black [slider] div.handle:after {
   display: none;
 }
-slider,
-[slider] {
+html.black slider,
+html.black [slider] {
   height: 4px !important;
 }
-slider div.bar .selection,
-[slider] div.bar .selection {
+html.black slider div.bar .selection,
+html.black [slider] div.bar .selection {
   background: #9cd444 !important;
 }
-/*******/
 @media only screen and (max-width: 992px) {
-  .big {
+  html.black .big {
     width: 100%;
   }
 }
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
-  .driverItem .photo {
+  html.black .driverItem .photo {
     width: 85px;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  html {
+  html.black html {
     background: none;
     background-color: #3d3d3d;
   }
-  header,
-  #status-buttons {
+  html.black header,
+  html.black #status-buttons {
     display: none;
   }
-  .wrapMobile {
+  html.black .wrapMobile {
     margin-top: 0px;
     width: 100%;
     height: 100%;
@@ -6692,10 +6702,10 @@ slider div.bar .selection,
     overflow-y: auto;
     overflow-x: hidden;
   }
-  [ui-view] {
+  html.black [ui-view] {
     overflow-x: hidden;
   }
-  [ui-view].ng-enter {
+  html.black [ui-view].ng-enter {
     opacity: 1;
     -webkit-transition: .3s ease all !important;
     transition: .3s ease all !important;
@@ -6703,7 +6713,7 @@ slider div.bar .selection,
     -moz-animation: none !important;
     animation: none !important;
   }
-  [ui-view].ng-leave {
+  html.black [ui-view].ng-leave {
     opacity: 0;
     -webkit-transition: .3s ease all !important;
     transition: .3s ease all !important;
@@ -6711,12 +6721,12 @@ slider div.bar .selection,
     -moz-animation: none !important;
     animation: none !important;
   }
-  .driverItem .photo {
+  html.black .driverItem .photo {
     width: 70px !important;
     top: -161px !important;
     left: 242px !important;
   }
-  .driverItem .name {
+  html.black .driverItem .name {
     position: absolute;
     top: -166px;
     right: 86px;
@@ -6724,7 +6734,7 @@ slider div.bar .selection,
     font-size: 27px;
     color: #9cd444 !important;
   }
-  .driverItem .model {
+  html.black .driverItem .model {
     position: absolute;
     top: -129px;
     right: 88px;
@@ -6732,88 +6742,88 @@ slider div.bar .selection,
     color: #fff;
     font-size: 22px;
   }
-  .driverItem .stars {
+  html.black .driverItem .stars {
     position: absolute;
     top: -110px;
     left: 165px;
   }
-  .driverItem .time {
+  html.black .driverItem .time {
     position: absolute;
     right: 19px;
     top: -58px;
     font-weight: 200;
     color: #fff;
   }
-  .driverItem .price {
+  html.black .driverItem .price {
     position: absolute;
     right: 20px;
     top: -43px;
     font-weight: 200;
     color: #9cd444 !important;
   }
-  .driverItem > div {
+  html.black .driverItem > div {
     height: 0px !important;
     margin-bottom: 0px !important;
   }
-  .filters {
+  html.black .filters {
     height: 0px !important;
     overflow: hidden;
     margin: 0px auto !important;
   }
-  .filtersOn {
+  html.black .filtersOn {
     height: 410px !important;
     -webkit-transition: .3s ease all !important;
     transition: .3s ease all !important;
   }
-  .filtersSwitch {
+  html.black .filtersSwitch {
     display: block !important;
     height: 80px;
     padding-top: 26px;
     font-size: 24px;
     color: #9cd444;
   }
-  .modal {
+  html.black .modal {
     overflow-x: hidden;
   }
-  .modal-dialog {
+  html.black .modal-dialog {
     top: -95px;
     left: 5px;
   }
-  .driverModal .modal-content,
-  .driverModal .modal-dialog {
+  html.black .driverModal .modal-content,
+  html.black .driverModal .modal-dialog {
     width: 292px;
   }
-  .modalDriverPhoto {
+  html.black .modalDriverPhoto {
     left: 103px;
   }
-  .followMap .info {
+  html.black .followMap .info {
     width: 100%;
   }
-  .map {
+  html.black .map {
     display: none;
   }
-  .onlyOnMob {
+  html.black .onlyOnMob {
     display: block;
   }
-  .nextBut {
+  html.black .nextBut {
     left: 166px;
   }
-  .customStep {
+  html.black .customStep {
     bottom: 0px;
   }
-  .onMobWhiet {
+  html.black .onMobWhiet {
     color: #fff !important;
   }
-  .angular-google-map-container {
+  html.black .angular-google-map-container {
     height: 528px;
   }
-  .followMap .angular-google-map-container {
+  html.black .followMap .angular-google-map-container {
     height: 568px;
   }
-  .stepWrapper .addPickup.padRight {
+  html.black .stepWrapper .addPickup.padRight {
     padding-right: 40px;
   }
-  .menuOpen.menuMobile {
+  html.black .menuOpen.menuMobile {
     display: block;
     position: absolute;
     right: 8px;
@@ -6823,7 +6833,7 @@ slider div.bar .selection,
     color: #07b5b5;
     cursor: pointer;
   }
-  .loaderInput {
+  html.black .loaderInput {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -6833,67 +6843,67 @@ slider div.bar .selection,
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
-  .modal-body {
+  html.black .modal-body {
     padding-bottom: 0px;
   }
-  .modal-footer {
+  html.black .modal-footer {
     padding-top: 0px;
   }
-  .cancelBut,
-  .nextBut {
+  html.black .cancelBut,
+  html.black .nextBut {
     margin-top: 20px !important;
     margin-bottom: 20px;
   }
-  .nextStep {
+  html.black .nextStep {
     position: relative;
     margin-top: 40px;
   }
-  .cancelBut,
-  .nextBut {
+  html.black .cancelBut,
+  html.black .nextBut {
     top: auto;
     left: auto;
   }
-  .nextBut {
+  html.black .nextBut {
     left: 166px;
   }
-  .modalDriverPhoto {
+  html.black .modalDriverPhoto {
     left: 103px;
   }
-  .followMap .info {
+  html.black .followMap .info {
     width: 100%;
   }
-  .map {
+  html.black .map {
     display: none;
   }
-  .onlyOnMob {
+  html.black .onlyOnMob {
     display: block;
   }
-  .tripInfo {
+  html.black .tripInfo {
     padding-bottom: 5px !important;
   }
-  .tripInfo + .nextStep {
+  html.black .tripInfo + .nextStep {
     margin-top: 0px;
   }
-  .driverModal .modal-content,
-  .driverModal .modal-dialog {
+  html.black .driverModal .modal-content,
+  html.black .driverModal .modal-dialog {
     width: 292px;
   }
-  .customStep {
+  html.black .customStep {
     bottom: 0px;
   }
-  .onMobWhiet {
+  html.black .onMobWhiet {
     color: #fff !important;
   }
-  .angular-google-map-container {
+  html.black .angular-google-map-container {
     height: 440px;
   }
-  .followMap .angular-google-map-container {
+  html.black .followMap .angular-google-map-container {
     height: 568px;
   }
-  .stepWrapper .addPickup.padRight {
+  html.black .stepWrapper .addPickup.padRight {
     padding-right: 40px;
   }
-  .menuOpen.menuMobile {
+  html.black .menuOpen.menuMobile {
     display: block;
     position: absolute;
     right: 8px;
@@ -6903,7 +6913,7 @@ slider div.bar .selection,
     color: #07b5b5;
     cursor: pointer;
   }
-  .loaderInput {
+  html.black .loaderInput {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -6913,68 +6923,68 @@ slider div.bar .selection,
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  .navbar-toggle {
+  html.black .navbar-toggle {
     display: inline !important;
   }
-  .filters {
+  html.black .filters {
     height: 250px;
   }
 }
 @media (min-width: 300px) and (max-width: 767px) {
-  .filters {
+  html.black .filters {
     height: 400px;
     width: 100%;
   }
 }
-fa-app {
+html.black fa-app {
   position: fixed !important;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-.organizations {
+html.black .organizations {
   padding-bottom: 15px;
 }
-.organizations .head .org-row {
+html.black .organizations .head .org-row {
   height: 91px;
   padding: 28px;
 }
-.organizations .head .org-row .organization-name {
+html.black .organizations .head .org-row .organization-name {
   font-size: 32px;
   float: left;
   font-weight: lighter;
 }
-.organizations .head .org-row .organization-button {
+html.black .organizations .head .org-row .organization-button {
   float: right;
   margin-top: 19px;
 }
-.organizations .head .bill-row {
+html.black .organizations .head .bill-row {
   padding-left: 28px;
   padding-right: 28px;
   height: 40px;
   padding-top: 11px;
 }
-.organizations .head .bill-row .bill-label {
+html.black .organizations .head .bill-row .bill-label {
   float: left;
   color: #fff;
   position: relative;
 }
-.organizations .head .bill-row .card-label {
+html.black .organizations .head .bill-row .card-label {
   float: right;
 }
-.mini-but {
+html.black .mini-but {
   color: #07b5b5;
   margin-left: 10px;
 }
-.mini-but-nm {
+html.black .mini-but-nm {
   color: #07b5b5;
 }
-.mini-but:hover,
-.mini-but-nm:hover {
+html.black .mini-but:hover,
+html.black .mini-but-nm:hover {
   color: #2bf7f7;
 }
-.address3 {
+html.black .address3 {
   line-height: 22px;
   text-align: left;
   font-size: 13px;
@@ -6983,10 +6993,10 @@ fa-app {
   height: 127px;
   padding-top: 20px;
 }
-.address3 p {
+html.black .address3 p {
   width: 100px;
 }
-.address3 textarea {
+html.black .address3 textarea {
   background: #272625;
   padding: 6px;
   border: 0px;
@@ -6994,33 +7004,33 @@ fa-app {
   width: 175px;
   height: 90px;
 }
-.organizations hr {
+html.black .organizations hr {
   margin-top: 0px;
   border: #262525 1px solid;
 }
-.team .title {
+html.black .team .title {
   padding-left: 28px;
   padding-right: 28px;
   width: 640px;
   height: 30px;
   margin-top: 20px;
 }
-.team .title .name {
+html.black .team .title .name {
   font-size: 22px;
   float: left;
   font-weight: lighter;
 }
-.team .title .buttons,
-.team .user .balance {
+html.black .team .title .buttons,
+html.black .team .user .balance {
   float: right;
   margin-top: 5px;
 }
-.team .user .info {
+html.black .team .user .info {
   float: left;
   width: 260px;
   line-height: 8px;
 }
-.team .user {
+html.black .team .user {
   padding-left: 28px;
   padding-right: 28px;
   width: 640px;
@@ -7029,24 +7039,24 @@ fa-app {
   padding-top: 4px;
   margin-bottom: 10px;
 }
-.user .info img {
+html.black .user .info img {
   width: 45px;
   height: 45px;
   margin-right: 7px;
   float: left;
 }
-.team .user .info p {
+html.black .team .user .info p {
   text-align: left;
   margin-top: 8px;
 }
-.green-balance {
+html.black .green-balance {
   color: #9cd444;
 }
-.normal-font,
-.balance {
+html.black .normal-font,
+html.black .balance {
   font-weight: bold;
 }
-.aster {
+html.black .aster {
   margin: 0px 7px 0px 7px;
   position: relative;
   top: -4px;
@@ -7054,11 +7064,11 @@ fa-app {
   font-size: 33px;
   letter-spacing: 2px;
 }
-.yello-green {
+html.black .yello-green {
   color: #9cd444;
   font-weight: bold;
 }
-.payment .full {
+html.black .payment .full {
   width: 100%;
   height: 35px;
   margin: 10px 0px 10px 0px;
@@ -7066,7 +7076,7 @@ fa-app {
   background: #2e2d2c;
   border: 1px solid;
 }
-.payment .middle {
+html.black .payment .middle {
   width: 46%;
   height: 35px;
   margin: 0px 0px 10px 0px;
@@ -7074,34 +7084,31 @@ fa-app {
   background: #2e2d2c;
   border: 1px solid;
 }
-.payment .middle.fix {
+html.black .payment .middle.fix {
   width: 227px;
 }
-.payment .short {
+html.black .payment .short {
   width: 50px;
   margin-left: 0px;
   float: left;
 }
-.payment .middle.spacing {
+html.black .payment .middle.spacing {
   margin-right: 6%;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  .organizations .head .org-row .organization-button {
+  html.black .organizations .head .org-row .organization-button {
     float: left;
     margin-left: 0px;
     margin-bottom: 10px;
   }
-  .organizations .head .bill-row {
+  html.black .organizations .head .bill-row {
     height: 60px;
   }
-  .organizations .head .bill-row .card-label {
+  html.black .organizations .head .bill-row .card-label {
     float: left;
   }
 }
-/*
-DIRECTIVE
-*/
-.material-checkbox {
+html.black .material-checkbox {
   /* basic css */
   position: relative;
   margin-top: 10px;
@@ -7111,21 +7118,21 @@ DIRECTIVE
   /* when checkbox is checked */
   /* bubble animation */
 }
-.material-checkbox input[type=checkbox] {
+html.black .material-checkbox input[type=checkbox] {
   display: none;
 }
-.material-checkbox label,
-.material-checkbox p {
+html.black .material-checkbox label,
+html.black .material-checkbox p {
   padding-left: 50px;
 }
-.material-checkbox label {
+html.black .material-checkbox label {
   cursor: pointer;
   font-size: 15px;
   text-align: left;
   padding-left: 35px;
   float: left;
 }
-.material-checkbox label span {
+html.black .material-checkbox label span {
   display: block;
   position: absolute;
   left: 0;
@@ -7133,7 +7140,7 @@ DIRECTIVE
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.material-checkbox label .circle {
+html.black .material-checkbox label .circle {
   background: #FFF;
   left: -30px;
   top: -30px;
@@ -7145,7 +7152,7 @@ DIRECTIVE
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
 }
-.material-checkbox label .box {
+html.black .material-checkbox label .box {
   border: 2px solid #b3b3b3;
   height: 20px;
   width: 20px;
@@ -7154,7 +7161,7 @@ DIRECTIVE
   -moz-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
-.material-checkbox label .check {
+html.black .material-checkbox label .check {
   top: -7px;
   left: 6px;
   width: 12px;
@@ -7171,18 +7178,18 @@ DIRECTIVE
   -moz-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
-.material-checkbox label .circle {
+html.black .material-checkbox label .circle {
   -webkit-animation: growCircle 0.3s ease;
   -moz-animation: growCircle 0.3s ease;
   animation: growCircle 0.3s ease;
 }
-.material-checkbox input[type=checkbox]:checked ~ label .box {
+html.black .material-checkbox input[type=checkbox]:checked ~ label .box {
   opacity: 0;
   -webkit-transform: scale(0) rotate(-180deg);
   -moz-transform: scale(0) rotate(-180deg);
   transform: scale(0) rotate(-180deg);
 }
-.material-checkbox input[type=checkbox]:checked ~ label .check {
+html.black .material-checkbox input[type=checkbox]:checked ~ label .check {
   opacity: 1;
   -webkit-transform: scale(1) rotate(45deg);
   -moz-transform: scale(1) rotate(45deg);
@@ -7221,13 +7228,7 @@ DIRECTIVE
     opacity: 0.3;
   }
 }
-/*
-
-
-
-DIRECTIVE
-*/
-.alert-success {
+html.black .alert-success {
   position: fixed;
   bottom: 10px;
   margin: 0px;
@@ -7241,17 +7242,1494 @@ DIRECTIVE
   font-family: 'Lato';
   opacity: 1;
 }
-.alert-dismissable .close {
+html.black .alert-dismissable .close {
   top: -20px;
   right: -5px;
 }
-.alert-success.ng-enter {
+html.black .alert-success.ng-enter {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
   bottom: -70px;
 }
-.alert-success.ng-enter-active {
+html.black .alert-success.ng-enter-active {
+  opacity: 1;
+  bottom: 10px;
+}
+html.light {
+  background: #F2F2F2;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  /*
+	  Set the color of the icon
+	*/
+  /* BS UI Customization
+	============================================================================= */
+  /* ANIMATIONS
+	============================================================================= */
+  /* SLIDER */
+  /*******/
+  /*
+	DIRECTIVE
+	*/
+  /*
+
+
+
+	DIRECTIVE
+	*/
+}
+html.light body {
+  color: #b3b3b3;
+  background: none;
+  position: relative;
+}
+html.light h1 {
+  font-size: 20px;
+}
+html.light header {
+  background: #ffffff;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  z-index: 2000;
+  padding: 20px 17px 0px 22px;
+  box-shadow: 0px 0px 3px 0px #666666;
+}
+html.light p,
+html.light span {
+  font-weight: lighter;
+}
+html.light p.normalWeight {
+  font-weight: 400;
+}
+html.light header .title {
+  float: left;
+  color: #fff;
+}
+html.light header .title img {
+  width: 100px;
+}
+html.light header .menu {
+  float: right;
+}
+html.light .menu .glyphicon {
+  top: 4px;
+}
+html.light .navbar-toggle {
+  display: inline !important;
+}
+html.light *:focus {
+  outline: none;
+}
+html.light [ui-view] a,
+html.light [ng-click],
+html.light [ng-click] a {
+  cursor: pointer;
+}
+html.light [ui-view] a:hover,
+html.light [ng-click] a:hover {
+  text-decoration: none;
+}
+html.light #status-buttons {
+  margin-top: 40px;
+}
+html.light #status-buttons a {
+  color: #cecece;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 0px;
+  text-align: center;
+  margin-left: 0px;
+  position: relative;
+}
+html.light .dotted {
+  width: 68px;
+  position: absolute;
+  left: 63px;
+  top: 6px;
+  color: #cecece;
+}
+html.light .lightDot {
+  color: #56e780 !important;
+}
+html.light .lightDot span {
+  color: #56e780 !important;
+  border-color: #56e780 !important;
+}
+html.light .lightDot .dotted {
+  color: #56e780 !important;
+}
+html.light #menu {
+  width: 276px;
+  height: 100%;
+  position: absolute;
+  bottom: 0px;
+  right: -276px;
+  background: #ffffff;
+  padding: 80px 15px 15px 15px;
+  display: none;
+}
+html.light #menu ul {
+  margin-top: 40px;
+  list-style: none;
+}
+html.light #menu ul > li {
+  padding: 20px 5px;
+}
+html.light #menu ul > li > a {
+  color: #cecece;
+  text-decoration: none;
+}
+html.light #menu ul > li > a:hover {
+  color: #fff;
+}
+html.light #menu.show-nav {
+  -webkit-transform: translateX(-276px);
+  transform: translateX(-276px);
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+html.light #status-buttons a.active {
+  color: #56e780;
+}
+html.light #menu a.active {
+  color: #07b5b5;
+}
+html.light #status-buttons a:hover {
+  text-decoration: none;
+}
+html.light #status-buttons span {
+  border: 2px solid #cecece;
+  color: #cecece;
+  display: block;
+  font-weight: bolder;
+  height: 34px;
+  margin: 0 30px 10px 30px;
+  padding-top: 5px;
+  width: 34px;
+  border-radius: 50%;
+}
+html.light #status-buttons .glyphicon-ok {
+  padding-top: 7px;
+}
+html.light #status-buttons a.active span {
+  background: #56e780;
+  border-color: #cecece;
+  color: #cecece;
+}
+html.light .stepWrapper {
+  background: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0px 2px 6px -2px #666666;
+  margin: 40px auto 40px auto;
+  min-height: 400px;
+  position: relative;
+}
+html.light .wrap-bottom {
+  margin-bottom: 15px;
+}
+html.light .stepWrapper + p {
+  margin-bottom: 15px;
+}
+html.light .stepWrapper .addPickup {
+  text-align: center;
+  color: #07b5b5;
+  font-size: 24px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background: none;
+  border: none;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+html.light .stepWrapper p.addPickup {
+  line-height: 32px;
+}
+html.light .text-left-imp {
+  text-align: left !important;
+}
+html.light .addPickup:focus {
+  color: #29B8B8;
+}
+html.light .addPickup.text-box {
+  font-size: 16px;
+}
+html.light .nextStep {
+  bottom: 0px;
+  font-size: 30px;
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  margin-bottom: 50px;
+}
+html.light .nextStep a {
+  color: #56e780;
+}
+html.light .nextStep.cancelMb {
+  margin-bottom: 0px;
+}
+html.light .topSpacer {
+  margin-top: 5px;
+}
+html.light .menu .button {
+  border: 0px;
+  color: #cecece;
+  font-size: 13px;
+  padding: 10px 40px;
+}
+html.light .menu .first {
+  background: #56e780;
+  border-radius: 2px;
+  color: #ffffff;
+}
+html.light .menu a {
+  color: #fff;
+  text-decoration: none;
+}
+html.light .menuOpen {
+  font-size: 24px;
+  cursor: pointer;
+}
+html.light .menuOpen .icon-bar {
+  background-color: #07b5b5;
+}
+html.light .navbar-toggle.menuOpen {
+  position: relative;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0px;
+  float: none;
+}
+html.light .navbar-toggle.menuOpen .icon-bar {
+  border-radius: 0px;
+  width: 24px;
+  height: 2px;
+}
+html.light .menuOpen[ng-click="filtersOn=!filtersOn"] {
+  font-size: 28px;
+}
+html.light .menuOpen.menuMobile {
+  display: none;
+}
+html.light .small {
+  width: 390px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 15px;
+}
+html.light .big {
+  width: 813px;
+}
+html.light .medium {
+  width: 640px;
+}
+html.light .top-margin {
+  padding-top: 80px;
+}
+html.light .bottom-margin {
+  margin-bottom: 40px;
+}
+html.light .loader {
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+html.light .loaderInput {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+}
+html.light .driverModal .modal-content,
+html.light .driverModal .modal-dialog {
+  width: 360px;
+}
+html.light .driverModal .modal-content,
+html.light .input-group-addon {
+  background: #ffffff;
+}
+html.light .driverModal .modal-dialog {
+  margin-top: 120px;
+}
+html.light .driverModal .modal-body {
+  margin-top: 75px;
+}
+html.light .driverModal .modal-footer {
+  position: relative;
+  text-align: center;
+  border-top: 0px;
+  margin-top: 0px;
+}
+html.light .cancelBut {
+  left: 48px;
+  top: -2px;
+  width: auto;
+}
+html.light .nextBut {
+  left: 235px;
+  top: -2px;
+  width: auto;
+}
+html.light .cancelBut a,
+html.light .nextBut a {
+  color: #07b5b5;
+}
+html.light .nameDriverModal {
+  text-align: center;
+  color: #07b5b5;
+  font-size: 30px;
+}
+html.light .modelDriverModal {
+  text-align: center;
+}
+html.light .descDriverModal {
+  text-align: justify;
+}
+html.light .rateDriverModal {
+  text-align: center;
+}
+html.light .pac-container {
+  z-index: 777777 !important;
+  list-style: none !important;
+  padding-left: 0px !important;
+  background: #fff !important;
+  padding-top: 5px !important;
+}
+html.light .pac-container .pac-item {
+  padding: 8px 32px 2px !important;
+  height: 40px !important;
+}
+html.light .resultFocus {
+  background: #b3b3b3;
+  color: #fff;
+}
+html.light svg path,
+html.light svg rect {
+  fill: #56e780;
+}
+html.light .loaderOverlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+html.light .driverItem > div {
+  height: 142px;
+  max-width: 320px;
+  width: 100%;
+  background: #ffffff;
+  margin: 0px auto;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  position: relative;
+  margin-bottom: 40px;
+}
+html.light .driverItem > img {
+  max-width: 320px;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+html.light .driverItem .photo img {
+  width: 100%;
+}
+html.light .driverItem .photo {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 95px;
+  top: -48px;
+  left: 210px;
+  height: 95px;
+}
+html.light .driverItem .name,
+html.light .driverItem .price {
+  font-size: 32px;
+  color: #07b5b5;
+}
+html.light .driverItem .stars {
+  margin-top: 20px;
+  width: 180px;
+  float: left;
+}
+html.light .driverItem .model {
+  float: left;
+}
+html.light .driverItem .time,
+html.light .driverItem .price {
+  float: right;
+}
+html.light table {
+  margin: 20px auto;
+}
+html.light [datepicker-popup] {
+  width: 200px !important;
+}
+html.light .date-group {
+  width: 100px;
+  margin: 0 auto;
+}
+html.light .stepWrapper .glyphicon {
+  color: #07b5b5;
+}
+html.light .relativeWrap {
+  position: relative;
+}
+html.light .row.historySearch,
+html.light .row.rowHis {
+  margin-left: 0px;
+  margin-right: 0px;
+  border-bottom: 1px solid #2A2A2A;
+}
+html.light .row.historySearch .glyphicon,
+html.light .row.historySearch a {
+  color: #cecece;
+}
+html.light .row.historySearch .glyphicon-chevron-dow {
+  font-size: 10px;
+}
+html.light .historySearch .timepicketbox,
+html.light .historySearch .input-group-addon {
+  border: 1px solid #cecece;
+}
+html.light .historySearch .timepicketbox {
+  border-left: 0px;
+}
+html.light .historySearch .input-group-addon {
+  border-right: 0px;
+}
+html.light .angular-google-map-container {
+  height: 378px;
+}
+html.light #searchPlaces {
+  position: absolute;
+  left: 90px !important;
+  top: 20px !important;
+  width: 300px;
+  height: 30px;
+  padding: 12px;
+}
+html.light .filters {
+  background: #ffffff;
+  margin: 40px auto;
+  width: 600px;
+  height: 140px;
+  float: none;
+}
+html.light .filters > div {
+  padding: 20px 10px 10px;
+}
+html.light .filters > div > p {
+  margin-bottom: 20px;
+}
+html.light .star {
+  width: 28px;
+  height: 27px;
+  background: url("/assets/imgs/star.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+html.light .star-gray {
+  width: 28px;
+  height: 27px;
+  background: url("/assets/imgs/star_gray.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+html.light .minLabel,
+html.light .maxLabel {
+  color: #07b5b5;
+  font-size: 14px;
+}
+html.light .minLabel {
+  float: left;
+}
+html.light .maxLabel {
+  float: right;
+}
+html.light .modalDriverPhoto {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 95px;
+  top: -20px;
+  left: 137px;
+  padding: 0px;
+}
+html.light .modalDriverPhoto img {
+  width: 100%;
+}
+html.light .tripInfo {
+  padding: 10px;
+  padding-bottom: 55px;
+}
+html.light .tripInfo p.even {
+  font-size: 14px;
+  color: #07b5b5;
+}
+html.light .social {
+  width: 100%;
+  color: #fff;
+  height: 40px;
+  text-align: center;
+  padding-top: 9px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+html.light .fb {
+  background: url("/assets/imgs/fb.png") #4b75bd no-repeat;
+  background-position: 10px;
+}
+html.light .linked {
+  background: url("/assets/imgs/ln.png") #0092cc no-repeat;
+  background-position: 10px;
+}
+html.light .gplus {
+  background: url("/assets/imgs/gplus.png") #db4939 no-repeat;
+  background-position: 10px;
+}
+html.light .followMap .info {
+  width: 300px;
+  float: left;
+  text-align: center;
+  position: relative;
+  height: 470px;
+}
+html.light .followMap .time {
+  font-size: 30px;
+  color: #07b5b5;
+}
+html.light .followMap .info .imgWrap {
+  width: 95px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 40px auto;
+}
+html.light .followMap .info .imgWrap img {
+  width: 100%;
+}
+html.light .followMap .angular-google-map-container {
+  height: 401px;
+}
+html.light .customStep {
+  bottom: 69px;
+}
+html.light .timepicket {
+  margin: 0px auto;
+}
+html.light .timepicket .glyphicon {
+  color: #fff;
+  font-weight: lighter;
+  margin-top: 6px;
+}
+html.light .timepicket .form-control {
+  height: 44px;
+}
+html.light .timepicketbox {
+  background: #ffffff;
+  font-weight: bold;
+  color: #07b5b5;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+html.light .onlyOnMob {
+  display: none;
+}
+html.light .filtersSwitch .menuOpen {
+  color: #07b5b5;
+}
+html.light .rowHis {
+  padding: 10px 20px;
+}
+html.light .noBorder {
+  border-bottom: 0px !important;
+}
+html.light .historyElement p {
+  color: #07b5b5;
+  font-size: 17px;
+}
+html.light .historyElement .route {
+  max-height: 26px;
+  overflow: hidden;
+}
+html.light .historyElement .date {
+  color: #cecece;
+  font-size: 15px;
+}
+html.light .sortMenu {
+  position: absolute;
+  top: 18px;
+  left: -39px;
+  padding: 5px 2px;
+  z-index: 100;
+}
+html.light .sortMenu p:hover {
+  color: #b3b3b3;
+}
+html.light .nav,
+html.light .pagination,
+html.light .carousel a {
+  cursor: pointer;
+}
+html.light .modal.fade {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+html.light .modal.fade .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+html.light [ui-view].ng-enter,
+html.light [ui-view].ng-leave {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+}
+html.light [ui-view].ng-enter {
+  -webkit-animation: slideInRight 0.5s both ease;
+  -moz-animation: slideInRight 0.5s both ease;
+  animation: slideInRight 0.5s both ease;
+}
+html.light [ui-view].ng-leave {
+  -webkit-animation: slideOutLeft 0.5s both ease;
+  -moz-animation: slideOutLeft 0.5s both ease;
+  animation: slideOutLeft 0.5s both ease;
+}
+html.light .driverItem.ng-enter {
+  -webkit-animation: enter-sequence 800ms;
+  animation: enter-sequence 800ms;
+  display: block;
+  position: relative;
+}
+@-webkit-keyframes enter-sequence {
+  from {
+    opacity: 0;
+    height: 0px;
+    left: 800px;
+  }
+  to {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+@keyframes enter-sequence {
+  from {
+    opacity: 0;
+    height: 0px;
+    left: 800px;
+  }
+  to {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+html.light .driverWrap.ng-leave {
+  -webkit-animation: leave 800ms;
+  animation: leave 800ms;
+  display: block;
+  position: relative;
+}
+@-webkit-keyframes leave {
+  to {
+    opacity: 0;
+    height: 0px;
+    left: -800px;
+  }
+  from {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+@keyframes leave {
+  to {
+    opacity: 0;
+    height: 0px;
+    left: -800px;
+  }
+  from {
+    opacity: 1;
+    height: 30px;
+    left: 0px;
+  }
+}
+html.light .offAnimation.driverWrap.ng-enter,
+html.light .entrace-eff {
+  -webkit-animation: enterFilter 0.5s both ease;
+  -moz-animation: enterFilter 0.5s both ease;
+  animation: enterFilter 0.5s both ease;
+}
+html.light .offAnimation.driverWrap.ng-leave {
+  -webkit-animation: outFilter 0.5s both ease;
+  -moz-animation: outFilter 0.5s both ease;
+  animation: outFilter 0.5s both ease;
+}
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-200%);
+  }
+}
+@-moz-keyframes slideOutLeft {
+  to {
+    -moz-transform: translateX(-200%);
+  }
+}
+@-webkit-keyframes slideOutLeft {
+  to {
+    -webkit-transform: translateX(-200%);
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-moz-keyframes slideInRight {
+  from {
+    -moz-transform: translateX(200%);
+  }
+  to {
+    -moz-transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translateX(200%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes enterFilter {
+  0% {
+    opacity: 0;
+    transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@-moz-keyframes enterFilter {
+  0% {
+    opacity: 0;
+    -moz-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translate(0px, 0px);
+  }
+}
+@-webkit-keyframes enterFilter {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px);
+  }
+}
+@-o-keyframes enterFilter {
+  0% {
+    opacity: 0;
+    -o-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translate(0px, 0px);
+  }
+}
+@-ms-keyframes enterFilter {
+  0% {
+    opacity: 0;
+    -ms-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 1;
+    -ms-transform: translate(0px, 0px);
+  }
+}
+@keyframes outFilter {
+  0% {
+    opacity: 1;
+    transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0px, 0px);
+  }
+}
+@-moz-keyframes outFilter {
+  0% {
+    opacity: 1;
+    -moz-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translate(0px, 0px);
+  }
+}
+@-webkit-keyframes outFilter {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 0px);
+  }
+}
+@-o-keyframes outFilter {
+  0% {
+    opacity: 1;
+    -o-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 0;
+    -o-transform: translate(0px, 0px);
+  }
+}
+@-ms-keyframes outFilter {
+  0% {
+    opacity: 1;
+    -ms-transform: translate(0px, -25px);
+  }
+  100% {
+    opacity: 0;
+    -ms-transform: translate(0px, 0px);
+  }
+}
+html.light slider div.handle,
+html.light [slider] div.handle {
+  background-color: #ffffff !important;
+  border: 1px solid #fff !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+html.light slider div.handle:after,
+html.light [slider] div.handle:after {
+  display: none;
+}
+html.light slider,
+html.light [slider] {
+  height: 4px !important;
+}
+html.light slider div.bar .selection,
+html.light [slider] div.bar .selection {
+  background: #56e780 !important;
+}
+@media only screen and (max-width: 992px) {
+  html.light .big {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  html.light .driverItem .photo {
+    width: 85px;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  html.light html {
+    background: none;
+    background-color: #ffffff;
+  }
+  html.light header,
+  html.light #status-buttons {
+    display: none;
+  }
+  html.light .wrapMobile {
+    margin-top: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  html.light [ui-view] {
+    overflow-x: hidden;
+  }
+  html.light [ui-view].ng-enter {
+    opacity: 1;
+    -webkit-transition: .3s ease all !important;
+    transition: .3s ease all !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    animation: none !important;
+  }
+  html.light [ui-view].ng-leave {
+    opacity: 0;
+    -webkit-transition: .3s ease all !important;
+    transition: .3s ease all !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    animation: none !important;
+  }
+  html.light .driverItem .photo {
+    width: 70px !important;
+    top: -161px !important;
+    left: 242px !important;
+  }
+  html.light .driverItem .name {
+    position: absolute;
+    top: -166px;
+    right: 86px;
+    font-weight: 200;
+    font-size: 27px;
+    color: #56e780 !important;
+  }
+  html.light .driverItem .model {
+    position: absolute;
+    top: -129px;
+    right: 88px;
+    font-weight: 200;
+    color: #fff;
+    font-size: 22px;
+  }
+  html.light .driverItem .stars {
+    position: absolute;
+    top: -110px;
+    left: 165px;
+  }
+  html.light .driverItem .time {
+    position: absolute;
+    right: 19px;
+    top: -58px;
+    font-weight: 200;
+    color: #fff;
+  }
+  html.light .driverItem .price {
+    position: absolute;
+    right: 20px;
+    top: -43px;
+    font-weight: 200;
+    color: #56e780 !important;
+  }
+  html.light .driverItem > div {
+    height: 0px !important;
+    margin-bottom: 0px !important;
+  }
+  html.light .filters {
+    height: 0px !important;
+    overflow: hidden;
+    margin: 0px auto !important;
+  }
+  html.light .filtersOn {
+    height: 410px !important;
+    -webkit-transition: .3s ease all !important;
+    transition: .3s ease all !important;
+  }
+  html.light .filtersSwitch {
+    display: block !important;
+    height: 80px;
+    padding-top: 26px;
+    font-size: 24px;
+    color: #56e780;
+  }
+  html.light .modal {
+    overflow-x: hidden;
+  }
+  html.light .modal-dialog {
+    top: -95px;
+    left: 5px;
+  }
+  html.light .driverModal .modal-content,
+  html.light .driverModal .modal-dialog {
+    width: 292px;
+  }
+  html.light .modalDriverPhoto {
+    left: 103px;
+  }
+  html.light .followMap .info {
+    width: 100%;
+  }
+  html.light .map {
+    display: none;
+  }
+  html.light .onlyOnMob {
+    display: block;
+  }
+  html.light .nextBut {
+    left: 166px;
+  }
+  html.light .customStep {
+    bottom: 0px;
+  }
+  html.light .onMobWhiet {
+    color: #fff !important;
+  }
+  html.light .angular-google-map-container {
+    height: 528px;
+  }
+  html.light .followMap .angular-google-map-container {
+    height: 568px;
+  }
+  html.light .stepWrapper .addPickup.padRight {
+    padding-right: 40px;
+  }
+  html.light .menuOpen.menuMobile {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    z-index: 2000;
+    font-size: 25px;
+    color: #07b5b5;
+    cursor: pointer;
+  }
+  html.light .loaderInput {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 35px;
+    top: 4px;
+    background: #ffffff;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
+  html.light .modal-body {
+    padding-bottom: 0px;
+  }
+  html.light .modal-footer {
+    padding-top: 0px;
+  }
+  html.light .cancelBut,
+  html.light .nextBut {
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+  }
+  html.light .nextStep {
+    position: relative;
+    margin-top: 40px;
+  }
+  html.light .cancelBut,
+  html.light .nextBut {
+    top: auto;
+    left: auto;
+  }
+  html.light .nextBut {
+    left: 166px;
+  }
+  html.light .modalDriverPhoto {
+    left: 103px;
+  }
+  html.light .followMap .info {
+    width: 100%;
+  }
+  html.light .map {
+    display: none;
+  }
+  html.light .onlyOnMob {
+    display: block;
+  }
+  html.light .tripInfo {
+    padding-bottom: 5px !important;
+  }
+  html.light .tripInfo + .nextStep {
+    margin-top: 0px;
+  }
+  html.light .driverModal .modal-content,
+  html.light .driverModal .modal-dialog {
+    width: 292px;
+  }
+  html.light .customStep {
+    bottom: 0px;
+  }
+  html.light .onMobWhiet {
+    color: #fff !important;
+  }
+  html.light .angular-google-map-container {
+    height: 440px;
+  }
+  html.light .followMap .angular-google-map-container {
+    height: 568px;
+  }
+  html.light .stepWrapper .addPickup.padRight {
+    padding-right: 40px;
+  }
+  html.light .menuOpen.menuMobile {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    z-index: 2000;
+    font-size: 25px;
+    color: #07b5b5;
+    cursor: pointer;
+  }
+  html.light .loaderInput {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 35px;
+    top: 4px;
+    background: #ffffff;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  html.light .navbar-toggle {
+    display: inline !important;
+  }
+  html.light .filters {
+    height: 250px;
+  }
+}
+@media (min-width: 300px) and (max-width: 767px) {
+  html.light .filters {
+    height: 400px;
+    width: 100%;
+  }
+}
+html.light fa-app {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+html.light .organizations {
+  padding-bottom: 15px;
+}
+html.light .organizations .head .org-row {
+  height: 91px;
+  padding: 28px;
+}
+html.light .organizations .head .org-row .organization-name {
+  font-size: 32px;
+  float: left;
+  font-weight: lighter;
+}
+html.light .organizations .head .org-row .organization-button {
+  float: right;
+  margin-top: 19px;
+}
+html.light .organizations .head .bill-row {
+  padding-left: 28px;
+  padding-right: 28px;
+  height: 40px;
+  padding-top: 11px;
+}
+html.light .organizations .head .bill-row .bill-label {
+  float: left;
+  color: #fff;
+  position: relative;
+}
+html.light .organizations .head .bill-row .card-label {
+  float: right;
+}
+html.light .mini-but {
+  color: #07b5b5;
+  margin-left: 10px;
+}
+html.light .mini-but-nm {
+  color: #07b5b5;
+}
+html.light .mini-but:hover,
+html.light .mini-but-nm:hover {
+  color: #2bf7f7;
+}
+html.light .address3 {
+  line-height: 22px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 28px;
+  height: 127px;
+  padding-top: 20px;
+}
+html.light .address3 p {
+  width: 100px;
+}
+html.light .address3 textarea {
+  background: #272625;
+  padding: 6px;
+  border: 0px;
+  resize: none;
+  width: 175px;
+  height: 90px;
+}
+html.light .organizations hr {
+  margin-top: 0px;
+  border: #f7f7f7 1px solid;
+}
+html.light .team .title {
+  padding-left: 28px;
+  padding-right: 28px;
+  width: 640px;
+  height: 30px;
+  margin-top: 20px;
+}
+html.light .team .title .name {
+  font-size: 22px;
+  float: left;
+  font-weight: lighter;
+}
+html.light .team .title .buttons,
+html.light .team .user .balance {
+  float: right;
+  margin-top: 5px;
+}
+html.light .team .user .info {
+  float: left;
+  width: 260px;
+  line-height: 8px;
+}
+html.light .team .user {
+  padding-left: 28px;
+  padding-right: 28px;
+  width: 640px;
+  height: 43px;
+  margin-top: 10px;
+  padding-top: 4px;
+  margin-bottom: 10px;
+}
+html.light .user .info img {
+  width: 45px;
+  height: 45px;
+  margin-right: 7px;
+  float: left;
+}
+html.light .team .user .info p {
+  text-align: left;
+  margin-top: 8px;
+}
+html.light .green-balance {
+  color: #56e780;
+}
+html.light .normal-font,
+html.light .balance {
+  font-weight: bold;
+}
+html.light .aster {
+  margin: 0px 7px 0px 7px;
+  position: relative;
+  top: -4px;
+  font-weight: bolder;
+  font-size: 33px;
+  letter-spacing: 2px;
+}
+html.light .yello-green {
+  color: #56e780;
+  font-weight: bold;
+}
+html.light .payment .full {
+  width: 100%;
+  height: 35px;
+  margin: 10px 0px 10px 0px;
+  padding: 7px;
+  background: #2e2d2c;
+  border: 1px solid;
+}
+html.light .payment .middle {
+  width: 46%;
+  height: 35px;
+  margin: 0px 0px 10px 0px;
+  padding: 7px;
+  background: #2e2d2c;
+  border: 1px solid;
+}
+html.light .payment .middle.fix {
+  width: 227px;
+}
+html.light .payment .short {
+  width: 50px;
+  margin-left: 0px;
+  float: left;
+}
+html.light .payment .middle.spacing {
+  margin-right: 6%;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  html.light .organizations .head .org-row .organization-button {
+    float: left;
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
+  html.light .organizations .head .bill-row {
+    height: 60px;
+  }
+  html.light .organizations .head .bill-row .card-label {
+    float: left;
+  }
+}
+html.light .material-checkbox {
+  /* basic css */
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  /* checkbox css */
+  /* handling click events */
+  /* when checkbox is checked */
+  /* bubble animation */
+}
+html.light .material-checkbox input[type=checkbox] {
+  display: none;
+}
+html.light .material-checkbox label,
+html.light .material-checkbox p {
+  padding-left: 50px;
+}
+html.light .material-checkbox label {
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  padding-left: 35px;
+  float: left;
+}
+html.light .material-checkbox label span {
+  display: block;
+  position: absolute;
+  left: 0;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+html.light .material-checkbox label .circle {
+  background: #FFF;
+  left: -30px;
+  top: -30px;
+  height: 80px;
+  width: 80px;
+  opacity: 0;
+  /*z-index:-1;*/
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+html.light .material-checkbox label .box {
+  border: 2px solid #b3b3b3;
+  height: 20px;
+  width: 20px;
+  z-index: 888;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+html.light .material-checkbox label .check {
+  top: -7px;
+  left: 6px;
+  width: 12px;
+  height: 24px;
+  border: 2px solid #56e780;
+  border-top: none;
+  border-left: none;
+  opacity: 0;
+  z-index: 888;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+html.light .material-checkbox label .circle {
+  -webkit-animation: growCircle 0.3s ease;
+  -moz-animation: growCircle 0.3s ease;
+  animation: growCircle 0.3s ease;
+}
+html.light .material-checkbox input[type=checkbox]:checked ~ label .box {
+  opacity: 0;
+  -webkit-transform: scale(0) rotate(-180deg);
+  -moz-transform: scale(0) rotate(-180deg);
+  transform: scale(0) rotate(-180deg);
+}
+html.light .material-checkbox input[type=checkbox]:checked ~ label .check {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(45deg);
+  -moz-transform: scale(1) rotate(45deg);
+  transform: scale(1) rotate(45deg);
+}
+@-webkit-keyframes growCircle {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  70% {
+    background: #DDD;
+    -webkit-transform: scale(1.25);
+    opacity: 0.3;
+  }
+}
+@-moz-keyframes growCircle {
+  0%,
+  100% {
+    -moz-transform: scale(0);
+  }
+  70% {
+    background: #DDD;
+    -moz-transform: scale(1.25);
+    opacity: 0.3;
+  }
+}
+@keyframes growCircle {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  70% {
+    background: #DDD;
+    transform: scale(1.25);
+    opacity: 0.3;
+  }
+}
+html.light .alert-success {
+  position: fixed;
+  bottom: 10px;
+  margin: 0px;
+  left: 10px;
+  height: 60px;
+  padding: 18px 10px 18px 15px;
+  width: 200px;
+  background-color: #fff;
+  border-color: #cecece;
+  color: #cecece;
+  font-family: 'Lato';
+  opacity: 1;
+}
+html.light .alert-dismissable .close {
+  top: -20px;
+  right: -5px;
+}
+html.light .alert-success.ng-enter {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  bottom: -70px;
+}
+html.light .alert-success.ng-enter-active {
   opacity: 1;
   bottom: 10px;
 }

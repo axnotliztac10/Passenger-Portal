@@ -1,0 +1,1673 @@
+
+html.light {
+	
+	@grayDarker: #fff;
+	@greenYellow: rgba(86, 231, 128, 1);
+	@grayLight: rgb(206, 206, 206);
+	@grayDark: rgb(206, 206, 206);
+	@blackLight: #fff;
+	@blueGreen: #07b5b5;
+	@grayLighter: #b3b3b3;
+	@contextPath: "/";
+
+	@thinParaph: lighter;
+	@box-shadow: 0px 0px 3px 0px rgb(102, 102, 102);
+	@stepShadow: 0px 2px 6px -2px #666666;
+
+	background: #F2F2F2;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+
+	body {
+		color: @grayLighter;
+		background: none;
+		position: relative;
+	}
+
+	h1 {
+		font-size: 20px;
+	}
+
+	header {
+		background: @grayDarker;
+		width: 100%;
+		height: 60px;
+		position: relative;
+		z-index: 2000;
+		padding: 20px 17px 0px 22px;
+		box-shadow: @box-shadow;
+	}
+
+	p, span {
+		font-weight: @thinParaph;
+	}
+
+	p.normalWeight {
+		font-weight: 400;
+	}
+
+	header .title {
+		float: left;
+		color: #fff;
+	}
+
+	header .title img {
+		width: 100px;
+	}
+
+	header .menu {
+		float: right;
+	}
+
+	.menu .glyphicon {
+		top: 4px;
+	}
+
+	.navbar-toggle {
+		display: inline !important;
+	}
+
+	*:focus {
+		outline: none;
+	}
+
+	[ui-view] a, [ng-click], [ng-click] a{
+		cursor: pointer;
+	}
+
+	[ui-view] a:hover, [ng-click] a:hover {
+		text-decoration: none;
+	}
+
+	#status-buttons {  
+		margin-top: 40px;
+	}
+
+	#status-buttons a { 
+		color:@grayLight; 
+		display:inline-block;
+		font-size:14px; 
+		margin-right:0px;
+		text-align:center;
+		margin-left: 0px;
+		position: relative;
+	}
+
+	.dotted {
+		width: 68px;
+		position: absolute;
+		left: 63px;
+		top: 6px;
+		color: @grayLight;
+	}
+
+	.lightDot {
+		color: @greenYellow !important;
+	}
+
+	.lightDot span {
+		color: @greenYellow !important;
+		border-color: @greenYellow !important;
+	}
+
+	.lightDot .dotted {
+		color: @greenYellow !important;
+	}
+
+	#menu {
+	    width: 276px;
+	    height: 100%;
+	    position: absolute;
+	    bottom: 0px;
+	    right: -276px;
+	    background: @blackLight;
+	    padding: 80px 15px 15px 15px;
+	    display: none;
+	}
+
+	#menu ul {
+		margin-top: 40px;
+		list-style: none;
+	}
+
+	#menu ul > li {
+		padding: 20px 5px;
+	}
+
+	#menu ul > li > a {
+		color: @grayLight;
+		text-decoration: none;
+	}
+
+	#menu ul > li > a:hover {
+		color: #fff;
+	}
+
+	#menu.show-nav {
+	    -webkit-transform: translateX(-276px);
+	    transform: translateX(-276px);
+	    -webkit-transition: .3s ease all;
+	    transition: .3s ease all;
+	}
+
+	#status-buttons a.active {
+		color: @greenYellow;
+	}
+
+	#menu a.active {
+		color: @blueGreen;
+	}
+
+	#status-buttons a:hover { 
+		text-decoration:none; 
+	}
+
+	#status-buttons span { 
+		border: 2px solid @grayLight;
+		color: @grayLight;
+		display:block;
+		font-weight: bolder;
+		height:34px; 
+		margin: 0 30px 10px 30px;
+		padding-top:5px; 
+		width:34px; 
+	    border-radius:50%; 
+	}
+
+	#status-buttons .glyphicon-ok {
+		padding-top: 7px;
+	}
+
+	#status-buttons a.active span { 
+		background: @greenYellow;
+		border-color: @grayDark;
+		color: @grayDark;
+	}
+
+	.stepWrapper {
+		background: @blackLight;
+		border-radius: 2px;
+		box-shadow: @stepShadow;
+		margin: 40px auto 40px auto;
+		min-height: 400px;
+		position: relative;
+	}
+
+	.wrap-bottom {
+		margin-bottom: 15px;
+	}
+
+	.stepWrapper + p {
+		margin-bottom: 15px;
+	}
+
+	.stepWrapper .addPickup {
+		text-align: center;
+		color: @blueGreen;
+		font-size: 24px;
+		padding-top: 9px;
+		padding-bottom: 9px;
+		background: none;
+		border: none;
+		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.stepWrapper p.addPickup {
+		line-height: 32px;
+	}
+
+	.text-left-imp {
+		text-align: left !important;
+	}
+
+	.addPickup:focus {
+		color: #29B8B8;
+	}
+
+	.addPickup.text-box {
+		font-size: 16px;
+	}
+
+	.nextStep {
+		bottom: 0px;
+		font-size: 30px;
+		position: absolute;
+		width: 100%;
+		left: 0px;
+		margin-bottom: 50px;
+	}
+
+	.nextStep a {
+		color: @greenYellow;
+	}
+
+	.nextStep.cancelMb {
+		margin-bottom: 0px;
+	}
+
+	.topSpacer {
+		margin-top: 5px;
+	}
+
+	.menu .button {
+		border: 0px;
+		color: #cecece;
+		font-size: 13px;
+		padding: 10px 40px;
+	}
+
+	.menu .first {
+		background: @greenYellow;
+		border-radius: 2px;
+		color: @grayDarker;;
+	}
+
+	.menu a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.menuOpen {
+		font-size: 24px;
+		cursor: pointer;
+	}
+
+	.menuOpen .icon-bar {
+		background-color: @blueGreen;
+	}
+
+	.navbar-toggle.menuOpen {
+		position: relative;
+		background-color: transparent;
+		background-image: none;
+		border: 1px solid transparent;
+		padding: 0px;
+		margin: 0px;
+		border-radius: 0px;
+		float: none;
+	}
+
+	.navbar-toggle.menuOpen .icon-bar {
+		border-radius: 0px;
+		width: 24px;
+		height: 2px;
+	}
+
+	.menuOpen[ng-click="filtersOn=!filtersOn"] {
+		font-size: 28px;
+	}
+
+	.menuOpen.menuMobile {
+		display:none;
+	}
+
+	.small {
+		width: 390px;
+		padding-left: 20px;
+		padding-right: 20px;
+		font-size: 15px;
+	}
+
+	.big {
+		width: 813px;
+	}
+
+	.medium {
+		width: 640px;
+	}
+
+	.top-margin {
+		padding-top: 80px;
+	}
+
+	.bottom-margin {
+		margin-bottom: 40px;
+	}
+
+	.loader{
+	  margin: 0 0 2em;
+	  height: 100px;
+	  width: 20%;
+	  text-align: center;
+	  padding: 1em;
+	  margin: 0 auto 1em;
+	  display: inline-block;
+	  vertical-align: top;
+	}
+
+	.loaderInput {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		right: 3px;
+		top: 4px;
+	}
+
+	.driverModal .modal-content, .driverModal .modal-dialog{
+		width: 360px;
+	}
+
+	.driverModal .modal-content, .input-group-addon {
+		background: @blackLight;
+	}
+
+	.driverModal .modal-dialog {
+		margin-top: 120px;
+	}
+
+	.driverModal .modal-body {
+		margin-top: 75px;
+	}
+
+	.driverModal .modal-footer {
+		position: relative;
+		text-align: center;
+		border-top: 0px;
+		margin-top: 0px;
+	}
+
+	.cancelBut {
+		left: 48px;
+		top: -2px;
+		width: auto;
+	}
+
+	.nextBut {
+		left: 235px;
+		top: -2px;
+		width: auto;
+	}
+
+	.cancelBut a, .nextBut a {
+		color: @blueGreen;
+	}
+
+	.nameDriverModal {
+		text-align: center;
+		color: @blueGreen;
+		font-size: 30px;
+	}
+
+	.modelDriverModal {
+		text-align: center;
+	}
+
+	.descDriverModal {
+		text-align: justify;
+	}
+
+	.rateDriverModal {
+		text-align: center;
+	}
+
+	.pac-container {
+		z-index: 777777 !important;
+		list-style: none !important;
+		padding-left: 0px !important;
+		background: #fff !important;
+		padding-top: 5px !important;
+	}
+
+	.pac-container .pac-item {
+		padding: 8px 32px 2px !important;
+		height: 40px !important;
+	}
+
+	.resultFocus {
+		background: @grayLighter;
+		color: #fff;
+	}
+
+	/*
+	  Set the color of the icon
+	*/
+	svg path,
+	svg rect{
+	  fill: @greenYellow;
+	}
+
+	.loaderOverlay {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.driverItem > div {
+		height: 142px;
+		max-width: 320px;
+		width: 100%;
+		background: @blackLight;
+		margin: 0px auto;
+		text-align: left;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 10px;
+		position: relative;
+		margin-bottom: 40px;
+	}
+
+	.driverItem > img {
+		max-width: 320px;
+		width: 100%;
+		opacity: 1;
+	    -webkit-transition: .3s ease all;
+		transition: .3s ease all;
+	}
+
+	.driverItem .photo img {
+		width: 100%;
+	}
+
+	.driverItem .photo {
+		position: absolute;
+		border-radius: 50%;
+		overflow: hidden;
+		width: 95px;
+		top: -48px;
+		left: 210px;
+		height: 95px;
+	}
+
+	.driverItem .name, .driverItem .price {
+		font-size: 32px;
+		color: @blueGreen;
+	}
+
+	.driverItem .stars {
+		margin-top: 20px;
+		width: 180px;
+		float: left;
+	}
+
+	.driverItem .model {
+		float: left;
+	}
+
+	.driverItem .time, .driverItem .price {
+		float: right;
+	}
+
+	table {
+		margin: 20px auto;
+	}
+
+	[datepicker-popup] {
+		width: 200px !important;
+	}
+
+	.date-group {
+		width: 100px;
+		margin: 0 auto;
+	}
+
+	.stepWrapper .glyphicon {
+		color: @blueGreen;
+	}
+
+	.relativeWrap {
+		position: relative;
+	}
+
+	.row.historySearch, .row.rowHis {
+		margin-left: 0px;
+		margin-right: 0px;
+		border-bottom: 1px solid #2A2A2A;
+	}
+
+	.row.historySearch .glyphicon, .row.historySearch a {
+		color: @grayLight;
+	}
+
+	.row.historySearch .glyphicon-chevron-dow {
+		font-size: 10px;
+	}
+
+	.historySearch .timepicketbox, .historySearch .input-group-addon {
+		border: 1px solid @grayLight;
+	}
+
+	.historySearch .timepicketbox {
+		border-left: 0px;
+	}
+
+	.historySearch .input-group-addon {
+		border-right: 0px;	
+	}
+
+	// MAPS
+
+	.angular-google-map-container { height: 378px; }
+
+	#searchPlaces {
+		position: absolute;
+		left: 90px !important;
+		top: 20px !important;
+		width: 300px;
+		height: 30px;
+		padding: 12px;
+	}
+
+	.filters {
+		background: @blackLight;
+		margin: 40px auto;
+		width: 600px;
+		height: 140px;
+		float: none;
+	}
+
+	.filters > div {
+		padding: 20px 10px 10px;
+	}
+
+	.filters > div > p {
+		margin-bottom: 20px;
+	}
+
+	.star {
+		width: 28px;
+		height: 27px;
+		background: url("@{contextPath}assets/imgs/star.png") no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	.star-gray {
+		width: 28px;
+		height: 27px;
+		background: url("@{contextPath}assets/imgs/star_gray.png") no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	.minLabel, .maxLabel {
+		color: @blueGreen;
+		font-size: 14px;
+	}
+
+	.minLabel {
+		float: left;
+	}
+
+	.maxLabel {
+		float: right;
+	}
+
+	.modalDriverPhoto {
+		position: absolute;
+		border-radius: 50%;
+		overflow: hidden;
+		width: 95px;
+		top: -20px;
+		left: 137px;
+		padding: 0px;
+	}
+
+	.modalDriverPhoto img {
+		width: 100%;
+	}
+
+	.tripInfo {
+		padding: 10px;
+		padding-bottom: 55px;
+	}
+
+	.tripInfo p.even {
+		font-size: 14px;
+		color: @blueGreen;
+	}
+
+	.social {
+		width: 100%;
+		color: #fff;
+		height: 40px;
+		text-align: center;
+		padding-top: 9px;
+		border-radius: 2px;
+		margin-bottom: 10px;
+	}
+
+	.fb {
+		background: url("@{contextPath}assets/imgs/fb.png") #4b75bd no-repeat;
+		background-position: 10px;
+	}
+
+	.linked {
+		background: url("@{contextPath}assets/imgs/ln.png") #0092cc no-repeat;
+		background-position: 10px;
+	}
+
+	.gplus {
+		background: url("@{contextPath}assets/imgs/gplus.png") #db4939 no-repeat;
+		background-position: 10px;
+	}
+
+	.followMap .info {
+		width: 300px;
+		float: left;
+		text-align: center;
+		position: relative;
+		height: 470px;
+	}
+
+	.followMap .time {
+		font-size: 30px;
+		color: @blueGreen;
+	}
+
+	.followMap .info .imgWrap {
+		width: 95px;
+		overflow: hidden;
+		border-radius: 50%;
+		margin: 40px auto;
+	}
+
+	.followMap .info .imgWrap img {
+		width: 100%;
+	}
+
+	.followMap .angular-google-map-container {
+		height: 401px;
+	}
+
+	.customStep {
+		bottom: 69px;
+	}
+
+	.timepicket {
+		margin: 0px auto;
+	}
+
+	.timepicket .glyphicon {
+		color: #fff;
+		font-weight: lighter;
+		margin-top: 6px;
+	}
+
+	.timepicket .form-control {
+		height: 44px;
+	}
+
+	.timepicketbox {
+		background: @blackLight;
+		font-weight: bold;
+		color: @blueGreen;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.onlyOnMob {
+		display:none;
+	}
+
+	.filtersSwitch .menuOpen {
+		color: @blueGreen;
+	}
+
+	.rowHis {
+		padding: 10px 20px;
+	}
+
+	.noBorder {
+		border-bottom: 0px !important;
+	}
+
+	.historyElement p {
+		color: @blueGreen;
+		font-size: 17px;
+	}
+
+	.historyElement  .route {
+		max-height: 26px;
+		overflow: hidden;
+	}
+
+	.historyElement .date {
+		color: @grayLight;
+		font-size: 15px;
+	}
+
+	.sortMenu {
+		position: absolute;
+		top: 18px;
+		left: -39px;
+		padding: 5px 2px;
+		z-index:100;
+	}
+
+	.sortMenu p:hover {
+		color: @grayLighter;
+	}
+
+	/* BS UI Customization
+	============================================================================= */
+
+	.nav, .pagination, .carousel a { cursor: pointer; }
+
+	@modal-backdrop-bg: white;
+	.modal {
+		&.fade {
+			.transition(opacity .3s);
+		}
+		&.fade .modal-dialog {
+			.translate(0,0);
+		}
+	}
+
+	/* ANIMATIONS
+	============================================================================= */
+
+	[ui-view].ng-enter,
+	[ui-view].ng-leave      { 
+		position:absolute;
+		left:30px;right:30px;
+	    transition:0.5s all ease;
+	    -moz-transition:0.5s all ease;
+	    -webkit-transition:0.5s all ease; 
+	}
+	    
+	[ui-view].ng-enter            { 
+	    -webkit-animation:slideInRight 0.5s both ease;
+		-moz-animation:slideInRight 0.5s both ease;
+		animation:slideInRight 0.5s both ease; 
+	}
+
+	[ui-view].ng-leave            { 
+	    -webkit-animation:slideOutLeft 0.5s both ease;
+		-moz-animation:slideOutLeft 0.5s both ease;
+		animation:slideOutLeft 0.5s both ease;   
+	}
+
+	.driverItem.ng-enter {
+	  -webkit-animation: enter-sequence 800ms;
+	  animation: enter-sequence 800ms;
+	  display: block;
+	  position: relative;
+	}
+	@-webkit-keyframes enter-sequence {
+	  from {
+	    opacity: 0;
+	    height: 0px;
+	    left: 800px;
+	  }
+	  to {
+	    opacity: 1;
+	    height: 30px;
+	    left: 0px;
+	  }
+	}
+	@keyframes enter-sequence {
+	  from {
+	    opacity: 0;
+	    height: 0px;
+	    left: 800px;
+	  }
+	  to {
+	    opacity: 1;
+	    height: 30px;
+	    left: 0px;
+	  }
+	}
+	.driverWrap.ng-leave {
+	  -webkit-animation: leave 800ms;
+	  animation: leave 800ms;
+	  display: block;
+	  position: relative;
+	}
+	@-webkit-keyframes leave {
+	  to {
+	    opacity: 0;
+	    height: 0px;
+	    left: -800px;
+	  }
+	  from {
+	    opacity: 1;
+	    height: 30px;
+	    left: 0px;
+	  }
+	}
+	@keyframes leave {
+	  to {
+	    opacity: 0;
+	    height: 0px;
+	    left: -800px;
+	  }
+	  from {
+	    opacity: 1;
+	    height: 30px;
+	    left: 0px;
+	  }
+	}
+
+	.offAnimation.driverWrap.ng-enter, .entrace-eff {
+		-webkit-animation:enterFilter 0.5s both ease;
+		-moz-animation:enterFilter 0.5s both ease;
+		animation:enterFilter 0.5s both ease; 
+	}
+
+	.offAnimation.driverWrap.ng-leave {
+		-webkit-animation:outFilter 0.5s both ease;
+		-moz-animation:outFilter 0.5s both ease;
+		animation:outFilter 0.5s both ease;   
+	}
+
+	@keyframes slideOutLeft {
+		to 		{ transform: translateX(-200%); }
+	}
+	@-moz-keyframes slideOutLeft {	
+		to 		{ -moz-transform: translateX(-200%); }
+	}
+	@-webkit-keyframes slideOutLeft {
+		to 		{ -webkit-transform: translateX(-200%); }
+	}
+
+	@keyframes slideInRight {
+		from 	{ transform:translateX(200%); }
+		to 		{ transform: translateX(0); }
+	}
+	@-moz-keyframes slideInRight {
+		from 	{ -moz-transform:translateX(200%); }
+		to 		{ -moz-transform: translateX(0); }
+	}
+	@-webkit-keyframes slideInRight {
+		from 	{ -webkit-transform:translateX(200%); }
+		to 		{ -webkit-transform: translateX(0); }
+	}
+
+
+	@keyframes enterFilter{
+	  0% {
+	    opacity:0;
+	    transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:1;
+	    transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-moz-keyframes enterFilter{
+	  0% {
+	    opacity:0;
+	    -moz-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:1;
+	    -moz-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-webkit-keyframes enterFilter {
+	  0% {
+	    opacity:0;
+	    -webkit-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:1;
+	    -webkit-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-o-keyframes enterFilter {
+	  0% {
+	    opacity:0;
+	    -o-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:1;
+	    -o-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-ms-keyframes enterFilter {
+	  0% {
+	    opacity:0;
+	    -ms-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:1;
+	    -ms-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@keyframes outFilter{
+	  0% {
+	    opacity:1;
+	    transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:0;
+	    transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-moz-keyframes outFilter{
+	  0% {
+	    opacity:1;
+	    -moz-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:0;
+	    -moz-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-webkit-keyframes outFilter {
+	  0% {
+	    opacity:1;
+	    -webkit-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:0;
+	    -webkit-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-o-keyframes outFilter {
+	  0% {
+	    opacity:1;
+	    -o-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:0;
+	    -o-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	@-ms-keyframes outFilter {
+	  0% {
+	    opacity:1;
+	    -ms-transform:  translate(0px,-25px)  ;
+	  }
+	  100% {
+	    opacity:0;
+	    -ms-transform:  translate(0px,0px)  ;
+	  }
+	}
+
+	/* SLIDER */
+
+	slider div.handle, [slider] div.handle {
+		background-color: @blackLight !important;
+		border: 1px solid #fff !important;
+		width: 18px !important;
+		height: 18px !important;
+	}
+
+	slider div.handle:after, [slider] div.handle:after {
+		display: none;
+	}
+
+	slider, [slider] {
+		height: 4px !important;
+	}
+
+	slider div.bar .selection, [slider] div.bar .selection {
+		background: @greenYellow !important;
+	}
+
+
+	/*******/
+
+	@media only screen and (max-width : 992px) {
+		.big {
+			width: 100%;
+		}
+	}
+
+	@media only screen and (min-width: 993px) and (max-width: 1200px)  {
+		.driverItem .photo {
+			width: 85px;
+		}
+	}
+
+	@media only screen 
+	and (min-device-width : 320px) 
+	and (max-device-width : 568px) {
+		
+		html {
+			background: none;
+			background-color: @grayDarker;
+		}
+
+		header, #status-buttons {
+			display: none;
+		}
+
+		.wrapMobile {
+			margin-top: 0px;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+
+		[ui-view] {
+			overflow-x: hidden;
+		}
+
+		[ui-view].ng-enter {
+			opacity: 1;
+		    -webkit-transition: .3s ease all !important;
+	    	transition: .3s ease all !important;
+	    	-webkit-animation: none !important;
+			-moz-animation: none !important;
+			animation: none !important; 
+		}
+
+		[ui-view].ng-leave {
+			opacity: 0;
+		    -webkit-transition: .3s ease all !important;
+	    	transition: .3s ease all !important;
+	    	-webkit-animation: none !important;
+			-moz-animation: none !important;
+			animation: none !important; 
+		}
+
+		.driverItem .photo {
+			width: 70px !important;
+			top: -161px !important;
+			left: 242px !important;
+		}
+
+		.driverItem .name {
+			position: absolute;
+			top: -166px;
+			right: 86px;
+			font-weight: 200;
+			font-size: 27px;
+			color: @greenYellow !important;
+		}
+
+		.driverItem .model {
+			position: absolute;
+			top: -129px;
+			right: 88px;
+			font-weight: 200;
+			color: #fff;
+			font-size: 22px;
+		}
+
+		.driverItem  .stars {
+			position: absolute;
+			top: -110px;
+			left: 165px;
+		}
+
+		.driverItem .time {
+			position: absolute;
+			right: 19px;
+			top: -58px;
+			font-weight: 200;
+			color: #fff;
+		}
+
+		.driverItem .price {
+			position: absolute;
+			right: 20px;
+			top: -43px;
+			font-weight: 200;
+			color: @greenYellow !important;
+		}
+
+		.driverItem > div {
+			height: 0px !important;
+			margin-bottom: 0px !important;
+		}
+
+		.filters {
+			height: 0px !important;
+			overflow: hidden;
+			margin: 0px auto !important;
+		}
+
+		.filtersOn {
+			height: 410px !important;
+			-webkit-transition: .3s ease all !important;
+	    	transition: .3s ease all !important;
+		}
+
+		.filtersSwitch {
+			display: block !important;
+			height: 80px;
+			padding-top: 26px;
+			font-size: 24px;
+			color: @greenYellow;
+		}
+
+		.modal {
+			overflow-x: hidden;
+		}
+
+		.modal-dialog {
+			top: -95px;
+			left: 5px;
+		}
+
+		.driverModal .modal-content, .driverModal .modal-dialog{
+			width: 292px;
+		}
+
+		.modalDriverPhoto {
+			left: 103px;
+		}
+
+		.followMap .info {
+			width: 100%;
+		}
+
+		.map {
+			display: none;
+		}
+
+		.onlyOnMob {
+			display: block;		
+		}
+
+		.nextBut {
+			left: 166px;
+		}
+
+		.customStep {
+			bottom: 0px;
+		}
+
+		.onMobWhiet {
+			color: #fff !important;
+		}
+
+		.angular-google-map-container { height: 528px; }
+
+		.followMap .angular-google-map-container {
+			height: 568px;
+		}
+
+		.stepWrapper .addPickup.padRight {
+			padding-right: 40px;
+		}
+
+		.menuOpen.menuMobile {
+			display: block;
+			position: absolute;
+			right: 8px;
+			top: 7px;
+			z-index: 2000;
+			font-size: 25px;
+			color: @blueGreen;
+			cursor: pointer;
+		}
+
+		.loaderInput {
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			right: 35px;
+			top: 4px;
+			background: @blackLight;
+		}
+	}
+
+	@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3)
+	{
+
+		.modal-body {
+			padding-bottom: 0px;
+		}
+
+		.modal-footer {
+			padding-top: 0px;
+		}
+
+		.cancelBut, .nextBut {
+			margin-top: 20px !important;
+			margin-bottom: 20px;
+		}
+
+	    .nextStep {
+	    	position: relative;
+	    	margin-top: 40px;
+	    }
+
+	    .cancelBut, .nextBut {
+			top: auto;
+			left: auto;
+	    }
+
+	    .nextBut {
+			left: 166px;
+		}
+
+		.modalDriverPhoto {
+			left: 103px;
+		}
+
+		.followMap .info {
+			width: 100%;
+		}
+
+		.map {
+			display: none;
+		}
+
+		.onlyOnMob {
+			display: block;		
+		}
+
+	    .tripInfo {
+	    	padding-bottom: 5px !important;
+	    }
+
+	    .tripInfo + .nextStep {
+	    	margin-top: 0px; 
+	    }
+
+	    .driverModal .modal-content, .driverModal .modal-dialog{
+			width: 292px;
+		}
+
+		.customStep {
+			bottom: 0px;
+		}
+
+		.onMobWhiet {
+			color: #fff !important;
+		}
+
+	    .angular-google-map-container { height: 440px; }
+
+	    .followMap .angular-google-map-container {
+			height: 568px;
+		}
+		
+		.stepWrapper .addPickup.padRight {
+			padding-right: 40px;
+		}
+
+		.menuOpen.menuMobile {
+			display: block;
+			position: absolute;
+			right: 8px;
+			top: 7px;
+			z-index: 2000;
+			font-size: 25px;
+			color: @blueGreen;
+			cursor: pointer;
+		}
+
+		.loaderInput {
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			right: 35px;
+			top: 4px;
+			background: @blackLight;
+		}
+	}
+
+
+	@media (min-width: 768px) and (max-width: 992px) {
+		.navbar-toggle {
+			display: inline !important;
+		}
+
+		.filters {
+			height: 250px;
+		}
+	}
+
+	@media (min-width: 300px) and (max-width: 767px) {
+		.filters {
+			height: 400px;
+			width: 100%;
+		}
+	}
+
+	fa-app {
+		position: fixed !important;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.organizations {
+		padding-bottom: 15px;
+	}
+
+	.organizations .head .org-row {
+		height: 91px;
+		padding: 28px;
+	}
+
+	.organizations .head .org-row .organization-name {
+		font-size: 32px;
+		float: left;
+		font-weight: lighter;
+	}
+
+	.organizations .head .org-row .organization-button {
+		float: right;
+		margin-top: 19px;
+	}
+
+	.organizations .head .bill-row {
+		padding-left: 28px;
+		padding-right: 28px;
+		height: 40px;
+		padding-top: 11px;
+	}
+
+	.organizations .head .bill-row .bill-label {
+		float: left;
+		color: #fff;
+		position: relative;
+	}
+
+	.organizations .head .bill-row .card-label {
+		float: right;
+	}
+
+	.mini-but {
+		color: @blueGreen;
+		margin-left: 10px;
+	}
+
+	.mini-but-nm {
+		color: @blueGreen;
+	}
+
+	.mini-but:hover, .mini-but-nm:hover {
+		color: lighten(@blueGreen, 20%);
+	}
+
+	.address3 {
+		line-height: 22px;
+		text-align: left;
+		font-size: 13px;
+		font-weight: bold;
+		padding-left: 28px;
+		height: 127px;
+		padding-top: 20px;
+	}
+
+	.address3 p {
+		width: 100px;
+	}
+
+	.address3 textarea {
+		background: #272625;
+		padding: 6px;
+		border: 0px;
+		resize: none;
+		width: 175px;
+		height: 90px;
+	}
+
+	.organizations hr {
+		margin-top: 0px;
+		border: darken(@blackLight, 3%) 1px solid;
+	}
+
+	.team .title {
+		padding-left: 28px;
+		padding-right: 28px;
+		width: 640px;
+		height: 30px;
+		margin-top: 20px;
+	}
+
+	.team .title .name {
+		font-size: 22px;
+		float: left;
+		font-weight: lighter;
+	}
+
+	.team .title .buttons, .team .user .balance {
+		float:right;
+		margin-top: 5px;
+	}
+
+	.team .user .info {
+		float: left;
+		width: 260px;
+		line-height: 8px;
+	}
+
+	.team .user {
+		padding-left: 28px;
+		padding-right: 28px;
+		width: 640px;
+		height: 43px;
+		margin-top: 10px;
+		padding-top: 4px;
+		margin-bottom: 10px;
+	}
+
+	.user .info img {
+		width: 45px;
+		height: 45px;
+		margin-right: 7px;
+		float: left;
+	}
+
+	.team .user .info p {
+		text-align: left;
+		margin-top: 8px;
+	}
+
+	.green-balance {
+		color: @greenYellow;
+	}
+
+	.normal-font, .balance {
+		font-weight: bold;
+	}
+
+	.aster {
+		margin: 0px 7px 0px 7px;
+		position: relative;
+		top: -4px;
+		font-weight: bolder;
+		font-size: 33px;
+		letter-spacing: 2px;
+	}
+
+	.yello-green {
+		color: @greenYellow;
+		font-weight: bold;
+	}
+
+	.payment {
+		& .full {
+			width: 100%;
+			height: 35px;
+			margin: 10px 0px 10px 0px;
+			padding: 7px;
+			background: rgb(46, 45, 44);
+			border: 1px solid;
+		}
+
+		& .middle {
+			width: 46%;
+			height: 35px;
+			margin: 0px 0px 10px 0px;
+			padding: 7px;
+			background: rgb(46, 45, 44);
+			border: 1px solid;	
+		}
+
+		& .middle.fix {
+			width: 227px;
+		}
+
+		& .short {
+			width: 50px;
+			margin-left: 0px;
+			float: left;
+		}
+
+		& .middle.spacing {
+			margin-right: 6%;	
+		}
+	}
+
+	@media only screen 
+	and (min-device-width : 320px) 
+	and (max-device-width : 568px) {
+		.organizations .head .org-row .organization-button {
+			float: left;
+			margin-left: 0px;
+			margin-bottom: 10px;
+		}
+
+		.organizations .head .bill-row {
+			height: 60px;
+		}
+
+		.organizations .head .bill-row .card-label {
+			float: left;
+		}
+	}
+
+
+
+
+
+
+	/*
+	DIRECTIVE
+	*/
+	.material-checkbox {
+		/* basic css */
+		input[type=checkbox]   { display:none; }
+		label, p               { padding-left:50px; }
+		position:relative;
+		margin-top: 10px;
+		width: 100%;
+
+		/* checkbox css */
+		label                  { cursor:pointer; font-size: 15px;
+	text-align: left;
+	padding-left: 35px;float:left;}
+		label span             { display:block; position:absolute; left:0; 
+		  -webkit-transition-duration:0.3s; -moz-transition-duration:0.3s; transition-duration:0.3s;
+		}
+		label .circle          {
+		  background:#FFF;
+		  left:-30px;
+		  top:-30px;
+		  height:80px;
+		  width:80px;
+		  opacity: 0;
+		  /*z-index:-1;*/
+		  border-radius:50%; -moz-border-radius:50%; -webkit-border-radius:50%;
+		}
+		label .box     {
+		  border:2px solid @grayLighter;
+		  height:20px; 
+		  width:20px;
+		  z-index:888;
+		  -webkit-transition-delay:0.2s; -moz-transition-delay:0.2s; transition-delay:0.2s;
+		}
+		label .check         {
+		  top: -7px;
+		  left: 6px;
+		  width: 12px;
+		  height: 24px;
+		  border:2px solid @greenYellow;  
+		  border-top: none;
+		  border-left: none;
+		  opacity:0; 
+		  z-index:888;
+		  -webkit-transform:rotate(180deg); -moz-transform:rotate(180deg); transform:rotate(180deg);
+		  -webkit-transition-delay:0.3s; -moz-transition-delay:0.3s; transition-delay:0.3s;
+		}
+
+		/* handling click events */
+
+		/* when checkbox is checked */
+		label .circle {
+		  -webkit-animation   :growCircle 0.3s ease;
+		  -moz-animation      :growCircle 0.3s ease;
+		  animation           :growCircle 0.3s ease;
+		}
+		input[type=checkbox]:checked ~ label .box { 
+		  opacity:0;
+		  -webkit-transform   :scale(0) rotate(-180deg);
+		  -moz-transform 		:scale(0) rotate(-180deg);
+		  transform 				:scale(0) rotate(-180deg);
+		}
+		input[type=checkbox]:checked ~ label .check {
+		  opacity:1; 
+		  -webkit-transform   :scale(1) rotate(45deg);
+		  -moz-transform      :scale(1) rotate(45deg);
+		  transform           :scale(1) rotate(45deg);
+		}
+
+		/* bubble animation */
+
+		@-webkit-keyframes growCircle {
+		  0%, 100%   { -webkit-transform:scale(0); }
+		  70%        { background:#DDD; -webkit-transform:scale(1.25);opacity: 0.3; }
+		}
+		@-moz-keyframes growCircle {
+		  0%, 100%   { -moz-transform:scale(0); }
+		  70%        { background:#DDD; -moz-transform:scale(1.25);opacity: 0.3; }
+		}
+		@keyframes growCircle {
+		  0%, 100%   { transform:scale(0); }
+		  70%        { background:#DDD; transform:scale(1.25);opacity: 0.3; }
+		}
+	}
+	/*
+
+
+
+	DIRECTIVE
+	*/
+
+
+	.alert-success {
+		position: fixed;
+		bottom: 10px;
+		margin: 0px;
+		left: 10px;
+		height: 60px;
+		padding: 18px 10px 18px 15px;
+		width: 200px;
+		background-color: #fff;
+		border-color: #cecece;
+		color: #cecece;
+		font-family: 'Lato';
+		opacity: 1;
+	}
+
+	.alert-dismissable .close {
+		top: -20px;
+		right: -5px;
+	}
+
+	.alert-success.ng-enter {
+	    -webkit-transition: 0.5s;
+	    transition: 0.5s;
+	    opacity: 0;
+	    bottom: -70px
+	}
+	.alert-success.ng-enter-active {
+	    opacity: 1;
+	    bottom: 10px;
+	}
+}
