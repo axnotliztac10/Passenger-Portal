@@ -5788,7 +5788,7 @@ html.black {
   background-attachment: fixed;
   /*
 	  Set the color of the icon
-	*/
+	  */
   /* BS UI Customization
 	============================================================================= */
   /* ANIMATIONS
@@ -5804,6 +5804,11 @@ html.black {
 
 	DIRECTIVE
 	*/
+}
+html.black .alert-success-visual {
+  background-color: #2E2D2C;
+  border-color: #3A3A3A;
+  color: #6F6F6F;
 }
 html.black body {
   color: #b3b3b3;
@@ -6001,7 +6006,7 @@ html.black .topSpacer {
 }
 html.black .menu .button {
   border: 0px;
-  color: #fff;
+  color: #949494;
   font-size: 13px;
   padding: 10px 40px;
 }
@@ -7265,7 +7270,7 @@ html.light {
   background-attachment: fixed;
   /*
 	  Set the color of the icon
-	*/
+	  */
   /* BS UI Customization
 	============================================================================= */
   /* ANIMATIONS
@@ -7281,6 +7286,11 @@ html.light {
 
 	DIRECTIVE
 	*/
+}
+html.light .alert-success-visual {
+  background-color: #fff;
+  border-color: #cecece;
+  color: #cecece;
 }
 html.light body {
   color: #b3b3b3;
