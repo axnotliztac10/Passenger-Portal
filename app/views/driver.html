@@ -9,13 +9,13 @@
 		<div class="col-md-4 col-xs-12 col-sm-6 text-center">
 			<p>Price Range</p>
 			<div class="minLabel">{{minPrice}} $</div>
-			<div class="maxLabel">{{maxPrice}} $</div>
+			<div class="maxLabel">{{maxPrice}} $+</div>
 			<slider floor="10" ceiling="60" ng-model-low="minPrice" ng-model-high="maxPrice"></slider>
 		</div>
 		<div class="col-md-4 col-xs-12 col-sm-6 text-center">
 			<p>Estimated Time of Arrive</p>
 			<div class="minLabel">{{minTime}} min</div>
-			<div class="maxLabel">{{maxTime}} min</div>
+			<div class="maxLabel">{{maxTime}} min+</div>
 			<slider floor="10" ceiling="60" ng-model-low="minTime" ng-model-high="maxTime"></slider>
 		</div>
 		<div class="col-md-4 col-xs-12 col-sm-12 text-center">
@@ -35,13 +35,13 @@
 </div>
 <div class="row text-center">
 	<!--<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', driver)" ng-repeat="driver in drivers | filter:timeFilter | filter:priceFilter | filter:starFilter">-->
-	<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', driver)" ng-repeat="driver in drivers">
+	<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', driver)" ng-repeat="candidate in candidates | filter:timeFilter | filter:priceFilter | filter:starFilter">
 		<div class="driverItem">
-			<img ng-src="{{driver.img}}" alt="">
+			<img ng-src="{{driver.img || './assets/imgs/cars/car.jpg'}}" alt="">
 			<div>
-				<span class="name">{{driver.name}}</span><br>
-				<span class="model">{{driver.model}}</span>
-				<div class="photo"><img ng-src="{{driver.logo_url_small}}" alt=""></div><br>
+				<span class="name">{{candidate.driver.name}}</span><br>
+				<span class="model">{{candidate.vehicles[0].model}}</span>
+				<div class="photo"><img ng-src="{{candidate.driver.logo_url_small || './assets/imgs/faces/30.jpg'}}" alt=""></div><br>
 				<div class="stars">
 					<rating 
 						ng-model="driver.rate" 
@@ -51,8 +51,8 @@
 						state-off="'star-gray'"
 					></rating>
 				</div>
-				<span class="time">{{driver.time}} min</span><br>
-				<span class="price">$ {{driver.price}}</span>
+				<span class="time">{{candidate.vehicles[0].quote.hours * 60}} min</span><br>
+				<span class="price">$ {{candidate.vehicles[0].quote.total | number : 2}}</span>
 			</div>
 		</div>
 	</div>
@@ -66,15 +66,15 @@
 </div>
 <script type="text/ng-template" id="modalDriver.html">
         <div class="modal-header modalDriverPhoto">
-            <img ng-src="{{driver.photo}}" alt="">
+            <img ng-src="{{candidate.driver.logo_url_small || './assets/imgs/faces/30.jpg'}}" alt="">
         </div>
         <div class="modal-body">
-            <p class="nameDriverModal">{{driver.name}}</p>
-            <p class="modelDriverModal">{{driver.model}}</p>
+            <p class="nameDriverModal">{{candidate.driver.name}}</p>
+            <p class="modelDriverModal">{{candidate.vehicles[0].model}}</p>
             <br>
-            <p class="descDriverModal">{{driver.desc}}</p>
+            <p class="descDriverModal">{{candidate.desc || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}}</p>
             <p class="rateDriverModal"><rating 
-					ng-model="driver.rate" 
+					ng-model="candidate.rate" 
 					max="max = 5" 
 					readonly="isReadonly = true" 
 					state-on="'star'"

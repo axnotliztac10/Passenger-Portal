@@ -5,12 +5,18 @@ angular.module('blackRide').controller('dropController',
     	'$window',
     	'HOST',
     	'$state',
+        '$http',
+        'API_Key',
+        'Quotes',
 	function(
     	$rootScope,
     	$scope,
     	$window,
     	HOST,
-    	$state
+    	$state,
+        $http,
+        API_Key,
+        Quotes
 	) {
 
     if (!$rootScope.user) {
@@ -88,6 +94,25 @@ angular.module('blackRide').controller('dropController',
         }
     };
 
+    var setBooking = function () {
+        $scope.$on("authSuccess", function () {
+            Quotes.save({
+                    "pickup_time": "2015-04-16T08:12:47.972Z",
+                    "origin":"Berlin",
+                    "destination":"Munich"
+                }).success(function (res) {
+                $rootScope.user.booking.quote = res;
+                $state.go('driver');
+            });
+        });
+        
+        $rootScope.$broadcast("signIn");
+    };
+
+    $scope.go = function () {
+        setBooking();
+    };
+
     $scope.markersEvents = {
         click: function (gMarker, eventName, model) {
             var pos = gMarker.getPosition();
@@ -97,7 +122,8 @@ angular.module('blackRide').controller('dropController',
                 latitude: pos.lat(),
                 longitude: pos.lng()
             };
-            $state.go('driver');
+
+            setBooking();
         }
     };
 

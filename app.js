@@ -151,11 +151,11 @@ angular.module("blackRide").run(function ($rootScope, $state) {
     });
 });
 
-angular.module('blackRide').controller('modalDriver', function ($scope, $modalInstance, driver) {
+angular.module('blackRide').controller('modalDriver', function ($scope, $modalInstance, candidate) {
 
-  $scope.driver = driver;
+  $scope.candidate = candidate;
   $scope.ok = function () {
-    $modalInstance.close(driver);
+    $modalInstance.close(candidate);
   };
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');

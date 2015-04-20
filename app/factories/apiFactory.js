@@ -81,11 +81,23 @@ angular.module('blackRide').factory('Organisations', function ($http, API_HOST, 
 	}
 });
 
-angular.module('blackRide').factory('Drivers', function ($http, API_HOST, API_Key, $rootScope) {
+angular.module('blackRide').factory('Quotes', function ($http, API_HOST, API_Key, $rootScope) {
 	return {
-		get: function () {
+		save: function (obj) {
 			return $http({
-				url: API_HOST + '/drivers',
+				url: API_HOST + '/quotes',
+				method: 'POST',
+				data: obj,
+				headers: {
+					'Content-Type': 'application/json',
+					'API-key': API_Key,
+					'client-token': $rootScope.user.token.value
+				}
+			});
+		},
+		create: function (id) {
+			return $http({
+				url: API_HOST + '/booking/' + id,
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',

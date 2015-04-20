@@ -201,7 +201,7 @@ angular.module('blackRide').controller('confirmController',
     };
 
     var onAuth = function (event, reqObj) {
-
+        return;
         $http({
             url: 'http://shift-passenger-api-dev.appspot.com/bookings',
             method: 'POST',

@@ -6,15 +6,13 @@ angular.module('blackRide').controller('driverController',
         '$state',
         'Bookings',
         '$timeout',
-        'Drivers',
     function(
         $scope,
         $modal,
         $rootScope,
         $state,
         Bookings,
-        $timeout,
-        Drivers
+        $timeout
     ) {
 
         if (!$rootScope.user) {
@@ -43,28 +41,32 @@ angular.module('blackRide').controller('driverController',
             $scope.backFilter = change;
         };
 
-        $scope.timeFilter = function (driver) {
-            return (driver.time >= $scope.minTime && driver.time <= $scope.maxTime);
+        $scope.timeFilter = function (candidate) {
+            var time = candidate.vehicles[0].quote.hours * 60;
+            //return (time >= $scope.minTime && time <= $scope.maxTime);
+            return (time >= $scope.minTime);
         };
 
-        $scope.priceFilter = function (driver) {
-            return (driver.price >= $scope.minPrice && driver.price <= $scope.maxPrice);
+        $scope.priceFilter = function (candidate) {
+            var price = candidate.vehicles[0].quote.total;
+            //return (candidate.price >= $scope.minPrice && candidate.price <= $scope.maxPrice);
+            return (price >= $scope.minPrice);
         };
 
-        $scope.starFilter = function (driver) {
+        $scope.starFilter = function (candidate) {
             if ($scope.filterRate == 0) return true;
-            return (driver.rate == $scope.filterRate);
+            return (candidate.rate == $scope.filterRate);
         };
 
-        $scope.open = function (size, driver) {
+        $scope.open = function (size, candidate) {
             $timeout(function () {
                 var modalInstance = $modal.open({
                     templateUrl: 'modalDriver.html',
                     controller: 'modalDriver',
                     size: size,
                     resolve: {
-                        driver: function () {
-                            return driver;
+                        candidate: function () {
+                            return candidate;
                         }
                     },
                     windowClass: "driverModal"
@@ -122,11 +124,5 @@ angular.module('blackRide').controller('driverController',
             }
         ];
 
-        $scope.$on('authSuccess', function () {
-            Drivers.get().success(function (res) {
-                $scope.drivers = res;
-            });
-        });
-
-        $rootScope.$broadcast('signIn');
+        $scope.candidates = $rootScope.user.booking.quote.candidates;
 }]);
