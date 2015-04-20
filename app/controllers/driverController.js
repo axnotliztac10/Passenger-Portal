@@ -72,8 +72,8 @@ angular.module('blackRide').controller('driverController',
                     windowClass: "driverModal"
                 });
 
-                modalInstance.result.then(function (driver) {
-                    $rootScope.user.booking.driver_info = driver;
+                modalInstance.result.then(function (candidate) {
+                    $rootScope.user.booking.driver_info = candidate;
                     $state.go("confirm");
                     }, function () {
                     return;

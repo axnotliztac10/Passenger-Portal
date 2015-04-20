@@ -120,7 +120,7 @@ angular.module('blackRide').controller('confirmController',
 
                 $scope.markers.push({
                     icon: {
-                        url: HOST + $scope.driver.photo.replace(".jpg", "_min.png"),
+                        url: HOST + ($scope.driver.driver.logo_url_small) ? $scope.driver.driver.logo_url_small.replace(".jpg", "_min.png") : './assets/imgs/faces/30_min.jpg' ,
                         scaledSize: new google.maps.Size(60, 60)
                     },
                     options: { draggable: false },
@@ -201,11 +201,15 @@ angular.module('blackRide').controller('confirmController',
     };
 
     var onAuth = function (event, reqObj) {
-        return;
         $http({
-            url: 'http://shift-passenger-api-dev.appspot.com/bookings',
+            url: 'http://shift-passenger-api-dev.appspot.com/dispatch',
             method: 'POST',
-            data: {"type":"regular","pickup_time":"2015-03-06T08:26:12.143Z","route":{"from":{"latitude":48.2081743,"longitude":16.37381890000006,"location":"Vienna, Vienna"},"to":{"latitude":48.23106569999999,"longitude":16.148543399999994,"location":"Gablitz, Gablitz"}},"total":0,"distance":21900,"hire_per_hour":0,"booking_flight":""},
+            data: {
+                booking_id: $rootScope.user.booking.quote.booking_id,
+                driver_id: $rootScope.user.booking.driver_info.driver.id,
+                ride_id: $rootScope.user.booking.quote.ride_id,
+                vehicle_id: $rootScope.user.booking.driver_info.vehicles[0].vehicle_id
+            },
             headers: {
                 'Content-Type': 'application/json',
                 'client-token': $rootScope.user.token.value,

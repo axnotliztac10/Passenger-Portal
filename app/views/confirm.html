@@ -2,11 +2,11 @@
 	<div class="row">
 		<div class="col-md-6 col-sm-6">
 			<div class="driverItem">
-				<img ng-src="{{driver.img}}" alt="">
+				<img ng-src="{{driver.img || './assets/imgs/cars/car.jpg'}}" alt="">
 				<div style="margin-bottom: 0px;">
-					<span class="name">{{driver.name}}</span><br>
-					<span class="model">{{driver.model}}</span>
-					<div class="photo"><img ng-src="{{driver.photo}}" alt=""></div><br>
+					<span class="name">{{driver.driver.name}}</span><br>
+					<span class="model">{{driver.vehicles[0].model}}</span>
+					<div class="photo"><img ng-src="{{driver.driver.logo_url_small || './assets/imgs/faces/30.jpg'}}" alt=""></div><br>
 					<div class="stars">
 						<rating 
 							ng-model="driver.rate" 
@@ -16,8 +16,8 @@
 							state-off="'star-gray'"
 						></rating>
 					</div>
-					<span class="time">{{driver.time}} min</span><br>
-					<span class="price">$ {{driver.price}}</span>
+					<span class="time">{{driver.vehicles[0].quote.hours * 60}} min</span><br>
+					<span class="price">$ {{driver.vehicles[0].quote.total | number : 2}}</span>
 				</div>
 			</div>
 		</div>
