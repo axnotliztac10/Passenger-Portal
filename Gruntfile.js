@@ -35,17 +35,17 @@ module.exports = function(grunt) {
                 bucket: "shiftportal"
             },
             build: {
-                cwd: "../build/webapp",
+                cwd: "build/webapp",
                 src: "**/*"
             }
         },
         copy: {
-            bower: { files: [{ expand: true, cwd: 'bower_components/', src: ['**/*'], dest: '../build/webapp/bower_components'}] },
-            assets: { src: 'assets/css/*', dest: '../build/webapp/' },
-            index: { src: 'index.html', dest: '../build/webapp/'},
-            appFile: { src: 'app.js', dest: '../build/webapp/'},
-            app: { files: [{ expand: true, cwd: 'app/', src: ['**/*'], dest: '../build/webapp/app'}] },
-            images: { files: [{ expand: true, cwd: 'assets/imgs/', src: ['**/*'], dest: '../build/webapp/assets/imgs/'}] }
+            bower: { files: [{ expand: true, cwd: 'bower_components/', src: ['**/*'], dest: 'build/webapp/bower_components'}] },
+            assets: { src: 'assets/css/*', dest: 'build/webapp/' },
+            index: { src: 'index.html', dest: 'build/webapp/'},
+            appFile: { src: 'app.js', dest: 'build/webapp/'},
+            app: { files: [{ expand: true, cwd: 'app/', src: ['**/*'], dest: 'build/webapp/app'}] },
+            images: { files: [{ expand: true, cwd: 'assets/imgs/', src: ['**/*'], dest: 'build/webapp/assets/imgs/'}] }
         }
     });
 

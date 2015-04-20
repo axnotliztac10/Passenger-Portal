@@ -2,6 +2,6 @@ bower_components/
 node_modules/
 assets/imgs/.DS_Store
 credentials.json
-build/
+build/webapp
 assets/.DS_Store
 .DS_Store
