@@ -38,6 +38,11 @@ angular.module('blackRide').controller('authController', [
         $scope.getGLog();
     });
 
+    $scope.$on('logOut&In', function () {
+        $scope.logout();
+        $scope.open();
+    })
+
     $scope.logout = function () {
         var c = confirm('Confirm Logout');
         if (c) {

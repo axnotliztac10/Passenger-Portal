@@ -232,7 +232,7 @@ angular.module('blackRide').filter('cardMask', function() {
 angular.module('blackRide').factory('myHttpInterceptor', function($q, $rootScope) {
   return {
    'responseError': function (rejection) {
-      $rootScope.$broadcast('signIn');
+      $rootScope.$broadcast('logOut&In');
       return $q.reject(rejection);
     }
   };
