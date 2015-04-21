@@ -39,13 +39,13 @@ angular.module('blackRide').controller('authController', [
     });
 
     $scope.$on('logOut&In', function () {
-        $scope.logout();
+        $scope.logout(true);
         $scope.open();
     })
 
-    $scope.logout = function () {
+    $scope.logout = function (noConfirm) {
         var c = confirm('Confirm Logout');
-        if (c) {
+        if (c || noConfirm) {
             $scope.nickname = null;
             $rootScope.user = {
                 booking: {},
