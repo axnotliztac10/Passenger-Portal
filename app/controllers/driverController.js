@@ -19,8 +19,6 @@ angular.module('blackRide').controller('driverController',
             $state.go("home");
         } else if (!$rootScope.user.booking.scheduled) {
             $state.go("time");
-        } else if (!$rootScope.user.booking.driver_info) {
-            $state.go("driver");
         }
         
         $scope.filterRate = 0;
@@ -125,4 +123,9 @@ angular.module('blackRide').controller('driverController',
         ];
 
         $scope.candidates = $rootScope.user.booking.quote.candidates;
+
+        if ($scope.candidates.length == 0) {
+            $rootScope.addAlert('success', 'No drivers available right now. Please try again');
+            $state.go("home");
+        }
 }]);

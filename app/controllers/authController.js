@@ -9,6 +9,7 @@ angular.module('blackRide').controller('authController', [
         'LogoutFactory',
         'StripeProvider',
         'localStorageService',
+        '$timeout',
     function (
         $rootScope,
         $scope,
@@ -19,7 +20,8 @@ angular.module('blackRide').controller('authController', [
         SignupFactory,
         LogoutFactory,
         StripeProvider,
-        localStorageService
+        localStorageService,
+        $timeout
     ) {
     
     $scope.$on('signIn', function (event, callBack) {
@@ -130,13 +132,23 @@ angular.module('blackRide').controller('authController', [
                 $rootScope.user.passenger = res.passenger;
                 $rootScope.user.token = res.token;
                 localStorageService.set('user', $rootScope.user);
-                $scope.alerts = [{ type: 'success', msg: 'Login successfully.' }];
+                $rootScope.addAlert('success','Login successfully.');
                 $rootScope.$broadcast('authSuccess');
             });
         } else {
             $rootScope.$broadcast('authFailed');
         }
     };
+
+    $rootScope.addAlert = function (type, msg) {
+        $scope.alerts = [{
+            type: type,
+            msg: msg
+        }];
+        $timeout(function () {
+            $scope.alerts = [];
+        }, 5000);
+    }
 
     $rootScope.isLoggedIn = function () {
         return localStorageService.get('user');

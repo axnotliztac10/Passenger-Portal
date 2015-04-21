@@ -7239,7 +7239,7 @@ html.black .alert-success {
   margin: 0px;
   left: 10px;
   height: 60px;
-  padding: 18px 10px 18px 15px;
+  padding: 8px 10px 18px 15px;
   width: 200px;
   background-color: #2E2D2C;
   border-color: #3A3A3A;
@@ -7248,7 +7248,7 @@ html.black .alert-success {
   opacity: 1;
 }
 html.black .alert-dismissable .close {
-  top: -20px;
+  top: -10px;
   right: -5px;
 }
 html.black .alert-success.ng-enter {
@@ -8721,7 +8721,7 @@ html.light .alert-success {
   margin: 0px;
   left: 10px;
   height: 60px;
-  padding: 18px 10px 18px 15px;
+  padding: 8px 10px 18px 15px;
   width: 200px;
   background-color: #fff;
   border-color: #cecece;
@@ -8730,7 +8730,7 @@ html.light .alert-success {
   opacity: 1;
 }
 html.light .alert-dismissable .close {
-  top: -20px;
+  top: -10px;
   right: -5px;
 }
 html.light .alert-success.ng-enter {
