@@ -88,13 +88,13 @@
     </div>
   </div>
 
-  <div id="menu">
+  <div ng-controller="menuController" id="menu">
       <ul>
-        <li><a href="#">Booking</a></li>
-        <li><a ui-sref-active="active" ui-sref="history">My Bookings</a></li>
-        <li><a ui-sref-active="active" ui-sref="payment">Payment</a></li>
+        <li><a ui-sref-active="active" ui-sref="home">Booking</a></li>
+        <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="history">My Bookings</a></li>
+        <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="payment">Payment</a></li>
         <li><a href="#">About</a></li>
-        <li><a ui-sref-active="active" ui-sref="organizations">Organizations</a></li>
+        <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="organizations">Organizations</a></li>
       </ul>
    </div>  
 

@@ -52,6 +52,7 @@ angular.module('blackRide').controller('authController', [
                 token: 'none'
             };
             localStorageService.remove('user');
+            $rootScope.$broadcast('loggedOut');
         }
     };
 

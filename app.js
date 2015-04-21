@@ -187,6 +187,20 @@ angular.module('blackRide').controller('modalConfirm', function ($rootScope, $sc
 
 });
 
+angular.module('blackRide').controller('menuController', function ($rootScope, $scope) {
+  $scope.$on('loggedOut', function () {
+    $scope.loggedIn = false;
+  })
+
+  $scope.$on('authSuccess', function () {
+    $scope.loggedIn = true;
+  });
+
+  if ($rootScope.isLoggedIn()) {
+    $scope.loggedIn = true;
+  }
+});
+
 angular.module('blackRide').filter('getCustomDate', function() {
   return function(item) {
     var d = item.split('T')[0];
