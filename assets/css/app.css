@@ -7311,6 +7311,9 @@ html.light .alert-success-visual {
   color: #b3b3b3;
   font-weight: 600 !important;
 }
+html.light .if-handle {
+  border-color: #444 !important;
+}
 html.light body {
   color: #b3b3b3;
   background: none;
@@ -8180,6 +8183,7 @@ html.light [slider] div.handle {
   border: 1px solid #fff !important;
   width: 18px !important;
   height: 18px !important;
+  border-color: #444 !important;
 }
 html.light slider div.handle:after,
 html.light [slider] div.handle:after {
