@@ -32,23 +32,23 @@
 	</div>
 	<hr>
 	<div class="teams">
-		<div class="team" ng-mouseover="showButtons = true" ng-mouseout="showButtons = false" ng-repeat="organisation in organisations">
+		<div class="team" ng-mouseover="showButtons = true" ng-mouseout="showButtons = false" ng-repeat="team in teams">
 			<div class="title">
 				<div class="name">
-					{{organisation.orgName}}
+					{{team.name}}
 				</div>
 				<div ng-show="showButtons" class="buttons">
 					<a class="mini-but">Add User</a>
 					<a class="mini-but">Create Team</a>
 				</div>
 			</div>
-			<div class="user" ng-repeat="member in organisation.members">
+			<div class="user" ng-repeat="member in team.members">
 				<div class="info">
-					<img src="http://shiftportal.s3-website-us-east-1.amazonaws.com/assets/imgs/faces/{{member.id}}_min.png" alt="">
-					<p class="normal-font">{{member.name}}</p>
+					<img ng-src="{{member.photo || 'http://shiftportal.s3-website-us-east-1.amazonaws.com/assets/imgs/faces/15_min.png'}}" alt="">
+					<p class="normal-font">{{member.full_name}}</p>
 					<p><a class="mini-but-nm" href="{{member.id}}">Booking List</a></p>
 				</div>
-				<div class="balance">Balance <span class="green-balance">{{member.balance.billed}}/{{member.balance.max}}</span> $</div>
+				<div class="balance">Balance <span class="green-balance">{{member.billed || 00}}/{{member.max || 00}}</span> $</div>
 			</div>
 		</div>
 	</div>
