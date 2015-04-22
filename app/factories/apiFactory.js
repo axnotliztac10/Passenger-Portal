@@ -81,7 +81,7 @@ angular.module('blackRide').factory('Organisations', function ($http, API_HOST, 
 		teams: {
 			get: function (id) {
 				return $http({
-					url: API_HOST + '/organisations/id/' + id + '/teams',
+					url: API_HOST + '/organisations/id/' + id + '/passengers',
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
