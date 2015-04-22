@@ -64,6 +64,9 @@ angular.module('blackRide').controller('organizationsController',
         $scope.$on('authSuccess', function () {
             Organisations.get().success(function (res) {
                 $scope.organisation = res[0];
+                Organisations.teams.get(res[0].id).success(function (res) {
+                    
+                });
             });
         });
             

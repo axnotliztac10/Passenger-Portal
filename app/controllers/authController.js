@@ -46,8 +46,8 @@ angular.module('blackRide').controller('authController', [
     })
 
     $scope.logout = function (noConfirm) {
-        var c = confirm('Confirm Logout');
-        if (c || noConfirm) {
+        var c = noConfirm || confirm('Confirm Logout');
+        if (c) {
             $scope.nickname = null;
             $rootScope.user = {
                 booking: {},

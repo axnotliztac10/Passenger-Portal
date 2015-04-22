@@ -246,7 +246,9 @@ angular.module('blackRide').filter('cardMask', function() {
 angular.module('blackRide').factory('myHttpInterceptor', function($q, $rootScope) {
   return {
    'responseError': function (rejection) {
-      $rootScope.$broadcast('logOut&In');
+      if (rejection.status == 401 && rejection.data.indexOf('client-token') != -1) {
+        $rootScope.$broadcast('logOut&In');
+      }
       return $q.reject(rejection);
     }
   };

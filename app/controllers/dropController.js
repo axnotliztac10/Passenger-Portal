@@ -25,7 +25,7 @@ angular.module('blackRide').controller('dropController',
     }
     
     $scope.geoCoder = new $window.google.maps.Geocoder();
-    $scope.address = "GO TO MAP";
+    $scope.address = "go to map";
     $scope.markers = [];
     $scope.details = "";
     $scope.options = null;

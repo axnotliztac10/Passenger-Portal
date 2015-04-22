@@ -13,6 +13,7 @@ html.light {
 	@thinParaph: lighter;
 	@box-shadow: 0px 0px 3px 0px rgb(102, 102, 102);
 	@stepShadow: 0px 2px 6px -2px #666666;
+	@borderGray: #b3b3b3;
 
 	background: #F2F2F2;
 	-webkit-background-size: cover;
@@ -24,7 +25,8 @@ html.light {
 	.alert-success-visual {
 		background-color: #fff;
 		border-color: #cecece;
-		color: #cecece;
+		color: @grayLighter;
+		font-weight: 600 !important;
 	} 
 
 	@import (multiple) "./main.less";

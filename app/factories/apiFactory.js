@@ -77,6 +77,19 @@ angular.module('blackRide').factory('Organisations', function ($http, API_HOST, 
 					'client-token': $rootScope.user.token.value
 				}
 			});
+		},
+		teams: {
+			get: function (id) {
+				return $http({
+					url: API_HOST + '/organisations/id/' + id + '/teams',
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'API-key': API_Key,
+						'client-token': $rootScope.user.token.value
+					}
+				});
+			}
 		}
 	}
 });
