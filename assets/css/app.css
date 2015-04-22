@@ -7333,7 +7333,7 @@ html.light header {
 }
 html.light p,
 html.light span {
-  font-weight: lighter;
+  font-weight: 300;
 }
 html.light p.normalWeight {
   font-weight: 400;

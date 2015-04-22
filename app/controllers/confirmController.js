@@ -120,7 +120,7 @@ angular.module('blackRide').controller('confirmController',
 
                 $scope.markers.push({
                     icon: {
-                        url: HOST + ($scope.driver.driver.logo_url_small) ? $scope.driver.driver.logo_url_small.replace(".jpg", "_min.png") : './assets/imgs/faces/30_min.jpg' ,
+                        url: ($scope.driver && $scope.driver.driver && $scope.driver.driver.logo_url_small) ? $scope.driver.driver.logo_url_small.replace(".jpg", "_min.png") : HOST + './assets/imgs/faces/15_min.png',
                         scaledSize: new google.maps.Size(60, 60)
                     },
                     options: { draggable: false },
