@@ -122,7 +122,7 @@ angular.module('blackRide').controller('driverController',
             }
         ];
 
-        $scope.candidates = $rootScope.user.booking.quote.candidates;
+        $scope.candidates = [{vehicles:[{quote:{hours: 4, total: 22}}]}, {vehicles:[{quote:{hours: 4, total: 22}}]}];//$rootScope.user.booking.quote.candidates;
 
         if ($scope.candidates.length == 0) {
             $rootScope.addAlert('success', 'No drivers available right now. Please try again');
