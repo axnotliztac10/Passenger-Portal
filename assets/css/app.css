@@ -5840,6 +5840,8 @@ html.black header .title {
 }
 html.black header .title img {
   width: 100px;
+  position: relative;
+  top: -7px;
 }
 html.black header .menu {
   float: right;
@@ -6270,6 +6272,15 @@ html.black .filters > div {
 }
 html.black .filters > div > p {
   margin-bottom: 20px;
+}
+html.black .filters.message {
+  box-shadow: 2px 1px 6px -1px #2e2d2c;
+  padding-top: 110px;
+}
+html.black .filters.message .error {
+  text-align: center;
+  color: #D64A32;
+  font-weight: 700;
 }
 html.black .star {
   width: 28px;
@@ -6986,7 +6997,7 @@ html.black .organizations .head .bill-row {
 }
 html.black .organizations .head .bill-row .bill-label {
   float: left;
-  color: #fff;
+  color: #b3b3b3;
   position: relative;
 }
 html.black .organizations .head .bill-row .card-label {
@@ -7344,6 +7355,8 @@ html.light header .title {
 }
 html.light header .title img {
   width: 100px;
+  position: relative;
+  top: -7px;
 }
 html.light header .menu {
   float: right;
@@ -7774,6 +7787,15 @@ html.light .filters > div {
 }
 html.light .filters > div > p {
   margin-bottom: 20px;
+}
+html.light .filters.message {
+  box-shadow: 0px 2px 6px -2px #666666;
+  padding-top: 110px;
+}
+html.light .filters.message .error {
+  text-align: center;
+  color: #D64A32;
+  font-weight: 700;
 }
 html.light .star {
   width: 28px;
@@ -8491,7 +8513,7 @@ html.light .organizations .head .bill-row {
 }
 html.light .organizations .head .bill-row .bill-label {
   float: left;
-  color: #fff;
+  color: #b3b3b3;
   position: relative;
 }
 html.light .organizations .head .bill-row .card-label {
