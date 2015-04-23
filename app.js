@@ -88,6 +88,12 @@ angular.module('blackRide')
         templateUrl: 'app/views/payment.html'
     });
 
+    $stateProvider.state('about', {
+        url: '/about',
+        controller: 'aboutController',
+        templateUrl: 'app/views/about.html'
+    });
+
     $urlRouterProvider.otherwise('/home');
     //$locationProvider.html5Mode(true);
 

@@ -93,7 +93,7 @@
         <li><a ui-sref-active="active" ui-sref="home">Booking</a></li>
         <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="history">My Bookings</a></li>
         <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="payment">Payment</a></li>
-        <li><a href="#">About</a></li>
+        <li><a ui-sref-active="active" ui-sref="about">About</a></li>
         <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="organizations">Organizations</a></li>
       </ul>
    </div>  
@@ -108,6 +108,7 @@
   <script src="app/controllers/authController.js"></script>
   <script src="app/controllers/organizationsController.js"></script>
   <script src="app/controllers/paymentController.js"></script>
+  <script src="app/controllers/aboutController.js"></script>
   <script src="app/factories/quoteFactory.js"></script>
   <script src="app/factories/apiFactory.js"></script>
   <script src="app/directives/mainDirectives.js"></script>
