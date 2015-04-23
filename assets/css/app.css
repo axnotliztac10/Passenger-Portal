@@ -6015,6 +6015,14 @@ html.black .menu .button {
   color: #949494;
   font-size: 13px;
   padding: 10px 40px;
+  margin-right: 13px;
+}
+html.black .menu .button img {
+  position: absolute;
+  top: 10px;
+  margin-left: 9px;
+  width: 40px;
+  border-radius: 50%;
 }
 html.black .menu .first {
   background: #9cd444;
@@ -7531,6 +7539,14 @@ html.light .menu .button {
   color: #cecece;
   font-size: 13px;
   padding: 10px 40px;
+  margin-right: 13px;
+}
+html.light .menu .button img {
+  position: absolute;
+  top: 10px;
+  margin-left: 9px;
+  width: 40px;
+  border-radius: 50%;
 }
 html.light .menu .first {
   background: #56e780;

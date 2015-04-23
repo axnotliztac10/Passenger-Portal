@@ -51,7 +51,10 @@ angular.module('blackRide').controller('authController', [
             $scope.nickname = null;
             $rootScope.user = {
                 booking: {},
-                token: 'none'
+                token: 'none',
+                flush: function () {
+                    localStorageService.set('user', $rootScope.user);
+                }
             };
             localStorageService.remove('user');
             $rootScope.$broadcast('loggedOut');
@@ -106,6 +109,7 @@ angular.module('blackRide').controller('authController', [
                 $rootScope.user.full_name = $scope.nickname = user.name;
                 $rootScope.user.first_name = user.given_name;
                 $rootScope.user.last_name = user.family_name;
+                $rootScope.user.picture = $scope.picture =  user.picture;
                 $scope.loggedIn = true;
                 $scope.sendResponse();
             });
@@ -117,11 +121,14 @@ angular.module('blackRide').controller('authController', [
     $scope.fbMe = function(token) {
         Facebook.api('/me', function(response) {
             $rootScope.user.auth_origin_name = 'facebook';
-            //$rootScope.user.setAuth_origin_entity_id = response.id;
+            $rootScope.user.auth_origin_entity_id = response.id;
             $rootScope.user.auth_origin_oauth_token = token;
             $rootScope.user.first_name = response.first_name;
             $rootScope.user.last_name = response.last_name;
             $rootScope.user.full_name = $scope.nickname = response.name;
+            Facebook.api(response.id + '/picture', function (photosRes) {
+                $rootScope.user.picture = $scope.picture = photosRes.data.url;
+            });
             $scope.loggedIn = true;
             $scope.sendResponse();
         });
@@ -164,6 +171,7 @@ angular.module('blackRide').controller('authController', [
         if ($rootScope.isLoggedIn()) {
             $rootScope.user = localStorageService.get('user');
             $scope.nickname = $rootScope.user.full_name;
+            $scope.picture = $rootScope.user.picture;
         }
 
         if (!$rootScope.user.flush) {
