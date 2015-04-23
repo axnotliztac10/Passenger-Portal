@@ -131,7 +131,7 @@ angular.module('blackRide').controller('authController', [
             SignupFactory.save(angular.copy($rootScope.user)).success(function (res) {
                 $rootScope.user.passenger = res.passenger;
                 $rootScope.user.token = res.token;
-                localStorageService.set('user', $rootScope.user);
+                $rootScope.user.flush();
                 $rootScope.addAlert('success','Login successfully.');
                 $rootScope.$broadcast('authSuccess');
             });
@@ -159,9 +159,19 @@ angular.module('blackRide').controller('authController', [
         token: 'none'
     };
 
-    if ($rootScope.isLoggedIn()) {
-        $rootScope.user = localStorageService.get('user');
-        $scope.nickname = $rootScope.user.full_name;
-    }
+    var init = function () {
+        if ($rootScope.isLoggedIn()) {
+            $rootScope.user = localStorageService.get('user');
+            $scope.nickname = $rootScope.user.full_name;
+        }
+
+        if (!$rootScope.user.flush) {
+            $rootScope.user.flush = function () {
+                localStorageService.set('user', $rootScope.user);
+            }
+        }
+    };
+
+    init();
 
 }]);

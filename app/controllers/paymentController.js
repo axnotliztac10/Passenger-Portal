@@ -13,15 +13,7 @@ angular.module('blackRide').controller('paymentController',
 
       $scope.setEdit = function (val, ev) {
         ev.stopPropagation();
-
-        if (!val) {
-          $scope.activeEdit = val;
-          return;
-        };
-
-        $rootScope.$broadcast('signIn', function () {
-            $scope.activeEdit = val;
-        });
+        $scope.activeEdit = val;
       };
 
       $('label').click(function() {
@@ -33,5 +25,14 @@ angular.module('blackRide').controller('paymentController',
         el.before(newone);
         $("." + el.attr("class") + ":last").remove();*/
       }); 
+
+      $scope.$on('authSuccess', function () {
+        if ($rootScope.user.card && $rootScope.user.card.cardBody) {
+          $scope.genTok = $rootScope.user.card.cardBody;
+        }
+        $scope.viewData = true;
+      });
+
+      $rootScope.$broadcast('signIn');
 
     }]);

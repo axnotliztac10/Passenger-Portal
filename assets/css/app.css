@@ -6230,7 +6230,7 @@ html.black .row.historySearch,
 html.black .row.rowHis {
   margin-left: 0px;
   margin-right: 0px;
-  border-bottom: 1px solid #2A2A2A;
+  border-bottom: 1px solid #2a2a2a;
 }
 html.black .row.historySearch .glyphicon,
 html.black .row.historySearch a {
@@ -7745,7 +7745,7 @@ html.light .row.historySearch,
 html.light .row.rowHis {
   margin-left: 0px;
   margin-right: 0px;
-  border-bottom: 1px solid #2A2A2A;
+  border-bottom: 1px solid #e8e8e8;
 }
 html.light .row.historySearch .glyphicon,
 html.light .row.historySearch a {
