@@ -75,6 +75,7 @@ angular.module('blackRide').controller('authController', [
                     return {};
                 }
             },
+            backdrop: 'static',
             windowClass: "driverModal"
         });
 
