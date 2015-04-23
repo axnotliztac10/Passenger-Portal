@@ -1,25 +1,34 @@
 angular.module('blackRide').controller('aboutController', 
     [
         '$scope',
-        '$modal',
+        'API_HOST',
         '$rootScope',
         '$state',
-        'Bookings',
-        '$timeout',
+        '$http',
+        'API_Key',
     function(
         $scope,
-        $modal,
+        API_HOST,
         $rootScope,
         $state,
-        Bookings,
-        $timeout
+        $http,
+        API_Key
     ) {
 
+        $scope.$on('authSuccess', function () {
+            $http({
+                url: API_HOST + '/fleet',
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'API-key': API_Key,
+                    'client-token': $rootScope.user.token.value
+                }
+            }).success(function (res) {
+                $scope.fleet = res;
+            });
+        });
 
-
-        
-
-
-
+        $rootScope.$broadcast('signIn');
 
 }]);
