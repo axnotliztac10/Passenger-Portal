@@ -5882,6 +5882,7 @@ html.black .dotted {
   left: 63px;
   top: 6px;
   color: #949494;
+  font-weight: 700;
 }
 html.black .lightDot {
   color: #9cd444 !important;
@@ -7397,6 +7398,7 @@ html.light .dotted {
   left: 63px;
   top: 6px;
   color: #cecece;
+  font-weight: 700;
 }
 html.light .lightDot {
   color: #56e780 !important;
