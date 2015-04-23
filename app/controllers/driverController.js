@@ -122,5 +122,6 @@ angular.module('blackRide').controller('driverController',
             }
         ];
 
-        $scope.candidates = [{driver: {id: 123123},vehicles:[{vehicle_id: 324234, quote:{hours: 4, total: 22}}]}, {driver: {id: 123123}, vehicles:[{vehicle_id: 324234, quote:{hours: 4, total: 22}}]}];//$rootScope.user.booking.quote.candidates;
+        //$scope.candidates = [{driver: {id: 123123},vehicles:[{vehicle_id: 324234, quote:{hours: 4, total: 22}}]}, {driver: {id: 123123}, vehicles:[{vehicle_id: 324234, quote:{hours: 4, total: 22}}]}];
+        $scope.candidates = $rootScope.user.booking.quote.candidates;
 }]);

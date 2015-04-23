@@ -6019,9 +6019,9 @@ html.black .menu .button {
 }
 html.black .menu .button img {
   position: absolute;
-  top: 10px;
-  margin-left: 9px;
-  width: 40px;
+  top: 13px;
+  margin-left: 13px;
+  width: 33px;
   border-radius: 50%;
 }
 html.black .menu .first {
@@ -7543,9 +7543,9 @@ html.light .menu .button {
 }
 html.light .menu .button img {
   position: absolute;
-  top: 10px;
-  margin-left: 9px;
-  width: 40px;
+  top: 13px;
+  margin-left: 13px;
+  width: 33px;
   border-radius: 50%;
 }
 html.light .menu .first {

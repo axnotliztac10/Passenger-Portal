@@ -200,7 +200,7 @@ angular.module('blackRide').controller('confirmController',
         }, 100);
     };
 
-    var onAuth = function (event, reqObj) {$scope.map.active = true;
+    var onAuth = function (event, reqObj) {
         $http({
             url: 'http://shift-passenger-api-dev.appspot.com/dispatch',
             method: 'POST',
