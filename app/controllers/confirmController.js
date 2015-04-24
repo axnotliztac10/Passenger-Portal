@@ -11,6 +11,7 @@ angular.module('blackRide').controller('confirmController',
         '$timeout',
         '$http',
         'API_Key',
+        'PubNub',
     function(
         $rootScope,
         $scope,
@@ -22,7 +23,8 @@ angular.module('blackRide').controller('confirmController',
         localStorageService,
         $timeout,
         $http,
-        API_Key
+        API_Key,
+        PubNub
     ) {
 
     if (!$rootScope.user) {
@@ -32,6 +34,21 @@ angular.module('blackRide').controller('confirmController',
     } else if (!$rootScope.user.booking.driver_info) {
         $state.go("driver");
     }
+
+    PubNub.init({
+        subscribe_key:'sub-c-4dec92dc-f2fb-11e3-854f-02ee2ddab7fe',
+    });
+
+    PubNub.ngSubscribe({
+        channel: $rootScope.user.passenger.id + '.Passenger',
+        callback: function () {
+            console.log('Connected!');
+        }
+    });
+
+    $rootScope.$on(PubNub.ngMsgEv($rootScope.user.passenger.id + '.Passenger'), function(event, payload) {
+        console.log(payload);
+    });
         
     $scope.driver = $rootScope.user.booking.driver_info;
     $scope.user = $rootScope.user;

@@ -23,7 +23,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
   <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
-  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script src="https://js.stripe.com/v2/"></script>
+  <script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+  <script src="bower_components/pubnub-angular/lib/pubnub-angular.js"></script>
   
   <header ng-controller="authController">
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alerts.splice($index, 1)">{{alert.msg}}</alert>
