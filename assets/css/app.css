@@ -5891,8 +5891,10 @@ html.black .lightDot span {
   color: #9cd444 !important;
   border-color: #9cd444 !important;
 }
-html.black .lightDot .dotted {
+html.black .lightDot .dotted,
+html.black .lightDot .dotted-wnt {
   color: #9cd444 !important;
+  background-image: linear-gradient(to right, #9cd444 75%, rgba(255, 255, 255, 0) 0%);
 }
 html.black #menu {
   width: 276px;
@@ -6108,31 +6110,32 @@ html.black .driverModal .modal-dialog {
   margin-top: 120px;
 }
 html.black .driverModal .modal-body {
-  margin-top: 75px;
+  margin-top: 62px;
 }
 html.black .driverModal .modal-footer {
   position: relative;
   text-align: center;
   border-top: 0px;
   margin-top: 0px;
+  margin-bottom: 22px;
 }
 html.black .cancelBut {
-  left: 48px;
+  left: 78px;
   top: -2px;
   width: auto;
 }
 html.black .nextBut {
-  left: 235px;
+  left: 216px;
   top: -2px;
   width: auto;
 }
 html.black .cancelBut a,
 html.black .nextBut a {
-  color: #07b5b5;
+  color: #9cd444;
 }
 html.black .nameDriverModal {
   text-align: center;
-  color: #07b5b5;
+  color: #9cd444;
   font-size: 30px;
 }
 html.black .modelDriverModal {
@@ -6140,6 +6143,7 @@ html.black .modelDriverModal {
 }
 html.black .descDriverModal {
   text-align: justify;
+  margin-bottom: 44px;
 }
 html.black .rateDriverModal {
   text-align: center;
@@ -6182,6 +6186,7 @@ html.black .driverItem > div {
   padding-top: 10px;
   position: relative;
   margin-bottom: 40px;
+  border-radius: 0px 0px 3px 3px;
 }
 html.black .driverItem > img {
   max-width: 320px;
@@ -6189,6 +6194,7 @@ html.black .driverItem > img {
   opacity: 1;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
+  border-radius: 3px 3px 0px 0px;
 }
 html.black .driverItem .photo img {
   width: 100%;
@@ -6201,23 +6207,32 @@ html.black .driverItem .photo {
   top: -48px;
   left: 210px;
   height: 95px;
+  border: 3px solid #3d3d3d;
 }
-html.black .driverItem .name,
+html.black .driverItem .name {
+  font-size: 26px;
+  color: #9cd444;
+  font-weight: 200;
+}
 html.black .driverItem .price {
-  font-size: 32px;
+  font-size: 22px;
   color: #07b5b5;
+  font-weight: 200;
 }
 html.black .driverItem .stars {
   margin-top: 20px;
-  width: 142px;
+  width: 170px;
   float: left;
 }
 html.black .driverItem .model {
   float: left;
+  font-size: 18px;
+  width: 100%;
 }
 html.black .driverItem .time,
 html.black .driverItem .price {
   float: right;
+  margin-top: 0px;
 }
 html.black table {
   margin: 20px auto;
@@ -6300,6 +6315,9 @@ html.black .star {
   -o-background-size: cover;
   background-size: cover;
 }
+html.black .star-gray:nth-child(1) {
+  margin-left: 0px;
+}
 html.black .star-gray {
   width: 28px;
   height: 27px;
@@ -6308,6 +6326,7 @@ html.black .star-gray {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0px 3px 0px 3px;
 }
 html.black .minLabel,
 html.black .maxLabel {
@@ -7299,6 +7318,17 @@ html.black .alert-success.ng-enter-active {
 html.black .glyphicon-ok:before {
   font-size: 12px;
 }
+html.black .dotted-wnt {
+  position: relative;
+  left: 67px;
+  top: -65px;
+  height: 20px;
+  width: 60px;
+  background-image: linear-gradient(to right, #949494 75%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 7px 2px;
+  background-repeat: repeat-x;
+}
 html.light {
   background: #F2F2F2;
   -webkit-background-size: cover;
@@ -7415,8 +7445,10 @@ html.light .lightDot span {
   color: #56e780 !important;
   border-color: #56e780 !important;
 }
-html.light .lightDot .dotted {
+html.light .lightDot .dotted,
+html.light .lightDot .dotted-wnt {
   color: #56e780 !important;
+  background-image: linear-gradient(to right, #56e780 75%, rgba(255, 255, 255, 0) 0%);
 }
 html.light #menu {
   width: 276px;
@@ -7632,31 +7664,32 @@ html.light .driverModal .modal-dialog {
   margin-top: 120px;
 }
 html.light .driverModal .modal-body {
-  margin-top: 75px;
+  margin-top: 62px;
 }
 html.light .driverModal .modal-footer {
   position: relative;
   text-align: center;
   border-top: 0px;
   margin-top: 0px;
+  margin-bottom: 22px;
 }
 html.light .cancelBut {
-  left: 48px;
+  left: 78px;
   top: -2px;
   width: auto;
 }
 html.light .nextBut {
-  left: 235px;
+  left: 216px;
   top: -2px;
   width: auto;
 }
 html.light .cancelBut a,
 html.light .nextBut a {
-  color: #07b5b5;
+  color: #56e780;
 }
 html.light .nameDriverModal {
   text-align: center;
-  color: #07b5b5;
+  color: #56e780;
   font-size: 30px;
 }
 html.light .modelDriverModal {
@@ -7664,6 +7697,7 @@ html.light .modelDriverModal {
 }
 html.light .descDriverModal {
   text-align: justify;
+  margin-bottom: 44px;
 }
 html.light .rateDriverModal {
   text-align: center;
@@ -7706,6 +7740,7 @@ html.light .driverItem > div {
   padding-top: 10px;
   position: relative;
   margin-bottom: 40px;
+  border-radius: 0px 0px 3px 3px;
 }
 html.light .driverItem > img {
   max-width: 320px;
@@ -7713,6 +7748,7 @@ html.light .driverItem > img {
   opacity: 1;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
+  border-radius: 3px 3px 0px 0px;
 }
 html.light .driverItem .photo img {
   width: 100%;
@@ -7725,23 +7761,32 @@ html.light .driverItem .photo {
   top: -48px;
   left: 210px;
   height: 95px;
+  border: 3px solid #ffffff;
 }
-html.light .driverItem .name,
+html.light .driverItem .name {
+  font-size: 26px;
+  color: #56e780;
+  font-weight: 200;
+}
 html.light .driverItem .price {
-  font-size: 32px;
+  font-size: 22px;
   color: #07b5b5;
+  font-weight: 200;
 }
 html.light .driverItem .stars {
   margin-top: 20px;
-  width: 142px;
+  width: 170px;
   float: left;
 }
 html.light .driverItem .model {
   float: left;
+  font-size: 18px;
+  width: 100%;
 }
 html.light .driverItem .time,
 html.light .driverItem .price {
   float: right;
+  margin-top: 0px;
 }
 html.light table {
   margin: 20px auto;
@@ -7824,6 +7869,9 @@ html.light .star {
   -o-background-size: cover;
   background-size: cover;
 }
+html.light .star-gray:nth-child(1) {
+  margin-left: 0px;
+}
 html.light .star-gray {
   width: 28px;
   height: 27px;
@@ -7832,6 +7880,7 @@ html.light .star-gray {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0px 3px 0px 3px;
 }
 html.light .minLabel,
 html.light .maxLabel {
@@ -8824,4 +8873,15 @@ html.light .alert-success.ng-enter-active {
 }
 html.light .glyphicon-ok:before {
   font-size: 12px;
+}
+html.light .dotted-wnt {
+  position: relative;
+  left: 67px;
+  top: -65px;
+  height: 20px;
+  width: 60px;
+  background-image: linear-gradient(to right, #cecece 75%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 7px 2px;
+  background-repeat: repeat-x;
 }

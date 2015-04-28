@@ -88,8 +88,9 @@ header .menu {
 		color: @greenYellow !important;
 		border-color: @greenYellow !important;
 	}
-	.dotted {
+	.dotted, .dotted-wnt {
 		color: @greenYellow !important;
+		background-image: linear-gradient(to right, @greenYellow 75%, rgba(255, 255, 255, 0) 0%);
 	}
 }
 
@@ -344,7 +345,7 @@ header .menu {
 }
 
 .driverModal .modal-body {
-	margin-top: 75px;
+	margin-top: 62px;
 }
 
 .driverModal .modal-footer {
@@ -352,27 +353,28 @@ header .menu {
 	text-align: center;
 	border-top: 0px;
 	margin-top: 0px;
+	margin-bottom: 22px;
 }
 
 .cancelBut {
-	left: 48px;
+	left: 78px;
 	top: -2px;
 	width: auto;
 }
 
 .nextBut {
-	left: 235px;
+	left: 216px;
 	top: -2px;
 	width: auto;
 }
 
 .cancelBut a, .nextBut a {
-	color: @blueGreen;
+	color: @greenYellow;
 }
 
 .nameDriverModal {
 	text-align: center;
-	color: @blueGreen;
+	color: @greenYellow;
 	font-size: 30px;
 }
 
@@ -382,6 +384,7 @@ header .menu {
 
 .descDriverModal {
 	text-align: justify;
+	margin-bottom: 44px;
 }
 
 .rateDriverModal {
@@ -434,6 +437,7 @@ header .menu {
 	  	padding-top: 10px;
 	  	position: relative;
 	  	margin-bottom: 40px;
+	  	border-radius: 0px 0px 3px 3px;
 	  }
 
 	  .driverItem > img {
@@ -442,6 +446,7 @@ header .menu {
 	  	opacity: 1;
 	  	-webkit-transition: .3s ease all;
 	  	transition: .3s ease all;
+	  	border-radius: 3px 3px 0px 0px;
 	  }
 
 	  .driverItem .photo img {
@@ -456,25 +461,36 @@ header .menu {
 	  	top: -48px;
 	  	left: 210px;
 	  	height: 95px;
+	  	border: 3px solid @grayDarker;
 	  }
 
-	  .driverItem .name, .driverItem .price {
-	  	font-size: 32px;
+	  .driverItem .name {
+	  	font-size: 26px;
+	  	color: @greenYellow;
+	  	font-weight: 200;
+	  }
+
+	  .driverItem .price {
+	  	font-size: 22px;
 	  	color: @blueGreen;
+	  	font-weight: 200;
 	  }
 
 	  .driverItem .stars {
 	  	margin-top: 20px;
-	  	width: 142px;
+	  	width: 170px;
 	  	float: left;
 	  }
 
 	  .driverItem .model {
 	  	float: left;
+	  	font-size: 18px;
+	  	width: 100%;
 	  }
 
 	  .driverItem .time, .driverItem .price {
 	  	float: right;
+	  	margin-top: 0px;
 	  }
 
 	  table {
@@ -573,6 +589,10 @@ header .menu {
 		background-size: cover;
 	}
 
+	.star-gray:nth-child(1) {
+		margin-left: 0px; 
+	}
+
 	.star-gray {
 		width: 28px;
 		height: 27px;
@@ -581,6 +601,7 @@ header .menu {
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
+		margin: 0px 3px 0px 3px;
 	}
 
 	.minLabel, .maxLabel {
@@ -1678,4 +1699,16 @@ header .menu {
 
 	.glyphicon-ok:before {
 		font-size: 12px;
+	}
+
+	.dotted-wnt {
+		position: relative;
+		left: 67px;
+  		top: -65px;
+		height: 20px;
+		width: 60px;
+		background-image: linear-gradient(to right, @grayLight 75%, rgba(255,255,255,0) 0%);
+		background-position: bottom;
+		background-size: 7px 2px;
+		background-repeat: repeat-x;
 	}
