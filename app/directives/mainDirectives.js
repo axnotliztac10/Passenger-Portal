@@ -21,9 +21,10 @@ angular.module("blackRide").directive('ngAutocomplete', function($parse) {
   return {
 
     scope: {
-      details: '=',
-      ngAutocomplete: '=',
-      options: '='
+      details: '=?',
+      ngAutocomplete: '=?',
+      options: '=?',
+      address: '=?'
     },
 
     link: function(scope, element, attrs, model) {
@@ -58,7 +59,7 @@ angular.module("blackRide").directive('ngAutocomplete', function($parse) {
             scope.$parent.centerMap({lat: scope.details.geometry.location.lat(), lon: scope.details.geometry.location.lng()}, true);
             scope.$parent.address = element.val();
           });
-        })
+        });
       }
       newAutocomplete()
 
@@ -70,6 +71,7 @@ angular.module("blackRide").directive('ngAutocomplete', function($parse) {
         newAutocomplete()
         element[0].value = '';
         scope.ngAutocomplete = element.val();
+        $('.addPickup.padRight.text-box').val(scope.$parent.$parent.address);
       }, true);
     }
   };

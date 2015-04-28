@@ -17,7 +17,7 @@ angular.module('blackRide').controller('homeController',
     $scope.geoCoder = new $window.google.maps.Geocoder();
     $scope.address = "";
     $scope.details = "";
-    $scope.options = null;
+    $scope.options = {};
     $scope.ajaxLoader = false;
     $scope.searchResults = [];
     $scope.markersCtr = {};

@@ -29,7 +29,7 @@
 				<p class="even" ng-if="user.booking.to.formatted_address">{{user.booking.to.formatted_address}}</p>
 				<p class="even" ng-if="!user.booking.to.formatted_address">Not Selected</p>
 				<p>Time</p>
-				<p class="even">{{scheduled}}</p>
+				<p class="even">{{scheduled | getCustomDate}}</p>
 			</div><br>
 			<p class="nextStep cancelMb"><a ng-click="open()">Confirm Reservation</a></p>
 		</div>

@@ -52,7 +52,7 @@ angular.module('blackRide').controller('confirmController',
         
     $scope.driver = $rootScope.user.booking.driver_info;
     $scope.user = $rootScope.user;
-    $scope.scheduled = $rootScope.user.booking.scheduled;
+    $scope.scheduled = $rootScope.user.booking.scheduled_raw;
     $scope.markers = [];
 
     $scope.map = {

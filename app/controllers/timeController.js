@@ -26,6 +26,15 @@ angular.module('blackRide').controller('timeController',
         var date = new Date($scope.dt);
         var time = new Date($scope.timeToPick);
         $rootScope.user.booking.scheduled = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()  + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+        $rootScope.user.booking.scheduled_raw = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            time.getHours(),
+            time.getMinutes(),
+            time.getSeconds(),
+            time.getMilliseconds()
+        ).toISOString();
         $rootScope.user.flush();
         $state.go("drop");
     };

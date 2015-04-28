@@ -5841,7 +5841,7 @@ html.black header .title {
 html.black header .title img {
   width: 100px;
   position: relative;
-  top: -7px;
+  top: -2px;
 }
 html.black header .menu {
   float: right;
@@ -7364,6 +7364,10 @@ html.light .alert-success-visual {
 html.light .if-handle {
   border-color: #444 !important;
 }
+html.light .bar-active {
+  border-color: #56e780;
+  color: #fff;
+}
 html.light body {
   color: #b3b3b3;
   background: none;
@@ -7395,7 +7399,7 @@ html.light header .title {
 html.light header .title img {
   width: 100px;
   position: relative;
-  top: -7px;
+  top: -2px;
 }
 html.light header .menu {
   float: right;
@@ -7508,6 +7512,8 @@ html.light #status-buttons a.active span {
   background: #56e780;
   border-color: #cecece;
   color: #cecece;
+  border-color: #56e780;
+  color: #fff;
 }
 html.light .stepWrapper {
   background: #ffffff;

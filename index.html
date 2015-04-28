@@ -29,10 +29,11 @@
   
   <header ng-controller="authController">
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alerts.splice($index, 1)">{{alert.msg}}</alert>
-    <div class="title"><a ui-sref="home"><img src="assets/imgs/blue_logo.png"></a></div>
+    <div class="title"><a ui-sref="home"><img src="assets/imgs/blue_logo_.png"></a></div>
     <div class="menu">
       <a class="button first hide" href="javascript: void(0)">Sign Up</a>
-      <a class="button" ng-if="nickname" href="javascript: void(0)" ng-click="logout()">{{nickname}}<img src="{{picture}}"></a>
+      <!--<a class="button" ng-if="nickname" href="javascript: void(0)" ng-click="logout()">{{nickname}}<img src="{{picture}}"></a>-->
+      <a class="button" ng-if="nickname" href="javascript: void(0)" style="cursor:text">{{nickname}}<img src="{{picture}}"></a>
       <a class="button" ng-if="!nickname" href="javascript: void(0)" ng-click="open()">Login</a>
       <a href="javascript: void(0)">
         <button type="button" class="navbar-toggle collapsed menuOpen">
@@ -73,7 +74,7 @@
       <div class="dotted-wnt"></div>
     </a>
     <a light="home,time,drop" ui-sref-active="active"  ng-click="$event.preventDefault()" ui-sref="driver">
-      <span>4</span> Your Diver
+      <span>4</span> Your Driver
       <div class="dotted-wnt"></div>
     </a>
     <a light="home,time,drop,driver" ui-sref-active="active"  ng-click="$event.preventDefault()" ui-sref="confirm">
@@ -95,8 +96,8 @@
         <li><a ui-sref-active="active" ui-sref="home">Booking</a></li>
         <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="history">My Bookings</a></li>
         <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="payment">Payment</a></li>
-        <li><a ui-sref-active="active" ui-sref="about">About</a></li>
         <li ng-show="loggedIn"><a ui-sref-active="active" ui-sref="organizations">Organizations</a></li>
+        <li><a ui-sref-active="active" ui-sref="about">About</a></li>
       </ul>
    </div>  
 
