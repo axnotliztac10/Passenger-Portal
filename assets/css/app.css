@@ -6318,6 +6318,14 @@ html.black .filters.message .error {
 html.black .filters.message .error a {
   color: #b3b3b3;
 }
+html.black .historyElement .error {
+  text-align: center;
+  font-weight: 700;
+  color: #949494;
+}
+html.black .historyElement .error a {
+  color: #b3b3b3;
+}
 html.black .star {
   width: 28px;
   height: 27px;
@@ -7892,6 +7900,14 @@ html.light .filters.message .error {
   font-weight: 700;
 }
 html.light .filters.message .error a {
+  color: #b3b3b3;
+}
+html.light .historyElement .error {
+  text-align: center;
+  font-weight: 700;
+  color: #cecece;
+}
+html.light .historyElement .error a {
   color: #b3b3b3;
 }
 html.light .star {

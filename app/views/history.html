@@ -25,10 +25,32 @@
 
 	<div class="row rowHis noBorder">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
-			<p>Done</p>
+			<p>Active</p>
 		</div>
 	</div>
-	<div class="row rowHis historyElement" ng-repeat="booking in bookingsDone | orderBy:'sort.value' | filter:searchText">
+	<div ng-if="bookingsOngoing.length == 0" class="row rowHis historyElement">
+		<p class="error">No active bookings.</p>
+	</div>
+	<div ng-if="bookingsOngoing.length > 0" class="row rowHis historyElement" ng-repeat="booking in bookingsOngoing | orderBy:'sort.value' | filter:searchText">
+		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+			<p class="route">{{booking.first_ride.route.from.location}}</p>
+			<p class="route">{{booking.first_ride.route.to.location}}</p>
+		</div>
+		<div class="col-md-6 text-right">
+			<p class="date">{{booking.created | getCustomDate}}</p>
+			<p><small>$ </small>{{booking.total | number:2}}</p>
+		</div>
+	</div>
+
+	<div class="row rowHis noBorder">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+			<p>History</p>
+		</div>
+	</div>
+	<div ng-if="bookingsDone.length == 0" class="row rowHis historyElement">
+		<p class="error">Your booking history is empty.</p>
+	</div>
+	<div ng-if="bookingsDone.length > 0" class="row rowHis historyElement" ng-repeat="booking in bookingsDone | orderBy:'sort.value' | filter:searchText">
 		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
 			<p class="route">{{booking.first_ride.route.from.location}}</p>
 			<p class="route">{{booking.first_ride.route.to.location}}</p>
@@ -61,22 +83,6 @@
 		</div>
 	</div>
 	<div class="row rowHis historyElement" ng-repeat="booking in bookingsDispatched | orderBy:'sort.value' | filter:searchText">
-		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-			<p class="route">{{booking.first_ride.route.from.location}}</p>
-			<p class="route">{{booking.first_ride.route.to.location}}</p>
-		</div>
-		<div class="col-md-6 text-right">
-			<p class="date">{{booking.created | getCustomDate}}</p>
-			<p><small>$ </small>{{booking.total | number:2}}</p>
-		</div>
-	</div>
-	
-	<div class="row rowHis noBorder">
-		<div class="col-md-12 col-sm-12 col-xs-12 text-left">
-			<p>Ongoing</p>
-		</div>
-	</div>
-	<div class="row rowHis historyElement" ng-repeat="booking in bookingsOngoing | orderBy:'sort.value' | filter:searchText">
 		<div class="col-md-6 col-sm-6 col-xs-6 text-left">
 			<p class="route">{{booking.first_ride.route.from.location}}</p>
 			<p class="route">{{booking.first_ride.route.to.location}}</p>
