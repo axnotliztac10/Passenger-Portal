@@ -6098,6 +6098,12 @@ html.black .loaderInput {
   right: 3px;
   top: 4px;
 }
+html.black .link-driver {
+  float: left;
+  margin: 0px 17px;
+  color: #9cd444;
+  font-size: 16px;
+}
 html.black .driverModal .modal-content,
 html.black .driverModal .modal-dialog {
   width: 360px;
@@ -6118,6 +6124,9 @@ html.black .driverModal .modal-footer {
   border-top: 0px;
   margin-top: 0px;
   margin-bottom: 22px;
+}
+html.black .driverModal .modal-footer .nextBut {
+  left: 154px;
 }
 html.black .cancelBut {
   left: 78px;
@@ -6299,12 +6308,15 @@ html.black .filters > div > p {
 }
 html.black .filters.message {
   box-shadow: 2px 1px 6px -1px #2e2d2c;
-  padding-top: 110px;
+  padding-top: 40px;
+  height: 140px;
 }
 html.black .filters.message .error {
   text-align: center;
-  color: #D64A32;
   font-weight: 700;
+}
+html.black .filters.message .error a {
+  color: #b3b3b3;
 }
 html.black .star {
   width: 28px;
@@ -7074,9 +7086,9 @@ html.black .team .title {
   margin-top: 20px;
 }
 html.black .team .title .name {
-  font-size: 22px;
+  font-size: 16px;
   float: left;
-  font-weight: lighter;
+  font-weight: bold;
 }
 html.black .team .title .buttons,
 html.black .team .user .balance {
@@ -7096,6 +7108,10 @@ html.black .team .user {
   margin-top: 10px;
   padding-top: 4px;
   margin-bottom: 10px;
+}
+html.black .team .error {
+  font-weight: 700;
+  font-size: 16px;
 }
 html.black .user .info img {
   width: 45px;
@@ -7658,6 +7674,12 @@ html.light .loaderInput {
   right: 3px;
   top: 4px;
 }
+html.light .link-driver {
+  float: left;
+  margin: 0px 17px;
+  color: #56e780;
+  font-size: 16px;
+}
 html.light .driverModal .modal-content,
 html.light .driverModal .modal-dialog {
   width: 360px;
@@ -7678,6 +7700,9 @@ html.light .driverModal .modal-footer {
   border-top: 0px;
   margin-top: 0px;
   margin-bottom: 22px;
+}
+html.light .driverModal .modal-footer .nextBut {
+  left: 154px;
 }
 html.light .cancelBut {
   left: 78px;
@@ -7859,12 +7884,15 @@ html.light .filters > div > p {
 }
 html.light .filters.message {
   box-shadow: 0px 2px 6px -2px #666666;
-  padding-top: 110px;
+  padding-top: 40px;
+  height: 140px;
 }
 html.light .filters.message .error {
   text-align: center;
-  color: #D64A32;
   font-weight: 700;
+}
+html.light .filters.message .error a {
+  color: #b3b3b3;
 }
 html.light .star {
   width: 28px;
@@ -8635,9 +8663,9 @@ html.light .team .title {
   margin-top: 20px;
 }
 html.light .team .title .name {
-  font-size: 22px;
+  font-size: 16px;
   float: left;
-  font-weight: lighter;
+  font-weight: bold;
 }
 html.light .team .title .buttons,
 html.light .team .user .balance {
@@ -8657,6 +8685,10 @@ html.light .team .user {
   margin-top: 10px;
   padding-top: 4px;
   margin-bottom: 10px;
+}
+html.light .team .error {
+  font-weight: 700;
+  font-size: 16px;
 }
 html.light .user .info img {
   width: 45px;
@@ -8692,7 +8724,7 @@ html.light .payment .full {
   height: 35px;
   margin: 10px 0px 10px 0px;
   padding: 7px;
-  background: #2e2d2c;
+  background: #ffffff;
   border: 1px solid;
 }
 html.light .payment .middle {
@@ -8700,7 +8732,7 @@ html.light .payment .middle {
   height: 35px;
   margin: 0px 0px 10px 0px;
   padding: 7px;
-  background: #2e2d2c;
+  background: #ffffff;
   border: 1px solid;
 }
 html.light .payment .middle.fix {

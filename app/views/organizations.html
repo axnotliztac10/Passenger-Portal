@@ -42,7 +42,10 @@
 					<a class="mini-but">Create Team</a>
 				</div>
 			</div>
-			<div class="user" ng-repeat="member in team.members">
+			<div class="user" ng-if="team.members.length == 0">
+				<p class="error">No users or teams</p>
+			</div>
+			<div ng-if="team.members.length > 0" class="user" ng-repeat="member in team.members">
 				<div class="info">
 					<img ng-src="{{member.photo || 'http://shiftportal.s3-website-us-east-1.amazonaws.com/assets/imgs/faces/15_min.png'}}" alt="">
 					<p class="normal-font">{{member.full_name}}</p>

@@ -69,17 +69,9 @@ angular.module('blackRide').controller('organizationsController',
                 });
                 Organisations.passengers.get(res[0].id).success(function (res) {
                     $scope.teams = [{
-                        name: 'no name team',
+                        name: 'Teams & Users',
                         members: res.passengers
                     }];
-                    if (res.passengers.length == 0) {
-                        Organisations.passengers.get('5741031244955648').success(function (res) {
-                            $scope.teams = [{
-                                name: 'no name team',
-                                members: res.passengers
-                            }];
-                        });
-                    }
                 });
             });
         });

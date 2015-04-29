@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         },
         copy: {
             bower: { files: [{ expand: true, cwd: 'bower_components/', src: ['**/*'], dest: 'build/webapp/bower_components'}] },
-            assets: { src: 'assets/css/*', dest: 'build/webapp/' },
+            assets: { src: ['assets/css/*', '!assets/css/*.less'], dest: 'build/webapp/' },
             index: { src: 'index.html', dest: 'build/webapp/'},
             appFile: { src: 'app.js', dest: 'build/webapp/'},
             app: { files: [{ expand: true, cwd: 'app/', src: ['**/*'], dest: 'build/webapp/app'}] },

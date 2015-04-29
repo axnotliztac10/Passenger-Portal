@@ -1,6 +1,11 @@
 <div class="row" ng-show="candidates.length == 0">
 	<div class="col-md-12 col-xs-12 filters message">
-		<p class="error">No drivers available right now. <a ui-sref="home" style="color: #D64A32;">Please try again</a></p>
+		<p class="error">No drivers available right now. <a ui-sref="home">Please try again</a></p>
+		<div>
+			<a ui-sref="home" class="link-driver">New Pick Up Location</a>
+			<a ui-sref="drop" class="link-driver">New Drop Off Location</a>
+			<a ui-sref="time" class="link-driver">New Booking Time</a>
+		</div>
 	</div>
 </div>
 <div class="row" ng-show="candidates.length > 0">
@@ -76,7 +81,7 @@
             <p class="nameDriverModal">{{candidate.driver.name}}</p>
             <p class="modelDriverModal">{{candidate.vehicles[0].model}}</p>
             <br>
-            <p class="descDriverModal">{{candidate.desc || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}}</p>
+            <p class="descDriverModal hide">{{candidate.desc || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}}</p>
             <p class="rateDriverModal"><rating 
 					ng-model="candidate.rate" 
 					max="max = 5" 
@@ -86,7 +91,7 @@
 				></rating></p>
         </div>
         <div class="modal-footer">
-        	<p class="nextStep cancelBut" ng-click="cancel()"><a>Cancel</a></p>
+        	<p class="nextStep cancelBut hide" ng-click="cancel()"><a>Cancel</a></p>
             <p class="nextStep nextBut" ng-click="ok()"><a>Next</a></p>
         </div>
     </script>

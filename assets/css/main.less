@@ -333,6 +333,13 @@ header .menu {
 	top: 4px;
 }
 
+.link-driver {
+	float: left;
+	margin: 0px 17px;
+	color: @greenYellow;
+	font-size: 16px;
+}
+
 .driverModal .modal-content, .driverModal .modal-dialog{
 	width: 360px;
 }
@@ -355,6 +362,9 @@ header .menu {
 	border-top: 0px;
 	margin-top: 0px;
 	margin-bottom: 22px;
+	.nextBut {
+		left: 154px;
+	}
 }
 
 .cancelBut {
@@ -572,11 +582,14 @@ header .menu {
 
 	.filters.message {
 		box-shadow: @stepShadow;
-		padding-top: 110px;
+		padding-top: 40px;
+		height: 140px;
 		.error {
 			text-align: center;
-			color: #D64A32;
 			font-weight: 700;
+			a {
+				color: @grayLighter;
+			}
 		}
 	}
 
@@ -1458,9 +1471,9 @@ header .menu {
 	}
 
 	.team .title .name {
-		font-size: 22px;
+		font-size: 16px;
 		float: left;
-		font-weight: lighter;
+		font-weight: bold;
 	}
 
 	.team .title .buttons, .team .user .balance {
@@ -1482,6 +1495,11 @@ header .menu {
 		margin-top: 10px;
 		padding-top: 4px;
 		margin-bottom: 10px;
+	}
+
+	.team .error {
+		font-weight: 700;
+		font-size: 16px;
 	}
 
 	.user .info img {
@@ -1524,7 +1542,7 @@ header .menu {
 			height: 35px;
 			margin: 10px 0px 10px 0px;
 			padding: 7px;
-			background: rgb(46, 45, 44);
+			background: @blackLight;
 			border: 1px solid;
 		}
 
@@ -1533,7 +1551,7 @@ header .menu {
 			height: 35px;
 			margin: 0px 0px 10px 0px;
 			padding: 7px;
-			background: rgb(46, 45, 44);
+			background: @blackLight;
 			border: 1px solid;	
 		}
 
