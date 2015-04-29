@@ -6322,6 +6322,7 @@ html.black .historyElement .error {
   text-align: center;
   font-weight: 700;
   color: #949494;
+  font-size: 16px;
 }
 html.black .historyElement .error a {
   color: #b3b3b3;
@@ -7906,6 +7907,7 @@ html.light .historyElement .error {
   text-align: center;
   font-weight: 700;
   color: #cecece;
+  font-size: 16px;
 }
 html.light .historyElement .error a {
   color: #b3b3b3;
