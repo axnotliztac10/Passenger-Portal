@@ -5826,6 +5826,10 @@ html.black header {
   z-index: 2000;
   padding: 20px 17px 0px 22px;
   box-shadow: 0px 0px 3px 0px #666666;
+  text-align: center;
+}
+html.black header > a {
+  float: left;
 }
 html.black p,
 html.black span {
@@ -5835,7 +5839,6 @@ html.black p.normalWeight {
   font-weight: 400;
 }
 html.black header .title {
-  float: left;
   color: #fff;
 }
 html.black header .title img {
@@ -5901,10 +5904,12 @@ html.black #menu {
   height: 100%;
   position: absolute;
   bottom: 0px;
-  right: -276px;
+  left: -276px;
   background: #2e2d2c;
   padding: 80px 15px 15px 15px;
-  display: none;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  z-index: 999;
 }
 html.black #menu ul {
   margin-top: 40px;
@@ -5921,10 +5926,7 @@ html.black #menu ul > li > a:hover {
   color: #fff;
 }
 html.black #menu.show-nav {
-  -webkit-transform: translateX(-276px);
-  transform: translateX(-276px);
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
+  left: -1px;
 }
 html.black #status-buttons a.active {
   color: #9cd444;
@@ -6016,12 +6018,11 @@ html.black .menu .button {
   border: 0px;
   color: #949494;
   font-size: 13px;
-  padding: 10px 40px;
-  margin-right: 13px;
+  position: absolute;
+  right: 10px;
+  top: 13px;
 }
 html.black .menu .button img {
-  position: absolute;
-  top: 13px;
   margin-left: 13px;
   width: 33px;
   border-radius: 50%;
@@ -7409,6 +7410,10 @@ html.light header {
   z-index: 2000;
   padding: 20px 17px 0px 22px;
   box-shadow: 0px 0px 3px 0px #666666;
+  text-align: center;
+}
+html.light header > a {
+  float: left;
 }
 html.light p,
 html.light span {
@@ -7418,7 +7423,6 @@ html.light p.normalWeight {
   font-weight: 400;
 }
 html.light header .title {
-  float: left;
   color: #fff;
 }
 html.light header .title img {
@@ -7484,10 +7488,12 @@ html.light #menu {
   height: 100%;
   position: absolute;
   bottom: 0px;
-  right: -276px;
+  left: -276px;
   background: #ffffff;
   padding: 80px 15px 15px 15px;
-  display: none;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  z-index: 999;
 }
 html.light #menu ul {
   margin-top: 40px;
@@ -7504,10 +7510,7 @@ html.light #menu ul > li > a:hover {
   color: #fff;
 }
 html.light #menu.show-nav {
-  -webkit-transform: translateX(-276px);
-  transform: translateX(-276px);
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
+  left: -1px;
 }
 html.light #status-buttons a.active {
   color: #56e780;
@@ -7601,12 +7604,11 @@ html.light .menu .button {
   border: 0px;
   color: #cecece;
   font-size: 13px;
-  padding: 10px 40px;
-  margin-right: 13px;
+  position: absolute;
+  right: 10px;
+  top: 13px;
 }
 html.light .menu .button img {
-  position: absolute;
-  top: 13px;
   margin-left: 13px;
   width: 33px;
   border-radius: 50%;

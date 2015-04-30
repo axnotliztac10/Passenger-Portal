@@ -16,6 +16,11 @@ header {
 	z-index: 2000;
 	padding: 20px 17px 0px 22px;
 	box-shadow: @box-shadow;
+	text-align: center;
+}
+
+header > a {
+	float: left;
 }
 
 p, span {
@@ -27,7 +32,6 @@ p.normalWeight {
 }
 
 header .title {
-	float: left;
 	color: #fff;
 	img {
 		width: 100px;
@@ -99,10 +103,12 @@ header .menu {
 	height: 100%;
 	position: absolute;
 	bottom: 0px;
-	right: -276px;
+	left: -276px;
 	background: @blackLight;
 	padding: 80px 15px 15px 15px;
-	display: none;
+	-webkit-transition: .3s ease all;
+	transition: .3s ease all;
+	z-index: 999;
 	ul {
 		margin-top: 40px;
 		list-style: none;
@@ -120,10 +126,7 @@ header .menu {
 }
 
 #menu.show-nav {
-	-webkit-transform: translateX(-276px);
-	transform: translateX(-276px);
-	-webkit-transition: .3s ease all;
-	transition: .3s ease all;
+	left: -1px;
 }
 
 #status-buttons a.active {
@@ -235,11 +238,10 @@ header .menu {
 	border: 0px;
 	color: @grayLight;
 	font-size: 13px;
-	padding: 10px 40px;
-	margin-right: 13px;
+	position: absolute;
+	right: 10px;
+	top: 13px;
 	img {
-		position: absolute;
-		top: 13px;
 		margin-left: 13px;
 		width: 33px;
 		border-radius: 50%;
