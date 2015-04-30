@@ -6336,6 +6336,7 @@ html.black .star {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0px 3px 0px 3px;
 }
 html.black .star-gray:nth-child(1) {
   margin-left: 0px;
@@ -7922,6 +7923,7 @@ html.light .star {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0px 3px 0px 3px;
 }
 html.light .star-gray:nth-child(1) {
   margin-left: 0px;
