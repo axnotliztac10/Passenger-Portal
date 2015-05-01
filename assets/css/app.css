@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -2368,8 +2367,8 @@ input[type="button"].btn-block {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('assets/fonts/glyphicons-halflings-regular.eot');
+  src: url('assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('assets/fonts/glyphicons-halflings-regular.woff') format('woff'), url('assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -5773,6 +5772,283 @@ button.close {
     display: none !important;
   }
 }
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url(http://fonts.gstatic.com/s/lato/v11/h3_FseZLI76g1To6meQ4zX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url(http://fonts.gstatic.com/s/lato/v11/ifRS04pY1nJBsu8-cUFUS-vvDin1pK8aKteLpeZ5c0A.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(http://fonts.gstatic.com/s/lato/v11/IY9HZVvI1cMoAHxvl0w9LVKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(http://fonts.gstatic.com/s/lato/v11/22JRxvfANxSmnAhzbFH8PgLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/8qcEw_nrk_5HEcCpYdJu8BTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v11/MDadn8DQ_3oT6kvnUq_2r_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(http://fonts.gstatic.com/s/lato/v11/rZPI2gHXi8zxUjnybc2ZQFKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(http://fonts.gstatic.com/s/lato/v11/MgNNr5y1C_tIEuLEmicLmwLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 2, slider.scss */
+slider,
+[slider] {
+  display: inline-block;
+  position: relative;
+  height: 7px;
+  width: 100%;
+  margin: 25px 5px 25px 5px;
+  vertical-align: middle;
+}
+/* line 10, slider.scss */
+slider div,
+[slider] div {
+  white-space: nowrap;
+  position: absolute;
+}
+/* line 14, slider.scss */
+slider div.bar,
+[slider] div.bar {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  background: #444;
+  overflow: hidden;
+}
+/* line 21, slider.scss */
+slider div.bar .selection,
+[slider] div.bar .selection {
+  width: 0%;
+  height: 100%;
+  background: #13b6ff;
+}
+/* line 28, slider.scss */
+slider div.handle,
+[slider] div.handle {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  top: -8px;
+  background-color: #fff;
+  border: 1px solid #000;
+  z-index: 2;
+  border-radius: 100%;
+}
+/* line 38, slider.scss */
+slider div.handle:after,
+[slider] div.handle:after {
+  content: '';
+  background-color: #777;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border-radius: 100%;
+}
+/* line 48, slider.scss */
+slider div.handle:after:hover,
+[slider] div.handle:after:hover {
+  background-color: #000;
+}
+/* line 53, slider.scss */
+slider div.handle.active:after,
+[slider] div.handle.active:after {
+  background-color: #f00;
+}
+/* line 58, slider.scss */
+slider div.bubble,
+[slider] div.bubble {
+  display: none;
+  cursor: default;
+  top: -22px;
+  padding: 1px 3px 1px 3px;
+  font-size: 0.7em;
+  font-family: sans-serif;
+}
+/* line 66, slider.scss */
+slider div.bubble.active,
+[slider] div.bubble.active {
+  display: inline-block;
+}
+/* line 70, slider.scss */
+slider div.bubble.limit,
+[slider] div.bubble.limit {
+  color: #777;
+}
+/*! 
+ * angular-loading-bar v0.7.1
+ * https://chieffancypants.github.io/angular-loading-bar
+ * Copyright (c) 2015 Wes Cruver
+ * License: MIT
+ */
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+  -webkit-transition: 350ms linear all;
+  -moz-transition: 350ms linear all;
+  -o-transition: 350ms linear all;
+  transition: 350ms linear all;
+}
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave {
+  opacity: 1;
+}
+#loading-bar .bar {
+  -webkit-transition: width 350ms;
+  -moz-transition: width 350ms;
+  -o-transition: width 350ms;
+  transition: width 350ms;
+  background: #29d;
+  position: fixed;
+  z-index: 10002;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
+}
+/* Fancy blur effect */
+#loading-bar .peg {
+  position: absolute;
+  width: 70px;
+  right: 0;
+  top: 0;
+  height: 2px;
+  opacity: .45;
+  -moz-box-shadow: #29d 1px 0 6px 1px;
+  -ms-box-shadow: #29d 1px 0 6px 1px;
+  -webkit-box-shadow: #29d 1px 0 6px 1px;
+  box-shadow: #29d 1px 0 6px 1px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+#loading-bar-spinner {
+  display: block;
+  position: fixed;
+  z-index: 10002;
+  top: 10px;
+  left: 10px;
+}
+#loading-bar-spinner .spinner-icon {
+  width: 14px;
+  height: 14px;
+  border: solid 2px transparent;
+  border-top-color: #29d;
+  border-left-color: #29d;
+  border-radius: 10px;
+  -webkit-animation: loading-bar-spinner 400ms linear infinite;
+  -moz-animation: loading-bar-spinner 400ms linear infinite;
+  -ms-animation: loading-bar-spinner 400ms linear infinite;
+  -o-animation: loading-bar-spinner 400ms linear infinite;
+  animation: loading-bar-spinner 400ms linear infinite;
+}
+@-webkit-keyframes loading-bar-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loading-bar-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loading-bar-spinner {
+  0% {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes loading-bar-spinner {
+  0% {
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-bar-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* Component LESS */
 html,
 body {
@@ -6744,7 +7020,7 @@ html.black [slider] div.handle {
 }
 html.black slider div.handle:after,
 html.black [slider] div.handle:after {
-  display: none;
+  display: none !important;
 }
 html.black slider,
 html.black [slider] {
@@ -7355,6 +7631,9 @@ html.black .dotted-wnt {
   background-position: bottom;
   background-size: 7px 2px;
   background-repeat: repeat-x;
+}
+html.black #loading-bar .bar {
+  background: #9cd444 !important;
 }
 html.light {
   background: #F2F2F2;
@@ -8332,7 +8611,7 @@ html.light [slider] div.handle {
 }
 html.light slider div.handle:after,
 html.light [slider] div.handle:after {
-  display: none;
+  display: none !important;
 }
 html.light slider,
 html.light [slider] {
@@ -8944,4 +9223,7 @@ html.light .dotted-wnt {
   background-position: bottom;
   background-size: 7px 2px;
   background-repeat: repeat-x;
+}
+html.light #loading-bar .bar {
+  background: #56e780 !important;
 }

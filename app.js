@@ -10,7 +10,8 @@ angular.module(
     'facebook',
     'googleplus',
     'LocalStorageModule',
-    'pubnub.angular.service'
+    'pubnub.angular.service',
+    'angular-loading-bar'
   ]
 );
 
@@ -26,7 +27,8 @@ angular.module('blackRide')
       FacebookProvider,
       GooglePlusProvider,
       localStorageServiceProvider,
-      $httpProvider
+      $httpProvider,
+      cfpLoadingBarProvider
     ) {
 
     Stripe.setPublishableKey('pk_test_NdgelnceB9gAkiWX2vYJtTql');
@@ -40,6 +42,7 @@ angular.module('blackRide')
     localStorageServiceProvider.setPrefix('blackRide');
 
     datepickerConfig.showWeeks = false;
+    cfpLoadingBarProvider.includeSpinner = false;
 
     $stateProvider.state('home', {
         url: '/home',

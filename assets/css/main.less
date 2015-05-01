@@ -1,3 +1,4 @@
+
 body {
 	color: @grayLighter;
 	background: none;
@@ -1059,7 +1060,7 @@ header .menu {
 	}
 
 	slider div.handle:after, [slider] div.handle:after {
-		display: none;
+		display: none !important;
 	}
 
 	slider, [slider] {
@@ -1743,4 +1744,8 @@ header .menu {
 		background-position: bottom;
 		background-size: 7px 2px;
 		background-repeat: repeat-x;
+	}
+	
+	#loading-bar .bar {
+		background: @greenYellow !important;
 	}
