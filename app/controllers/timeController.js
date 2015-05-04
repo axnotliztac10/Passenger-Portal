@@ -20,6 +20,7 @@ angular.module('blackRide').controller('timeController',
     $scope.format = 'dd-MM-yyyy';
     $scope.dt = "Today";
     $scope.showControls = false;
+    $rootScope.user.booking.scheduled_now = true;
 
     $scope.setAndGo = function () {
         $scope.dt = $scope.updateDate();
@@ -48,6 +49,10 @@ angular.module('blackRide').controller('timeController',
         $event.stopPropagation();
 
         $scope.opened = true;
+    };
+
+    $scope.setNow = function () {
+        $rootScope.user.booking.scheduled_now = false;
     };
 
     $scope.updateDate = function () {

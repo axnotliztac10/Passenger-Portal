@@ -21,6 +21,7 @@ angular.module('blackRide').controller('driverController',
             $state.go("time");
         }
         
+        $scope.now = $rootScope.user.booking.scheduled_now;
         $scope.filterRate = 0;
         $scope.backFilter = 0;
         $scope.max = 5;

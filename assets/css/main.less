@@ -21,7 +21,9 @@ header {
 }
 
 header > a {
-	float: left;
+	position: absolute;
+	top: 20px;
+	left: 21px;
 }
 
 p, span {
@@ -341,6 +343,16 @@ header .menu {
 	margin: 0px 17px;
 	color: @greenYellow;
 	font-size: 16px;
+}
+
+.car-anims {
+	-webkit-transition: .3s ease all;
+	transition: .3s ease all;
+}
+
+.car-anims:hover {
+	box-shadow: @stepShadow;
+	margin-top: -5px;
 }
 
 .driverModal .modal-content, .driverModal .modal-dialog{

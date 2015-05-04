@@ -14,15 +14,10 @@ module.exports = function(grunt) {
             }
         },
         less: {
-            development: {
-                options: {
-                    paths: ["bower_components"]
-                },
-                files: {"assets/css/app.css": "assets/css/app.less"}
-            },
             production: {
                 options: {
-                    paths: ["bower_components"]
+                    paths: ["bower_components"],
+                    compress: true
                 },
                 files: {"assets/css/app.css": "assets/css/app.less"}
             }
@@ -48,7 +43,7 @@ module.exports = function(grunt) {
         },
         concat: {
             options: {
-                separator: '\n',
+                separator: ';\n',
                 stripBanners: true
             },
             js: {
@@ -115,6 +110,13 @@ module.exports = function(grunt) {
             clean: {
                 command: 'cd build/ && /Users/Axnotliztac/go_appengine/appcfg.py rollback . --oauth2'
             }
+        },
+        uglify: {
+            js: {
+                files: {
+                    'build/webapp/libs.js': ['build/webapp/libs.js']
+                }
+            }
         }
     });
 
@@ -126,6 +128,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-file-blocks');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('appengine:deploy', ['shell:deploy']);
     grunt.registerTask('appengine:clean', ['shell:clean']);
