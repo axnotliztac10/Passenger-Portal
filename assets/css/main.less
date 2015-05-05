@@ -69,6 +69,8 @@ header .menu {
 
 #status-buttons {  
 	margin-top: 40px;
+	-webkit-transition: .3s ease all;
+	transition: .3s ease all;
 	a { 
 		color:@grayLight; 
 		display:inline-block;
@@ -78,6 +80,16 @@ header .menu {
 		margin-left: 0px;
 		position: relative;
 	}
+}
+
+#on-menu-open {
+	-webkit-transition: .3s ease all;
+	transition: .3s ease all;
+}
+
+.menu-opened {
+	transform: translateX(276px);
+	-webkit-transform: translateX(276px);
 }
 
 .dotted {
@@ -703,6 +715,7 @@ header .menu {
 		top: -20px;
 		left: 137px;
 		padding: 0px;
+		height: 95px;
 	}
 
 	.modalDriverPhoto img {

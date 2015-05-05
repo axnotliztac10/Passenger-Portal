@@ -39,7 +39,7 @@ angular.module('blackRide')
         apiKey: 'AIzaSyCC5Zs_D1q-RJy3I8hbDk6xxDuNlHZQS_s'
      });
 
-    localStorageServiceProvider.setPrefix('blackRide');
+    localStorageServiceProvider.setPrefix('blackRide_beta_');
 
     datepickerConfig.showWeeks = false;
     cfpLoadingBarProvider.includeSpinner = false;
@@ -107,20 +107,34 @@ angular.module('blackRide')
 
 angular.module("blackRide").run(function ($rootScope, $state) {
 
+    var closeOnOpen = function () {
+        $('#menu').removeClass('show-nav');
+        $('#status-buttons, #on-menu-open').removeClass('menu-opened');
+    };
+
     var menuListener = function () {
-        $('.menuOpen').off("click").on("click", function() {
-            $menu = $('#menu'), $scope = $(this);
-            $menu.toggleClass('show-nav');
-        });
+      closeOnOpen();
+
+      $('.menuOpen').off("click").on("click", function() {
+          $menu = $('#menu'), $scope = $(this);
+          $menu.toggleClass('show-nav');
+          $('#status-buttons, #on-menu-open').toggleClass('menu-opened');
+      });
     };
 
     var lightListener = function (scope) {
+      closeOnOpen();
+
       var closure = function (scope) {
-        $scope = $(scope), elements = $scope.attr("light").split(",");
+        $scope = $(scope);
+        elements = ($scope.attr("light")) ? $scope.attr("light").split(",") : false;
+
         $("[light]").removeClass("lightDot");
-        angular.forEach(elements, function (v, i) {
-          $("[ui-sref='" + v + "']").addClass("lightDot");
-        });
+        if (elements) {
+          angular.forEach(elements, function (v, i) {
+            $("[ui-sref='" + v + "']").addClass("lightDot");
+          });
+        }
       };
 
       /*if (scope == "history" || scope == "organizations" || scope == "payment") {
