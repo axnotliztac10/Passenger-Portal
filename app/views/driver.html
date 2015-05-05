@@ -107,6 +107,7 @@
 </div>
 
 <script type="text/ng-template" id="modalDriver.html">
+		<span class="close" ng-click="cancel()">x</span>
         <div class="modal-header modalDriverPhoto">
             <img ng-src="{{candidate.driver.logo_url_small || './assets/imgs/faces/30.jpg'}}" alt="">
         </div>

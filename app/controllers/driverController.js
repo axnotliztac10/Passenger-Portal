@@ -63,6 +63,7 @@ angular.module('blackRide').controller('driverController',
                     templateUrl: 'modalDriver.html',
                     controller: 'modalDriver',
                     size: size,
+                    backdrop: 'static',
                     resolve: {
                         candidate: function () {
                             return candidate;

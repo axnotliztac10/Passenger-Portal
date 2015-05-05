@@ -34,7 +34,7 @@ angular.module('blackRide').controller('dropController',
     $scope.icons = {
         pick_me: {
             url: HOST + 'assets/imgs/drop_me@2x.png',
-            scaledSize: new google.maps.Size(135, 51)
+            scaledSize: new google.maps.Size(165, 51)
         },
         dragging: {
             url: HOST + 'assets/imgs/dragging@2x.png',
