@@ -362,7 +362,8 @@ header .menu {
 	transition: .3s ease all;
 	width: 320px;
 	height: 341px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
+	margin-top: 30px;
 	position: relative;
 	background-repeat: no-repeat;
 	background-color: @grayDarker;
@@ -810,6 +811,8 @@ header .menu {
 		padding-left: 0px;
 		padding-right: 0px;
 		border-color: @borderGray;
+		border-right: 0px;
+		border-left: 0px;
 	}
 
 	.border-table-ai {
@@ -1116,7 +1119,7 @@ header .menu {
 
 	slider div.handle, [slider] div.handle {
 		background-color: @blackLight !important;
-		border: 1px solid #fff !important;
+		border: 1px solid @grayLight !important;
 		width: 18px !important;
 		height: 18px !important;
 		.if-handle;
@@ -1127,7 +1130,7 @@ header .menu {
 	}
 
 	slider, [slider] {
-		height: 4px !important;
+		height: 3px !important;
 	}
 
 	slider div.bar .selection, [slider] div.bar .selection {

@@ -137,12 +137,12 @@ angular.module("blackRide").run(function ($rootScope, $state) {
         }
       };
 
-      /*if (scope == "history" || scope == "organizations" || scope == "payment") {
+      if (scope == "history" || scope == "organizations" || scope == "payment" || scope == "about") {
         $("#status-buttons").hide();
         return;
       } else {
         $("#status-buttons").show();
-      }*/
+      }
 
       if (scope) {
         closure("[ui-sref='" + scope + "']");

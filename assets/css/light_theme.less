@@ -2,12 +2,12 @@
 html.light {
 	
 	@grayDarker: #fff;
-	@greenYellow: rgba(86, 231, 128, 1);
-	@grayLight: #cecece;
-	@grayDark: #cecece;
+	@greenYellow: #56e780;
+	@grayLight: #CACACA;
+	@grayDark: #B1B1B1;
 	@blackLight: #fff;
-	@blueGreen: #07b5b5;
-	@grayLighter: #b3b3b3;
+	@blueGreen: #3abbd1;
+	@grayLighter: #E0E0E0;
 	@contextPath: "/";
 
 	@thinParaph: 300;
@@ -38,6 +38,7 @@ html.light {
 		border-color: @greenYellow;
 		color: #fff;
 	}
-
+	
+	@import (multiple) "libs.less";
 	@import (multiple) "./main.less";
 }
