@@ -348,11 +348,49 @@ header .menu {
 .car-anims {
 	-webkit-transition: .3s ease all;
 	transition: .3s ease all;
+	width: 320px;
+	height: 341px;
+	margin-bottom: 10px;
+	position: relative;
+	background-repeat: no-repeat;
+	background-color: @grayDarker;
 }
 
 .car-anims:hover {
 	box-shadow: @stepShadow;
-	margin-top: -5px;
+	transform: translateY(-5px);
+	-webkit-transform: translateY(-5px);
+}
+
+.car-anims > p:nth-child(1) {
+	position: relative;
+	width: 100%;
+	top: 198px;
+	padding: 0px 20px;
+	height: 30px;
+}
+
+.car-anims .nextStep {
+	bottom: -16px;
+	left: -4px;
+}
+
+.car-anims > p > span:nth-child(1) {
+	float: left;
+	font-size: 26px;
+}
+
+.car-anims > p > span:nth-child(2) {
+	float: right;
+	font-size: 40px;
+	margin-top: -14px;
+	margin-right: -4px;
+	color: @blueGreen;
+	font-weight: 100;
+}
+
+.min {
+	font-size: 21px;
 }
 
 .driverModal .modal-content, .driverModal .modal-dialog{

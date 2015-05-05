@@ -33,7 +33,7 @@ angular.module('blackRide').controller('dropController',
     $scope.markersCtr = {};
     $scope.icons = {
         pick_me: {
-            url: HOST + 'assets/imgs/pick_me@2x.png',
+            url: HOST + 'assets/imgs/drop_me@2x.png',
             scaledSize: new google.maps.Size(135, 51)
         },
         dragging: {

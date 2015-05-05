@@ -10,7 +10,7 @@
 </head>
 <body>
   
-  <header ng-controller="authController">
+  <header ng-controller="authController" class="ng-cloak">
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alerts.splice($index, 1)">{{alert.msg}}</alert>
     <a href="javascript: void(0)">
       <button type="button" class="navbar-toggle collapsed menuOpen">
