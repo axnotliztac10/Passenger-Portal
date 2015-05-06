@@ -109,7 +109,7 @@ angular.module("blackRide").run(function ($rootScope, $state) {
 
     var closeOnOpen = function () {
         $('#menu').removeClass('show-nav');
-        $('#status-buttons, #on-menu-open').removeClass('menu-opened');
+        //$('#status-buttons, #on-menu-open').removeClass('menu-opened');
     };
 
     var menuListener = function () {
@@ -118,7 +118,7 @@ angular.module("blackRide").run(function ($rootScope, $state) {
       $('.menuOpen').off("click").on("click", function() {
           $menu = $('#menu'), $scope = $(this);
           $menu.toggleClass('show-nav');
-          $('#status-buttons, #on-menu-open').toggleClass('menu-opened');
+          //$('#status-buttons, #on-menu-open').toggleClass('menu-opened');
       });
     };
 
