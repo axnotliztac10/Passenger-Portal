@@ -22,6 +22,7 @@
 	</div>
 	<input type="text" placeholder="" class="addPickup padRight text-box text-left-imp" ng-model="address" ng-click="sa=true" ng-hide="sa">
 	<input type="text" placeholder="Search" class="addPickup padRight text-box text-left-imp" ng-autocomplete="result" details="details" options="options" ng-show="sa" ng-focus="sa">
+	<p class="nextStep onsearch"><a ng-click="go()">Skip</a></p>
 	<google-map 
 		center="map.center" 
 		refresh="map.refresh"

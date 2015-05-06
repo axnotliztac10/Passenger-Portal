@@ -10,6 +10,7 @@ angular.module('blackRide').controller('authController', [
         'StripeProvider',
         'localStorageService',
         '$timeout',
+        '$state',
     function (
         $rootScope,
         $scope,
@@ -21,7 +22,8 @@ angular.module('blackRide').controller('authController', [
         LogoutFactory,
         StripeProvider,
         localStorageService,
-        $timeout
+        $timeout,
+        $state
     ) {
     
     $scope.$on('signIn', function (event, callBack) {
@@ -49,8 +51,9 @@ angular.module('blackRide').controller('authController', [
         var c = noConfirm || confirm('Confirm Logout');
         if (c) {
             $scope.nickname = null;
+            var booking = angular.copy($rootScope.user.booking);
             $rootScope.user = {
-                booking: {},
+                booking: ($state.current.name == 'drop') ? booking : {},
                 token: 'none',
                 flush: function () {
                     localStorageService.set('user', $rootScope.user);

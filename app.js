@@ -39,7 +39,7 @@ angular.module('blackRide')
         apiKey: 'AIzaSyCC5Zs_D1q-RJy3I8hbDk6xxDuNlHZQS_s'
      });
 
-    localStorageServiceProvider.setPrefix('blackRide_beta_');
+    localStorageServiceProvider.setPrefix('portal_');
 
     datepickerConfig.showWeeks = false;
     cfpLoadingBarProvider.includeSpinner = false;
