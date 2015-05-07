@@ -19,7 +19,7 @@ angular.module('blackRide').controller('dropController',
         Quotes
 	) {
 
-    if (!$rootScope.user) {
+    if (!$rootScope.user.booking || !$rootScope.user.booking.from) {
         $state.go("home");
         return;
     }
@@ -64,7 +64,7 @@ angular.module('blackRide').controller('dropController',
 
                 $scope.address = $rootScope.user.booking.from.formatted_address;
 
-                if ($rootScope.user.booking.to) {
+                if ($rootScope.user.booking.to && $rootScope.user.booking.to.latitude) {
                     pos = {
                         lat: $rootScope.user.booking.to.latitude,
                         lon: $rootScope.user.booking.to.longitude
@@ -97,17 +97,12 @@ angular.module('blackRide').controller('dropController',
     var setBooking = function () {
         $scope.$on("authSuccess", function () {
             var route = {
-                    "pickup_time": $rootScope.user.booking.scheduled_raw,
-                    "origin": "Berlin",
-                    "destination": "Munich"
+                    pickup_time: $rootScope.user.booking.scheduled_raw,
+                    origin: $rootScope.user.booking.from.formatted_address
                 };
 
             if ($rootScope.user.booking.to.formatted_address) {
-                route = {
-                    pickup_time: $rootScope.user.booking.scheduled_raw,
-                    origin: $rootScope.user.booking.from.formatted_address,
-                    destination: $rootScope.user.booking.to.formatted_address
-                };
+                route.destination = $rootScope.user.booking.to.formatted_address;
             }
 
             Quotes.save(route).success(function (res) {
@@ -133,6 +128,7 @@ angular.module('blackRide').controller('dropController',
                 latitude: pos.lat(),
                 longitude: pos.lng()
             };
+            $rootScope.user.flush();
 
             setBooking();
         }

@@ -163,6 +163,7 @@ angular.module("blackRide").run(function ($rootScope, $state) {
 
     $(window).load(function () {
       menuListener();
+      $('.hide-on-load').removeClass('hide-on-load');
     });
 });
 
@@ -202,17 +203,27 @@ angular.module('blackRide').controller('modalConfirm', function ($rootScope, $sc
 
 });
 
-angular.module('blackRide').controller('menuController', function ($rootScope, $scope) {
+angular.module('blackRide').controller('menuController', function ($rootScope, $scope, Organisations) {
+  $scope.organizations = false;
+
+  var getOrg = function () {
+    Organisations.get().success(function (res) {
+      $scope.organizations = res.length;
+    });
+  };
+
   $scope.$on('loggedOut', function () {
     $scope.loggedIn = false;
   })
 
   $scope.$on('authSuccess', function () {
     $scope.loggedIn = true;
+    getOrg();
   });
 
   if ($rootScope.isLoggedIn()) {
     $scope.loggedIn = true;
+    getOrg();
   }
 });
 

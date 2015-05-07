@@ -34,21 +34,6 @@ angular.module('blackRide').controller('confirmController',
     } else if (!$rootScope.user.booking.driver_info) {
         $state.go("driver");
     }
-
-    PubNub.init({
-        subscribe_key:'sub-c-4dec92dc-f2fb-11e3-854f-02ee2ddab7fe',
-    });
-
-    PubNub.ngSubscribe({
-        channel: $rootScope.user.passenger.id + '.Passenger',
-        callback: function () {
-            console.log('Connected!');
-        }
-    });
-
-    $rootScope.$on(PubNub.ngMsgEv($rootScope.user.passenger.id + '.Passenger'), function(event, payload) {
-        console.log(payload);
-    });
         
     $scope.driver = $rootScope.user.booking.driver_info;
     $scope.user = $rootScope.user;
@@ -144,7 +129,7 @@ angular.module('blackRide').controller('confirmController',
                     latitude: lat,
                     longitude: lng,
                     title: "m0",
-                    id: 0
+                    id: 1010
                 });
 
                 $scope.markers.push({
@@ -205,6 +190,71 @@ angular.module('blackRide').controller('confirmController',
                         }
                     });
                 }
+
+                var codes = {
+                    "notification": {
+                        "kind": {
+                            "1": "Affiliation",
+                            "2": "Booking",
+                            "4": "Ride",
+                            "8": "Vehicle",
+                            "16": "Driver"
+                        },
+                        "type": {
+                            "1": "Information",
+                            "2": "Warning",
+                            "4": "Success",
+                            "8": "Error"
+                        },
+                        "code": {
+                            "1": "BookingNotReceived",
+                            "2": "BookingReceived",
+                            "4": "RideAccepted",
+                            "8": "RideRejected",
+                            "16": "RideCancelled",
+                            "32": "RideTransferringToStart",
+                            "64": "RideCompleted",
+                            "128": "RideNoAnswer",
+                            "256": "DriverLogin",
+                            "512": "DriverLogout",
+                            "1024": "VehicleFree",
+                            "2048": "VehicleBusy"
+                        }
+                    }
+                };
+
+                var notification_kinds = codes.notification.kind;
+                var notification_types = codes.notification.type;
+                var notification_codes = codes.notification.code;
+
+                PubNub.init({
+                    subscribe_key:'sub-c-4dec92dc-f2fb-11e3-854f-02ee2ddab7fe',
+                });
+
+                PubNub.ngSubscribe({
+                    channel: $rootScope.user.passenger.id + '.Passenger',
+                    callback: function (message, env, channel) {
+                        var msg = JSON.parse(message);
+                        if (!(msg && msg.payload)) {
+                            return;
+                        }
+                        msg = msg.payload;
+
+                        var kind = notification_kinds[msg.kind];
+                        var type = notification_types[msg.type];
+                        var code = notification_codes[msg.code];
+                        
+                        //console.log($scope.markers)
+                        
+                        PubNub.ngSubscribe({
+                            channel: msg.driver_id + '.Driver',
+                            callback: function (message_driver) {
+                                console.log(message_driver);
+
+                            }
+                        });
+                    }
+                });
 
                 $window.google.maps.event.clearListeners(map, 'idle');
             }
