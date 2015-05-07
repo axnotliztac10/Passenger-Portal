@@ -265,7 +265,7 @@ angular.module('blackRide').filter('cardMask', function() {
       return '0000';
     }
     
-    return item.substr(item.length - 4);
+    return ('' + item).substr(item.length - 4);
   };
 });
 

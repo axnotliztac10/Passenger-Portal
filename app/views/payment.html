@@ -17,11 +17,27 @@
 		</p>
 	</div>
 	<div ng-show="activeEdit">
-		<form stripe:form="saveCustomer">
-			<input class="full" type="text" ng-model="genTok.number" placeholder="Credit Card Number">
-			<input type="text" class="short middle" placeholder="MM" ng-model="genTok['exp-month']">
-			<input type="text" class="short middle spacing" placeholder="YY" ng-model="genTok['exp-year']">
-			<input type="text" class="middle fix" placeholder="CVC" ng-model="genTok.cvc">
+		<form name="stripe" stripe:form="saveCustomer" novalidate>
+			<div class="validation-error" ng-show="stripe.number.$dirty && stripe.number.$invalid">Invalid:
+		      <span ng-show="stripe.number.$error.required">Card number.</span>
+		    </div>
+
+		    <div class="validation-error" ng-show="stripe.expmonth.$dirty && stripe.expmonth.$invalid">Invalid:
+		      <span ng-show="stripe.expmonth.$error.required"> Expiration month.</span>
+		    </div>
+
+		    <div class="validation-error" ng-show="stripe.expyear.$dirty && stripe.expyear.$invalid">Invalid:
+		      <span ng-show="stripe.expyear.$error.required"> Expiration year.</span>
+		    </div>
+
+		    <div class="validation-error" ng-show="stripe.cvc.$dirty && stripe.cvc.$invalid">Invalid:
+		      <span ng-show="stripe.cvc.$error.required"> CVC.</span>
+		    </div>
+
+			<input name="number" required class="full" type="number" ng-model="genTok.number" placeholder="Credit Card Number">
+			<input name="expmonth" required type="number" class="short middle" placeholder="MM" ng-model="genTok['exp-month']">
+			<input name="expyear" required type="number" class="short middle spacing" placeholder="YY" ng-model="genTok['exp-year']">
+			<input name="cvc" required type="number" class="middle fix" placeholder="CVC" ng-model="genTok.cvc">
 			
 				<div ng-click="defaultCard = !defaultCard" class="material-checkbox form-group">    
 			    <input type="checkbox" ng-checked="defaultCard">  
@@ -37,7 +53,7 @@
 			  </div>
 
 			<p class="nextStep" style="margin-bottom: 20px;">
-				<a ng-click="setEdit(false, $event)">Add Credit Card</a>
+				<a ng-click="validate(stripe.$valid, $event);">Add Credit Card</a>
 			</p>
 		</form>
 	</div>

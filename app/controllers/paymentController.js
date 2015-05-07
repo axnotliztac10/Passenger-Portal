@@ -10,10 +10,27 @@ angular.module('blackRide').controller('paymentController',
         $timeout
     ) {
 
+      var sendCard = function () {
+        $rootScope.user.card = { cardBody: scope.genTok };
+        $rootScope.user.flush();
+        $window.Stripe.createToken(scope.genTok, function(status, response) {
+          StripeProvider.save({token: response.id, default: scope.defaultCard}).success(function (res) {
+            $rootScope.user.card.stripe = res;
+            $rootScope.user.flush();
+          });
+        });
+      };
 
       $scope.setEdit = function (val, ev) {
         ev.stopPropagation();
         $scope.activeEdit = val;
+      };
+
+      $scope.validate = function (validate, $event) {
+        if (validate) {
+          sendCard();
+          $scope.setEdit(false, $event);
+        }
       };
 
       $('label').click(function() {

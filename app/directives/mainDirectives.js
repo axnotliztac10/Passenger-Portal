@@ -3,16 +3,7 @@ angular.module('blackRide').directive('stripeForm', function ($window, $rootScop
     directive.link = function(scope, element, attributes) {
       var form = angular.element(element);
       
-      $(form[0]).find('.nextStep > a').bind('click', function () {
-        $rootScope.user.card = { cardBody: scope.genTok };
-        $rootScope.user.flush();
-        $window.Stripe.createToken(scope.genTok, function(status, response) {
-          StripeProvider.save({token: response.id, default: scope.defaultCard}).success(function (res) {
-            $rootScope.user.card.stripe = res;
-            $rootScope.user.flush();
-          });
-        });
-      });
+      //$(form[0]).find('.nextStep > a').bind('click', );
     };
     return directive;
   });
