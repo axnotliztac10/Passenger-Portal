@@ -44,7 +44,8 @@
 	</div>
 </div>
 <div class="row text-center" ng-show="now">
-	<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', candidate)" ng-repeat="candidate in candidates | filter:timeFilter | filter:priceFilter | filter:starFilter">
+	<!--<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', candidate)" ng-repeat="candidate in candidates | filter:timeFilter | filter:priceFilter | filter:starFilter">-->
+	<div class="col-md-4 col-xs-12 col-sm-6 driverWrap entrace-eff" ng-click="open('sm', candidate)" ng-repeat="candidate in candidates">
 		<div class="driverItem">
 			<img ng-src="{{driver.img || './assets/imgs/cars/car.jpg'}}" alt="">
 			<div>

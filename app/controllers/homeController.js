@@ -54,6 +54,21 @@ angular.module('blackRide').controller('homeController',
                 $scope.setIcon($scope.icons['dragging']);
             },
             dragend: function (res) {
+
+                var directionsService = new google.maps.DirectionsService();
+                var center = $scope.map.control.getGMap().getCenter();
+                directionsService.route({
+                    origin: center,
+                    destination: center,
+                    travelMode: google.maps.DirectionsTravelMode.DRIVING}, function(response, status) {
+                      if (status == google.maps.DirectionsStatus.OK)
+                      {
+                        $scope.markersCtr.getGMarkers()[0].setPosition(response.routes[0].legs[0].start_location);
+                      } else {
+                        $scope.markersCtr.getGMarkers()[0].setPosition(center);
+                      }
+                });
+
                 var pos = $scope.map.control.getGMap().getCenter();
                 $scope.markersCtr.getGMarkers()[0].setVisible(true);
                 $scope.getAddress(pos.lat(), pos.lng(), function () {$scope.setIcon($scope.icons['pick_me'])});
@@ -64,7 +79,8 @@ angular.module('blackRide').controller('homeController',
             },
             center_changed: function (res) {
                 if (angular.isDefined($scope.markersCtr.getGMarkers()[0])) {
-                    $scope.markersCtr.getGMarkers()[0].setPosition($scope.map.control.getGMap().getCenter());
+                    var center = $scope.map.control.getGMap().getCenter();
+                    $scope.markersCtr.getGMarkers()[0].setPosition(center);
                 }
             }
         }

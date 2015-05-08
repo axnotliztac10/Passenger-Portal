@@ -39,6 +39,7 @@ angular.module('blackRide').controller('confirmController',
     $scope.user = $rootScope.user;
     $scope.scheduled = $rootScope.user.booking.scheduled_raw;
     $scope.markers = [];
+    $scope.markersControl = {};
 
     $scope.map = {
         control: {},
@@ -88,8 +89,6 @@ angular.module('blackRide').controller('confirmController',
                     lat_lng.push(new $window.google.maps.LatLng(posDro.lat, posDro.lon));
                 }
 
-                var path = new $window.google.maps.MVCArray();
-                var pathTwo = new $window.google.maps.MVCArray();
                 var service = new $window.google.maps.DirectionsService();
                 
                 var lineSymbol = {
@@ -162,34 +161,11 @@ angular.module('blackRide').controller('confirmController',
 
                 var driver = lat_lng[0];
                 var aPoint = lat_lng[1];
-                path.push(driver);
-                poly.setPath(path);
-                service.route({
-                    origin: driver,
-                    destination: aPoint,
-                    travelMode: $window.google.maps.DirectionsTravelMode.DRIVING
-                }, function (result, status) {
-                    if (status == google.maps.DirectionsStatus.OK) {
-                        for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-                            path.push(result.routes[0].overview_path[i]);
-                        }
-                    }
-                });
+                $scope.drawPath(driver, aPoint, poly, service);
 
                 if (posDro) {
                     var bPoint = lat_lng[2];
-                    polyTwo.setPath(pathTwo);
-                    service.route({
-                        origin: aPoint,
-                        destination: bPoint,
-                        travelMode: $window.google.maps.DirectionsTravelMode.DRIVING
-                    }, function (result, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-                            for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-                                pathTwo.push(result.routes[0].overview_path[i]);
-                            }
-                        }
-                    });
+                    $scope.drawPath(aPoint, bPoint, polyTwo, service);
                 }
 
                 var codes = {
@@ -244,22 +220,48 @@ angular.module('blackRide').controller('confirmController',
                         var kind = notification_kinds[msg.kind];
                         var type = notification_types[msg.type];
                         var code = notification_codes[msg.code];
-                        
-                        //console.log($scope.markers)
-                        
-                        PubNub.ngSubscribe({
-                            channel: msg.driver_id + '.Driver',
-                            callback: function (message_driver) {
-                                console.log(message_driver);
+                    }
+                });
 
-                            }
-                        });
+                PubNub.ngSubscribe({
+                    channel: 6286870317105152 + '.Driver',
+                    callback: function (message_driver) {
+                        var msgDriver = JSON.parse(message_driver);
+                        if (!(msgDriver && msgDriver.payload)) {
+                            return;
+                        }
+                        msgDriver = msgDriver.payload;
+
+                        var kind = notification_kinds[msgDriver.kind];
+                        var type = notification_types[msgDriver.type];
+                        var code = notification_codes[msgDriver.code];
+
+                        var newposition = new google.maps.LatLng(msgDriver.lat, msgDriver.lng);
+                        $scope.drawPath(newposition, aPoint, poly, service);
+                        if ($scope.markersControl.getGMarkers()[2]) $scope.markersControl.getGMarkers()[2].setPosition(newposition);
                     }
                 });
 
                 $window.google.maps.event.clearListeners(map, 'idle');
             }
         }
+    };
+
+    $scope.drawPath = function (pointA, pointB, polyline, service) {
+        var path = new $window.google.maps.MVCArray();
+        path.push(pointA);
+        polyline.setPath(path);
+        service.route({
+            origin: pointA,
+            destination: pointB,
+            travelMode: $window.google.maps.DirectionsTravelMode.DRIVING
+        }, function (result, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                    path.push(result.routes[0].overview_path[i]);
+                }
+            }
+        });
     };
 
     $scope.open = function () {
