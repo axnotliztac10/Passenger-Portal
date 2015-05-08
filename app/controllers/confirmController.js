@@ -224,7 +224,7 @@ angular.module('blackRide').controller('confirmController',
                 });
 
                 PubNub.ngSubscribe({
-                    channel: 6286870317105152 + '.Driver',
+                    channel: $rootScope.user.booking.driver_info.driver.id + '.Driver',
                     callback: function (message_driver) {
                         var msgDriver = JSON.parse(message_driver);
                         if (!(msgDriver && msgDriver.payload)) {
