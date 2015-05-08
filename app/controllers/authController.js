@@ -152,12 +152,14 @@ angular.module('blackRide').controller('authController', [
     };
 
     $rootScope.addAlert = function (type, msg) {
+        $scope.alertStyle = {display: 'block'};
         $scope.alerts = [{
             type: type,
             msg: msg
         }];
         $timeout(function () {
             $scope.alerts = [];
+            $scope.alertStyle = {};
         }, 5000);
     }
 

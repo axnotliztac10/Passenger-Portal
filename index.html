@@ -11,7 +11,7 @@
 <body>
   
   <header ng-controller="authController" class="ng-cloak">
-    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alerts.splice($index, 1)">{{alert.msg}}</alert>
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" ng-style="alertStyle" close="alerts.splice($index, 1)">{{alert.msg}}</alert>
     <a href="javascript: void(0)">
       <button type="button" class="navbar-toggle collapsed menuOpen">
         <span class="icon-bar"></span>
@@ -23,7 +23,7 @@
     <div class="menu hide-on-load">
       <a class="button first hide" href="javascript: void(0)">Sign Up</a>
       <!--<a class="button" ng-if="nickname" href="javascript: void(0)" ng-click="logout()">{{nickname}}<img src="{{picture}}"></a>-->
-      <a class="button" ng-if="nickname" href="javascript: void(0)" style="cursor:text">{{nickname}}<img src="{{picture}}"></a>
+      <a class="button" ng-if="nickname" href="javascript: void(0)" style="cursor:text">{{nickname}}<img ng-src="{{picture}}"></a>
       <a class="button" ng-if="!nickname" href="javascript: void(0)" ng-click="open()">Login</a>
     </div>
     <script type="text/ng-template" id="modalConfirm.html">

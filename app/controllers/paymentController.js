@@ -4,17 +4,22 @@ angular.module('blackRide').controller('paymentController',
         '$scope',
         '$rootScope',
         '$timeout',
+        '$window',
+        'StripeProvider',
     function(
         $scope,
         $rootScope,
-        $timeout
+        $timeout,
+        $window,
+        StripeProvider
     ) {
 
       var sendCard = function () {
-        $rootScope.user.card = { cardBody: scope.genTok };
+        $rootScope.user.card = { cardBody: $scope.genTok };
         $rootScope.user.flush();
-        $window.Stripe.createToken(scope.genTok, function(status, response) {
-          StripeProvider.save({token: response.id, default: scope.defaultCard}).success(function (res) {
+        $window.Stripe.createToken($scope.genTok, function(status, response) {
+          StripeProvider.save({token: response.id, default: $scope.defaultCard}).success(function (res) {
+            $rootScope.addAlert('success','Credit card added successfully.');
             $rootScope.user.card.stripe = res;
             $rootScope.user.flush();
           });
