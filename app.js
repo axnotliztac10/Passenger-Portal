@@ -164,6 +164,9 @@ angular.module("blackRide").run(function ($rootScope, $state) {
     $(window).load(function () {
       menuListener();
       $('.hide-on-load').removeClass('hide-on-load');
+      $('#menu [ui-sref]').on('click', function () {
+        $('body, html').scrollTop(0);
+      });
     });
 });
 
