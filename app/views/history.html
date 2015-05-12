@@ -29,7 +29,7 @@
 		</div>
 	</div>
 
-	<div ng-if="bookingsOngoing.length == 0 && bookingsPending.length == 0" class="row rowHis historyElement">
+	<div ng-if="(bookingsOngoing|filter:searchText).length == 0 && (bookingsPending|filter:searchText).length == 0" class="row rowHis historyElement">
 		<p class="error">No active bookings.</p>
 	</div>
 	<div class="row rowHis historyElement" ng-repeat="booking in bookingsOngoing | orderBy:'sort.value' | filter:searchText">
@@ -61,7 +61,7 @@
 			<p>History</p>
 		</div>
 	</div>
-	<div ng-if="bookingsDone.length == 0 && bookingsDispatched.length == 0 && bookingsCancelled.length == 0" class="row rowHis historyElement">
+	<div ng-if="(bookingsDone|filter:searchText).length == 0 && (bookingsDispatched|filter:searchText).length == 0 && (bookingsCancelled|filter:searchText).length == 0" class="row rowHis historyElement">
 		<p class="error">Your booking history is empty.</p>
 	</div>
 	<div class="row rowHis historyElement" ng-repeat="booking in bookingsDone | orderBy:'sort.value' | filter:searchText">
