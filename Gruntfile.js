@@ -39,7 +39,8 @@ module.exports = function(grunt) {
             index: { src: 'index.html', dest: 'build/webapp/'},
             appviews: { files: [{ expand: true, cwd: 'app/views/', src: ['**/*'], dest: 'build/webapp/app/views'}] },
             images: { files: [{ expand: true, cwd: 'assets/imgs/', src: ['**/*'], dest: 'build/webapp/assets/imgs/'}] },
-            fonts: { files: [{ expand: true, cwd: 'bower_components/bootstrap/fonts/', src: ['*'], dest: 'build/webapp/assets/fonts/'}] }
+            fonts: { files: [{ expand: true, cwd: 'bower_components/bootstrap/fonts/', src: ['*'], dest: 'build/webapp/assets/fonts/'}] },
+            icons: { files: [{ expand: true, cwd: 'assets/brands/<%= brand %>', src: ['*'], dest: 'build/webapp/assets/icons'}] }
         },
         concat: {
             options: {
@@ -129,6 +130,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    var brand = grunt.option('brand') || 'blueandshift';
+    grunt.config.set('brand', brand);
 
     grunt.registerTask('appengine:deploy', ['shell:deploy']);
     grunt.registerTask('appengine:clean', ['shell:clean']);
