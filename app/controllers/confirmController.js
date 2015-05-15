@@ -240,20 +240,22 @@ angular.module('blackRide').controller('confirmController',
 
                         var newposition = new google.maps.LatLng(msgDriver.lat, msgDriver.lng);
                         $scope.drawPath(newposition, aPoint, poly, service);
-                        if ($scope.markersControl.getGMarkers()[0]) {
-                            $scope.markersControl.getGMarkers()[0].setMap(null);
-                            $scope.markers.push({
-                                icon: {
-                                    url: HOST + 'assets/imgs/driver@2x.png',
-                                    scaledSize: new google.maps.Size(60, 60)
-                                },
-                                options: { draggable: false },
-                                latitude: msgDriver.lat,
-                                longitude: msgDriver.lng,
-                                title: "m0",
-                                id: 1010
-                            });
-                        }
+                        angular.forEach($scope.markers, function (v, i) {
+                            if (v.id == 1010) {
+                                $scope.markers.splice(i, 1);
+                                $scope.markers.push({
+                                    icon: {
+                                        url: HOST + 'assets/imgs/driver@2x.png',
+                                        scaledSize: new google.maps.Size(60, 60)
+                                    },
+                                    options: { draggable: false },
+                                    latitude: msgDriver.lat,
+                                    longitude: msgDriver.lng,
+                                    title: "m0",
+                                    id: 1010
+                                });
+                            }
+                        });
 
                         $scope.setDriverImage(newposition, map);
                     }
