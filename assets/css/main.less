@@ -44,6 +44,10 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 header .title {
 	color: #fff;
 	img {
@@ -82,6 +86,7 @@ header .menu {
 #status-buttons {  
 	margin-top: 40px;
 	-webkit-transition: .3s ease all;
+	-moz-transition: .3s ease all;
 	transition: .3s ease all;
 	a { 
 		color:@grayLight; 
@@ -98,12 +103,14 @@ header .menu {
 
 #on-menu-open {
 	-webkit-transition: .3s ease all;
+	-moz-transition: .3s ease all;
 	transition: .3s ease all;
 }
 
 .menu-opened {
 	transform: translateX(276px);
 	-webkit-transform: translateX(276px);
+	-moz-transform: translateX(276px);
 }
 
 .dotted {
@@ -136,6 +143,7 @@ header .menu {
 	background: @blackLight;
 	padding: 80px 15px 15px 15px;
 	-webkit-transition: .3s ease all;
+	-moz-transition: .3s ease all;
 	transition: .3s ease all;
 	z-index: 999;
 	ul {
@@ -387,6 +395,7 @@ header .menu {
 
 .car-anims {
 	-webkit-transition: .3s ease all;
+	-moz-transition: .3s ease all;
 	transition: .3s ease all;
 	width: 320px;
 	height: 341px;
@@ -400,6 +409,7 @@ header .menu {
 .car-anims:hover {
 	box-shadow: @stepShadow;
 	transform: translateY(-5px);
+	-moz-transform: translateY(-5px);
 	-webkit-transform: translateY(-5px);
 }
 
@@ -559,6 +569,7 @@ header .menu {
 	  	width: 100%;
 	  	opacity: 1;
 	  	-webkit-transition: .3s ease all;
+	  	-moz-transition: .3s ease all;
 	  	transition: .3s ease all;
 	  	border-radius: 3px 3px 0px 0px;
 	  }
@@ -1307,6 +1318,7 @@ header .menu {
 		.filtersOn {
 			height: 410px !important;
 			-webkit-transition: .3s ease all !important;
+			-moz-transition: .3s ease all !important;
 			transition: .3s ease all !important;
 		}
 
@@ -1838,6 +1850,7 @@ header .menu {
 
 	.alert-success.ng-enter {
 		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
 		transition: 0.5s;
 		opacity: 0;
 		right: -300px;
@@ -1849,6 +1862,7 @@ header .menu {
 
 	.alert-success.ng-leave {
 		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
 		transition: 0.5s;
 		opacity: 1;
 		right: 0px;
