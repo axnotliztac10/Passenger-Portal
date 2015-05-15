@@ -14,8 +14,14 @@ angular.module('blackRide').controller('timeController',
         $state.go("home");
         return;
     }
+    
+    var round5 = function (x) {
+        return (x % 5) >= 2.5 ? parseInt(x / 5) * 5 + 5 : parseInt(x / 5) * 5;
+    }
 
-    $scope.timeToPick = new Date();
+    var timeToPick = new Date();
+    timeToPick.setMinutes(round5(timeToPick.getMinutes()));
+    $scope.timeToPick = timeToPick;
     $scope.ismeridian = false;
     $scope.format = 'dd-MM-yyyy';
     $scope.dt = "Today";
