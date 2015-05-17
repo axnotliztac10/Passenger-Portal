@@ -61,8 +61,8 @@
 						state-off="'star-gray'"
 					></rating>
 				</div>
-				<span class="time">{{candidate.vehicles[0].quote.hours * 60}} min</span><br>
-				<span class="price">$ {{candidate.vehicles[0].quote.total | number : 2}}</span>
+				<span ng-if="candidate.vehicles[0].quote.hours" class="time">{{candidate.vehicles[0].quote.hours * 60}} min</span><br>
+				<span ng-if="candidate.vehicles[0].quote.total" class="price">$ {{candidate.vehicles[0].quote.total | number : 2}}</span>
 			</div>
 		</div>
 	</div>
