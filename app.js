@@ -161,6 +161,14 @@ angular.module("blackRide").run(function ($rootScope, $state) {
         menuListener();
     });
 
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 60) {
+        $('html').addClass('scroll-header');
+      } else {
+        $('html').removeClass('scroll-header');
+      }
+    });
+
     $(window).load(function () {
       menuListener();
       $('.hide-on-load').removeClass('hide-on-load');
