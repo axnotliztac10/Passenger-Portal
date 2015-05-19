@@ -6,13 +6,15 @@ angular.module('blackRide').controller('driverController',
         '$state',
         'Bookings',
         '$timeout',
+        'Quotes',
     function(
         $scope,
         $modal,
         $rootScope,
         $state,
         Bookings,
-        $timeout
+        $timeout,
+        Quotes
     ) {
 
         if (!$rootScope.user) {
@@ -124,9 +126,27 @@ angular.module('blackRide').controller('driverController',
             }
         ];
 
+        $scope.candidates = [];
         $scope.candidates = [{"driver":{"id":6286870317105152,"name":"Pedro Garcia","logo_url":"https://storage.googleapis.com/shift-driver-api-drivers-photo/photo_driver_6286870317105152.jpg?v=1427049685","logo_url_small":"https://lh5.ggpht.com/G-7UkWGTPqle-A92ksch3P08PeagBCMLHpVXgaT_1sDpjwNQ517OwloVzooRLj_nOIxx53y-BJ7ULZpIITOlppb3VoT7=s200"},"vehicles":[{"vehicle_id":5652383656837120,"owner":6286870317105152,"make":"Volkswagen","model":"Phaeton","energy_type":1,"vehicle_type":4,"quote":{"fleet":5081359164899328,"energy_type":1,"vehicle_type":4,"passenger":5734183724908544,"kms":584.778,"hours":320.21666666666664,"hours_waiting":0,"currency":"EUR","total":821.4892}}]}];
 
-        if ($rootScope.user.booking.quote && $rootScope.user.booking.quote.candidates && $rootScope.user.booking.quote.candidates.length) {
+        $scope.selectModel = function (modelId) {
+            var route = {
+                    pickup_time: $rootScope.user.booking.scheduled_raw,
+                    origin: $rootScope.user.booking.from.formatted_address,
+                    vehicle_type: modelId
+                };
+
+            if ($rootScope.user.booking.to.formatted_address) {
+                route.destination = $rootScope.user.booking.to.formatted_address;
+            }
+
+            Quotes.save(route).success(function (res) {
+                $rootScope.user.booking.quote = res;
+                $state.go('model');
+            });
+        };
+
+        if ($rootScope.user.booking.quote && $rootScope.user.booking.quote.candidates && $rootScope.user.booking.quote.candidates.length > 0) {
             $scope.candidates = $rootScope.user.booking.quote.candidates;
         }
         

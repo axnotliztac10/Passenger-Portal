@@ -164,7 +164,7 @@ angular.module('blackRide').controller('authController', [
     }
 
     $rootScope.isLoggedIn = function () {
-        return localStorageService.get('user');
+        return localStorageService.get('user') && !($rootScope.user.token == 'none');
     };
 
     $rootScope.user = {
@@ -173,7 +173,7 @@ angular.module('blackRide').controller('authController', [
     };
 
     var init = function () {
-        if ($rootScope.isLoggedIn()) {
+        if (localStorageService.get('user')) {
             $rootScope.user = localStorageService.get('user');
             $scope.nickname = $rootScope.user.full_name;
             $scope.picture = $rootScope.user.picture;

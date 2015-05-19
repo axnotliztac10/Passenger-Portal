@@ -74,6 +74,12 @@ angular.module('blackRide')
         templateUrl: 'app/views/confirm.html'
     });
 
+    $stateProvider.state('model', {
+        url: '/model',
+        controller: 'confirmModelController',
+        templateUrl: 'app/views/confirm-model.html'
+    });
+
     $stateProvider.state('history', {
         url: '/history',
         controller: 'historyController',
@@ -237,6 +243,12 @@ angular.module('blackRide').controller('menuController', function ($rootScope, $
     getOrg();
   }
 });
+
+angular.module('blackRide').controller('confirmState', function ($state, $scope, $rootScope) {
+  $rootScope.$on('$stateChangeSuccess', function () {
+        $scope.state = ($state.current.name == 'confirm' || $state.current.name == 'model');
+    });
+})
 
 angular.module('blackRide').filter('getCustomDate', function() {
   return function(item) {

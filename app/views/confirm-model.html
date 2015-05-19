@@ -1,0 +1,37 @@
+<div class="stepWrapper medium top-margin bottom-margin text-center wrapMobile" style="padding: 0px;min-height:310px">
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<div class="driverItem">
+				<img ng-if="vehicle == 1" src="./assets/imgs/scheduled1.png" alt="">
+				<img ng-if="vehicle == 2" src="./assets/imgs/scheduled2.png" alt="">
+				<img ng-if="vehicle == 3" src="./assets/imgs/scheduled3.png" alt="">
+				<div class="car-anims" style="margin-bottom: 0px;">
+					<p style="top: 18px;" ng-if="vehicle == 1">
+						<span style="color: #585858">Economy</span>
+						<span><span class="min">$</span>16</span>
+					</p>
+					<p style="top: 18px;" ng-if="vehicle == 2">
+						<span style="color: #585858">Business</span>
+						<span><span class="min">$</span>36</span>
+					</p>
+					<p style="top: 18px;" ng-if="vehicle == 3">
+						<span style="color: #585858">1st Class</span>
+						<span><span class="min">$</span>89</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<div class="tripInfo text-center">
+				<p>From</p>
+				<p class="even">{{user.booking.from.formatted_address}}</p>
+				<p>To</p>
+				<p class="even" ng-if="user.booking.to.formatted_address">{{user.booking.to.formatted_address}}</p>
+				<p class="even" ng-if="!user.booking.to.formatted_address">Not Selected</p>
+				<p>Time</p>
+				<p class="even">{{scheduled | getCustomDate}}</p>
+			</div><br>
+			<p class="nextStep cancelMb"><a ng-click="open()">Confirm Reservation</a></p>
+		</div>
+	</div>
+</div>

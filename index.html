@@ -45,23 +45,23 @@
   </header>
 
   <div id="status-buttons" class="text-center">
-    <a light="" ui-sref-active="active"  ng-click="$event.preventDefault()" ui-sref="home">
+    <a light="" ui-sref-active="active" ng-click="$event.preventDefault()" ui-sref="home">
       <span>1</span> Pick Up
       <div class="dotted-wnt"></div>
     </a>
-    <a light="home" ui-sref-active="active"  ng-click="$event.preventDefault()" ui-sref="time">
+    <a light="home" ui-sref-active="active" ng-click="$event.preventDefault()" ui-sref="time">
       <span>2</span> Time
       <div class="dotted-wnt"></div>
     </a>
-    <a light="home,time" ui-sref-active="active"  ng-click="$event.preventDefault()" ui-sref="drop">
+    <a light="home,time" ui-sref-active="active" ng-click="$event.preventDefault()" ui-sref="drop">
       <span>3</span> Drop Off
       <div class="dotted-wnt"></div>
     </a>
-    <a light="home,time,drop" ui-sref-active="active"  ng-click="$event.preventDefault()" ui-sref="driver">
+    <a light="home,time,drop" ui-sref-active="active" ng-click="$event.preventDefault()" ui-sref="driver">
       <span>4</span> Your Driver
       <div class="dotted-wnt"></div>
     </a>
-    <a light="home,time,drop,driver" ui-sref-active="active"  ng-click="$event.preventDefault()" ui-sref="confirm">
+    <a light="home,time,drop,driver" ng-controller="confirmState" ng-class="{'active': state}" ng-click="$event.preventDefault()">
       <span class="glyphicon glyphicon-ok"></span> Confirmation
     </a>
   </div>
@@ -112,6 +112,7 @@
   <script src="app/controllers/dropController.js"></script>
   <script src="app/controllers/driverController.js"></script>
   <script src="app/controllers/confirmController.js"></script>
+  <script src="app/controllers/confirmModelController.js"></script>
   <script src="app/controllers/historyController.js"></script>
   <script src="app/controllers/authController.js"></script>
   <script src="app/controllers/organizationsController.js"></script>

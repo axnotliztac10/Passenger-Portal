@@ -121,6 +121,11 @@ angular.module('blackRide').controller('dropController',
                 route.destination = $rootScope.user.booking.to.formatted_address;
             }
 
+            if (!$rootScope.user.booking.scheduled_now) {
+                $state.go('driver');
+                return;
+            }
+
             Quotes.save(route).success(function (res) {
                 $rootScope.user.booking.quote = res;
                 $state.go('driver');
