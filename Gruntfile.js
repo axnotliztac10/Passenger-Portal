@@ -70,6 +70,7 @@ module.exports = function(grunt) {
                     'app/controllers/dropController.js',
                     'app/controllers/driverController.js',
                     'app/controllers/confirmController.js',
+                    'app/controllers/confirmModelController.js',
                     'app/controllers/historyController.js',
                     'app/controllers/authController.js',
                     'app/controllers/organizationsController.js',

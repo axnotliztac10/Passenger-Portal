@@ -76,7 +76,7 @@ angular.module('blackRide').controller('driverController',
 
                 modalInstance.result.then(function (candidate) {
                     $rootScope.user.booking.driver_info = candidate;
-                    $state.go("confirm");
+                    $state.go("confirm.driver");
                     }, function () {
                     return;
                 });
@@ -142,7 +142,7 @@ angular.module('blackRide').controller('driverController',
 
             Quotes.save(route).success(function (res) {
                 $rootScope.user.booking.quote = res;
-                $state.go('model');
+                $state.go('confirm.model');
             });
         };
 

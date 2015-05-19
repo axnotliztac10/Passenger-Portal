@@ -69,12 +69,18 @@ angular.module('blackRide')
     });
 
     $stateProvider.state('confirm', {
+        abstract: true,
         url: '/confirm',
-        controller: 'confirmController',
-        templateUrl: 'app/views/confirm.html'
+        template: '<div ui-view></div>'
     });
 
-    $stateProvider.state('model', {
+    $stateProvider.state('confirm.driver', {
+        url: '/driver',
+        controller: 'confirmController',
+        templateUrl: 'app/views/confirm-driver.html'
+    });
+
+    $stateProvider.state('confirm.model', {
         url: '/model',
         controller: 'confirmModelController',
         templateUrl: 'app/views/confirm-model.html'
@@ -160,7 +166,9 @@ angular.module("blackRide").run(function ($rootScope, $state) {
     };
 
     $rootScope.$on('$stateChangeSuccess', function () {
-        lightListener($state.current.name);
+        var state = $state.current.name;
+        if (state.indexOf('confirm') > -1) state = 'confirm';
+        lightListener(state);
     });
 
     $rootScope.$on('$locationChangeSuccess', function () {
@@ -244,12 +252,6 @@ angular.module('blackRide').controller('menuController', function ($rootScope, $
   }
 });
 
-angular.module('blackRide').controller('confirmState', function ($state, $scope, $rootScope) {
-  $rootScope.$on('$stateChangeSuccess', function () {
-        $scope.state = ($state.current.name == 'confirm' || $state.current.name == 'model');
-    });
-})
-
 angular.module('blackRide').filter('getCustomDate', function() {
   return function(item) {
     var d = item.split('T')[0];
@@ -297,6 +299,8 @@ angular.module('blackRide').factory('myHttpInterceptor', function($q, $rootScope
    'responseError': function (rejection) {
       if (rejection.status == 401 && rejection.data.indexOf('client-token') != -1) {
         $rootScope.$broadcast('logOut&In');
+      } else {
+        $rootScope.addAlert('success', rejection.data);
       }
       return $q.reject(rejection);
     }

@@ -61,7 +61,7 @@
       <span>4</span> Your Driver
       <div class="dotted-wnt"></div>
     </a>
-    <a light="home,time,drop,driver" ng-controller="confirmState" ng-class="{'active': state}" ng-click="$event.preventDefault()">
+    <a light="home,time,drop,driver" ui-sref-active="active" ng-click="$event.preventDefault()" ui-sref="confirm">
       <span class="glyphicon glyphicon-ok"></span> Confirmation
     </a>
   </div>

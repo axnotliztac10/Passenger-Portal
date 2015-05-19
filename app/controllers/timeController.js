@@ -33,7 +33,7 @@ angular.module('blackRide').controller('timeController',
         var date = new Date($scope.dt);
         var time = new Date($scope.timeToPick);
         $rootScope.user.booking.scheduled = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear()  + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
-        $rootScope.user.booking.scheduled_raw = new Date(
+        var finalDate = new Date(
             date.getFullYear(),
             date.getMonth(),
             date.getDate(),
@@ -41,7 +41,14 @@ angular.module('blackRide').controller('timeController',
             time.getMinutes(),
             time.getSeconds(),
             time.getMilliseconds()
-        ).toISOString();
+        );
+
+        var rightNow = new Date();
+        var diffMs = (finalDate - rightNow);
+        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000);
+        if (diffMins > 10) $rootScope.user.booking.scheduled_now = false;
+
+        $rootScope.user.booking.scheduled_raw = finalDate.toISOString();
         $rootScope.user.flush();
         $state.go("drop");
     };
@@ -55,10 +62,6 @@ angular.module('blackRide').controller('timeController',
         $event.stopPropagation();
 
         $scope.opened = true;
-    };
-
-    $scope.setNow = function () {
-        $rootScope.user.booking.scheduled_now = false;
     };
 
     $scope.updateDate = function () {

@@ -1,4 +1,4 @@
-<div class="stepWrapper medium top-margin bottom-margin text-center wrapMobile" style="padding: 0px;min-height:310px">
+<div class="stepWrapper medium top-margin bottom-margin text-center wrapMobile" style="padding: 0px;min-height:310px" ng-show="!map.active">
 	<div class="row">
 		<div class="col-md-6 col-sm-6">
 			<div class="driverItem">
@@ -33,5 +33,32 @@
 			</div><br>
 			<p class="nextStep cancelMb"><a ng-click="open()">Confirm Reservation</a></p>
 		</div>
+	</div>
+</div>
+<div class="stepWrapper big wrapMobile followMap" ng-if="map.active">
+	<div class="info">
+		<div class="imgWrap"><img ng-src="{{driver.photo}}" alt=""></div>
+		<p>{{driver.name}} will be there in</p>
+		<p class="time">{{driver.time}} minutes</p>
+		<p class="nextStep customStep">
+			<a class="onlyOnMob" href="javascript: void(0)" onclick="$('.map, .info').fadeToggle()">MAP</a>
+			<a class="onMobWhiet" ng-click="map.active=false">Cancel Reservation</a>
+		</p>
+	</div>
+	<div class="map">
+		<google-map 
+		center="map.center" 
+		refresh="map.refresh"
+		events="map.events"
+		zoom="map.zoom"
+		control="map.control">
+			<markers
+				models="markers"
+				icon="'icon'"
+				coords="'self'"
+				control="markersControl"
+				options="'options'">
+      		</markers>
+		</google-map>
 	</div>
 </div>
