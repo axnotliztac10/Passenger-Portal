@@ -25,7 +25,7 @@
       <a class="button first hide" href="javascript: void(0)">Sign Up</a>
       <!--<a class="button" ng-if="nickname" href="javascript: void(0)" ng-click="logout()">{{nickname}}<img src="{{picture}}"></a>-->
       <a class="button" ng-if="nickname" href="javascript: void(0)" style="cursor:text">{{nickname}}<img ng-src="{{picture}}"></a>
-      <a class="button" ng-if="!nickname" href="javascript: void(0)" ng-click="open()">Login</a>
+      <a class="button btn-login" ng-if="!nickname" href="javascript: void(0)" ng-click="open()">Login</a>
     </div>
     <script type="text/ng-template" id="modalConfirm.html">
         <div class="modal-header" style="border-bottom: 0px">
