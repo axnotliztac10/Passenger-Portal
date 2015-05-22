@@ -1,6 +1,6 @@
 
 body {
-	color: @grayLighter;
+	color: @grayDark;
 	background: none;
 	position: relative;
 }
@@ -36,6 +36,14 @@ p.normalWeight {
 
 .validation-error {
 	color: #FF5730;
+}
+
+.confirm-first > .row {
+	margin: 0px;
+}
+
+.confirm-first .col-md-6.col-sm-6 {
+	padding: 0px;
 }
 
 input::-webkit-outer-spin-button,
@@ -452,6 +460,10 @@ header .menu {
 	font-size: 21px;
 }
 
+.modal-content {
+	border-radius: 2px;
+}
+
 .driverModal .modal-content, .driverModal .modal-dialog{
 	width: 360px;
 }
@@ -483,9 +495,23 @@ header .menu {
 	position: relative;
 	right: 16px;
 	top: 5px;
-	font-weight: bolder;
-	font-size: 19px;
+	font-weight: 100;
+	font-size: 17px;
 	cursor: pointer;
+}
+
+.driverModal.login {
+	.modal-header {
+		padding: 15px 36px;
+	}
+
+	.modal-body {
+		padding: 20px 36px;
+	}
+
+	.modal-footer {
+		margin-bottom: 0px;
+	}
 }
 
 .cancelBut {
@@ -507,11 +533,14 @@ header .menu {
 .nameDriverModal {
 	text-align: center;
 	color: @greenYellow;
-	font-size: 30px;
+	font-size: 26px;
+	font-weight: 100;
 }
 
 .modelDriverModal {
 	text-align: center;
+	font-size: 18px;
+	font-weight: 300;
 }
 
 .descDriverModal {
@@ -696,6 +725,7 @@ header .menu {
 		width: 600px;
 		height: 140px;
 		float: none;
+		box-shadow: @stepShadow;
 	}
 
 	.filters > div {
@@ -704,6 +734,7 @@ header .menu {
 
 	.filters > div > p {
 		margin-bottom: 20px;
+		text-align: left;
 	}
 
 	.filters.message {
@@ -757,6 +788,7 @@ header .menu {
 		-o-background-size: cover;
 		background-size: cover;
 		margin: 0px 3px 0px 3px;
+		opacity: 0.2;
 	}
 
 	.minLabel, .maxLabel {
@@ -781,6 +813,7 @@ header .menu {
 		left: 137px;
 		padding: 0px;
 		height: 95px;
+		border: 4px solid @grayDarker;
 	}
 
 	.modalDriverPhoto img {
@@ -788,8 +821,8 @@ header .menu {
 	}
 
 	.tripInfo {
-		padding: 10px;
-		padding-bottom: 55px;
+		padding: 41px 0px;
+		padding-bottom: 45px;
 	}
 
 	.tripInfo p.even {
@@ -804,7 +837,7 @@ header .menu {
 		text-align: center;
 		padding-top: 9px;
 		border-radius: 2px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 
 	.fb {
@@ -961,6 +994,11 @@ header .menu {
 		&.fade .modal-dialog {
 			.translate(0,0);
 		}
+	}
+
+	.modal-backdrop.in {
+		background: #e0e0e0;
+		opacity: 0.8;
 	}
 
 	/* ANIMATIONS
@@ -1198,7 +1236,7 @@ header .menu {
 
 	slider div.handle, [slider] div.handle {
 		background-color: @blackLight !important;
-		border: 1px solid @grayLight !important;
+		border: 1px solid @grayDark !important;
 		width: 18px !important;
 		height: 18px !important;
 		.if-handle;

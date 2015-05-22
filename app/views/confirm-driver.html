@@ -1,4 +1,4 @@
-<div class="stepWrapper medium top-margin bottom-margin text-center wrapMobile" style="padding: 0px;min-height:310px" ng-show="!map.active">
+<div class="stepWrapper confirm-first medium top-margin bottom-margin text-center wrapMobile" style="padding: 0px;min-height:310px" ng-show="!map.active">
 	<div class="row">
 		<div class="col-md-6 col-sm-6">
 			<div class="driverItem">
@@ -17,7 +17,7 @@
 						></rating>
 					</div>
 					<span class="time">{{driver.vehicles[0].quote.hours * 60}} min</span><br>
-					<span class="price">$ {{driver.vehicles[0].quote.total | number : 2}}</span>
+					<span class="price"><span style="font-size: 16px;font-weight: 100;">$</span> {{driver.vehicles[0].quote.total | number : 2}}</span>
 				</div>
 			</div>
 		</div>

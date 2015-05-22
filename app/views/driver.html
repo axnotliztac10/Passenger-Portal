@@ -62,7 +62,7 @@
 					></rating>
 				</div>
 				<span ng-if="candidate.vehicles[0].quote.hours" class="time">{{candidate.vehicles[0].quote.hours * 60}} min</span><br>
-				<span ng-if="candidate.vehicles[0].quote.total" class="price">$ {{candidate.vehicles[0].quote.total | number : 2}}</span>
+				<span ng-if="candidate.vehicles[0].quote.total" class="price"><span style="font-size: 16px;font-weight: 100;">$</span> {{candidate.vehicles[0].quote.total | number : 2}}</span>
 			</div>
 		</div>
 	</div>
@@ -108,7 +108,7 @@
 </div>
 
 <script type="text/ng-template" id="modalDriver.html">
-		<span class="close" ng-click="cancel()">x</span>
+		<span class="close" ng-click="cancel()">&#10006;</span>
         <div class="modal-header modalDriverPhoto">
             <img ng-src="{{candidate.driver.logo_url_small || './assets/imgs/faces/30.jpg'}}" alt="">
         </div>

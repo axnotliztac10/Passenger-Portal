@@ -82,7 +82,7 @@ angular.module('blackRide').controller('authController', [
                 }
             },
             backdrop: 'static',
-            windowClass: "driverModal"
+            windowClass: "driverModal login"
         });
 
         modalInstance.result.then(function () {
