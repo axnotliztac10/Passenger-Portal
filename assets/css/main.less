@@ -154,11 +154,13 @@ header .menu {
 		padding: 20px 5px;
 	}
 	ul > li > a {
-		color: @grayLight;
+		color: @grayDark;
+		opacity: 0.5;
 		text-decoration: none;
 	}
 	ul > li > a:hover {
-		color: #A0A0A0;
+		color: @grayDark;
+		opacity: 1;
 	}
 }
 
@@ -177,6 +179,8 @@ header .menu {
 
 #menu a.active {
 	color: @blueGreen;
+	font-weight: bold;
+	opacity: 1;
 }
 
 #status-buttons a:hover { 
@@ -819,11 +823,12 @@ header .menu {
 		float: left;
 		text-align: center;
 		position: relative;
-		height: 470px;
+		height: 401px;
 	}
 
 	.followMap .time {
-		font-size: 30px;
+		font-size: 26px;
+		font-weight: 300;
 		color: @blueGreen;
 	}
 
@@ -843,7 +848,13 @@ header .menu {
 	}
 
 	.customStep {
-		bottom: 69px;
+		margin-bottom: 30px;
+	}
+
+	.cancel-reservation {
+		font-size: 16px;
+		opacity: 0.5;
+		font-weight: 500;
 	}
 
 	.timepicket {
@@ -866,19 +877,23 @@ header .menu {
 		color: @blueGreen;
 		padding-left: 0px;
 		padding-right: 0px;
-		border-color: @borderGray;
+		border-color: @grayDark;
 		border-right: 0px;
 		border-left: 0px;
 	}
 
+	.timepicketbox:focus {
+		box-shadow: 0px 0px 0px 0px #fff;
+	}
+
 	.border-table-ai {
-		border-color: @borderGray !important;
+		border-color: @grayDark !important;
 		font-size: 40px;
 		span {
 			position: relative;
 			top: -15px;
 			font-weight: 100;
-			color: @grayLight;
+			color: @grayDark;
 		}
 	}
 

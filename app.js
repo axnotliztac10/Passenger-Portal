@@ -141,10 +141,10 @@ angular.module("blackRide").run(function ($rootScope, $state) {
         $scope = $(scope);
         elements = ($scope.attr("light")) ? $scope.attr("light").split(",") : false;
 
-        $("[light]").removeClass("lightDot");
+        $("#status-buttons [light]").removeClass("lightDot");
         if (elements) {
           angular.forEach(elements, function (v, i) {
-            $("[ui-sref='" + v + "']").addClass("lightDot");
+            $("#status-buttons [ui-sref='" + v + "']").addClass("lightDot");
           });
         }
       };
@@ -157,9 +157,9 @@ angular.module("blackRide").run(function ($rootScope, $state) {
       }
 
       if (scope) {
-        closure("[ui-sref='" + scope + "']");
+        closure("#status-buttons [ui-sref='" + scope + "']");
       } else { 
-        $("[light]").on("click", function () {
+        $("#status-buttons [light]").on("click", function () {
           closure(this);
         });
       }

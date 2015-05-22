@@ -33,15 +33,15 @@ angular.module('blackRide').controller('dropController',
     $scope.markersCtr = {};
     $scope.icons = {
         pick_me: {
-            url: HOST + 'assets/imgs/pick_me@2x.png',
+            url: HOST + 'assets/imgs/pick_me' + $rootScope.theme + '@2x.png',
             scaledSize: new google.maps.Size(165, 51)
         },
         dragging: {
-            url: HOST + 'assets/imgs/dragging@2x.png',
+            url: HOST + 'assets/imgs/dragging' + $rootScope.theme + '@2x.png',
             scaledSize: new google.maps.Size(34, 51)
         },
         drag: {
-            url: HOST + 'assets/imgs/drag@2x.png',
+            url: HOST + 'assets/imgs/drag' + $rootScope.theme + '@2x.png',
             scaledSize: new google.maps.Size(112, 49)
         }
     };

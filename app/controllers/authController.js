@@ -184,6 +184,13 @@ angular.module('blackRide').controller('authController', [
                 localStorageService.set('user', $rootScope.user);
             }
         }
+
+        if ($('html').hasClass('light')) {
+            $rootScope.theme = '_white';
+        } else {
+            $rootScope.theme = '_dark';
+        }
+
     };
 
     init();
