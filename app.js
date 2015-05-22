@@ -176,7 +176,7 @@ angular.module("blackRide").run(function ($rootScope, $state) {
     });
 
     $(window).scroll(function () {
-      if ($(window).scrollTop() > 60) {
+      if ($(window).scrollTop() > 0) {
         $('html').addClass('scroll-header');
       } else {
         $('html').removeClass('scroll-header');
